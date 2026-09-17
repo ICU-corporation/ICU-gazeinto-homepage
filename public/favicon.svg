@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38EFDE"/>
+      <stop offset="50%" stop-color="#00C4B4"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <mask id="lensMask">
+      <circle cx="40" cy="50" r="28" fill="#FFFFFF"/>
+    </mask>
+  </defs>
+  
+  <!-- Dark Background -->
+  <rect width="100" height="100" rx="22" fill="#050B14"/>
+  
+  <!-- Left Eye Lens Circle -->
+  <circle cx="40" cy="50" r="28" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.9"/>
+  
+  <!-- Right Corrective Lens Circle -->
+  <circle cx="60" cy="50" r="28" fill="none" stroke="#00C4B4" stroke-width="4" opacity="0.95"/>
+  
+  <!-- Focal Lens Intersection Filled with Teal Gradient -->
+  <circle cx="60" cy="50" r="28" fill="url(#tealGrad)" mask="url(#lensMask)"/>
+</svg>

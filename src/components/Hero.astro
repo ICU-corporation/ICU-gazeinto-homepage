@@ -1,0 +1,461 @@
+---
+---
+
+<section id="hero" class="relative min-h-screen pt-20 flex flex-col justify-between bg-[#F8FAFC] overflow-hidden">
+  
+  <!-- Main Split Layout Container -->
+  <div class="w-full flex-1 flex flex-col lg:flex-row items-stretch">
+    
+    <!-- Left Section: 72% Width Clean Light Content -->
+    <div class="flex-1 lg:w-[72%] px-6 sm:px-12 lg:px-20 xl:px-24 pt-16 sm:pt-24 lg:pt-28 pb-16 flex flex-col justify-between">
+      
+      <!-- Top Content Block -->
+      <div class="max-w-3xl">
+        
+        <!-- Category Tag -->
+        <div class="flex items-center gap-2 mb-8 scroll-reveal">
+          <span class="w-5 h-[2px] bg-[#00A396] scroll-line"></span>
+          <span class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase">
+            노안 AI 진단 & 처방 엔진
+          </span>
+        </div>
+
+        <!-- Headline (Hero B: Blur to Sharp Typography with Scroll/Hover Interactive Focus) -->
+        <div class="mb-8 select-none">
+          <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black text-slate-900 tracking-tight leading-[1.1] mb-2">
+            <!-- Line 1: Blurred text that clarifies on scroll or hover -->
+            <span id="hero-blurred-text" class="blur-presbyopia inline-block cursor-default transition-all duration-700" title="초점이 흐려진 상태 (스크롤하거나 마우스를 올리면 선명해집니다)">
+              흐려진 글자 앞에서
+            </span>
+            <br />
+            <!-- Line 2: Sharp text -->
+            <span class="text-slate-900 inline-block mt-2 scroll-reveal scroll-reveal-delay-1">
+              멈추지 않도록.
+            </span>
+          </h1>
+        </div>
+
+        <!-- Description Paragraph -->
+        <p class="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl mb-8 scroll-reveal scroll-reveal-delay-2">
+          게이즈인투의 AI는 노안의 진행 단계를 정량 판독하고, 당신의 눈이 실제로 머무는 거리에 맞춰 처방을 설계합니다.
+        </p>
+
+
+        <!-- CTA Buttons (Hidden for now, preserved for future feature additions) -->
+        <div class="hidden flex-wrap items-center gap-4 mb-16 scroll-reveal scroll-reveal-delay-3" id="hero-cta-buttons">
+          <button
+            type="button"
+            onclick="window.openContactModal('trial')"
+            class="px-8 py-4 rounded bg-[#0F2236] hover:bg-[#1A334E] text-white text-sm font-bold tracking-tight shadow-sm transition-all duration-200 hover:-translate-y-0.5"
+          >
+            30초 자가 진단 시작
+          </button>
+
+          <button
+            type="button"
+            onclick="window.openContactModal('b2b')"
+            class="px-8 py-4 rounded bg-white hover:bg-slate-50 text-slate-800 text-sm font-semibold tracking-tight border border-slate-300 shadow-sm transition-all duration-200 hover:-translate-y-0.5"
+          >
+            안경원·의원 도입 문의
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Bottom Stats & Validation Bar -->
+      <div class="pt-8 border-t border-slate-200/80 mt-auto scroll-reveal">
+        <div class="flex flex-wrap items-center gap-8 sm:gap-14 text-xs sm:text-sm">
+          <span class="font-mono text-[11px] sm:text-xs font-medium tracking-widest text-slate-400 uppercase">
+            CLINICALLY VALIDATED
+          </span>
+
+          <div class="flex items-baseline gap-1.5">
+            <strong class="font-extrabold text-slate-900 text-base sm:text-lg font-mono">98.4%</strong>
+            <span class="text-slate-500 font-medium">판독 일치율</span>
+          </div>
+
+          <div class="flex items-baseline gap-1.5">
+            <strong class="font-extrabold text-slate-900 text-base sm:text-lg font-mono">4개</strong>
+            <span class="text-slate-500 font-medium">협력 안과</span>
+          </div>
+
+          <div class="flex items-baseline gap-1.5">
+            <strong class="font-extrabold text-slate-900 text-base sm:text-lg font-mono">12만</strong>
+            <span class="text-slate-500 font-medium">학습 데이터</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Section: 28% Width Deep Navy Split Panel -->
+    <div id="right-panel" class="lg:w-[28%] bg-[#081726] px-8 sm:px-12 py-16 sm:py-24 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-slate-900/30 relative select-none overflow-hidden">
+      
+      <!-- Ambient Background Radial Glow -->
+      <div class="absolute -top-24 -right-24 w-72 h-72 bg-[#00A396]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-[#22D3EE]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Top Section: Reading Distance Gauge -->
+      <div class="relative z-10">
+        <div class="flex items-center justify-between mb-8">
+          <div class="font-mono text-xs font-bold tracking-[0.2em] text-[#22D3EE] uppercase flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-ping"></span>
+            READING DISTANCE (cm)
+          </div>
+          <span class="font-mono text-[10px] text-[#00A396] tracking-wider px-2 py-0.5 rounded bg-[#00A396]/10 border border-[#00A396]/20">
+            AUTO SCAN
+          </span>
+        </div>
+
+        <!-- Stepped Distance Gauge Lines with Laser Wave Sequence -->
+        <div class="space-y-6 relative" id="gauge-container">
+          
+          <!-- Moving Scanning Laser Indicator Beam -->
+          <div id="gauge-scan-beam" class="absolute -left-3 w-1.5 h-5 bg-gradient-to-b from-transparent via-[#22D3EE] to-transparent rounded-full shadow-[0_0_10px_#22D3EE] transition-all duration-500 pointer-events-none" style="top: 36px;"></div>
+
+          <!-- 25cm -->
+          <div class="distance-gauge-item flex items-center gap-4 group cursor-pointer transition-all duration-300" data-dist="25" data-add="+2.25" data-index="0">
+            <div class="gauge-line w-10 h-[2px] bg-[#22D3EE] group-hover:w-14 transition-all duration-300 opacity-60"></div>
+            <span class="gauge-num font-mono text-xs font-semibold text-slate-400 group-hover:text-[#22D3EE] transition-colors">25</span>
+          </div>
+
+          <!-- 33cm (Recommended Baseline) -->
+          <div class="distance-gauge-item flex items-center gap-4 group cursor-pointer is-active transition-all duration-300" data-dist="33" data-add="+1.75" data-index="1">
+            <div class="gauge-line w-16 h-[2px] bg-[#22D3EE] group-hover:w-20 transition-all duration-300 shadow-[0_0_12px_rgba(34,211,238,0.9)]"></div>
+            <div class="flex items-center gap-2">
+              <span class="gauge-num font-mono text-xs font-bold text-[#22D3EE]">33</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse"></span>
+            </div>
+          </div>
+
+          <!-- 45cm -->
+          <div class="distance-gauge-item flex items-center gap-4 group cursor-pointer transition-all duration-300" data-dist="45" data-add="+1.25" data-index="2">
+            <div class="gauge-line w-28 h-[2px] bg-[#00A396] group-hover:w-32 transition-all duration-300 opacity-60"></div>
+            <span class="gauge-num font-mono text-xs font-semibold text-slate-400 group-hover:text-[#00A396] transition-colors">45</span>
+          </div>
+
+          <!-- 60cm -->
+          <div class="distance-gauge-item flex items-center gap-4 group cursor-pointer transition-all duration-300" data-dist="60" data-add="+0.75" data-index="3">
+            <div class="gauge-line w-40 h-[2px] bg-[#1E3A52] group-hover:w-44 transition-all duration-300"></div>
+            <span class="gauge-num font-mono text-xs font-medium text-slate-500 group-hover:text-slate-300 transition-colors">60</span>
+          </div>
+
+          <!-- 80cm -->
+          <div class="distance-gauge-item flex items-center gap-4 group cursor-pointer transition-all duration-300" data-dist="80" data-add="+0.50" data-index="4">
+            <div class="gauge-line w-52 h-[1px] bg-[#1E293B] group-hover:w-56 transition-all duration-300"></div>
+            <span class="gauge-num font-mono text-xs font-normal text-slate-600 group-hover:text-slate-400 transition-colors">80</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle Interactive L.I.S.A.-Style Optical Gaze Tracker -->
+      <div id="gaze-tracker-container" class="my-6 py-2 relative flex flex-col items-center justify-center cursor-crosshair group/tracker select-none">
+        
+        <!-- Interactive Canvas / SVG Viewport -->
+        <div class="relative w-48 h-48 flex items-center justify-center">
+          
+          <!-- Outer Grid Radar Frame -->
+          <svg class="absolute inset-0 w-full h-full text-[#00A396]/20 pointer-events-none" viewBox="0 0 200 200" fill="none">
+            <!-- Outer Target Rings -->
+            <circle cx="100" cy="100" r="92" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 6" class="animate-spin-slow origin-center opacity-40" />
+            <circle cx="100" cy="100" r="76" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1 5" />
+            <circle cx="100" cy="100" r="60" stroke="rgba(34,211,238,0.15)" stroke-width="0.75" />
+            
+            <!-- Optical Crosshairs & Axis Marks -->
+            <line x1="12" y1="100" x2="188" y2="100" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
+            <line x1="100" y1="12" x2="100" y2="188" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
+            
+            <!-- Angle Tick marks -->
+            <line x1="100" y1="8" x2="100" y2="16" stroke="#22D3EE" stroke-width="1.5" class="opacity-60" />
+            <line x1="100" y1="184" x2="100" y2="192" stroke="#22D3EE" stroke-width="1.5" class="opacity-60" />
+            <line x1="8" y1="100" x2="16" y2="100" stroke="#22D3EE" stroke-width="1.5" class="opacity-60" />
+            <line x1="184" y1="100" x2="192" y2="100" stroke="#22D3EE" stroke-width="1.5" class="opacity-60" />
+          </svg>
+
+          <!-- Interactive Tracking Eye / Reticle Layer (Lerp Managed) -->
+          <svg id="gaze-eye-svg" class="w-full h-full relative z-10 transition-transform duration-75 ease-out" viewBox="0 0 200 200" fill="none">
+            
+            <!-- Dynamic Vector Laser Line to Cursor Direction -->
+            <line id="gaze-laser" x1="100" y1="100" x2="100" y2="100" stroke="#22D3EE" stroke-width="1" stroke-dasharray="3 3" opacity="0.4" />
+
+            <!-- Parallax Outer Sclera / Iris Field -->
+            <g id="gaze-iris-group" class="transition-transform duration-100 ease-out">
+              <!-- Outer Iris Ring -->
+              <circle cx="100" cy="100" r="46" stroke="rgba(0,163,150,0.4)" stroke-width="1.2" />
+              <circle cx="100" cy="100" r="42" stroke="rgba(34,211,238,0.2)" stroke-width="0.75" stroke-dasharray="2 4" />
+              
+              <!-- Overlapping Dual Lenses (Gazeinto Symbol with Parallax Offset) -->
+              <g id="gaze-left-lens">
+                <circle cx="88" cy="100" r="30" stroke="rgba(255, 255, 255, 0.75)" stroke-width="1.5" class="drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
+              </g>
+              <g id="gaze-right-lens">
+                <circle cx="112" cy="100" r="30" stroke="#00A396" stroke-width="1.5" class="drop-shadow-[0_0_8px_rgba(0,163,150,0.6)]" />
+              </g>
+
+              <!-- Central Intersecting Optical Core (Dilating Pupil) -->
+              <g id="gaze-pupil" class="transition-transform duration-75">
+                <ellipse cx="100" cy="100" rx="14" ry="24" fill="#00A396" fill-opacity="0.3" stroke="#22D3EE" stroke-width="0.75" class="backdrop-blur-sm" />
+                <ellipse cx="100" cy="100" rx="7" ry="14" fill="#081726" stroke="#22D3EE" stroke-width="1.5" />
+                
+                <!-- Center Catchlight & Micro Glint -->
+                <circle id="gaze-center-point" cx="100" cy="100" r="3" fill="#22D3EE" class="shadow-[0_0_10px_#22D3EE]" />
+                <circle cx="98" cy="98" r="1" fill="#FFFFFF" />
+              </g>
+            </g>
+
+            <!-- Target Lock Ring (Animates on close distance) -->
+            <circle id="gaze-lock-ring" cx="100" cy="100" r="22" stroke="#22D3EE" stroke-width="1" stroke-dasharray="4 4" opacity="0.3" />
+          </svg>
+
+          <!-- Micro Pulse Focus Ring -->
+          <div id="gaze-focus-pulse" class="absolute w-20 h-20 rounded-full border border-[#22D3EE]/30 pointer-events-none scale-0 transition-transform duration-500 ease-out"></div>
+        </div>
+
+        <!-- Dynamic Optic HUD Data Stream -->
+        <div class="mt-1 flex flex-col items-center gap-1">
+          <div class="flex items-center gap-2 text-[10px] font-mono tracking-wider">
+            <span id="gaze-status-dot" class="w-1.5 h-1.5 rounded-full bg-[#00A396] animate-pulse"></span>
+            <span id="gaze-status-text" class="text-slate-400 font-semibold">GAZE TRACKING // ACTIVE</span>
+          </div>
+          <div class="flex items-center gap-3 text-[9px] font-mono text-slate-500">
+            <span id="gaze-coords">X: +0.00 Y: +0.00</span>
+            <span>•</span>
+            <span id="gaze-vector">ANGLE: 000°</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Section: Recommended Add & Output -->
+      <div class="pt-8 border-t border-slate-800/80 relative z-10">
+        <div class="font-mono text-[11px] font-bold tracking-[0.2em] text-[#94A3B8] uppercase mb-2">
+          RECOMMENDED ADD
+        </div>
+        
+        <div class="flex items-baseline gap-1 text-white mb-2">
+          <span id="hero-add-display" class="text-5xl sm:text-6xl font-black font-mono tracking-tight text-white drop-shadow-sm transition-all duration-300">
+            +1.75
+          </span>
+        </div>
+
+        <p class="text-xs text-slate-400 font-normal leading-relaxed flex items-center justify-between">
+          <span>근거리 업무 비중 기반 보정값</span>
+          <span class="font-mono text-[10px] text-[#22D3EE]">LIVE OPTIC</span>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+  // Gauge Switcher
+  const addDisplay = document.getElementById('hero-add-display');
+  const gaugeItems = document.querySelectorAll('.distance-gauge-item');
+  const scanBeam = document.getElementById('gauge-scan-beam');
+
+  let activeIndex = 1; // Default at 33cm
+  let isUserHoveringGauge = false;
+
+  const positions = [4, 40, 78, 116, 154]; // Y offsets for beam
+
+  function setActiveGauge(index: number) {
+    gaugeItems.forEach((item, i) => {
+      const line = item.querySelector('.gauge-line') as HTMLElement;
+      const num = item.querySelector('.gauge-num') as HTMLElement;
+      const addVal = item.getAttribute('data-add');
+
+      if (i === index) {
+        item.classList.add('is-active');
+        if (line) {
+          line.style.opacity = '1';
+          line.style.boxShadow = '0 0 12px rgba(34, 211, 238, 0.9)';
+          line.style.backgroundColor = '#22D3EE';
+        }
+        if (num) {
+          num.style.color = '#22D3EE';
+          num.style.fontWeight = '700';
+        }
+        if (addDisplay && addVal) {
+          addDisplay.textContent = addVal;
+        }
+      } else {
+        item.classList.remove('is-active');
+        if (line) {
+          line.style.boxShadow = 'none';
+          line.style.backgroundColor = i > 2 ? '#1E3A52' : (i === 2 ? '#00A396' : '#22D3EE');
+          line.style.opacity = i > 2 ? '0.4' : '0.6';
+        }
+        if (num) {
+          num.style.color = '';
+          num.style.fontWeight = '400';
+        }
+      }
+    });
+
+    if (scanBeam && positions[index] !== undefined) {
+      scanBeam.style.top = `${positions[index]}px`;
+    }
+  }
+
+  // Automatic Sequential Laser Wave cycle every 2.6s when not hovering
+  setInterval(() => {
+    if (!isUserHoveringGauge) {
+      activeIndex = (activeIndex + 1) % gaugeItems.length;
+      setActiveGauge(activeIndex);
+    }
+  }, 2600);
+
+  // Manual hover immediately highlights item
+  gaugeItems.forEach((item, idx) => {
+    item.addEventListener('mouseenter', () => {
+      isUserHoveringGauge = true;
+      setActiveGauge(idx);
+    });
+
+    item.addEventListener('mouseleave', () => {
+      isUserHoveringGauge = false;
+    });
+  });
+
+  // Init Gauge
+  setActiveGauge(1);
+
+  // ==========================================
+  // L.I.S.A.-Style Interactive Gaze Tracker
+  // ==========================================
+  const trackerContainer = document.getElementById('gaze-tracker-container');
+  const irisGroup = document.getElementById('gaze-iris-group');
+  const leftLens = document.getElementById('gaze-left-lens');
+  const rightLens = document.getElementById('gaze-right-lens');
+  const pupil = document.getElementById('gaze-pupil');
+  const laserLine = document.getElementById('gaze-laser');
+  const lockRing = document.getElementById('gaze-lock-ring');
+  const coordsHUD = document.getElementById('gaze-coords');
+  const vectorHUD = document.getElementById('gaze-vector');
+  const statusText = document.getElementById('gaze-status-text');
+  const statusDot = document.getElementById('gaze-status-dot');
+  const focusPulse = document.getElementById('gaze-focus-pulse');
+
+  // Physics state
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let isMouseActive = false;
+  let idleTime = 0;
+
+  // Window-wide mouse tracking for gaze
+  window.addEventListener('mousemove', (e) => {
+    if (!trackerContainer) return;
+    const rect = trackerContainer.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const deltaX = e.clientX - centerX;
+    const deltaY = e.clientY - centerY;
+    const maxDist = Math.max(window.innerWidth, window.innerHeight) * 0.6;
+
+    // Normalized coordinates (-1 to 1) clamped
+    targetX = Math.max(-1, Math.min(1, deltaX / (window.innerWidth * 0.4)));
+    targetY = Math.max(-1, Math.min(1, deltaY / (window.innerHeight * 0.4)));
+
+    isMouseActive = true;
+    idleTime = 0;
+  });
+
+  // Mouse click pulse effect
+  trackerContainer?.addEventListener('click', () => {
+    if (focusPulse) {
+      focusPulse.classList.remove('scale-0', 'opacity-0');
+      focusPulse.classList.add('scale-150', 'opacity-100');
+      setTimeout(() => {
+        focusPulse.classList.remove('scale-150', 'opacity-100');
+        focusPulse.classList.add('scale-0', 'opacity-0');
+      }, 500);
+    }
+  });
+
+  // Animation Loop with Lerp Smoothing
+  function renderGaze() {
+    // If user is idle, create a gentle autonomous breathing saccade
+    if (!isMouseActive) {
+      idleTime += 0.02;
+      targetX = Math.sin(idleTime * 0.8) * 0.35;
+      targetY = Math.cos(idleTime * 0.5) * 0.25;
+    }
+
+    // Lerp smoothing (0.09 factor gives high responsive fluid inertia)
+    currentX += (targetX - currentX) * 0.09;
+    currentY += (targetY - currentY) * 0.09;
+
+    const irisMaxOffset = 14; // pixels
+    const pupilMaxOffset = 18;
+    const lensMaxParallax = 8;
+
+    const irisX = currentX * irisMaxOffset;
+    const irisY = currentY * irisMaxOffset;
+    const pupilX = currentX * pupilMaxOffset;
+    const pupilY = currentY * pupilMaxOffset;
+
+    // Apply translations
+    if (irisGroup) {
+      irisGroup.setAttribute('transform', `translate(${irisX}, ${irisY})`);
+    }
+    if (pupil) {
+      pupil.setAttribute('transform', `translate(${pupilX - irisX}, ${pupilY - irisY})`);
+    }
+    if (leftLens) {
+      leftLens.setAttribute('transform', `translate(${-currentX * lensMaxParallax}, ${-currentY * lensMaxParallax})`);
+    }
+    if (rightLens) {
+      rightLens.setAttribute('transform', `translate(${currentX * lensMaxParallax}, ${currentY * lensMaxParallax})`);
+    }
+
+    // Laser Guide Vector
+    if (laserLine) {
+      laserLine.setAttribute('x2', (100 + pupilX * 2.2).toFixed(1));
+      laserLine.setAttribute('y2', (100 + pupilY * 2.2).toFixed(1));
+    }
+
+    // Angle and HUD calculation
+    const angleRad = Math.atan2(currentY, currentX);
+    let angleDeg = Math.round(angleRad * (180 / Math.PI));
+    if (angleDeg < 0) angleDeg += 360;
+
+    const distFromCenter = Math.sqrt(currentX * currentX + currentY * currentY);
+
+    if (coordsHUD) {
+      const signX = currentX >= 0 ? '+' : '';
+      const signY = currentY >= 0 ? '+' : '';
+      coordsHUD.textContent = `X: ${signX}${currentX.toFixed(2)} Y: ${signY}${currentY.toFixed(2)}`;
+    }
+    if (vectorHUD) {
+      vectorHUD.textContent = `ANGLE: ${angleDeg.toString().padStart(3, '0')}°`;
+    }
+
+    if (statusText && statusDot && lockRing) {
+      if (distFromCenter < 0.15) {
+        statusText.textContent = 'OPTICAL AXIS // LOCKED';
+        statusText.classList.add('text-[#22D3EE]');
+        statusDot.classList.add('bg-[#22D3EE]');
+        lockRing.setAttribute('stroke', '#22D3EE');
+        lockRing.setAttribute('opacity', '0.9');
+      } else {
+        statusText.textContent = 'GAZE TRACKING // ACTIVE';
+        statusText.classList.remove('text-[#22D3EE]');
+        statusDot.classList.remove('bg-[#22D3EE]');
+        lockRing.setAttribute('stroke', '#00A396');
+        lockRing.setAttribute('opacity', '0.3');
+      }
+    }
+
+    requestAnimationFrame(renderGaze);
+  }
+
+  // Start Animation
+  renderGaze();
+</script>
+

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050B14"/>
+      <stop offset="100%" stop-color="#0A1118"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38EFDE"/>
+      <stop offset="50%" stop-color="#00C4B4"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <mask id="ogLensMask">
+      <circle cx="560" cy="240" r="90" fill="#FFFFFF"/>
+    </mask>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Optical ambient radial glow -->
+  <circle cx="600" cy="240" r="300" fill="#00C4B4" opacity="0.08" filter="blur(50px)"/>
+  
+  <!-- Focal Lens Logo -->
+  <g>
+    <circle cx="560" cy="240" r="90" fill="none" stroke="#FFFFFF" stroke-width="12" opacity="0.9"/>
+    <circle cx="640" cy="240" r="90" fill="none" stroke="#00C4B4" stroke-width="12" opacity="0.95"/>
+    <circle cx="640" cy="240" r="90" fill="url(#tealGrad)" mask="url(#ogLensMask)"/>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <text x="600" y="420" font-family="'Pretendard', sans-serif" font-size="52" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="-1">gazeinto</text>
+  <text x="600" y="480" font-family="'Pretendard', sans-serif" font-size="28" font-weight="700" fill="#00C4B4" text-anchor="middle">AI 노안 진단 및 생활 시거리 맞춤 처방 솔루션</text>
+  <text x="600" y="530" font-family="'Pretendard', sans-serif" font-size="20" fill="#94A3B8" text-anchor="middle">30초 정량 스캔 · 98.4% 일치율 · 12만 안구 빅데이터</text>
+</svg>

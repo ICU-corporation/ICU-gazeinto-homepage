@@ -1,0 +1,206 @@
+---
+---
+
+<div class="relative w-full aspect-square max-w-[540px] mx-auto flex items-center justify-center select-none" id="focal-lens-container">
+  <!-- Outer glowing background halo -->
+  <div class="absolute inset-0 rounded-full bg-radial-lens opacity-80 pointer-events-none animate-pulse-slow"></div>
+
+  <!-- Optic HUD Reticle Grid (SVG overlay) -->
+  <svg class="absolute inset-0 w-full h-full pointer-events-none text-brand-teal/20" viewBox="0 0 500 500" fill="none">
+    <!-- Concentric Target Rings -->
+    <circle cx="250" cy="250" r="230" stroke="currentColor" stroke-width="1" stroke-dasharray="4 6" class="animate-spin-slow opacity-40 origin-center" />
+    <circle cx="250" cy="250" r="180" stroke="currentColor" stroke-width="1" class="opacity-50" />
+    <circle cx="250" cy="250" r="120" stroke="currentColor" stroke-width="1" stroke-dasharray="2 4" class="opacity-60" />
+    <circle cx="250" cy="250" r="60" stroke="currentColor" stroke-width="1.5" class="opacity-80" />
+
+    <!-- Crosshair axes -->
+    <line x1="20" y1="250" x2="480" y2="250" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2 4" />
+    <line x1="250" y1="20" x2="250" y2="480" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2 4" />
+    
+    <!-- Diagonal optic angle markings -->
+    <line x1="120" y1="120" x2="140" y2="140" stroke="currentColor" stroke-width="1.5" />
+    <line x1="380" y1="120" x2="360" y2="140" stroke="currentColor" stroke-width="1.5" />
+    <line x1="120" y1="380" x2="140" y2="360" stroke="currentColor" stroke-width="1.5" />
+    <line x1="380" y1="380" x2="360" y2="360" stroke="currentColor" stroke-width="1.5" />
+  </svg>
+
+  <!-- Interactive Optical Canvas -->
+  <canvas id="optic-canvas" width="500" height="500" class="relative z-10 w-full h-full cursor-crosshair"></canvas>
+
+  <!-- Real-time HUD Callout Badges (From Draft Design) -->
+  <div class="absolute top-6 left-4 sm:left-6 z-20 pointer-events-none flex items-center gap-2">
+    <div class="w-2 h-2 rounded-full bg-brand-teal animate-ping"></div>
+    <span class="font-mono text-xs font-semibold tracking-wider text-brand-teal bg-brand-card/90 px-2.5 py-1 rounded border border-brand-teal/30 shadow-lg backdrop-blur-md">
+      ACCOM. <span id="hud-accom" class="text-white font-bold">1.25 D</span>
+    </span>
+  </div>
+
+  <div class="absolute top-1/4 right-4 sm:right-6 z-20 pointer-events-none">
+    <div class="flex items-center gap-2 bg-brand-card/90 px-3 py-1.5 rounded-lg border border-brand-teal/40 shadow-lg backdrop-blur-md">
+      <div class="w-1.5 h-1.5 rounded-full bg-brand-cyan"></div>
+      <span class="font-mono text-xs text-brand-muted">RECOMMENDED:</span>
+      <span id="hud-add" class="font-mono text-xs font-black text-brand-teal bg-brand-teal/10 px-1.5 py-0.5 rounded border border-brand-teal/30">
+        ADD +1.75
+      </span>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-6 sm:left-10 z-20 pointer-events-none">
+    <div class="flex items-center gap-2 bg-brand-dark/90 px-3 py-1 rounded border border-white/10 font-mono text-[11px] text-brand-dim backdrop-blur-md">
+      <span>PUPIL Ø <strong id="hud-pupil" class="text-brand-muted">3.8 mm</strong></span>
+      <span class="text-white/20">|</span>
+      <span class="text-brand-teal font-medium">FIXATION LOCKED</span>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 right-6 z-20 pointer-events-none font-mono text-[10px] text-brand-dim bg-brand-dark/70 px-2 py-0.5 rounded border border-white/5">
+    1920 × 1080 · <span class="text-brand-teal">33 cm</span>
+  </div>
+</div>
+
+<script>
+  // High performance Canvas Optic Simulation
+  const canvas = document.getElementById('optic-canvas') as HTMLCanvasElement;
+  const container = document.getElementById('focal-lens-container');
+  const accomEl = document.getElementById('hud-accom');
+  const addEl = document.getElementById('hud-add');
+  const pupilEl = document.getElementById('hud-pupil');
+
+  if (canvas && container) {
+    const ctx = canvas.getContext('2d')!;
+    let width = canvas.width;
+    let height = canvas.height;
+    const centerX = width / 2;
+    const centerY = height / 2;
+
+    let targetX1 = centerX - 35;
+    let targetX2 = centerX + 35;
+    let currentX1 = targetX1;
+    let currentX2 = targetX2;
+
+    let mouseActive = false;
+    let time = 0;
+
+    // Mouse interactive movement
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * width;
+      const offset = (x - centerX) * 0.4;
+      targetX1 = centerX - 35 + offset;
+      targetX2 = centerX + 35 - offset;
+      mouseActive = true;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      mouseActive = false;
+    });
+
+    function draw() {
+      time += 0.025;
+      
+      // If idle, smooth breathing oscillation
+      if (!mouseActive) {
+        const osc = Math.sin(time) * 18;
+        targetX1 = centerX - 28 + osc;
+        targetX2 = centerX + 28 - osc;
+      }
+
+      // Smooth interpolation (spring-like ease)
+      currentX1 += (targetX1 - currentX1) * 0.08;
+      currentX2 += (targetX2 - currentX2) * 0.08;
+
+      ctx.clearRect(0, 0, width, height);
+
+      const radius = 95;
+      const lensDist = Math.abs(currentX1 - currentX2);
+      const isFocused = lensDist < 35;
+
+      // Update HUD values dynamically
+      if (accomEl && isFocused) {
+        const accomVal = (1.20 + Math.sin(time * 2) * 0.08).toFixed(2);
+        accomEl.textContent = `${accomVal} D`;
+      }
+      if (pupilEl) {
+        const pupilVal = (3.7 + Math.cos(time * 1.5) * 0.2).toFixed(1);
+        pupilEl.textContent = `${pupilVal} mm`;
+      }
+
+      // Draw Left Lens (Seeing Eye - 보는 눈)
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(currentX1, centerY, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+      ctx.lineWidth = 3;
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.4)';
+      ctx.shadowBlur = 10;
+      ctx.stroke();
+      ctx.restore();
+
+      // Draw Right Lens (Corrective Lens - 보정 렌즈)
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(currentX2, centerY, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(0, 196, 180, 0.9)';
+      ctx.lineWidth = 3;
+      ctx.shadowColor = 'rgba(0, 196, 180, 0.8)';
+      ctx.shadowBlur = 15;
+      ctx.stroke();
+      ctx.restore();
+
+      // Clip and Fill Overlapping Focal Intersection (두 렌즈의 교차 지점)
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(currentX1, centerY, radius, 0, Math.PI * 2);
+      ctx.clip();
+
+      ctx.beginPath();
+      ctx.arc(currentX2, centerY, radius, 0, Math.PI * 2);
+      
+      const grad = ctx.createLinearGradient(centerX - 40, centerY - 60, centerX + 40, centerY + 60);
+      grad.addColorStop(0, 'rgba(56, 239, 222, 0.85)');
+      grad.addColorStop(0.5, 'rgba(0, 196, 180, 0.95)');
+      grad.addColorStop(1, 'rgba(34, 211, 238, 0.85)');
+      
+      ctx.fillStyle = grad;
+      ctx.shadowColor = '#00C4B4';
+      ctx.shadowBlur = 30;
+      ctx.fill();
+      ctx.restore();
+
+      // Draw Central Pupil Reticle at intersection center
+      const midX = (currentX1 + currentX2) / 2;
+      const pupilSize = isFocused ? 14 + Math.sin(time * 3) * 2 : 12;
+
+      ctx.save();
+      // Outer pupil glow ring
+      ctx.beginPath();
+      ctx.arc(midX, centerY, pupilSize + 14, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(56, 239, 222, 0.4)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 4]);
+      ctx.stroke();
+
+      // Inner Pupil Void
+      ctx.beginPath();
+      ctx.arc(midX, centerY, pupilSize, 0, Math.PI * 2);
+      ctx.fillStyle = '#050B14';
+      ctx.fill();
+      ctx.strokeStyle = '#38EFDE';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Optical Laser Focus Dot
+      ctx.beginPath();
+      ctx.arc(midX, centerY, 3, 0, Math.PI * 2);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.shadowColor = '#FFFFFF';
+      ctx.shadowBlur = 8;
+      ctx.fill();
+      ctx.restore();
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  }
+</script>
