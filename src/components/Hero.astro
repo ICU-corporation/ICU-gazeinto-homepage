@@ -148,18 +148,16 @@
         </div>
       </div>
 
-      <!-- Middle Interactive L.I.S.A.-Style 3D VR Headset & Holographic Eye Tracker -->
+      <!-- Middle Interactive L.I.S.A.-Style 3D VR Headset & Dual Glowing Eye Orbs Tracker -->
       <div id="gaze-tracker-container" class="my-4 py-2 relative flex flex-col items-center justify-center cursor-crosshair group/tracker select-none" style="perspective: 1000px;">
         
         <!-- 3D Perspective VR Stage -->
         <div id="vr-stage-wrapper" class="relative w-64 h-52 flex items-center justify-center transition-transform duration-75 ease-out" style="transform-style: preserve-3d;">
           
-          <!-- Outer Radar Hologram Background -->
+          <!-- Outer Ambient Tech Rings -->
           <svg class="absolute inset-0 w-full h-full text-[#00A396]/15 pointer-events-none" viewBox="0 0 240 200" fill="none">
-            <ellipse cx="120" cy="100" rx="105" ry="85" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 6" class="animate-spin-slow origin-center opacity-40" />
+            <ellipse cx="120" cy="100" rx="105" ry="85" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 6" class="animate-spin-slow origin-center opacity-30" />
             <ellipse cx="120" cy="100" rx="80" ry="65" stroke="rgba(34,211,238,0.15)" stroke-width="0.5" stroke-dasharray="2 4" />
-            <line x1="15" y1="100" x2="225" y2="100" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
-            <line x1="120" y1="15" x2="120" y2="185" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
           </svg>
 
           <!-- 3D VR Headset Base Object -->
@@ -169,65 +167,59 @@
             <img 
               src="/images/gazeinto-vr-headset.png" 
               alt="GazeInto XR Fundus Camera Headset" 
-              class="w-56 h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)] filter brightness-95 contrast-105 select-none pointer-events-none transform transition-transform"
+              class="w-56 h-auto object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.9)] filter brightness-95 contrast-105 select-none pointer-events-none transform transition-transform"
             />
 
-            <!-- Holographic Cybernetic Eye Layer (Placed on the VR Visor) -->
-            <div id="vr-visor-hologram" class="absolute left-[28px] top-[40px] w-[130px] h-[78px] flex items-center justify-center overflow-visible pointer-events-none" style="transform-style: preserve-3d; transform: translateZ(12px);">
+            <!-- Dual Glowing Eye Visor Screen (Layered onto VR Front Visor) -->
+            <div id="vr-visor-screen" class="absolute left-[32px] top-[46px] w-[124px] h-[68px] rounded-[18px] overflow-hidden flex items-center justify-center pointer-events-none bg-[#030914]/90 shadow-[inset_0_0_15px_rgba(0,0,0,0.95)] border border-slate-700/40" style="transform-style: preserve-3d; transform: translateZ(14px);">
               
-              <svg class="w-full h-full overflow-visible" viewBox="0 0 140 90" fill="none">
-                <!-- Visor Glass Subtle Scanning Line -->
-                <line id="visor-scan-line" x1="10" y1="45" x2="130" y2="45" stroke="#22D3EE" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.4" />
+              <!-- CRT Scanline Grid Texture -->
+              <div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.4)_50%)] bg-[length:100%_4px] pointer-events-none z-20 opacity-60"></div>
+              
+              <!-- Subtle CRT Vignette / Screen Glow -->
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.15)_0%,transparent_80%)] pointer-events-none z-10"></div>
 
-                <!-- Interactive Eye Container (Lerp Gaze Tracked) -->
-                <g id="hologram-eye-group">
-                  
-                  <!-- Cybernetic Eye Outline Frame (Eye Eyelid Curve) -->
-                  <path d="M 20 45 Q 70 12 120 45 Q 70 78 20 45 Z" stroke="rgba(34,211,238,0.6)" stroke-width="1.2" fill="rgba(8,23,38,0.4)" class="drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
-                  
-                  <!-- Inner Sclera Glow -->
-                  <path d="M 28 45 Q 70 20 112 45 Q 70 70 28 45 Z" stroke="rgba(0,163,150,0.4)" stroke-width="0.75" stroke-dasharray="2 3" />
+              <!-- Dual Glowing Eye Orbs Container (Tracks Mouse) -->
+              <div id="gaze-orbs-container" class="relative flex items-center justify-center gap-4 z-10 transition-transform duration-75 ease-out">
+                
+                <!-- Left Eye Orb -->
+                <div class="eye-orb-wrapper relative flex items-center justify-center">
+                  <!-- Outer Cyan Bloom Glare -->
+                  <div class="absolute w-8 h-8 rounded-full bg-[#22D3EE] blur-md opacity-80 animate-pulse"></div>
+                  <div class="absolute w-6 h-6 rounded-full bg-[#38BDF8] blur-sm opacity-95"></div>
+                  <!-- Core Solid White Glowing Pupil Orb -->
+                  <div class="eye-orb-core relative w-5 h-5 rounded-full bg-white shadow-[0_0_12px_#ffffff,0_0_20px_#22D3EE,0_0_30px_#00A396] transition-transform duration-100"></div>
+                </div>
 
-                  <!-- Gaze Target / Iris & Reticle Group -->
-                  <g id="gaze-iris-group">
-                    <!-- Iris Outer Ring -->
-                    <circle cx="70" cy="45" r="22" stroke="#00A396" stroke-width="1.2" stroke-dasharray="3 3" class="animate-spin-slow origin-[70px_45px]" />
-                    <circle cx="70" cy="45" r="18" stroke="rgba(34,211,238,0.8)" stroke-width="1" />
-                    
-                    <!-- Overlapping Gazeinto Dual Reticle Lenses -->
-                    <circle id="gaze-left-lens" cx="64" cy="45" r="14" stroke="rgba(255,255,255,0.85)" stroke-width="1.2" />
-                    <circle id="gaze-right-lens" cx="76" cy="45" r="14" stroke="#22D3EE" stroke-width="1.2" />
+                <!-- Right Eye Orb -->
+                <div class="eye-orb-wrapper relative flex items-center justify-center">
+                  <!-- Outer Cyan Bloom Glare -->
+                  <div class="absolute w-8 h-8 rounded-full bg-[#22D3EE] blur-md opacity-80 animate-pulse"></div>
+                  <div class="absolute w-6 h-6 rounded-full bg-[#38BDF8] blur-sm opacity-95"></div>
+                  <!-- Core Solid White Glowing Pupil Orb -->
+                  <div class="eye-orb-core relative w-5 h-5 rounded-full bg-white shadow-[0_0_12px_#ffffff,0_0_20px_#22D3EE,0_0_30px_#00A396] transition-transform duration-100"></div>
+                </div>
 
-                    <!-- Dilating Core Pupil & Catchlight -->
-                    <g id="gaze-pupil">
-                      <ellipse cx="70" cy="45" rx="7" ry="11" fill="#00A396" fill-opacity="0.4" stroke="#22D3EE" stroke-width="1" />
-                      <circle cx="70" cy="45" r="4.5" fill="#081726" stroke="#22D3EE" stroke-width="1.5" />
-                      <circle cx="70" cy="45" r="2" fill="#22D3EE" class="shadow-[0_0_6px_#22D3EE]" />
-                      <circle cx="68.5" cy="43.5" r="0.8" fill="#FFFFFF" />
-                    </g>
-                  </g>
+              </div>
 
-                  <!-- Dynamic Gaze Projection Ray -->
-                  <line id="gaze-laser" x1="70" y1="45" x2="70" y2="45" stroke="#22D3EE" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.7" />
-                  
-                  <!-- Target Lock Reticle Crosshair -->
-                  <circle id="gaze-lock-ring" cx="70" cy="45" r="12" stroke="#22D3EE" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.4" />
-                </g>
-              </svg>
+              <!-- Visor Micro HUD Indicator -->
+              <div class="absolute bottom-1 right-2 text-[7px] font-mono text-[#22D3EE]/60 tracking-tighter z-30">
+                AI.EYE v2
+              </div>
 
             </div>
 
           </div>
 
           <!-- Micro Pulse Focus Ring -->
-          <div id="gaze-focus-pulse" class="absolute w-24 h-24 rounded-full border border-[#22D3EE]/50 pointer-events-none scale-0 transition-transform duration-500 ease-out shadow-[0_0_15px_rgba(34,211,238,0.6)]"></div>
+          <div id="gaze-focus-pulse" class="absolute w-24 h-24 rounded-full border border-[#22D3EE]/50 pointer-events-none scale-0 transition-transform duration-500 ease-out shadow-[0_0_20px_rgba(34,211,238,0.7)]"></div>
         </div>
 
         <!-- Dynamic Optic HUD Data Stream -->
         <div class="mt-2 flex flex-col items-center gap-1">
           <div class="flex items-center gap-2 text-[10px] font-mono tracking-wider">
-            <span id="gaze-status-dot" class="w-1.5 h-1.5 rounded-full bg-[#00A396] animate-pulse"></span>
-            <span id="gaze-status-text" class="text-slate-400 font-semibold">XR GAZE TRACKING // ACTIVE</span>
+            <span id="gaze-status-dot" class="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse shadow-[0_0_6px_#22D3EE]"></span>
+            <span id="gaze-status-text" class="text-slate-300 font-semibold">GAZE PUPIL // TRACKING</span>
           </div>
           <div class="flex items-center gap-3 text-[9px] font-mono text-slate-500">
             <span id="gaze-coords">X: +0.00 Y: +0.00</span>
@@ -336,20 +328,12 @@
   setActiveGauge(1);
 
   // ==============================================================
-  // L.I.S.A.-Style Interactive 3D VR Headset & Hologram Eye Tracker
+  // L.I.S.A.-Style Dual Glowing Eye Orbs & 3D VR Headset Tracker
   // ==============================================================
   const trackerContainer = document.getElementById('gaze-tracker-container');
   const vrWrapper = document.getElementById('vr-stage-wrapper');
-  const vrMesh = document.getElementById('vr-headset-mesh');
-  const visorHologram = document.getElementById('vr-visor-hologram');
-  
-  const eyeGroup = document.getElementById('hologram-eye-group');
-  const irisGroup = document.getElementById('gaze-iris-group');
-  const pupil = document.getElementById('gaze-pupil');
-  const leftLens = document.getElementById('gaze-left-lens');
-  const rightLens = document.getElementById('gaze-right-lens');
-  const laserLine = document.getElementById('gaze-laser');
-  const lockRing = document.getElementById('gaze-lock-ring');
+  const orbsContainer = document.getElementById('gaze-orbs-container');
+  const orbCores = document.querySelectorAll('.eye-orb-core');
   
   const coordsHUD = document.getElementById('gaze-coords');
   const vectorHUD = document.getElementById('gaze-vector');
@@ -364,6 +348,7 @@
   let currentY = 0;
   let isMouseActive = false;
   let idleTime = 0;
+  let isBlinking = false;
 
   // Window-wide mouse tracking for realistic gaze & 3D head-turn
   window.addEventListener('mousemove', (e) => {
@@ -382,6 +367,27 @@
     isMouseActive = true;
     idleTime = 0;
   });
+
+  // Natural Random Eye Blinking Interval (every 3~5 seconds)
+  function triggerBlink() {
+    if (isBlinking) return;
+    isBlinking = true;
+    
+    orbCores.forEach((orb) => {
+      (orb as HTMLElement).style.transform = 'scaleY(0.1) scaleX(1.2)';
+    });
+
+    setTimeout(() => {
+      orbCores.forEach((orb) => {
+        (orb as HTMLElement).style.transform = 'scaleY(1) scaleX(1)';
+      });
+      isBlinking = false;
+    }, 180);
+
+    const nextBlink = Math.random() * 3000 + 2500;
+    setTimeout(triggerBlink, nextBlink);
+  }
+  setTimeout(triggerBlink, 3000);
 
   // Mouse click pulse effect
   trackerContainer?.addEventListener('click', () => {
@@ -404,9 +410,9 @@
       targetY = Math.cos(idleTime * 0.5) * 0.25;
     }
 
-    // Lerp smoothing (0.08 factor for realistic hydraulic inertia)
-    currentX += (targetX - currentX) * 0.08;
-    currentY += (targetY - currentY) * 0.08;
+    // Lerp smoothing (0.09 factor for smooth, responsive eyeball motion)
+    currentX += (targetX - currentX) * 0.09;
+    currentY += (targetY - currentY) * 0.09;
 
     // 1. 3D VR Headset Body Tilt (Looking at the cursor in 3D space)
     const maxRotateY = 16; // degrees
@@ -418,42 +424,17 @@
       vrWrapper.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg)`;
     }
 
-    // 2. Holographic Eye on Visor movement (Parallax & Gaze angle)
-    const eyeMaxOffsetX = 12; // px
-    const eyeMaxOffsetY = 8;
-    const irisMaxOffset = 10;
-    const pupilMaxOffset = 14;
+    // 2. Dual Glowing Eye Orbs Movement within the Visor
+    const maxOrbShiftX = 22; // px travel bounds inside visor
+    const maxOrbShiftY = 14; // px
+    const orbX = currentX * maxOrbShiftX;
+    const orbY = currentY * maxOrbShiftY;
 
-    const eyeX = currentX * eyeMaxOffsetX;
-    const eyeY = currentY * eyeMaxOffsetY;
-    const irisX = currentX * irisMaxOffset;
-    const irisY = currentY * irisMaxOffset;
-    const pupilX = currentX * pupilMaxOffset;
-    const pupilY = currentY * pupilMaxOffset;
-
-    if (eyeGroup) {
-      eyeGroup.setAttribute('transform', `translate(${eyeX}, ${eyeY})`);
-    }
-    if (irisGroup) {
-      irisGroup.setAttribute('transform', `translate(${irisX - eyeX}, ${irisY - eyeY})`);
-    }
-    if (pupil) {
-      pupil.setAttribute('transform', `translate(${pupilX - irisX}, ${pupilY - irisY})`);
-    }
-    if (leftLens) {
-      leftLens.setAttribute('transform', `translate(${-currentX * 4}, ${-currentY * 3})`);
-    }
-    if (rightLens) {
-      rightLens.setAttribute('transform', `translate(${currentX * 4}, ${currentY * 3})`);
+    if (orbsContainer) {
+      orbsContainer.style.transform = `translate(${orbX}px, ${orbY}px)`;
     }
 
-    // 3. Laser targeting beam to pointer vector
-    if (laserLine) {
-      laserLine.setAttribute('x2', (70 + pupilX * 1.8).toFixed(1));
-      laserLine.setAttribute('y2', (45 + pupilY * 1.8).toFixed(1));
-    }
-
-    // 4. Angle & Realtime HUD coordinate updates
+    // 3. Angle & Realtime HUD coordinate updates
     const angleRad = Math.atan2(currentY, currentX);
     let angleDeg = Math.round(angleRad * (180 / Math.PI));
     if (angleDeg < 0) angleDeg += 360;
@@ -469,19 +450,15 @@
       vectorHUD.textContent = `ANGLE: ${angleDeg.toString().padStart(3, '0')}°`;
     }
 
-    if (statusText && statusDot && lockRing) {
+    if (statusText && statusDot) {
       if (distFromCenter < 0.15) {
         statusText.textContent = 'OPTICAL AXIS // LOCKED';
         statusText.classList.add('text-[#22D3EE]');
         statusDot.classList.add('bg-[#22D3EE]');
-        lockRing.setAttribute('stroke', '#22D3EE');
-        lockRing.setAttribute('opacity', '0.9');
       } else {
-        statusText.textContent = 'XR GAZE TRACKING // ACTIVE';
+        statusText.textContent = 'GAZE PUPIL // TRACKING';
         statusText.classList.remove('text-[#22D3EE]');
         statusDot.classList.remove('bg-[#22D3EE]');
-        lockRing.setAttribute('stroke', '#00A396');
-        lockRing.setAttribute('opacity', '0.4');
       }
     }
 
@@ -491,5 +468,6 @@
   // Start Animation
   renderGaze();
 </script>
+
 
 
