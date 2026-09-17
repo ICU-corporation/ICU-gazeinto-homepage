@@ -148,74 +148,86 @@
         </div>
       </div>
 
-      <!-- Middle Interactive L.I.S.A.-Style Optical Gaze Tracker -->
-      <div id="gaze-tracker-container" class="my-6 py-2 relative flex flex-col items-center justify-center cursor-crosshair group/tracker select-none">
+      <!-- Middle Interactive L.I.S.A.-Style 3D VR Headset & Holographic Eye Tracker -->
+      <div id="gaze-tracker-container" class="my-4 py-2 relative flex flex-col items-center justify-center cursor-crosshair group/tracker select-none" style="perspective: 1000px;">
         
-        <!-- Interactive Canvas / SVG Viewport -->
-        <div class="relative w-48 h-48 flex items-center justify-center">
+        <!-- 3D Perspective VR Stage -->
+        <div id="vr-stage-wrapper" class="relative w-64 h-52 flex items-center justify-center transition-transform duration-75 ease-out" style="transform-style: preserve-3d;">
           
-          <!-- Outer Grid Radar Frame -->
-          <svg class="absolute inset-0 w-full h-full text-[#00A396]/20 pointer-events-none" viewBox="0 0 200 200" fill="none">
-            <!-- Outer Target Rings -->
-            <circle cx="100" cy="100" r="92" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 6" class="animate-spin-slow origin-center opacity-40" />
-            <circle cx="100" cy="100" r="76" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1 5" />
-            <circle cx="100" cy="100" r="60" stroke="rgba(34,211,238,0.15)" stroke-width="0.75" />
-            
-            <!-- Optical Crosshairs & Axis Marks -->
-            <line x1="12" y1="100" x2="188" y2="100" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
-            <line x1="100" y1="12" x2="100" y2="188" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
-            
-            <!-- Angle Tick marks -->
-            <line x1="100" y1="8" x2="100" y2="16" stroke="#22D3EE" stroke-width="1.5" class="opacity-60" />
-            <line x1="100" y1="184" x2="100" y2="192" stroke="#22D3EE" stroke-width="1.5" class="opacity-60" />
-            <line x1="8" y1="100" x2="16" y2="100" stroke="#22D3EE" stroke-width="1.5" class="opacity-60" />
-            <line x1="184" y1="100" x2="192" y2="100" stroke="#22D3EE" stroke-width="1.5" class="opacity-60" />
+          <!-- Outer Radar Hologram Background -->
+          <svg class="absolute inset-0 w-full h-full text-[#00A396]/15 pointer-events-none" viewBox="0 0 240 200" fill="none">
+            <ellipse cx="120" cy="100" rx="105" ry="85" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 6" class="animate-spin-slow origin-center opacity-40" />
+            <ellipse cx="120" cy="100" rx="80" ry="65" stroke="rgba(34,211,238,0.15)" stroke-width="0.5" stroke-dasharray="2 4" />
+            <line x1="15" y1="100" x2="225" y2="100" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
+            <line x1="120" y1="15" x2="120" y2="185" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
           </svg>
 
-          <!-- Interactive Tracking Eye / Reticle Layer (Lerp Managed) -->
-          <svg id="gaze-eye-svg" class="w-full h-full relative z-10 transition-transform duration-75 ease-out" viewBox="0 0 200 200" fill="none">
+          <!-- 3D VR Headset Base Object -->
+          <div id="vr-headset-mesh" class="relative w-full h-full flex items-center justify-center" style="transform-style: preserve-3d;">
             
-            <!-- Dynamic Vector Laser Line to Cursor Direction -->
-            <line id="gaze-laser" x1="100" y1="100" x2="100" y2="100" stroke="#22D3EE" stroke-width="1" stroke-dasharray="3 3" opacity="0.4" />
+            <!-- VR Headset Image -->
+            <img 
+              src="/images/gazeinto-vr-headset.png" 
+              alt="GazeInto XR Fundus Camera Headset" 
+              class="w-56 h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)] filter brightness-95 contrast-105 select-none pointer-events-none transform transition-transform"
+            />
 
-            <!-- Parallax Outer Sclera / Iris Field -->
-            <g id="gaze-iris-group" class="transition-transform duration-100 ease-out">
-              <!-- Outer Iris Ring -->
-              <circle cx="100" cy="100" r="46" stroke="rgba(0,163,150,0.4)" stroke-width="1.2" />
-              <circle cx="100" cy="100" r="42" stroke="rgba(34,211,238,0.2)" stroke-width="0.75" stroke-dasharray="2 4" />
+            <!-- Holographic Cybernetic Eye Layer (Placed on the VR Visor) -->
+            <div id="vr-visor-hologram" class="absolute left-[28px] top-[40px] w-[130px] h-[78px] flex items-center justify-center overflow-visible pointer-events-none" style="transform-style: preserve-3d; transform: translateZ(12px);">
               
-              <!-- Overlapping Dual Lenses (Gazeinto Symbol with Parallax Offset) -->
-              <g id="gaze-left-lens">
-                <circle cx="88" cy="100" r="30" stroke="rgba(255, 255, 255, 0.75)" stroke-width="1.5" class="drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
-              </g>
-              <g id="gaze-right-lens">
-                <circle cx="112" cy="100" r="30" stroke="#00A396" stroke-width="1.5" class="drop-shadow-[0_0_8px_rgba(0,163,150,0.6)]" />
-              </g>
+              <svg class="w-full h-full overflow-visible" viewBox="0 0 140 90" fill="none">
+                <!-- Visor Glass Subtle Scanning Line -->
+                <line id="visor-scan-line" x1="10" y1="45" x2="130" y2="45" stroke="#22D3EE" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.4" />
 
-              <!-- Central Intersecting Optical Core (Dilating Pupil) -->
-              <g id="gaze-pupil" class="transition-transform duration-75">
-                <ellipse cx="100" cy="100" rx="14" ry="24" fill="#00A396" fill-opacity="0.3" stroke="#22D3EE" stroke-width="0.75" class="backdrop-blur-sm" />
-                <ellipse cx="100" cy="100" rx="7" ry="14" fill="#081726" stroke="#22D3EE" stroke-width="1.5" />
-                
-                <!-- Center Catchlight & Micro Glint -->
-                <circle id="gaze-center-point" cx="100" cy="100" r="3" fill="#22D3EE" class="shadow-[0_0_10px_#22D3EE]" />
-                <circle cx="98" cy="98" r="1" fill="#FFFFFF" />
-              </g>
-            </g>
+                <!-- Interactive Eye Container (Lerp Gaze Tracked) -->
+                <g id="hologram-eye-group">
+                  
+                  <!-- Cybernetic Eye Outline Frame (Eye Eyelid Curve) -->
+                  <path d="M 20 45 Q 70 12 120 45 Q 70 78 20 45 Z" stroke="rgba(34,211,238,0.6)" stroke-width="1.2" fill="rgba(8,23,38,0.4)" class="drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+                  
+                  <!-- Inner Sclera Glow -->
+                  <path d="M 28 45 Q 70 20 112 45 Q 70 70 28 45 Z" stroke="rgba(0,163,150,0.4)" stroke-width="0.75" stroke-dasharray="2 3" />
 
-            <!-- Target Lock Ring (Animates on close distance) -->
-            <circle id="gaze-lock-ring" cx="100" cy="100" r="22" stroke="#22D3EE" stroke-width="1" stroke-dasharray="4 4" opacity="0.3" />
-          </svg>
+                  <!-- Gaze Target / Iris & Reticle Group -->
+                  <g id="gaze-iris-group">
+                    <!-- Iris Outer Ring -->
+                    <circle cx="70" cy="45" r="22" stroke="#00A396" stroke-width="1.2" stroke-dasharray="3 3" class="animate-spin-slow origin-[70px_45px]" />
+                    <circle cx="70" cy="45" r="18" stroke="rgba(34,211,238,0.8)" stroke-width="1" />
+                    
+                    <!-- Overlapping Gazeinto Dual Reticle Lenses -->
+                    <circle id="gaze-left-lens" cx="64" cy="45" r="14" stroke="rgba(255,255,255,0.85)" stroke-width="1.2" />
+                    <circle id="gaze-right-lens" cx="76" cy="45" r="14" stroke="#22D3EE" stroke-width="1.2" />
+
+                    <!-- Dilating Core Pupil & Catchlight -->
+                    <g id="gaze-pupil">
+                      <ellipse cx="70" cy="45" rx="7" ry="11" fill="#00A396" fill-opacity="0.4" stroke="#22D3EE" stroke-width="1" />
+                      <circle cx="70" cy="45" r="4.5" fill="#081726" stroke="#22D3EE" stroke-width="1.5" />
+                      <circle cx="70" cy="45" r="2" fill="#22D3EE" class="shadow-[0_0_6px_#22D3EE]" />
+                      <circle cx="68.5" cy="43.5" r="0.8" fill="#FFFFFF" />
+                    </g>
+                  </g>
+
+                  <!-- Dynamic Gaze Projection Ray -->
+                  <line id="gaze-laser" x1="70" y1="45" x2="70" y2="45" stroke="#22D3EE" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.7" />
+                  
+                  <!-- Target Lock Reticle Crosshair -->
+                  <circle id="gaze-lock-ring" cx="70" cy="45" r="12" stroke="#22D3EE" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.4" />
+                </g>
+              </svg>
+
+            </div>
+
+          </div>
 
           <!-- Micro Pulse Focus Ring -->
-          <div id="gaze-focus-pulse" class="absolute w-20 h-20 rounded-full border border-[#22D3EE]/30 pointer-events-none scale-0 transition-transform duration-500 ease-out"></div>
+          <div id="gaze-focus-pulse" class="absolute w-24 h-24 rounded-full border border-[#22D3EE]/50 pointer-events-none scale-0 transition-transform duration-500 ease-out shadow-[0_0_15px_rgba(34,211,238,0.6)]"></div>
         </div>
 
         <!-- Dynamic Optic HUD Data Stream -->
-        <div class="mt-1 flex flex-col items-center gap-1">
+        <div class="mt-2 flex flex-col items-center gap-1">
           <div class="flex items-center gap-2 text-[10px] font-mono tracking-wider">
             <span id="gaze-status-dot" class="w-1.5 h-1.5 rounded-full bg-[#00A396] animate-pulse"></span>
-            <span id="gaze-status-text" class="text-slate-400 font-semibold">GAZE TRACKING // ACTIVE</span>
+            <span id="gaze-status-text" class="text-slate-400 font-semibold">XR GAZE TRACKING // ACTIVE</span>
           </div>
           <div class="flex items-center gap-3 text-[9px] font-mono text-slate-500">
             <span id="gaze-coords">X: +0.00 Y: +0.00</span>
@@ -323,16 +335,22 @@
   // Init Gauge
   setActiveGauge(1);
 
-  // ==========================================
-  // L.I.S.A.-Style Interactive Gaze Tracker
-  // ==========================================
+  // ==============================================================
+  // L.I.S.A.-Style Interactive 3D VR Headset & Hologram Eye Tracker
+  // ==============================================================
   const trackerContainer = document.getElementById('gaze-tracker-container');
+  const vrWrapper = document.getElementById('vr-stage-wrapper');
+  const vrMesh = document.getElementById('vr-headset-mesh');
+  const visorHologram = document.getElementById('vr-visor-hologram');
+  
+  const eyeGroup = document.getElementById('hologram-eye-group');
   const irisGroup = document.getElementById('gaze-iris-group');
+  const pupil = document.getElementById('gaze-pupil');
   const leftLens = document.getElementById('gaze-left-lens');
   const rightLens = document.getElementById('gaze-right-lens');
-  const pupil = document.getElementById('gaze-pupil');
   const laserLine = document.getElementById('gaze-laser');
   const lockRing = document.getElementById('gaze-lock-ring');
+  
   const coordsHUD = document.getElementById('gaze-coords');
   const vectorHUD = document.getElementById('gaze-vector');
   const statusText = document.getElementById('gaze-status-text');
@@ -347,7 +365,7 @@
   let isMouseActive = false;
   let idleTime = 0;
 
-  // Window-wide mouse tracking for gaze
+  // Window-wide mouse tracking for realistic gaze & 3D head-turn
   window.addEventListener('mousemove', (e) => {
     if (!trackerContainer) return;
     const rect = trackerContainer.getBoundingClientRect();
@@ -356,11 +374,10 @@
 
     const deltaX = e.clientX - centerX;
     const deltaY = e.clientY - centerY;
-    const maxDist = Math.max(window.innerWidth, window.innerHeight) * 0.6;
 
     // Normalized coordinates (-1 to 1) clamped
-    targetX = Math.max(-1, Math.min(1, deltaX / (window.innerWidth * 0.4)));
-    targetY = Math.max(-1, Math.min(1, deltaY / (window.innerHeight * 0.4)));
+    targetX = Math.max(-1, Math.min(1, deltaX / (window.innerWidth * 0.45)));
+    targetY = Math.max(-1, Math.min(1, deltaY / (window.innerHeight * 0.45)));
 
     isMouseActive = true;
     idleTime = 0;
@@ -378,49 +395,65 @@
     }
   });
 
-  // Animation Loop with Lerp Smoothing
+  // 60FPS Lerp Animation Loop
   function renderGaze() {
     // If user is idle, create a gentle autonomous breathing saccade
     if (!isMouseActive) {
-      idleTime += 0.02;
-      targetX = Math.sin(idleTime * 0.8) * 0.35;
+      idleTime += 0.025;
+      targetX = Math.sin(idleTime * 0.7) * 0.4;
       targetY = Math.cos(idleTime * 0.5) * 0.25;
     }
 
-    // Lerp smoothing (0.09 factor gives high responsive fluid inertia)
-    currentX += (targetX - currentX) * 0.09;
-    currentY += (targetY - currentY) * 0.09;
+    // Lerp smoothing (0.08 factor for realistic hydraulic inertia)
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
 
-    const irisMaxOffset = 14; // pixels
-    const pupilMaxOffset = 18;
-    const lensMaxParallax = 8;
+    // 1. 3D VR Headset Body Tilt (Looking at the cursor in 3D space)
+    const maxRotateY = 16; // degrees
+    const maxRotateX = -12; // degrees
+    const rotY = currentX * maxRotateY;
+    const rotX = currentY * maxRotateX;
 
+    if (vrWrapper) {
+      vrWrapper.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg)`;
+    }
+
+    // 2. Holographic Eye on Visor movement (Parallax & Gaze angle)
+    const eyeMaxOffsetX = 12; // px
+    const eyeMaxOffsetY = 8;
+    const irisMaxOffset = 10;
+    const pupilMaxOffset = 14;
+
+    const eyeX = currentX * eyeMaxOffsetX;
+    const eyeY = currentY * eyeMaxOffsetY;
     const irisX = currentX * irisMaxOffset;
     const irisY = currentY * irisMaxOffset;
     const pupilX = currentX * pupilMaxOffset;
     const pupilY = currentY * pupilMaxOffset;
 
-    // Apply translations
+    if (eyeGroup) {
+      eyeGroup.setAttribute('transform', `translate(${eyeX}, ${eyeY})`);
+    }
     if (irisGroup) {
-      irisGroup.setAttribute('transform', `translate(${irisX}, ${irisY})`);
+      irisGroup.setAttribute('transform', `translate(${irisX - eyeX}, ${irisY - eyeY})`);
     }
     if (pupil) {
       pupil.setAttribute('transform', `translate(${pupilX - irisX}, ${pupilY - irisY})`);
     }
     if (leftLens) {
-      leftLens.setAttribute('transform', `translate(${-currentX * lensMaxParallax}, ${-currentY * lensMaxParallax})`);
+      leftLens.setAttribute('transform', `translate(${-currentX * 4}, ${-currentY * 3})`);
     }
     if (rightLens) {
-      rightLens.setAttribute('transform', `translate(${currentX * lensMaxParallax}, ${currentY * lensMaxParallax})`);
+      rightLens.setAttribute('transform', `translate(${currentX * 4}, ${currentY * 3})`);
     }
 
-    // Laser Guide Vector
+    // 3. Laser targeting beam to pointer vector
     if (laserLine) {
-      laserLine.setAttribute('x2', (100 + pupilX * 2.2).toFixed(1));
-      laserLine.setAttribute('y2', (100 + pupilY * 2.2).toFixed(1));
+      laserLine.setAttribute('x2', (70 + pupilX * 1.8).toFixed(1));
+      laserLine.setAttribute('y2', (45 + pupilY * 1.8).toFixed(1));
     }
 
-    // Angle and HUD calculation
+    // 4. Angle & Realtime HUD coordinate updates
     const angleRad = Math.atan2(currentY, currentX);
     let angleDeg = Math.round(angleRad * (180 / Math.PI));
     if (angleDeg < 0) angleDeg += 360;
@@ -444,11 +477,11 @@
         lockRing.setAttribute('stroke', '#22D3EE');
         lockRing.setAttribute('opacity', '0.9');
       } else {
-        statusText.textContent = 'GAZE TRACKING // ACTIVE';
+        statusText.textContent = 'XR GAZE TRACKING // ACTIVE';
         statusText.classList.remove('text-[#22D3EE]');
         statusDot.classList.remove('bg-[#22D3EE]');
         lockRing.setAttribute('stroke', '#00A396');
-        lockRing.setAttribute('opacity', '0.3');
+        lockRing.setAttribute('opacity', '0.4');
       }
     }
 
@@ -458,4 +491,5 @@
   // Start Animation
   renderGaze();
 </script>
+
 
