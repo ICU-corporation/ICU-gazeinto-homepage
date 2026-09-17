@@ -148,47 +148,33 @@
         </div>
       </div>
 
-      <!-- Middle Interactive Real 3D Character Model Tracker (Three.js OBJ + PBR) -->
-      <div id="gaze-tracker-container" class="my-3 py-1 relative flex flex-col items-center justify-center cursor-crosshair group/tracker select-none">
-        
-        <!-- Three.js Real 3D Canvas Viewport -->
-        <div id="three-stage-wrapper" class="relative w-72 h-72 flex items-center justify-center">
+      <!-- Middle Ambient Optical Lens Reticle Graphic -->
+      <div class="my-8 py-4 relative flex items-center justify-center opacity-85 pointer-events-none">
+        <svg class="w-44 h-44 text-[#00A396]/30" viewBox="0 0 200 200" fill="none">
+          <!-- Outer Target Rings -->
+          <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 6" class="animate-spin-slow origin-center" />
+          <circle cx="100" cy="100" r="65" stroke="currentColor" stroke-width="0.75" />
           
-          <!-- Ambient Tech Radar Rings -->
-          <svg class="absolute inset-0 w-full h-full text-[#00A396]/15 pointer-events-none" viewBox="0 0 280 280" fill="none">
-            <ellipse cx="140" cy="140" rx="130" ry="130" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 6" class="animate-spin-slow origin-center opacity-30" />
-            <ellipse cx="140" cy="140" rx="100" ry="100" stroke="rgba(34,211,238,0.15)" stroke-width="0.5" stroke-dasharray="2 4" />
-          </svg>
+          <!-- Optical Crosshairs -->
+          <line x1="15" y1="100" x2="185" y2="100" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
+          <line x1="100" y1="15" x2="100" y2="185" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
+          
+          <!-- Overlapping Dual Lenses (gazeinto Symbol in Reticle) -->
+          <circle cx="88" cy="100" r="32" stroke="rgba(255, 255, 255, 0.7)" stroke-width="1.5" />
+          <circle cx="112" cy="100" r="32" stroke="#00A396" stroke-width="1.5" />
+          
+          <!-- Glowing Center Intersection -->
+          <ellipse cx="100" cy="100" rx="12" ry="22" fill="#00A396" fill-opacity="0.35" class="animate-pulse" />
+          
+          <!-- Center Focus Core -->
+          <circle cx="100" cy="100" r="2.5" fill="#22D3EE" />
+        </svg>
 
-          <!-- 3D WebGL Canvas -->
-          <canvas 
-            id="three-character-canvas" 
-            class="w-full h-full object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.95)]"
-          ></canvas>
-
-          <!-- Loading Indicator -->
-          <div id="three-loader" class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[#081726]/80 backdrop-blur-sm transition-opacity duration-300 z-30 pointer-events-none">
-            <div class="w-6 h-6 border-2 border-[#22D3EE] border-t-transparent rounded-full animate-spin"></div>
-            <span class="text-[10px] font-mono text-[#22D3EE] tracking-wider">LOADING 3D ASSET...</span>
-          </div>
-
-          <!-- Micro Pulse Focus Ring -->
-          <div id="gaze-focus-pulse" class="absolute w-32 h-32 rounded-full border border-[#22D3EE]/50 pointer-events-none scale-0 transition-transform duration-500 ease-out shadow-[0_0_20px_rgba(34,211,238,0.7)]"></div>
+        <!-- Dynamic Optic HUD Data Tag -->
+        <div class="absolute bottom-0 text-[10px] font-mono text-slate-500 tracking-wider flex items-center gap-1.5">
+          <span class="w-1 h-1 rounded-full bg-[#00A396]"></span>
+          <span>OPTICAL AXIS // LOCKED</span>
         </div>
-
-        <!-- Dynamic Optic HUD Data Stream -->
-        <div class="mt-1 flex flex-col items-center gap-1">
-          <div class="flex items-center gap-2 text-[10px] font-mono tracking-wider">
-            <span id="gaze-status-dot" class="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse shadow-[0_0_6px_#22D3EE]"></span>
-            <span id="gaze-status-text" class="text-slate-300 font-semibold">3D REALTIME MESH // ACTIVE</span>
-          </div>
-          <div class="flex items-center gap-3 text-[9px] font-mono text-slate-500">
-            <span id="gaze-coords">X: +0.00 Y: +0.00</span>
-            <span>•</span>
-            <span id="gaze-vector">ANGLE: 000°</span>
-          </div>
-        </div>
-
       </div>
 
       <!-- Bottom Section: Recommended Add & Output -->
@@ -216,16 +202,12 @@
 </section>
 
 <script>
-  import * as THREE from 'three';
-  import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
-
-  // Gauge Switcher
   const addDisplay = document.getElementById('hero-add-display');
   const gaugeItems = document.querySelectorAll('.distance-gauge-item');
   const scanBeam = document.getElementById('gauge-scan-beam');
 
   let activeIndex = 1; // Default at 33cm
-  let isUserHoveringGauge = false;
+  let isUserHovering = false;
 
   const positions = [4, 40, 78, 116, 154]; // Y offsets for beam
 
@@ -270,7 +252,7 @@
 
   // Automatic Sequential Laser Wave cycle every 2.6s when not hovering
   setInterval(() => {
-    if (!isUserHoveringGauge) {
+    if (!isUserHovering) {
       activeIndex = (activeIndex + 1) % gaugeItems.length;
       setActiveGauge(activeIndex);
     }
@@ -279,244 +261,19 @@
   // Manual hover immediately highlights item
   gaugeItems.forEach((item, idx) => {
     item.addEventListener('mouseenter', () => {
-      isUserHoveringGauge = true;
+      isUserHovering = true;
       setActiveGauge(idx);
     });
 
     item.addEventListener('mouseleave', () => {
-      isUserHoveringGauge = false;
+      isUserHovering = false;
     });
   });
 
-  // Init Gauge
+  // Init
   setActiveGauge(1);
-
-  // ==============================================================
-  // Three.js Real 3D Character Model & Mouse Tracking Engine
-  // ==============================================================
-  const canvas = document.getElementById('three-character-canvas') as HTMLCanvasElement;
-  const loaderEl = document.getElementById('three-loader');
-  const trackerContainer = document.getElementById('gaze-tracker-container');
-  
-  const coordsHUD = document.getElementById('gaze-coords');
-  const vectorHUD = document.getElementById('gaze-vector');
-  const statusText = document.getElementById('gaze-status-text');
-  const statusDot = document.getElementById('gaze-status-dot');
-  const focusPulse = document.getElementById('gaze-focus-pulse');
-
-  // Mouse Physics state
-  let targetX = 0;
-  let targetY = 0;
-  let currentX = 0;
-  let currentY = 0;
-  let isMouseActive = false;
-  let idleTime = 0;
-
-  window.addEventListener('mousemove', (e) => {
-    if (!trackerContainer) return;
-    const rect = trackerContainer.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    const deltaX = e.clientX - centerX;
-    const deltaY = e.clientY - centerY;
-
-    targetX = Math.max(-1, Math.min(1, deltaX / (window.innerWidth * 0.45)));
-    targetY = Math.max(-1, Math.min(1, deltaY / (window.innerHeight * 0.45)));
-
-    isMouseActive = true;
-    idleTime = 0;
-  });
-
-  // Click Pulse
-  trackerContainer?.addEventListener('click', () => {
-    if (focusPulse) {
-      focusPulse.classList.remove('scale-0', 'opacity-0');
-      focusPulse.classList.add('scale-150', 'opacity-100');
-      setTimeout(() => {
-        focusPulse.classList.remove('scale-150', 'opacity-100');
-        focusPulse.classList.add('scale-0', 'opacity-0');
-      }, 500);
-    }
-  });
-
-  if (canvas) {
-    const width = 320;
-    const height = 320;
-
-    // 1. Scene, Camera, Renderer
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-    camera.position.set(0, 1.25, 1.75); // Focused on chest and head
-
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.35;
-
-    // 2. Lighting Setup
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
-    scene.add(ambientLight);
-
-    // Key front light
-    const keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
-    keyLight.position.set(2, 3, 3);
-    scene.add(keyLight);
-
-    // Neon Cyan Rim Light (Brand identity)
-    const rimLightCyan = new THREE.DirectionalLight(0x22d3ee, 3.5);
-    rimLightCyan.position.set(-3, 2, -2);
-    scene.add(rimLightCyan);
-
-    // Teal Fill Light
-    const fillLightTeal = new THREE.PointLight(0x00a396, 2.0, 10);
-    fillLightTeal.position.set(0, 0.5, 2);
-    scene.add(fillLightTeal);
-
-    // 3. Texture Loading & Material Setup
-    const textureLoader = new THREE.TextureLoader();
-    const diffuseMap = textureLoader.load('/models/character/texture_diffuse.png');
-    const normalMap = textureLoader.load('/models/character/texture_normal.png');
-    const roughnessMap = textureLoader.load('/models/character/texture_roughness.png');
-    const metallicMap = textureLoader.load('/models/character/texture_metallic.png');
-
-    diffuseMap.colorSpace = THREE.SRGBColorSpace;
-
-    const characterMaterial = new THREE.MeshStandardMaterial({
-      map: diffuseMap,
-      normalMap: normalMap,
-      roughnessMap: roughnessMap,
-      metalnessMap: metallicMap,
-      roughness: 0.45,
-      metalness: 0.35,
-    });
-
-    // 4. Load OBJ 3D Model
-    let characterModel: THREE.Group | null = null;
-    let eyesMeshGroup: THREE.Group | null = null;
-
-    const objLoader = new OBJLoader();
-    objLoader.load(
-      '/models/character/base.obj',
-      (obj) => {
-        characterModel = obj;
-
-        obj.traverse((child) => {
-          if ((child as THREE.Mesh).isMesh) {
-            const mesh = child as THREE.Mesh;
-            mesh.material = characterMaterial;
-            mesh.castShadow = true;
-            mesh.receiveShadow = true;
-          }
-        });
-
-        // Center and scale model
-        obj.position.set(0, 0, 0);
-        scene.add(obj);
-
-        // Add 3D Glowing Neon Eye Orbs in front of head visor
-        eyesMeshGroup = new THREE.Group();
-        
-        const eyeGeo = new THREE.SphereGeometry(0.045, 24, 24);
-        const eyeMat = new THREE.MeshBasicMaterial({
-          color: 0xffffff,
-        });
-
-        // Left Eye Orb
-        const leftEye = new THREE.Mesh(eyeGeo, eyeMat);
-        leftEye.position.set(-0.085, 1.34, 0.22);
-        eyesMeshGroup.add(leftEye);
-
-        // Right Eye Orb
-        const rightEye = new THREE.Mesh(eyeGeo, eyeMat);
-        rightEye.position.set(0.085, 1.34, 0.22);
-        eyesMeshGroup.add(rightEye);
-
-        // Eye glow light
-        const eyePointLight = new THREE.PointLight(0x22d3ee, 3.0, 2);
-        eyePointLight.position.set(0, 1.34, 0.3);
-        eyesMeshGroup.add(eyePointLight);
-
-        scene.add(eyesMeshGroup);
-
-        // Hide loader
-        if (loaderEl) {
-          loaderEl.style.opacity = '0';
-          setTimeout(() => loaderEl.remove(), 300);
-        }
-      },
-      undefined,
-      (err) => {
-        console.error('Error loading 3D OBJ model:', err);
-      }
-    );
-
-    // 5. Render Loop with Smooth Spring Tracking
-    function animate() {
-      requestAnimationFrame(animate);
-
-      if (!isMouseActive) {
-        idleTime += 0.025;
-        targetX = Math.sin(idleTime * 0.7) * 0.35;
-        targetY = Math.cos(idleTime * 0.5) * 0.18;
-      }
-
-      currentX += (targetX - currentX) * 0.08;
-      currentY += (targetY - currentY) * 0.08;
-
-      // 3D Model Rotation & Head Tilt
-      if (characterModel) {
-        characterModel.rotation.y = currentX * 0.45; // Turn body/head toward mouse
-        characterModel.rotation.x = -currentY * 0.25;
-      }
-
-      // Eye Orbs tracking with parallax
-      if (eyesMeshGroup) {
-        eyesMeshGroup.rotation.y = currentX * 0.55;
-        eyesMeshGroup.rotation.x = -currentY * 0.35;
-        eyesMeshGroup.position.x = currentX * 0.04;
-        eyesMeshGroup.position.y = -currentY * 0.03;
-      }
-
-      // Dynamic light movement reflecting mouse angle
-      keyLight.position.x = 2 + currentX * 2;
-      keyLight.position.y = 3 - currentY * 2;
-
-      // HUD Output
-      const angleRad = Math.atan2(currentY, currentX);
-      let angleDeg = Math.round(angleRad * (180 / Math.PI));
-      if (angleDeg < 0) angleDeg += 360;
-
-      const distFromCenter = Math.sqrt(currentX * currentX + currentY * currentY);
-
-      if (coordsHUD) {
-        const signX = currentX >= 0 ? '+' : '';
-        const signY = currentY >= 0 ? '+' : '';
-        coordsHUD.textContent = `X: ${signX}${currentX.toFixed(2)} Y: ${signY}${currentY.toFixed(2)}`;
-      }
-      if (vectorHUD) {
-        vectorHUD.textContent = `ANGLE: ${angleDeg.toString().padStart(3, '0')}°`;
-      }
-
-      if (statusText && statusDot) {
-        if (distFromCenter < 0.15) {
-          statusText.textContent = 'OPTICAL AXIS // LOCKED';
-          statusText.classList.add('text-[#22D3EE]');
-          statusDot.classList.add('bg-[#22D3EE]');
-        } else {
-          statusText.textContent = '3D REALTIME MESH // ACTIVE';
-          statusText.classList.remove('text-[#22D3EE]');
-          statusDot.classList.remove('bg-[#22D3EE]');
-        }
-      }
-
-      renderer.render(scene, camera);
-    }
-
-    animate();
-  }
 </script>
+
 
 
 
