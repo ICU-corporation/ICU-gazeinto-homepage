@@ -148,77 +148,39 @@
         </div>
       </div>
 
-      <!-- Middle Interactive L.I.S.A.-Style Realtime WebGL 3D Depth Robot Tracker -->
-      <div id="gaze-tracker-container" class="my-3 py-1 relative flex flex-col items-center justify-center cursor-crosshair group/tracker select-none" style="perspective: 1000px;">
+      <!-- Middle Interactive Real 3D Character Model Tracker (Three.js OBJ + PBR) -->
+      <div id="gaze-tracker-container" class="my-3 py-1 relative flex flex-col items-center justify-center cursor-crosshair group/tracker select-none">
         
-        <!-- 3D WebGL Perspective Stage -->
-        <div id="vr-stage-wrapper" class="relative w-64 h-64 flex items-center justify-center transition-transform duration-75 ease-out" style="transform-style: preserve-3d;">
+        <!-- Three.js Real 3D Canvas Viewport -->
+        <div id="three-stage-wrapper" class="relative w-72 h-72 flex items-center justify-center">
           
-          <!-- Outer Ambient Tech Radar Rings -->
-          <svg class="absolute inset-0 w-full h-full text-[#00A396]/15 pointer-events-none" viewBox="0 0 240 240" fill="none">
-            <ellipse cx="120" cy="120" rx="110" ry="110" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 6" class="animate-spin-slow origin-center opacity-30" />
-            <ellipse cx="120" cy="120" rx="85" ry="85" stroke="rgba(34,211,238,0.15)" stroke-width="0.5" stroke-dasharray="2 4" />
+          <!-- Ambient Tech Radar Rings -->
+          <svg class="absolute inset-0 w-full h-full text-[#00A396]/15 pointer-events-none" viewBox="0 0 280 280" fill="none">
+            <ellipse cx="140" cy="140" rx="130" ry="130" stroke="currentColor" stroke-width="0.75" stroke-dasharray="3 6" class="animate-spin-slow origin-center opacity-30" />
+            <ellipse cx="140" cy="140" rx="100" ry="100" stroke="rgba(34,211,238,0.15)" stroke-width="0.5" stroke-dasharray="2 4" />
           </svg>
 
-          <!-- WebGL 3D Depth Mesh Canvas -->
-          <div class="relative w-full h-full flex items-center justify-center">
-            <canvas 
-              id="robot-3d-canvas" 
-              class="w-full h-full object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.9)] select-none pointer-events-none"
-              width="512" 
-              height="512"
-            ></canvas>
+          <!-- 3D WebGL Canvas -->
+          <canvas 
+            id="three-character-canvas" 
+            class="w-full h-full object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.95)]"
+          ></canvas>
 
-            <!-- Dual Glowing Eye Visor Screen (Layered onto 3D Robot's VR Visor) -->
-            <div id="vr-visor-screen" class="absolute left-[31%] top-[15.5%] w-[38%] h-[18%] rounded-[14px] overflow-hidden flex items-center justify-center pointer-events-none bg-[#030914]/80 shadow-[inset_0_0_12px_rgba(0,0,0,0.9)] border border-cyan-500/25" style="transform-style: preserve-3d; transform: translateZ(20px);">
-              
-              <!-- CRT Scanline Grid Texture -->
-              <div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.4)_50%)] bg-[length:100%_4px] pointer-events-none z-20 opacity-50"></div>
-              
-              <!-- Subtle CRT Screen Glow -->
-              <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.25)_0%,transparent_80%)] pointer-events-none z-10"></div>
-
-              <!-- Dual Glowing Eye Orbs Container (Tracks Mouse) -->
-              <div id="gaze-orbs-container" class="relative flex items-center justify-center gap-3 z-10 transition-transform duration-75 ease-out">
-                
-                <!-- Left Eye Orb -->
-                <div class="eye-orb-wrapper relative flex items-center justify-center">
-                  <!-- Outer Cyan Bloom Glare -->
-                  <div class="absolute w-7 h-7 rounded-full bg-[#22D3EE] blur-md opacity-80 animate-pulse"></div>
-                  <div class="absolute w-5 h-5 rounded-full bg-[#38BDF8] blur-sm opacity-95"></div>
-                  <!-- Core Solid White Glowing Pupil Orb -->
-                  <div class="eye-orb-core relative w-4 h-4 rounded-full bg-white shadow-[0_0_10px_#ffffff,0_0_16px_#22D3EE,0_0_24px_#00A396] transition-transform duration-100"></div>
-                </div>
-
-                <!-- Right Eye Orb -->
-                <div class="eye-orb-wrapper relative flex items-center justify-center">
-                  <!-- Outer Cyan Bloom Glare -->
-                  <div class="absolute w-7 h-7 rounded-full bg-[#22D3EE] blur-md opacity-80 animate-pulse"></div>
-                  <div class="absolute w-5 h-5 rounded-full bg-[#38BDF8] blur-sm opacity-95"></div>
-                  <!-- Core Solid White Glowing Pupil Orb -->
-                  <div class="eye-orb-core relative w-4 h-4 rounded-full bg-white shadow-[0_0_10px_#ffffff,0_0_16px_#22D3EE,0_0_24px_#00A396] transition-transform duration-100"></div>
-                </div>
-
-              </div>
-
-              <!-- Visor Micro HUD Indicator -->
-              <div class="absolute bottom-0.5 right-1.5 text-[6px] font-mono text-[#22D3EE]/80 tracking-tighter z-30">
-                3D.DEPTH
-              </div>
-
-            </div>
-
+          <!-- Loading Indicator -->
+          <div id="three-loader" class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[#081726]/80 backdrop-blur-sm transition-opacity duration-300 z-30 pointer-events-none">
+            <div class="w-6 h-6 border-2 border-[#22D3EE] border-t-transparent rounded-full animate-spin"></div>
+            <span class="text-[10px] font-mono text-[#22D3EE] tracking-wider">LOADING 3D ASSET...</span>
           </div>
 
           <!-- Micro Pulse Focus Ring -->
-          <div id="gaze-focus-pulse" class="absolute w-28 h-28 rounded-full border border-[#22D3EE]/50 pointer-events-none scale-0 transition-transform duration-500 ease-out shadow-[0_0_20px_rgba(34,211,238,0.7)]"></div>
+          <div id="gaze-focus-pulse" class="absolute w-32 h-32 rounded-full border border-[#22D3EE]/50 pointer-events-none scale-0 transition-transform duration-500 ease-out shadow-[0_0_20px_rgba(34,211,238,0.7)]"></div>
         </div>
 
         <!-- Dynamic Optic HUD Data Stream -->
-        <div class="mt-2 flex flex-col items-center gap-1">
+        <div class="mt-1 flex flex-col items-center gap-1">
           <div class="flex items-center gap-2 text-[10px] font-mono tracking-wider">
             <span id="gaze-status-dot" class="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse shadow-[0_0_6px_#22D3EE]"></span>
-            <span id="gaze-status-text" class="text-slate-300 font-semibold">3D WEBGL ENGINE // ACTIVE</span>
+            <span id="gaze-status-text" class="text-slate-300 font-semibold">3D REALTIME MESH // ACTIVE</span>
           </div>
           <div class="flex items-center gap-3 text-[9px] font-mono text-slate-500">
             <span id="gaze-coords">X: +0.00 Y: +0.00</span>
@@ -254,6 +216,9 @@
 </section>
 
 <script>
+  import * as THREE from 'three';
+  import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+
   // Gauge Switcher
   const addDisplay = document.getElementById('hero-add-display');
   const gaugeItems = document.querySelectorAll('.distance-gauge-item');
@@ -327,13 +292,11 @@
   setActiveGauge(1);
 
   // ==============================================================
-  // WebGL 3D Depth Map Shader & Realtime Eye Gaze Engine
+  // Three.js Real 3D Character Model & Mouse Tracking Engine
   // ==============================================================
-  const canvas = document.getElementById('robot-3d-canvas') as HTMLCanvasElement;
+  const canvas = document.getElementById('three-character-canvas') as HTMLCanvasElement;
+  const loaderEl = document.getElementById('three-loader');
   const trackerContainer = document.getElementById('gaze-tracker-container');
-  const vrWrapper = document.getElementById('vr-stage-wrapper');
-  const orbsContainer = document.getElementById('gaze-orbs-container');
-  const orbCores = document.querySelectorAll('.eye-orb-core');
   
   const coordsHUD = document.getElementById('gaze-coords');
   const vectorHUD = document.getElementById('gaze-vector');
@@ -341,16 +304,14 @@
   const statusDot = document.getElementById('gaze-status-dot');
   const focusPulse = document.getElementById('gaze-focus-pulse');
 
-  // Physics state
+  // Mouse Physics state
   let targetX = 0;
   let targetY = 0;
   let currentX = 0;
   let currentY = 0;
   let isMouseActive = false;
   let idleTime = 0;
-  let isBlinking = false;
 
-  // Window-wide mouse tracking for realistic gaze & 3D head-turn
   window.addEventListener('mousemove', (e) => {
     if (!trackerContainer) return;
     const rect = trackerContainer.getBoundingClientRect();
@@ -360,7 +321,6 @@
     const deltaX = e.clientX - centerX;
     const deltaY = e.clientY - centerY;
 
-    // Normalized coordinates (-1 to 1) clamped
     targetX = Math.max(-1, Math.min(1, deltaX / (window.innerWidth * 0.45)));
     targetY = Math.max(-1, Math.min(1, deltaY / (window.innerHeight * 0.45)));
 
@@ -368,28 +328,7 @@
     idleTime = 0;
   });
 
-  // Natural Random Eye Blinking Interval (every 3~5 seconds)
-  function triggerBlink() {
-    if (isBlinking) return;
-    isBlinking = true;
-    
-    orbCores.forEach((orb) => {
-      (orb as HTMLElement).style.transform = 'scaleY(0.1) scaleX(1.2)';
-    });
-
-    setTimeout(() => {
-      orbCores.forEach((orb) => {
-        (orb as HTMLElement).style.transform = 'scaleY(1) scaleX(1)';
-      });
-      isBlinking = false;
-    }, 180);
-
-    const nextBlink = Math.random() * 3000 + 2500;
-    setTimeout(triggerBlink, nextBlink);
-  }
-  setTimeout(triggerBlink, 3000);
-
-  // Mouse click pulse effect
+  // Click Pulse
   trackerContainer?.addEventListener('click', () => {
     if (focusPulse) {
       focusPulse.classList.remove('scale-0', 'opacity-0');
@@ -401,210 +340,184 @@
     }
   });
 
-  // --------------------------------------------------------------
-  // WebGL 3D Shader Setup
-  // --------------------------------------------------------------
   if (canvas) {
-    const gl = canvas.getContext('webgl', { alpha: true, antialias: true });
-    if (gl) {
-      const vertexShaderSrc = `
-        attribute vec2 a_position;
-        varying vec2 v_uv;
-        void main() {
-          v_uv = (a_position + 1.0) * 0.5;
-          v_uv.y = 1.0 - v_uv.y; // Flip Y for WebGL texture
-          gl_Position = vec4(a_position, 0.0, 1.0);
-        }
-      `;
+    const width = 320;
+    const height = 320;
 
-      const fragmentShaderSrc = `
-        precision highp float;
-        varying vec2 v_uv;
-        uniform sampler2D u_image;
-        uniform sampler2D u_depth;
-        uniform vec2 u_mouse;
-        uniform float u_time;
+    // 1. Scene, Camera, Renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+    camera.position.set(0, 1.25, 1.75); // Focused on chest and head
 
-        void main() {
-          // Sample depth
-          float depth = texture2D(u_depth, v_uv).r;
-          
-          // 3D Parallax UV Displacement (Front parts shift more)
-          vec2 offset = u_mouse * depth * 0.048;
-          vec2 displacedUv = clamp(v_uv - offset, 0.001, 0.999);
-          
-          vec4 color = texture2D(u_image, displacedUv);
-          if (color.a < 0.05) {
-            discard;
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.35;
+
+    // 2. Lighting Setup
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    scene.add(ambientLight);
+
+    // Key front light
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
+    keyLight.position.set(2, 3, 3);
+    scene.add(keyLight);
+
+    // Neon Cyan Rim Light (Brand identity)
+    const rimLightCyan = new THREE.DirectionalLight(0x22d3ee, 3.5);
+    rimLightCyan.position.set(-3, 2, -2);
+    scene.add(rimLightCyan);
+
+    // Teal Fill Light
+    const fillLightTeal = new THREE.PointLight(0x00a396, 2.0, 10);
+    fillLightTeal.position.set(0, 0.5, 2);
+    scene.add(fillLightTeal);
+
+    // 3. Texture Loading & Material Setup
+    const textureLoader = new THREE.TextureLoader();
+    const diffuseMap = textureLoader.load('/models/character/texture_diffuse.png');
+    const normalMap = textureLoader.load('/models/character/texture_normal.png');
+    const roughnessMap = textureLoader.load('/models/character/texture_roughness.png');
+    const metallicMap = textureLoader.load('/models/character/texture_metallic.png');
+
+    diffuseMap.colorSpace = THREE.SRGBColorSpace;
+
+    const characterMaterial = new THREE.MeshStandardMaterial({
+      map: diffuseMap,
+      normalMap: normalMap,
+      roughnessMap: roughnessMap,
+      metalnessMap: metallicMap,
+      roughness: 0.45,
+      metalness: 0.35,
+    });
+
+    // 4. Load OBJ 3D Model
+    let characterModel: THREE.Group | null = null;
+    let eyesMeshGroup: THREE.Group | null = null;
+
+    const objLoader = new OBJLoader();
+    objLoader.load(
+      '/models/character/base.obj',
+      (obj) => {
+        characterModel = obj;
+
+        obj.traverse((child) => {
+          if ((child as THREE.Mesh).isMesh) {
+            const mesh = child as THREE.Mesh;
+            mesh.material = characterMaterial;
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
           }
+        });
 
-          // 3D Specular Normal Mapping from Depth Gradient
-          float step = 0.004;
-          float dR = texture2D(u_depth, displacedUv + vec2(step, 0.0)).r;
-          float dL = texture2D(u_depth, displacedUv - vec2(step, 0.0)).r;
-          float dU = texture2D(u_depth, displacedUv + vec2(0.0, step)).r;
-          float dD = texture2D(u_depth, displacedUv - vec2(0.0, step)).r;
+        // Center and scale model
+        obj.position.set(0, 0, 0);
+        scene.add(obj);
 
-          vec3 normal = normalize(vec3((dL - dR) * 6.0, (dD - dU) * 6.0, 1.0));
-          vec3 lightDir = normalize(vec3(-u_mouse.x * 2.5, u_mouse.y * 2.5, 1.2));
-          
-          // Specular Glint & Dynamic Cybernetic Rim Lighting
-          vec3 viewDir = vec3(0.0, 0.0, 1.0);
-          vec3 halfVector = normalize(lightDir + viewDir);
-          float spec = pow(max(dot(normal, halfVector), 0.0), 24.0);
-          
-          // Rim lighting on edges
-          float rim = 1.0 - max(dot(normal, viewDir), 0.0);
-          rim = pow(rim, 3.5) * depth;
+        // Add 3D Glowing Neon Eye Orbs in front of head visor
+        eyesMeshGroup = new THREE.Group();
+        
+        const eyeGeo = new THREE.SphereGeometry(0.045, 24, 24);
+        const eyeMat = new THREE.MeshBasicMaterial({
+          color: 0xffffff,
+        });
 
-          vec3 cyanLight = vec3(0.13, 0.83, 0.93);
-          color.rgb += (cyanLight * spec * 0.7) + (cyanLight * rim * 0.4);
+        // Left Eye Orb
+        const leftEye = new THREE.Mesh(eyeGeo, eyeMat);
+        leftEye.position.set(-0.085, 1.34, 0.22);
+        eyesMeshGroup.add(leftEye);
 
-          gl_FragColor = color;
+        // Right Eye Orb
+        const rightEye = new THREE.Mesh(eyeGeo, eyeMat);
+        rightEye.position.set(0.085, 1.34, 0.22);
+        eyesMeshGroup.add(rightEye);
+
+        // Eye glow light
+        const eyePointLight = new THREE.PointLight(0x22d3ee, 3.0, 2);
+        eyePointLight.position.set(0, 1.34, 0.3);
+        eyesMeshGroup.add(eyePointLight);
+
+        scene.add(eyesMeshGroup);
+
+        // Hide loader
+        if (loaderEl) {
+          loaderEl.style.opacity = '0';
+          setTimeout(() => loaderEl.remove(), 300);
         }
-      `;
+      },
+      undefined,
+      (err) => {
+        console.error('Error loading 3D OBJ model:', err);
+      }
+    );
 
-      function createShader(gl: WebGLRenderingContext, type: number, source: string) {
-        const shader = gl.createShader(type);
-        if (!shader) return null;
-        gl.shaderSource(shader, source);
-        gl.compileShader(shader);
-        return shader;
+    // 5. Render Loop with Smooth Spring Tracking
+    function animate() {
+      requestAnimationFrame(animate);
+
+      if (!isMouseActive) {
+        idleTime += 0.025;
+        targetX = Math.sin(idleTime * 0.7) * 0.35;
+        targetY = Math.cos(idleTime * 0.5) * 0.18;
       }
 
-      const vertShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSrc);
-      const fragShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSrc);
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
 
-      if (vertShader && fragShader) {
-        const program = gl.createProgram();
-        if (program) {
-          gl.attachShader(program, vertShader);
-          gl.attachShader(program, fragShader);
-          gl.linkProgram(program);
-          gl.useProgram(program);
+      // 3D Model Rotation & Head Tilt
+      if (characterModel) {
+        characterModel.rotation.y = currentX * 0.45; // Turn body/head toward mouse
+        characterModel.rotation.x = -currentY * 0.25;
+      }
 
-          // Quad Buffer
-          const buffer = gl.createBuffer();
-          gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-            -1, -1,
-             1, -1,
-            -1,  1,
-            -1,  1,
-             1, -1,
-             1,  1
-          ]), gl.STATIC_DRAW);
+      // Eye Orbs tracking with parallax
+      if (eyesMeshGroup) {
+        eyesMeshGroup.rotation.y = currentX * 0.55;
+        eyesMeshGroup.rotation.x = -currentY * 0.35;
+        eyesMeshGroup.position.x = currentX * 0.04;
+        eyesMeshGroup.position.y = -currentY * 0.03;
+      }
 
-          const aPos = gl.getAttribLocation(program, 'a_position');
-          gl.enableVertexAttribArray(aPos);
-          gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+      // Dynamic light movement reflecting mouse angle
+      keyLight.position.x = 2 + currentX * 2;
+      keyLight.position.y = 3 - currentY * 2;
 
-          const uMouse = gl.getUniformLocation(program, 'u_mouse');
-          const uTime = gl.getUniformLocation(program, 'u_time');
-          const uImage = gl.getUniformLocation(program, 'u_image');
-          const uDepth = gl.getUniformLocation(program, 'u_depth');
+      // HUD Output
+      const angleRad = Math.atan2(currentY, currentX);
+      let angleDeg = Math.round(angleRad * (180 / Math.PI));
+      if (angleDeg < 0) angleDeg += 360;
 
-          // Load Textures
-          function loadTexture(gl: WebGLRenderingContext, url: string, unit: number, uniformLoc: WebGLUniformLocation | null) {
-            const texture = gl.createTexture();
-            gl.activeTexture(gl.TEXTURE0 + unit);
-            gl.bindTexture(gl.TEXTURE_2D, texture);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      const distFromCenter = Math.sqrt(currentX * currentX + currentY * currentY);
 
-            const image = new Image();
-            image.crossOrigin = 'anonymous';
-            image.onload = () => {
-              gl.activeTexture(gl.TEXTURE0 + unit);
-              gl.bindTexture(gl.TEXTURE_2D, texture);
-              gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
-              gl.uniform1i(uniformLoc, unit);
-            };
-            image.src = url;
-            return texture;
-          }
+      if (coordsHUD) {
+        const signX = currentX >= 0 ? '+' : '';
+        const signY = currentY >= 0 ? '+' : '';
+        coordsHUD.textContent = `X: ${signX}${currentX.toFixed(2)} Y: ${signY}${currentY.toFixed(2)}`;
+      }
+      if (vectorHUD) {
+        vectorHUD.textContent = `ANGLE: ${angleDeg.toString().padStart(3, '0')}°`;
+      }
 
-          loadTexture(gl, '/images/robot-vr-character.png', 0, uImage);
-          loadTexture(gl, '/images/robot-vr-depth.png', 1, uDepth);
-
-          // 60FPS WebGL Render Loop
-          function renderShader(time: number) {
-            // Idle breathing when mouse not moving
-            if (!isMouseActive) {
-              idleTime += 0.025;
-              targetX = Math.sin(idleTime * 0.7) * 0.35;
-              targetY = Math.cos(idleTime * 0.5) * 0.2;
-            }
-
-            // Lerp smoothing
-            currentX += (targetX - currentX) * 0.09;
-            currentY += (targetY - currentY) * 0.09;
-
-            // Update WebGL Uniforms
-            gl.uniform2f(uMouse, currentX, currentY);
-            gl.uniform1f(uTime, time * 0.001);
-
-            gl.viewport(0, 0, canvas.width, canvas.height);
-            gl.clearColor(0, 0, 0, 0);
-            gl.clear(gl.COLOR_BUFFER_BIT);
-            gl.drawArrays(gl.TRIANGLES, 0, 6);
-
-            // 1. 3D Head Tilt
-            const rotY = currentX * 14;
-            const rotX = currentY * -10;
-            if (vrWrapper) {
-              vrWrapper.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg)`;
-            }
-
-            // 2. Dual Glowing Eye Orbs Movement inside Visor
-            const maxOrbShiftX = 18;
-            const maxOrbShiftY = 12;
-            const orbX = currentX * maxOrbShiftX;
-            const orbY = currentY * maxOrbShiftY;
-
-            if (orbsContainer) {
-              orbsContainer.style.transform = `translate(${orbX}px, ${orbY}px)`;
-            }
-
-            // 3. HUD Output
-            const angleRad = Math.atan2(currentY, currentX);
-            let angleDeg = Math.round(angleRad * (180 / Math.PI));
-            if (angleDeg < 0) angleDeg += 360;
-
-            const distFromCenter = Math.sqrt(currentX * currentX + currentY * currentY);
-
-            if (coordsHUD) {
-              const signX = currentX >= 0 ? '+' : '';
-              const signY = currentY >= 0 ? '+' : '';
-              coordsHUD.textContent = `X: ${signX}${currentX.toFixed(2)} Y: ${signY}${currentY.toFixed(2)}`;
-            }
-            if (vectorHUD) {
-              vectorHUD.textContent = `ANGLE: ${angleDeg.toString().padStart(3, '0')}°`;
-            }
-
-            if (statusText && statusDot) {
-              if (distFromCenter < 0.15) {
-                statusText.textContent = 'OPTICAL AXIS // LOCKED';
-                statusText.classList.add('text-[#22D3EE]');
-                statusDot.classList.add('bg-[#22D3EE]');
-              } else {
-                statusText.textContent = '3D WEBGL ENGINE // ACTIVE';
-                statusText.classList.remove('text-[#22D3EE]');
-                statusDot.classList.remove('bg-[#22D3EE]');
-              }
-            }
-
-            requestAnimationFrame(renderShader);
-          }
-
-          requestAnimationFrame(renderShader);
+      if (statusText && statusDot) {
+        if (distFromCenter < 0.15) {
+          statusText.textContent = 'OPTICAL AXIS // LOCKED';
+          statusText.classList.add('text-[#22D3EE]');
+          statusDot.classList.add('bg-[#22D3EE]');
+        } else {
+          statusText.textContent = '3D REALTIME MESH // ACTIVE';
+          statusText.classList.remove('text-[#22D3EE]');
+          statusDot.classList.remove('bg-[#22D3EE]');
         }
       }
+
+      renderer.render(scene, camera);
     }
+
+    animate();
   }
 </script>
+
 
 
 
