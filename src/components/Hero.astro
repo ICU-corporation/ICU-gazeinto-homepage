@@ -1,282 +1,345 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-screen pt-20 flex flex-col justify-between bg-[#F8FAFC] overflow-hidden">
+<section id="hero" class="relative min-h-screen pt-24 sm:pt-32 pb-24 flex flex-col items-center justify-start bg-[#FCFDFE] overflow-hidden">
   
-  <!-- Main Split Layout Container -->
-  <div class="w-full flex-1 flex flex-col lg:flex-row items-stretch">
+  <!-- Subtle Modern Light Grid Background -->
+  <div class="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] [background-size:28px_28px] opacity-70 pointer-events-none"></div>
+  
+  <!-- Soft Ambient Glow Orbs -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-tr from-[#00A396]/10 via-[#22D3EE]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0"></div>
+  <div class="absolute top-1/3 left-10 w-96 h-96 bg-[#00A396]/5 rounded-full blur-3xl pointer-events-none -z-0"></div>
+  <div class="absolute top-1/3 right-10 w-96 h-96 bg-[#22D3EE]/5 rounded-full blur-3xl pointer-events-none -z-0"></div>
+
+  <!-- Hero Content Container -->
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col items-center text-center">
     
-    <!-- Left Section: 72% Width Clean Light Content -->
-    <div class="flex-1 lg:w-[72%] px-6 sm:px-12 lg:px-20 xl:px-24 pt-16 sm:pt-24 lg:pt-28 pb-16 flex flex-col justify-between">
-      
-      <!-- Top Content Block -->
-      <div class="max-w-3xl">
-        
-        <!-- Category Tag -->
-        <div class="flex items-center gap-2 mb-8 scroll-reveal">
-          <span class="w-5 h-[2px] bg-[#00A396] scroll-line"></span>
-          <span class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase">
-            노안 AI 진단 & 처방 엔진
-          </span>
-        </div>
-
-        <!-- Headline (Hero B: Blur to Sharp Typography with Scroll/Hover Interactive Focus) -->
-        <div class="mb-8 select-none">
-          <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black text-slate-900 tracking-tight leading-[1.1] mb-2">
-            <!-- Line 1: Blurred text that clarifies on scroll or hover -->
-            <span id="hero-blurred-text" class="blur-presbyopia inline-block cursor-default transition-all duration-700" title="초점이 흐려진 상태 (스크롤하거나 마우스를 올리면 선명해집니다)">
-              흐려진 글자 앞에서
-            </span>
-            <br />
-            <!-- Line 2: Sharp text -->
-            <span class="text-slate-900 inline-block mt-2 scroll-reveal scroll-reveal-delay-1">
-              멈추지 않도록.
-            </span>
-          </h1>
-        </div>
-
-        <!-- Description Paragraph -->
-        <p class="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl mb-8 scroll-reveal scroll-reveal-delay-2">
-          게이즈인투의 AI는 노안의 진행 단계를 정량 판독하고, 당신의 눈이 실제로 머무는 거리에 맞춰 처방을 설계합니다.
-        </p>
-
-
-        <!-- CTA Buttons (Hidden for now, preserved for future feature additions) -->
-        <div class="hidden flex-wrap items-center gap-4 mb-16 scroll-reveal scroll-reveal-delay-3" id="hero-cta-buttons">
-          <button
-            type="button"
-            onclick="window.openContactModal('trial')"
-            class="px-8 py-4 rounded bg-[#0F2236] hover:bg-[#1A334E] text-white text-sm font-bold tracking-tight shadow-sm transition-all duration-200 hover:-translate-y-0.5"
-          >
-            30초 자가 진단 시작
-          </button>
-
-          <button
-            type="button"
-            onclick="window.openContactModal('b2b')"
-            class="px-8 py-4 rounded bg-white hover:bg-slate-50 text-slate-800 text-sm font-semibold tracking-tight border border-slate-300 shadow-sm transition-all duration-200 hover:-translate-y-0.5"
-          >
-            안경원·의원 도입 문의
-          </button>
-        </div>
-
-      </div>
-
-      <!-- Bottom Stats & Validation Bar -->
-      <div class="pt-8 border-t border-slate-200/80 mt-auto scroll-reveal">
-        <div class="flex flex-wrap items-center gap-8 sm:gap-14 text-xs sm:text-sm">
-          <span class="font-mono text-[11px] sm:text-xs font-medium tracking-widest text-slate-400 uppercase">
-            CLINICALLY VALIDATED
-          </span>
-
-          <div class="flex items-baseline gap-1.5">
-            <strong class="font-extrabold text-slate-900 text-base sm:text-lg font-mono">98.4%</strong>
-            <span class="text-slate-500 font-medium">판독 일치율</span>
-          </div>
-
-          <div class="flex items-baseline gap-1.5">
-            <strong class="font-extrabold text-slate-900 text-base sm:text-lg font-mono">4개</strong>
-            <span class="text-slate-500 font-medium">협력 안과</span>
-          </div>
-
-          <div class="flex items-baseline gap-1.5">
-            <strong class="font-extrabold text-slate-900 text-base sm:text-lg font-mono">12만</strong>
-            <span class="text-slate-500 font-medium">학습 데이터</span>
-          </div>
-        </div>
-      </div>
-
+    <!-- Top Pill Badge -->
+    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/90 shadow-sm mb-8 scroll-reveal">
+      <span class="w-2 h-2 rounded-full bg-[#00A396] animate-pulse"></span>
+      <span class="font-mono text-[11px] sm:text-xs font-bold tracking-[0.2em] text-slate-700 uppercase">
+        NEXT-GEN CLINICAL XR SCREENING ENGINE
+      </span>
     </div>
 
-    <!-- Right Section: 28% Width Deep Navy Split Panel -->
-    <div id="right-panel" class="lg:w-[28%] bg-[#081726] px-8 sm:px-12 py-16 sm:py-24 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-slate-900/30 relative select-none overflow-hidden">
+    <!-- Main Headline (Blur to Sharp Interactive Focus) -->
+    <div class="mb-6 select-none max-w-4xl">
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black text-slate-900 tracking-tight leading-[1.12]">
+        <span 
+          id="hero-blurred-text" 
+          class="blur-presbyopia inline-block cursor-default text-slate-800 transition-all duration-700" 
+          title="초점이 흐려진 상태 (스크롤하거나 마우스를 올리면 선명해집니다)"
+        >
+          흐려진 글자 앞에서,
+        </span>
+        <br />
+        <span class="inline-block mt-2 bg-gradient-to-r from-slate-950 via-slate-800 to-slate-900 bg-clip-text text-transparent">
+          시력의 한계를 넘어.
+        </span>
+      </h1>
+    </div>
+
+    <!-- Description Paragraph -->
+    <p class="text-base sm:text-lg md:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl mb-8 scroll-reveal scroll-reveal-delay-1">
+      게이즈인투의 XR Fundus Camera와 AI 엔진이 30초 만에 3대 실명 안질환을 스크리닝하고, 당신의 눈이 실제로 머무는 거리에 맞춰 노안 솔루션을 설계합니다.
+    </p>
+
+    <!-- Key Metrics Pills -->
+    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-14 scroll-reveal scroll-reveal-delay-2">
+      <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm text-xs text-slate-700 font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#00A396]"></span>
+        <strong class="font-mono font-bold text-slate-900">98.4%</strong> 판독 일치율
+      </div>
+      <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm text-xs text-slate-700 font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#22D3EE]"></span>
+        <strong class="font-mono font-bold text-slate-900">30초</strong> 자가 검사
+      </div>
+      <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm text-xs text-slate-700 font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+        <strong class="font-mono font-bold text-slate-900">45°</strong> 광각 무산동 촬영
+      </div>
+      <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm text-xs text-slate-700 font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#00A396]"></span>
+        <strong class="font-mono font-bold text-slate-900">12만+</strong> 학습 데이터
+      </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- 3D Perspective Dashboard Scroll Showcase (Borderless VR Inspired) -->
+    <!-- ============================================================== -->
+    <div id="dashboard-perspective-wrapper" class="w-full relative py-4 scroll-reveal scroll-reveal-delay-3" style="perspective: 1200px;">
       
-      <!-- Ambient Background Radial Glow -->
-      <div class="absolute -top-24 -right-24 w-72 h-72 bg-[#00A396]/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-[#22D3EE]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <!-- Ambient Glow Behind 3D Card -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#00A396]/15 via-[#22D3EE]/15 to-[#00A396]/10 rounded-3xl blur-2xl transform scale-95 pointer-events-none"></div>
 
-      <!-- Top Section: Reading Distance Gauge -->
-      <div class="relative z-10">
-        <div class="flex items-center justify-between mb-8">
-          <div class="font-mono text-xs font-bold tracking-[0.2em] text-[#22D3EE] uppercase flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-ping"></span>
-            READING DISTANCE (cm)
-          </div>
-          <span class="font-mono text-[10px] text-[#00A396] tracking-wider px-2 py-0.5 rounded bg-[#00A396]/10 border border-[#00A396]/20">
-            AUTO SCAN
-          </span>
-        </div>
-
-        <!-- Stepped Distance Gauge Lines with Laser Wave Sequence -->
-        <div class="space-y-6 relative" id="gauge-container">
-          
-          <!-- Moving Scanning Laser Indicator Beam -->
-          <div id="gauge-scan-beam" class="absolute -left-3 w-1.5 h-5 bg-gradient-to-b from-transparent via-[#22D3EE] to-transparent rounded-full shadow-[0_0_10px_#22D3EE] transition-all duration-500 pointer-events-none" style="top: 36px;"></div>
-
-          <!-- 25cm -->
-          <div class="distance-gauge-item flex items-center gap-4 group cursor-pointer transition-all duration-300" data-dist="25" data-add="+2.25" data-index="0">
-            <div class="gauge-line w-10 h-[2px] bg-[#22D3EE] group-hover:w-14 transition-all duration-300 opacity-60"></div>
-            <span class="gauge-num font-mono text-xs font-semibold text-slate-400 group-hover:text-[#22D3EE] transition-colors">25</span>
-          </div>
-
-          <!-- 33cm (Recommended Baseline) -->
-          <div class="distance-gauge-item flex items-center gap-4 group cursor-pointer is-active transition-all duration-300" data-dist="33" data-add="+1.75" data-index="1">
-            <div class="gauge-line w-16 h-[2px] bg-[#22D3EE] group-hover:w-20 transition-all duration-300 shadow-[0_0_12px_rgba(34,211,238,0.9)]"></div>
-            <div class="flex items-center gap-2">
-              <span class="gauge-num font-mono text-xs font-bold text-[#22D3EE]">33</span>
-              <span class="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse"></span>
-            </div>
-          </div>
-
-          <!-- 45cm -->
-          <div class="distance-gauge-item flex items-center gap-4 group cursor-pointer transition-all duration-300" data-dist="45" data-add="+1.25" data-index="2">
-            <div class="gauge-line w-28 h-[2px] bg-[#00A396] group-hover:w-32 transition-all duration-300 opacity-60"></div>
-            <span class="gauge-num font-mono text-xs font-semibold text-slate-400 group-hover:text-[#00A396] transition-colors">45</span>
-          </div>
-
-          <!-- 60cm -->
-          <div class="distance-gauge-item flex items-center gap-4 group cursor-pointer transition-all duration-300" data-dist="60" data-add="+0.75" data-index="3">
-            <div class="gauge-line w-40 h-[2px] bg-[#1E3A52] group-hover:w-44 transition-all duration-300"></div>
-            <span class="gauge-num font-mono text-xs font-medium text-slate-500 group-hover:text-slate-300 transition-colors">60</span>
-          </div>
-
-          <!-- 80cm -->
-          <div class="distance-gauge-item flex items-center gap-4 group cursor-pointer transition-all duration-300" data-dist="80" data-add="+0.50" data-index="4">
-            <div class="gauge-line w-52 h-[1px] bg-[#1E293B] group-hover:w-56 transition-all duration-300"></div>
-            <span class="gauge-num font-mono text-xs font-normal text-slate-600 group-hover:text-slate-400 transition-colors">80</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Middle Interactive Fundus Retina AI Scanner Viewport -->
-      <div id="fundus-scanner-container" class="my-6 py-2 relative flex flex-col items-center justify-center cursor-crosshair group/scanner select-none">
+      <!-- Main Interactive 3D Medical Dashboard Card -->
+      <div 
+        id="hero-3d-dashboard" 
+        class="relative w-full bg-white/95 backdrop-blur-2xl border border-slate-200/90 rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_-15px_rgba(15,23,42,0.1),0_0_1px_1px_rgba(255,255,255,0.8)] p-5 sm:p-7 md:p-9 text-left transition-transform duration-300 ease-out will-change-transform"
+        style="transform: rotateX(14deg) scale(0.94); transform-origin: center top;"
+      >
         
-        <!-- 45° Wide-Angle Fundus Lens Viewport -->
-        <div class="relative w-56 h-56 flex items-center justify-center rounded-full bg-[#040D18]/90 border border-[#00A396]/30 shadow-[0_0_30px_rgba(0,163,150,0.15),inset_0_0_25px_rgba(0,0,0,0.8)] overflow-hidden">
+        <!-- Dashboard Top Control Header Bar -->
+        <div class="flex flex-wrap items-center justify-between pb-5 sm:pb-6 border-b border-slate-100 gap-4 mb-6">
+          <div class="flex items-center gap-3">
+            <!-- Window Control Dots -->
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
+            </div>
+            <div class="h-4 w-[1px] bg-slate-200 mx-1"></div>
+            <div>
+              <span class="font-mono text-xs font-bold text-slate-800 tracking-wider flex items-center gap-1.5">
+                GAZEINTO CLINICAL OS // v2.4
+              </span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 sm:gap-4">
+            <span class="px-2.5 py-1 rounded bg-[#00A396]/10 border border-[#00A396]/20 font-mono text-[10px] sm:text-xs font-semibold text-[#00897B] flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#00A396] animate-ping"></span>
+              LIVE OCULAR TELEMETRY
+            </span>
+            <span class="hidden sm:inline-block font-mono text-xs text-slate-400">
+              ID: #GZ-2026-X8
+            </span>
+          </div>
+        </div>
+
+        <!-- Dashboard Body 3-Column Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           
-          <!-- Radial Lens Polar Grid Background -->
-          <svg class="absolute inset-0 w-full h-full text-[#00A396]/20 pointer-events-none" viewBox="0 0 200 200" fill="none">
-            <!-- Polar Range Rings -->
-            <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2 4" />
-            <circle cx="100" cy="100" r="65" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1 3" />
-            <circle cx="100" cy="100" r="40" stroke="rgba(34,211,238,0.2)" stroke-width="0.75" />
+          <!-- Column 1: Interactive Fundus 45° Lens Viewport (5 Cols) -->
+          <div class="lg:col-span-5 bg-[#081726] rounded-2xl p-5 sm:p-6 text-white relative overflow-hidden flex flex-col justify-between border border-slate-800 shadow-inner">
             
-            <!-- Axis Guides -->
-            <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
-            <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
+            <!-- Lens Header -->
+            <div class="flex items-center justify-between relative z-10 mb-4">
+              <div class="font-mono text-xs font-bold text-[#22D3EE] tracking-wider flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse"></span>
+                45° RETINAL FUNDUS SCAN
+              </div>
+              <span class="font-mono text-[10px] text-slate-400 px-2 py-0.5 rounded bg-slate-800/80 border border-slate-700">
+                NON-MYDRIATIC
+              </span>
+            </div>
+
+            <!-- Lens Circle Centerpiece -->
+            <div id="fundus-viewport" class="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto my-2 rounded-full bg-[#040D18] border border-[#00A396]/40 shadow-[0_0_30px_rgba(0,163,150,0.2),inset_0_0_20px_rgba(0,0,0,0.9)] overflow-hidden cursor-crosshair group/lens">
+              
+              <!-- Polar Coordinates Grid -->
+              <svg class="absolute inset-0 w-full h-full text-[#00A396]/20 pointer-events-none" viewBox="0 0 200 200" fill="none">
+                <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2 4" />
+                <circle cx="100" cy="100" r="65" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1 3" />
+                <circle cx="100" cy="100" r="40" stroke="rgba(34,211,238,0.2)" stroke-width="0.75" />
+                <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
+                <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" />
+                <text x="100" y="14" text-anchor="middle" fill="#00A396" font-size="6" font-family="monospace" opacity="0.6">0°</text>
+                <text x="188" y="102" text-anchor="middle" fill="#00A396" font-size="6" font-family="monospace" opacity="0.6">90°</text>
+                <text x="100" y="190" text-anchor="middle" fill="#00A396" font-size="6" font-family="monospace" opacity="0.6">180°</text>
+                <text x="12" y="102" text-anchor="middle" fill="#00A396" font-size="6" font-family="monospace" opacity="0.6">270°</text>
+              </svg>
+
+              <!-- Retinal Anatomy Vectors (Optic Disc, Macula, Vessels) -->
+              <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 200" fill="none">
+                <!-- Optic Disc (시신경 유두) -->
+                <g id="target-optic-disc" class="transition-all duration-300">
+                  <circle cx="72" cy="100" r="14" fill="#22D3EE" fill-opacity="0.15" stroke="#22D3EE" stroke-width="1" />
+                  <circle cx="72" cy="100" r="6" fill="#22D3EE" fill-opacity="0.3" />
+                  <circle cx="72" cy="100" r="2" fill="#FFFFFF" />
+                </g>
+
+                <!-- Retinal Vessels -->
+                <path d="M 72 100 Q 85 70 120 50 Q 150 40 170 35" stroke="#00A396" stroke-width="1.2" stroke-linecap="round" opacity="0.75" />
+                <path d="M 72 100 Q 85 130 125 150 Q 155 160 175 165" stroke="#00A396" stroke-width="1.2" stroke-linecap="round" opacity="0.75" />
+                <path d="M 72 100 Q 55 65 30 50" stroke="#00A396" stroke-width="1" stroke-linecap="round" opacity="0.5" />
+                <path d="M 72 100 Q 55 135 30 150" stroke="#00A396" stroke-width="1" stroke-linecap="round" opacity="0.5" />
+
+                <!-- Macula & Fovea (황반) -->
+                <g id="target-macula" class="transition-all duration-300">
+                  <circle cx="125" cy="100" r="18" stroke="#00A396" stroke-width="1" stroke-dasharray="3 3" class="animate-pulse" />
+                  <circle cx="125" cy="100" r="8" fill="#00A396" fill-opacity="0.25" stroke="#22D3EE" stroke-width="1" />
+                  <circle cx="125" cy="100" r="3" fill="#22D3EE" />
+                </g>
+
+                <!-- Dual Gaze Reticles -->
+                <circle cx="92" cy="100" r="26" stroke="rgba(255,255,255,0.4)" stroke-width="0.75" />
+                <circle cx="108" cy="100" r="26" stroke="#00A396" stroke-width="0.75" />
+              </svg>
+
+              <!-- Rotating Radar Sweep -->
+              <div class="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,transparent_0deg,transparent_270deg,rgba(34,211,238,0.25)_360deg)] animate-spin-slow pointer-events-none"></div>
+
+              <!-- Interactive Crosshair -->
+              <div id="lens-crosshair" class="absolute w-10 h-10 pointer-events-none flex items-center justify-center transition-transform duration-75 ease-out">
+                <div class="w-6 h-6 rounded-full border border-[#22D3EE] shadow-[0_0_8px_#22D3EE] flex items-center justify-center">
+                  <div class="w-1 h-1 rounded-full bg-[#22D3EE] animate-ping"></div>
+                </div>
+                <div class="absolute -top-1 w-0.5 h-1.5 bg-[#22D3EE]"></div>
+                <div class="absolute -bottom-1 w-0.5 h-1.5 bg-[#22D3EE]"></div>
+                <div class="absolute -left-1 w-1.5 h-0.5 bg-[#22D3EE]"></div>
+                <div class="absolute -right-1 w-1.5 h-0.5 bg-[#22D3EE]"></div>
+              </div>
+
+              <!-- Dynamic Corner Tags -->
+              <div class="absolute top-2 left-2 bg-slate-900/80 backdrop-blur-md px-1.5 py-0.5 rounded text-[8px] font-mono text-[#22D3EE]">
+                FOV 45°
+              </div>
+              <div class="absolute bottom-2 right-2 bg-slate-900/80 backdrop-blur-md px-1.5 py-0.5 rounded text-[8px] font-mono text-[#00A396]">
+                AI ACTIVE
+              </div>
+            </div>
+
+            <!-- Live Biomarker Readout Matrix -->
+            <div class="grid grid-cols-3 gap-2 mt-3 text-[10px] font-mono">
+              <div class="p-2 rounded bg-slate-900/70 border border-slate-800 text-center" id="dash-bio-amd">
+                <div class="text-slate-400 text-[9px]">황반 (AMD)</div>
+                <div class="text-[#22D3EE] font-bold mt-0.5">정상 &lt;1%</div>
+              </div>
+              <div class="p-2 rounded bg-slate-900/70 border border-slate-800 text-center" id="dash-bio-glaucoma">
+                <div class="text-slate-400 text-[9px]">시신경 (C/D)</div>
+                <div class="text-[#00A396] font-bold mt-0.5">0.32 안정</div>
+              </div>
+              <div class="p-2 rounded bg-slate-900/70 border border-slate-800 text-center" id="dash-bio-dr">
+                <div class="text-slate-400 text-[9px]">망막혈관 (DR)</div>
+                <div class="text-slate-300 font-bold mt-0.5">Clear</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Column 2: Working Distance & Refractive ADD (4 Cols) -->
+          <div class="lg:col-span-4 bg-slate-50/70 rounded-2xl p-5 sm:p-6 border border-slate-200/80 flex flex-col justify-between">
             
-            <!-- Angle Degree Marks -->
-            <text x="100" y="16" text-anchor="middle" fill="#00A396" font-size="6" font-family="monospace" opacity="0.6">0°</text>
-            <text x="186" y="102" text-anchor="middle" fill="#00A396" font-size="6" font-family="monospace" opacity="0.6">90°</text>
-            <text x="100" y="188" text-anchor="middle" fill="#00A396" font-size="6" font-family="monospace" opacity="0.6">180°</text>
-            <text x="14" y="102" text-anchor="middle" fill="#00A396" font-size="6" font-family="monospace" opacity="0.6">270°</text>
-          </svg>
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="font-mono text-xs font-bold tracking-wider text-slate-800 uppercase flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
+                  DISTANCE GAUGE (cm)
+                </div>
+                <span class="font-mono text-[10px] text-slate-500 font-medium">
+                  SELECT / HOVER
+                </span>
+              </div>
 
-          <!-- Retinal Vascular Network & Macula Optical Map -->
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 200" fill="none">
-            <!-- Optic Disc (시신경 유두 - Nasal side) -->
-            <g id="target-optic-disc" class="transition-all duration-300">
-              <circle cx="72" cy="100" r="14" fill="#22D3EE" fill-opacity="0.12" stroke="#22D3EE" stroke-width="1" class="drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]" />
-              <circle cx="72" cy="100" r="7" fill="#22D3EE" fill-opacity="0.25" />
-              <circle cx="72" cy="100" r="2.5" fill="#FFFFFF" />
-            </g>
+              <!-- Distance stepped bars -->
+              <div class="space-y-3 relative py-2" id="dash-gauge-container">
+                
+                <!-- 25cm -->
+                <div class="dash-gauge-item flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200/80 hover:border-[#00A396] cursor-pointer transition-all duration-200 group" data-dist="25" data-add="+2.25">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-1 rounded-full bg-slate-300 group-hover:bg-[#00A396] transition-colors"></span>
+                    <span class="font-mono text-xs font-bold text-slate-700">25 cm</span>
+                  </div>
+                  <span class="font-mono text-xs font-semibold text-slate-500 group-hover:text-[#00A396]">+2.25 D</span>
+                </div>
 
-            <!-- Retinal Vessels Branching (망막 혈관망) -->
-            <path d="M 72 100 Q 85 70 120 50 Q 150 40 170 35" stroke="#00A396" stroke-width="1.2" stroke-linecap="round" opacity="0.75" />
-            <path d="M 72 100 Q 85 130 125 150 Q 155 160 175 165" stroke="#00A396" stroke-width="1.2" stroke-linecap="round" opacity="0.75" />
-            <path d="M 72 100 Q 55 65 30 50" stroke="#00A396" stroke-width="1" stroke-linecap="round" opacity="0.5" />
-            <path d="M 72 100 Q 55 135 30 150" stroke="#00A396" stroke-width="1" stroke-linecap="round" opacity="0.5" />
-            <path d="M 85 70 Q 100 80 125 78" stroke="#22D3EE" stroke-width="0.75" opacity="0.6" stroke-dasharray="2 2" />
-            <path d="M 85 130 Q 105 120 125 122" stroke="#22D3EE" stroke-width="0.75" opacity="0.6" stroke-dasharray="2 2" />
+                <!-- 33cm (Recommended) -->
+                <div class="dash-gauge-item is-active flex items-center justify-between p-2.5 rounded-lg bg-teal-50/60 border-2 border-[#00A396] cursor-pointer transition-all duration-200 group" data-dist="33" data-add="+1.75">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-12 h-1.5 rounded-full bg-[#00A396]"></span>
+                    <div class="flex items-center gap-1.5">
+                      <span class="font-mono text-xs font-black text-slate-900">33 cm</span>
+                      <span class="px-1.5 py-0.5 rounded bg-[#00A396] text-white text-[9px] font-bold">권장</span>
+                    </div>
+                  </div>
+                  <span class="font-mono text-xs font-bold text-[#00A396]">+1.75 D</span>
+                </div>
 
-            <!-- Macula & Fovea (황반 및 중심와 - Temporal Center) -->
-            <g id="target-macula" class="transition-all duration-300">
-              <circle cx="125" cy="100" r="18" stroke="#00A396" stroke-width="1" stroke-dasharray="3 3" class="animate-pulse" />
-              <circle cx="125" cy="100" r="9" fill="#00A396" fill-opacity="0.25" stroke="#22D3EE" stroke-width="1" />
-              <circle cx="125" cy="100" r="3" fill="#22D3EE" class="shadow-[0_0_8px_#22D3EE]" />
-              <circle cx="125" cy="100" r="1" fill="#FFFFFF" />
-            </g>
+                <!-- 45cm -->
+                <div class="dash-gauge-item flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200/80 hover:border-[#00A396] cursor-pointer transition-all duration-200 group" data-dist="45" data-add="+1.25">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-16 h-1 rounded-full bg-slate-300 group-hover:bg-[#00A396] transition-colors"></span>
+                    <span class="font-mono text-xs font-bold text-slate-700">45 cm</span>
+                  </div>
+                  <span class="font-mono text-xs font-semibold text-slate-500 group-hover:text-[#00A396]">+1.25 D</span>
+                </div>
 
-            <!-- GazeInto Overlapping Focal Reticle (Symbolic Optic Signature) -->
-            <circle cx="92" cy="100" r="28" stroke="rgba(255,255,255,0.4)" stroke-width="1" />
-            <circle cx="108" cy="100" r="28" stroke="#00A396" stroke-width="1" />
-          </svg>
+                <!-- 60cm -->
+                <div class="dash-gauge-item flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200/80 hover:border-[#00A396] cursor-pointer transition-all duration-200 group" data-dist="60" data-add="+0.75">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-20 h-1 rounded-full bg-slate-300 group-hover:bg-[#00A396] transition-colors"></span>
+                    <span class="font-mono text-xs font-bold text-slate-700">60 cm</span>
+                  </div>
+                  <span class="font-mono text-xs font-semibold text-slate-500 group-hover:text-[#00A396]">+0.75 D</span>
+                </div>
 
-          <!-- 360° Rotating Radar Scanning Beam -->
-          <div class="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,transparent_0deg,transparent_270deg,rgba(34,211,238,0.25)_360deg)] animate-spin-slow pointer-events-none"></div>
-
-          <!-- Interactive Mouse-Tracking Target Crosshair -->
-          <div id="scanner-aim-crosshair" class="absolute w-12 h-12 pointer-events-none flex items-center justify-center transition-transform duration-75 ease-out">
-            <div class="w-8 h-8 rounded-full border border-[#22D3EE] shadow-[0_0_10px_#22D3EE] flex items-center justify-center">
-              <div class="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-ping"></div>
+              </div>
             </div>
-            <!-- Target Cross lines -->
-            <div class="absolute -top-1 w-0.5 h-2 bg-[#22D3EE]"></div>
-            <div class="absolute -bottom-1 w-0.5 h-2 bg-[#22D3EE]"></div>
-            <div class="absolute -left-1 w-2 h-0.5 bg-[#22D3EE]"></div>
-            <div class="absolute -right-1 w-2 h-0.5 bg-[#22D3EE]"></div>
+
+            <!-- Dynamic Recommended ADD Callout Card -->
+            <div class="mt-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
+              <div>
+                <div class="font-mono text-[10px] font-bold text-slate-400 uppercase">CALCULATED ADD</div>
+                <div class="text-xs text-slate-600">근거리 업무 보정치</div>
+              </div>
+              <div id="dash-add-display" class="font-mono text-3xl font-black text-slate-900 tracking-tight">
+                +1.75
+              </div>
+            </div>
+
           </div>
 
-          <!-- Dynamic Biomarker Alert Badges on Lens -->
-          <div class="absolute top-3 left-3 bg-[#081726]/85 backdrop-blur-md border border-[#00A396]/30 px-2 py-0.5 rounded text-[8px] font-mono text-[#22D3EE] flex items-center gap-1">
-            <span class="w-1 h-1 rounded-full bg-[#22D3EE] animate-pulse"></span>
-            <span>FUNDUS 45°</span>
+          <!-- Column 3: Telemetry & AI Diagnostic Engine Status (3 Cols) -->
+          <div class="lg:col-span-3 bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 flex flex-col justify-between">
+            
+            <div>
+              <div class="font-mono text-xs font-bold text-slate-800 tracking-wider mb-4 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#22D3EE]"></span>
+                XR TELEMETRY
+              </div>
+
+              <!-- Metric Stack -->
+              <div class="space-y-3.5">
+                
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-500 font-medium">자동 정렬 정확도</span>
+                    <span class="font-mono font-bold text-slate-900">99.8%</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                    <div class="h-full bg-[#00A396] rounded-full" style="width: 99.8%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-500 font-medium">동공 트래킹 (무산동)</span>
+                    <span class="font-mono font-bold text-slate-900">3.2 mm</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                    <div class="h-full bg-[#22D3EE] rounded-full" style="width: 85%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-500 font-medium">측정 소요 시간</span>
+                    <span class="font-mono font-bold text-slate-900">28.4 초</span>
+                  </div>
+                  <div class="w-full h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                    <div class="h-full bg-slate-800 rounded-full" style="width: 94%;"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Bottom Clinical Quality Shield -->
+            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-teal-50 border border-teal-200 flex items-center justify-center text-[#00A396] shrink-0 font-bold text-xs">
+                ✓
+              </div>
+              <div class="text-[11px] leading-tight text-slate-600">
+                <strong class="text-slate-900 block font-semibold">임상 신뢰도 검증 완료</strong>
+                K-FDA 기준 일치율 판정
+              </div>
+            </div>
+
           </div>
 
-          <div class="absolute bottom-3 right-3 bg-[#081726]/85 backdrop-blur-md border border-[#00A396]/30 px-2 py-0.5 rounded text-[8px] font-mono text-[#00A396] flex items-center gap-1">
-            <span class="w-1 h-1 rounded-full bg-[#00A396]"></span>
-            <span>AI SCAN // ACTIVE</span>
-          </div>
         </div>
 
-        <!-- Realtime Disease Screening Status Stream -->
-        <div class="mt-3 w-full max-w-[240px] space-y-1.5">
-          <!-- Biomarker 1: Macula (AMD) -->
-          <div class="flex items-center justify-between px-2.5 py-1 rounded bg-slate-900/60 border border-slate-800 text-[9px] font-mono transition-colors duration-200" id="bio-amd">
-            <div class="flex items-center gap-1.5 text-slate-300">
-              <span class="w-1 h-1 rounded-full bg-[#22D3EE]"></span>
-              <span>황반 (Macula AMD)</span>
-            </div>
-            <span class="text-[#22D3EE] font-semibold">정상 (Risk &lt;1%)</span>
-          </div>
-
-          <!-- Biomarker 2: Optic Disc (Glaucoma) -->
-          <div class="flex items-center justify-between px-2.5 py-1 rounded bg-slate-900/60 border border-slate-800 text-[9px] font-mono transition-colors duration-200" id="bio-glaucoma">
-            <div class="flex items-center gap-1.5 text-slate-300">
-              <span class="w-1 h-1 rounded-full bg-[#00A396]"></span>
-              <span>시신경 (Glaucoma)</span>
-            </div>
-            <span class="text-[#00A396] font-semibold">C/D 0.32 안정</span>
-          </div>
-
-          <!-- Biomarker 3: Vessels (DR) -->
-          <div class="flex items-center justify-between px-2.5 py-1 rounded bg-slate-900/60 border border-slate-800 text-[9px] font-mono transition-colors duration-200" id="bio-dr">
-            <div class="flex items-center gap-1.5 text-slate-300">
-              <span class="w-1 h-1 rounded-full bg-slate-400"></span>
-              <span>망막혈관 (DR)</span>
-            </div>
-            <span class="text-slate-300 font-semibold">Clear</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Bottom Section: Recommended Add & Output -->
-      <div class="pt-6 border-t border-slate-800/80 relative z-10">
-        <div class="font-mono text-[11px] font-bold tracking-[0.2em] text-[#94A3B8] uppercase mb-2">
-          RECOMMENDED ADD
-        </div>
-        
-        <div class="flex items-baseline gap-1 text-white mb-2">
-          <span id="hero-add-display" class="text-5xl sm:text-6xl font-black font-mono tracking-tight text-white drop-shadow-sm transition-all duration-300">
-            +1.75
-          </span>
-        </div>
-
-        <p class="text-xs text-slate-400 font-normal leading-relaxed flex items-center justify-between">
-          <span>근거리 업무 비중 기반 보정값</span>
-          <span class="font-mono text-[10px] text-[#22D3EE]">LIVE OPTIC</span>
-        </p>
       </div>
 
     </div>
@@ -286,158 +349,185 @@
 </section>
 
 <script>
-  // Distance Gauge Logic
-  const addDisplay = document.getElementById('hero-add-display');
-  const gaugeItems = document.querySelectorAll('.distance-gauge-item');
-  const scanBeam = document.getElementById('gauge-scan-beam');
+  // ==============================================================
+  // 3D Perspective Scroll & Mouse Parallax Animation (Borderless VR Style)
+  // ==============================================================
+  const dashboardCard = document.getElementById('hero-3d-dashboard');
+  const perspectiveWrapper = document.getElementById('dashboard-perspective-wrapper');
 
-  let activeIndex = 1; // Default at 33cm
-  let isUserHoveringGauge = false;
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetTiltX = 14;
+  let targetTiltY = 0;
+  let currentTiltX = 14;
+  let currentTiltY = 0;
+  let currentScale = 0.94;
+  let targetScale = 0.94;
 
-  const positions = [4, 40, 78, 116, 154]; // Y offsets for beam
+  function updateScrollPerspective() {
+    if (!dashboardCard) return;
+    
+    // Calculate scroll progress through hero section
+    const scrollY = window.scrollY;
+    const scrollMax = 450;
+    const progress = Math.min(1, Math.max(0, scrollY / scrollMax));
 
-  function setActiveGauge(index: number) {
-    gaugeItems.forEach((item, i) => {
-      const line = item.querySelector('.gauge-line') as HTMLElement;
-      const num = item.querySelector('.gauge-num') as HTMLElement;
-      const addVal = item.getAttribute('data-add');
-
-      if (i === index) {
-        item.classList.add('is-active');
-        if (line) {
-          line.style.opacity = '1';
-          line.style.boxShadow = '0 0 12px rgba(34, 211, 238, 0.9)';
-          line.style.backgroundColor = '#22D3EE';
-        }
-        if (num) {
-          num.style.color = '#22D3EE';
-          num.style.fontWeight = '700';
-        }
-        if (addDisplay && addVal) {
-          addDisplay.textContent = addVal;
-        }
-      } else {
-        item.classList.remove('is-active');
-        if (line) {
-          line.style.boxShadow = 'none';
-          line.style.backgroundColor = i > 2 ? '#1E3A52' : (i === 2 ? '#00A396' : '#22D3EE');
-          line.style.opacity = i > 2 ? '0.4' : '0.6';
-        }
-        if (num) {
-          num.style.color = '';
-          num.style.fontWeight = '400';
-        }
-      }
-    });
-
-    if (scanBeam && positions[index] !== undefined) {
-      scanBeam.style.top = `${positions[index]}px`;
-    }
+    // Progress 0 -> 1 transitions from angled 3D (14deg) to flat (0deg) & scales up (0.94 -> 1.0)
+    targetTiltX = 14 * (1 - progress);
+    targetScale = 0.94 + 0.06 * progress;
   }
 
-  // Automatic Sequential Laser Wave cycle every 2.6s when not hovering
-  setInterval(() => {
-    if (!isUserHoveringGauge) {
-      activeIndex = (activeIndex + 1) % gaugeItems.length;
-      setActiveGauge(activeIndex);
-    }
-  }, 2600);
+  window.addEventListener('scroll', updateScrollPerspective, { passive: true });
 
-  // Manual hover immediately highlights item
-  gaugeItems.forEach((item, idx) => {
-    item.addEventListener('mouseenter', () => {
-      isUserHoveringGauge = true;
-      setActiveGauge(idx);
-    });
-
-    item.addEventListener('mouseleave', () => {
-      isUserHoveringGauge = false;
-    });
-  });
-
-  // Init Gauge
-  setActiveGauge(1);
-
-  // ==============================================================
-  // Interactive Fundus Retina AI Scanner Crosshair Tracking
-  // ==============================================================
-  const scannerContainer = document.getElementById('fundus-scanner-container');
-  const crosshair = document.getElementById('scanner-aim-crosshair');
-  const bioAmd = document.getElementById('bio-amd');
-  const bioGlaucoma = document.getElementById('bio-glaucoma');
-  const bioDr = document.getElementById('bio-dr');
-
-  let targetX = 0;
-  let targetY = 0;
-  let currentX = 0;
-  let currentY = 0;
-  let isHovering = false;
-  let idleTime = 0;
-
+  // Mouse gyro tilt on the perspective card
   window.addEventListener('mousemove', (e) => {
-    if (!scannerContainer) return;
-    const rect = scannerContainer.getBoundingClientRect();
+    if (!perspectiveWrapper) return;
+    const rect = perspectiveWrapper.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
 
-    const deltaX = e.clientX - centerX;
-    const deltaY = e.clientY - centerY;
+    const deltaX = (e.clientX - centerX) / (window.innerWidth * 0.5);
+    const deltaY = (e.clientY - centerY) / (window.innerHeight * 0.5);
 
-    targetX = Math.max(-1, Math.min(1, deltaX / (window.innerWidth * 0.4)));
-    targetY = Math.max(-1, Math.min(1, deltaY / (window.innerHeight * 0.4)));
-    isHovering = true;
-    idleTime = 0;
+    targetTiltY = Math.max(-6, Math.min(6, deltaX * 8));
+    targetTiltX = Math.max(-2, Math.min(16, targetTiltX - deltaY * 4));
   });
 
-  function renderScanner() {
-    if (!isHovering) {
-      idleTime += 0.03;
-      targetX = Math.sin(idleTime * 0.8) * 0.45;
-      targetY = Math.cos(idleTime * 0.6) * 0.35;
+  function render3DCard() {
+    currentTiltX += (targetTiltX - currentTiltX) * 0.08;
+    currentTiltY += (targetTiltY - currentTiltY) * 0.08;
+    currentScale += (targetScale - currentScale) * 0.08;
+
+    if (dashboardCard) {
+      dashboardCard.style.transform = `rotateX(${currentTiltX.toFixed(2)}deg) rotateY(${currentTiltY.toFixed(2)}deg) scale(${currentScale.toFixed(3)})`;
     }
 
-    currentX += (targetX - currentX) * 0.09;
-    currentY += (targetY - currentY) * 0.09;
+    requestAnimationFrame(render3DCard);
+  }
 
-    const maxShift = 55; // pixels travel radius on lens
-    const crossX = currentX * maxShift;
-    const crossY = currentY * maxShift;
+  render3DCard();
+  updateScrollPerspective();
 
-    if (crosshair) {
-      crosshair.style.transform = `translate(${crossX}px, ${crossY}px)`;
+  // ==============================================================
+  // Interactive Reading Distance Gauge & ADD Readout
+  // ==============================================================
+  const dashAddDisplay = document.getElementById('dash-add-display');
+  const dashGaugeItems = document.querySelectorAll('.dash-gauge-item');
+
+  let activeGaugeIndex = 1; // Default 33cm
+  let isHoveringGauge = false;
+
+  function setDashboardGauge(index: number) {
+    dashGaugeItems.forEach((item, i) => {
+      const addVal = item.getAttribute('data-add');
+
+      if (i === index) {
+        item.classList.add('is-active', 'bg-teal-50/60', 'border-2', 'border-[#00A396]');
+        item.classList.remove('bg-white', 'border-slate-200/80');
+        if (dashAddDisplay && addVal) {
+          dashAddDisplay.textContent = addVal;
+        }
+      } else {
+        item.classList.remove('is-active', 'bg-teal-50/60', 'border-2', 'border-[#00A396]');
+        item.classList.add('bg-white', 'border-slate-200/80');
+      }
+    });
+  }
+
+  dashGaugeItems.forEach((item, idx) => {
+    item.addEventListener('mouseenter', () => {
+      isHoveringGauge = true;
+      setDashboardGauge(idx);
+    });
+
+    item.addEventListener('mouseleave', () => {
+      isHoveringGauge = false;
+    });
+
+    item.addEventListener('click', () => {
+      activeGaugeIndex = idx;
+      setDashboardGauge(idx);
+    });
+  });
+
+  // Cycle automatically every 3.2s when idle
+  setInterval(() => {
+    if (!isHoveringGauge) {
+      activeGaugeIndex = (activeGaugeIndex + 1) % dashGaugeItems.length;
+      setDashboardGauge(activeGaugeIndex);
+    }
+  }, 3200);
+
+  // ==============================================================
+  // Interactive Lens Crosshair & Biomarker Tracking
+  // ==============================================================
+  const lensViewport = document.getElementById('fundus-viewport');
+  const lensCrosshair = document.getElementById('lens-crosshair');
+  const dashBioAmd = document.getElementById('dash-bio-amd');
+  const dashBioGlaucoma = document.getElementById('dash-bio-glaucoma');
+  const dashBioDr = document.getElementById('dash-bio-dr');
+
+  let lensTargetX = 0;
+  let lensTargetY = 0;
+  let lensCurrX = 0;
+  let lensCurrY = 0;
+  let isLensHover = false;
+  let lensIdleTime = 0;
+
+  if (lensViewport) {
+    lensViewport.addEventListener('mousemove', (e) => {
+      const rect = lensViewport.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      lensTargetX = Math.max(-1, Math.min(1, (e.clientX - centerX) / (rect.width * 0.5)));
+      lensTargetY = Math.max(-1, Math.min(1, (e.clientY - centerY) / (rect.height * 0.5)));
+      isLensHover = true;
+      lensIdleTime = 0;
+    });
+
+    lensViewport.addEventListener('mouseleave', () => {
+      isLensHover = false;
+    });
+  }
+
+  function renderLens() {
+    if (!isLensHover) {
+      lensIdleTime += 0.025;
+      lensTargetX = Math.sin(lensIdleTime * 0.7) * 0.45;
+      lensTargetY = Math.cos(lensIdleTime * 0.5) * 0.35;
     }
 
-    // Dynamic Biomarker Highlights based on position
-    if (bioAmd && bioGlaucoma && bioDr) {
-      // Right temporal is Macula
-      if (currentX > 0.2) {
-        bioAmd.classList.add('border-[#22D3EE]', 'bg-[#22D3EE]/10');
-        bioGlaucoma.classList.remove('border-[#00A396]', 'bg-[#00A396]/10');
-        bioDr.classList.remove('border-slate-500', 'bg-slate-800');
-      } 
-      // Left nasal is Optic Disc
-      else if (currentX < -0.2) {
-        bioGlaucoma.classList.add('border-[#00A396]', 'bg-[#00A396]/10');
-        bioAmd.classList.remove('border-[#22D3EE]', 'bg-[#22D3EE]/10');
-        bioDr.classList.remove('border-slate-500', 'bg-slate-800');
-      } 
-      // Center vessels
-      else {
-        bioDr.classList.add('border-slate-500', 'bg-slate-800');
-        bioAmd.classList.remove('border-[#22D3EE]', 'bg-[#22D3EE]/10');
-        bioGlaucoma.classList.remove('border-[#00A396]', 'bg-[#00A396]/10');
+    lensCurrX += (lensTargetX - lensCurrX) * 0.1;
+    lensCurrY += (lensTargetY - lensCurrY) * 0.1;
+
+    const maxShift = 50;
+    const posX = lensCurrX * maxShift;
+    const posY = lensCurrY * maxShift;
+
+    if (lensCrosshair) {
+      lensCrosshair.style.transform = `translate(${posX}px, ${posY}px)`;
+    }
+
+    // Dynamic Biomarker Highlights
+    if (dashBioAmd && dashBioGlaucoma && dashBioDr) {
+      if (lensCurrX > 0.2) {
+        dashBioAmd.classList.add('border-[#22D3EE]', 'bg-slate-800');
+        dashBioGlaucoma.classList.remove('border-[#00A396]', 'bg-slate-800');
+        dashBioDr.classList.remove('border-[#00A396]', 'bg-slate-800');
+      } else if (lensCurrX < -0.2) {
+        dashBioGlaucoma.classList.add('border-[#00A396]', 'bg-slate-800');
+        dashBioAmd.classList.remove('border-[#22D3EE]', 'bg-slate-800');
+        dashBioDr.classList.remove('border-[#00A396]', 'bg-slate-800');
+      } else {
+        dashBioDr.classList.add('border-slate-500', 'bg-slate-800');
+        dashBioAmd.classList.remove('border-[#22D3EE]', 'bg-slate-800');
+        dashBioGlaucoma.classList.remove('border-[#00A396]', 'bg-slate-800');
       }
     }
 
-    requestAnimationFrame(renderScanner);
+    requestAnimationFrame(renderLens);
   }
 
-  renderScanner();
+  renderLens();
 </script>
-
-
-
-
-
-
-
