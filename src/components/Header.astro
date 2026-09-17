@@ -18,32 +18,41 @@
     </a>
 
     <!-- Navigation Menu with ScrollSpy Capsule -->
-    <nav class="flex items-center gap-2 sm:gap-4 p-1 rounded-full bg-slate-200/40 border border-slate-200/60 text-xs sm:text-sm font-medium text-slate-600" id="header-nav">
+    <nav class="flex items-center gap-1.5 sm:gap-2 p-1 rounded-full bg-slate-200/40 border border-slate-200/60 text-xs sm:text-sm font-medium text-slate-600" id="header-nav">
+      <a 
+        href="#hero" 
+        id="nav-hero"
+        class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80"
+      >
+        <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396]"></span>
+        <span>01 대시보드</span>
+      </a>
+
       <a 
         href="#technology" 
         id="nav-tech"
-        class="nav-link px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900"
+        class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
-        <span>01 기술</span>
+        <span>02 기술</span>
       </a>
 
       <a 
         href="#clinical" 
         id="nav-clinical"
-        class="nav-link px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900"
+        class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
-        <span>02 임상 근거</span>
+        <span>03 임상 근거</span>
       </a>
 
       <a 
         href="#faq" 
         id="nav-faq"
-        class="nav-link px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900"
+        class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
-        <span>03 FAQ</span>
+        <span>04 FAQ</span>
       </a>
     </nav>
 
@@ -75,6 +84,7 @@
 
   // ScrollSpy Active Capsule Switcher
   const sections = [
+    { id: 'hero', navId: 'nav-hero' },
     { id: 'technology', navId: 'nav-tech' },
     { id: 'clinical', navId: 'nav-clinical' },
     { id: 'faq', navId: 'nav-faq' }
@@ -86,21 +96,21 @@
         const matching = sections.find(s => s.id === entry.target.id);
         if (matching) {
           document.querySelectorAll('.nav-link').forEach(link => {
-            link.className = 'nav-link px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600';
+            link.className = 'nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600';
             const dot = link.querySelector('.nav-dot');
             if (dot) dot.classList.add('hidden');
           });
 
           const activeLink = document.getElementById(matching.navId);
           if (activeLink) {
-            activeLink.className = 'nav-link px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80';
+            activeLink.className = 'nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80';
             const dot = activeLink.querySelector('.nav-dot');
             if (dot) dot.classList.remove('hidden');
           }
         }
       }
     });
-  }, { threshold: 0.25, rootMargin: '-80px 0px -50% 0px' });
+  }, { threshold: 0.2, rootMargin: '-70px 0px -40% 0px' });
 
   sections.forEach(s => {
     const el = document.getElementById(s.id);
