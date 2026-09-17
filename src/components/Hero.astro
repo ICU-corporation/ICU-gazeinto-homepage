@@ -1,10 +1,27 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-[85vh] lg:min-h-[90vh] pt-20 flex flex-col justify-between bg-[#F8FAFC] overflow-hidden">
+<section id="hero" class="relative min-h-[90vh] lg:min-h-screen pt-20 flex flex-col justify-between bg-[#F8FAFC] overflow-hidden">
   
+  <!-- Ambient Video Background Layer -->
+  <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      class="w-full h-full object-cover object-center opacity-75 scale-105"
+    >
+      <source src="/videos/hero-bg.mp4" type="video/mp4" />
+    </video>
+    
+    <!-- Sophisticated Overlay for Perfect Contrast & Typography Visibility -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC] via-[#F8FAFC]/85 to-[#F8FAFC]/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-transparent to-[#F8FAFC]/30"></div>
+  </div>
+
   <!-- Main Clean Light Container -->
-  <div class="w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 flex-1 flex flex-col justify-between pt-16 sm:pt-24 lg:pt-32 pb-16">
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 flex-1 flex flex-col justify-between pt-16 sm:pt-24 lg:pt-32 pb-16">
     
     <!-- Top / Main Content Block -->
     <div class="max-w-3xl">
@@ -12,7 +29,7 @@
       <!-- Category Tag -->
       <div class="flex items-center gap-2 mb-8 scroll-reveal">
         <span class="w-5 h-[2px] bg-[#00A396] scroll-line"></span>
-        <span class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase">
+        <span class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase drop-shadow-sm">
           노안 AI 진단 & 처방 엔진
         </span>
       </div>
@@ -33,7 +50,7 @@
       </div>
 
       <!-- Description Paragraph -->
-      <p class="text-base sm:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl mb-8 scroll-reveal scroll-reveal-delay-2">
+      <p class="text-base sm:text-xl text-slate-700 font-medium leading-relaxed max-w-2xl mb-8 scroll-reveal scroll-reveal-delay-2">
         게이즈인투의 AI는 노안의 진행 단계를 정량 판독하고, 당신의 눈이 실제로 머무는 거리에 맞춰 처방을 설계합니다.
       </p>
 
@@ -59,25 +76,25 @@
     </div>
 
     <!-- Bottom Stats & Validation Bar -->
-    <div class="pt-8 border-t border-slate-200/80 mt-16 sm:mt-24 scroll-reveal">
+    <div class="pt-8 border-t border-slate-200/90 backdrop-blur-sm mt-16 sm:mt-24 scroll-reveal">
       <div class="flex flex-wrap items-center gap-8 sm:gap-14 text-xs sm:text-sm">
-        <span class="font-mono text-[11px] sm:text-xs font-medium tracking-widest text-slate-400 uppercase">
+        <span class="font-mono text-[11px] sm:text-xs font-semibold tracking-widest text-slate-500 uppercase">
           CLINICALLY VALIDATED
         </span>
 
         <div class="flex items-baseline gap-1.5">
           <strong class="font-extrabold text-slate-900 text-base sm:text-lg font-mono">98.4%</strong>
-          <span class="text-slate-500 font-medium">판독 일치율</span>
+          <span class="text-slate-600 font-medium">판독 일치율</span>
         </div>
 
         <div class="flex items-baseline gap-1.5">
           <strong class="font-extrabold text-slate-900 text-base sm:text-lg font-mono">4개</strong>
-          <span class="text-slate-500 font-medium">협력 안과</span>
+          <span class="text-slate-600 font-medium">협력 안과</span>
         </div>
 
         <div class="flex items-baseline gap-1.5">
           <strong class="font-extrabold text-slate-900 text-base sm:text-lg font-mono">12만</strong>
-          <span class="text-slate-500 font-medium">학습 데이터</span>
+          <span class="text-slate-600 font-medium">학습 데이터</span>
         </div>
       </div>
     </div>
