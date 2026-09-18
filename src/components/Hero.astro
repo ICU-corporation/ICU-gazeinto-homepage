@@ -80,11 +80,11 @@
 
       </div>
 
-      <!-- Right Column: 4-Card Visible Cascading Fan Deck (4개 카드 모두 겹쳐 보이는 부채꼴 덱) -->
+      <!-- Right Column: Parallel 4-Card Stepped Stack Deck (평행 계단식 슬라이드 덱) -->
       <div class="lg:col-span-7 xl:col-span-7 w-full flex flex-col items-center justify-center relative">
 
-        <!-- Fanned Deck Viewport with Room for 4 Cascading Cards -->
-        <div class="w-full max-w-xl relative h-[600px] flex items-end justify-center overflow-visible pb-4" id="card-deck-viewport">
+        <!-- Parallel Deck Viewport with Room for 4 Stepped Cards -->
+        <div class="w-full max-w-xl relative h-[580px] flex items-end justify-center overflow-visible pb-4" id="card-deck-viewport">
           
           <!-- ========================================================= -->
           <!-- STACK CARD 0: 01 대시보드 (Live Prescribed Optic) -->
@@ -92,10 +92,10 @@
           <div
             id="stack-card-0"
             onclick="window.goToStackCard(0)"
-            class="fan-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-white border border-slate-200/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-right hover:brightness-[1.02]"
-            style="transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); z-index: 40; box-shadow: 0 30px 60px -15px rgba(8,23,38,0.24);"
+            class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-white border border-slate-200/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
+            style="transform: translateY(0px) scale(1); z-index: 40; box-shadow: 0 30px 60px -15px rgba(8,23,38,0.24);"
           >
-            <!-- Card Header (Always Visible on Fanned Tabs) -->
+            <!-- Card Header (Always Visible on Stepped Tabs) -->
             <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
               <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#00A396] shadow-[0_0_8px_#00A396]"></span>
@@ -186,7 +186,7 @@
                   type="button"
                   onclick="event.stopPropagation(); window.prevStackCard();"
                   class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                  title="이전 카드"
+                  title="이전 카드 (←)"
                 >
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
@@ -212,8 +212,8 @@
           <div
             id="stack-card-1"
             onclick="window.goToStackCard(1)"
-            class="fan-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-right hover:brightness-[1.02]"
-            style="transform: translateY(-44px) translateX(-20px) rotate(6deg) scale(0.96); z-index: 30; opacity: 0.96; box-shadow: 0 20px 40px -10px rgba(8,23,38,0.16);"
+            class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
+            style="transform: translateY(-36px) scale(0.96); z-index: 30; opacity: 0.96; box-shadow: 0 20px 40px -10px rgba(8,23,38,0.18);"
           >
             <!-- Card Header -->
             <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
@@ -274,7 +274,7 @@
                   type="button"
                   onclick="event.stopPropagation(); window.prevStackCard();"
                   class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                  title="이전 카드"
+                  title="이전 카드 (←)"
                 >
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
@@ -300,8 +300,8 @@
           <div
             id="stack-card-2"
             onclick="window.goToStackCard(2)"
-            class="fan-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-right hover:brightness-[1.02]"
-            style="transform: translateY(-86px) translateX(-38px) rotate(12deg) scale(0.92); z-index: 20; opacity: 0.92; box-shadow: 0 15px 30px -10px rgba(8,23,38,0.14);"
+            class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
+            style="transform: translateY(-72px) scale(0.92); z-index: 20; opacity: 0.92; box-shadow: 0 15px 30px -10px rgba(8,23,38,0.14);"
           >
             <!-- Card Header -->
             <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
@@ -381,7 +381,7 @@
                   type="button"
                   onclick="event.stopPropagation(); window.prevStackCard();"
                   class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                  title="이전 카드"
+                  title="이전 카드 (←)"
                 >
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
@@ -407,8 +407,8 @@
           <div
             id="stack-card-3"
             onclick="window.goToStackCard(3)"
-            class="fan-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-right hover:brightness-[1.02]"
-            style="transform: translateY(-126px) translateX(-54px) rotate(17deg) scale(0.88); z-index: 10; opacity: 0.88; box-shadow: 0 15px 30px -10px rgba(8,23,38,0.14);"
+            class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
+            style="transform: translateY(-108px) scale(0.88); z-index: 10; opacity: 0.88; box-shadow: 0 10px 20px -5px rgba(8,23,38,0.12);"
           >
             <!-- Card Header -->
             <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
@@ -469,7 +469,7 @@
                   type="button"
                   onclick="event.stopPropagation(); window.prevStackCard();"
                   class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                  title="이전 카드"
+                  title="이전 카드 (←)"
                 >
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
@@ -501,7 +501,7 @@
 
 <script>
   // ==============================================================
-  // Pure High-Legibility Fanned-Out 3D Card Deck Animation & Controller (4-Card Visible Cascade)
+  // Parallel Stepped 3D Card Deck Animation & Controller
   // ==============================================================
   let currentCardIndex = 0;
   const totalCards = 4;
@@ -515,25 +515,25 @@
   const headerLinks = document.querySelectorAll('.nav-link');
   const navIdList = ['nav-hero', 'nav-tech', 'nav-clinical', 'nav-faq'];
 
-  // All 4 Cards Visibly Stepped & Cascading in Fan-out Sequence
-  const fanConfigs = [
-    // diff 0 (Active Front Focus): 100% Solid White, Full Opacity, Sharp Shadow
-    { translateY: 0, translateX: 0, rotate: 0, scale: 1, zIndex: 40, opacity: 1, shadow: '0 30px 60px -15px rgba(8,23,38,0.24)' },
-    // diff 1 (1st card fan-step): Tilted up-left, clean header tab peek
-    { translateY: -44, translateX: -20, rotate: 6, scale: 0.96, zIndex: 30, opacity: 0.96, shadow: '0 20px 40px -10px rgba(8,23,38,0.16)' },
-    // diff 2 (2nd card fan-step): Mid upper angle peek
-    { translateY: -86, translateX: -38, rotate: 12, scale: 0.92, zIndex: 20, opacity: 0.92, shadow: '0 15px 30px -10px rgba(8,23,38,0.14)' },
-    // diff 3 (3rd card fan-step): Top upper angle peek (100% visible on top)
-    { translateY: -126, translateX: -54, rotate: 17, scale: 0.88, zIndex: 10, opacity: 0.88, shadow: '0 15px 30px -10px rgba(8,23,38,0.14)' }
+  // Parallel Stepped Vertical Configurations (평행 계단식 4단 스택)
+  const stackConfigs = [
+    // diff 0 (Active Front Focus): Level, Full Scale, 100% Solid White
+    { translateY: 0, scale: 1, zIndex: 40, opacity: 1, shadow: '0 30px 60px -15px rgba(8,23,38,0.24)' },
+    // diff 1 (1st card behind): Stepped up -36px
+    { translateY: -36, scale: 0.96, zIndex: 30, opacity: 0.96, shadow: '0 20px 40px -10px rgba(8,23,38,0.18)' },
+    // diff 2 (2nd card behind): Stepped up -72px
+    { translateY: -72, scale: 0.92, zIndex: 20, opacity: 0.92, shadow: '0 15px 30px -10px rgba(8,23,38,0.14)' },
+    // diff 3 (3rd card behind): Stepped up -108px (모든 4개 카드 탭 노출)
+    { translateY: -108, scale: 0.88, zIndex: 10, opacity: 0.88, shadow: '0 10px 20px -5px rgba(8,23,38,0.12)' }
   ];
 
-  function updateFanLayout() {
+  function updateStackLayout() {
     cards.forEach((card, i) => {
       if (!card) return;
       const diff = (i - currentCardIndex + totalCards) % totalCards;
-      const config = fanConfigs[diff];
+      const config = stackConfigs[diff];
 
-      card.style.transform = `translateY(${config.translateY}px) translateX(${config.translateX}px) rotate(${config.rotate}deg) scale(${config.scale})`;
+      card.style.transform = `translateY(${config.translateY}px) scale(${config.scale})`;
       card.style.zIndex = `${config.zIndex}`;
       card.style.opacity = `${config.opacity}`;
       card.style.boxShadow = config.shadow;
@@ -584,18 +584,18 @@
   function goToStackCard(index: number) {
     if (index >= 0 && index < totalCards) {
       currentCardIndex = index;
-      updateFanLayout();
+      updateStackLayout();
     }
   }
 
   function nextStackCard() {
     currentCardIndex = (currentCardIndex + 1) % totalCards;
-    updateFanLayout();
+    updateStackLayout();
   }
 
   function prevStackCard() {
     currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
-    updateFanLayout();
+    updateStackLayout();
   }
 
   // Expose to window for global buttons
@@ -666,6 +666,6 @@
     });
   });
 
-  // Initialize Fan Layout
-  updateFanLayout();
+  // Initialize Stack Layout
+  updateStackLayout();
 </script>
