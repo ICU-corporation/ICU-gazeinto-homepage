@@ -1,7 +1,7 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-screen pt-20 pb-8 flex flex-col justify-between bg-[#0A1928] overflow-hidden select-none" aria-label="GazeInto Cockpit Dashboard">
+<section id="hero" class="relative min-h-[100dvh] lg:h-[100dvh] pt-16 sm:pt-20 pb-3 sm:pb-5 flex flex-col justify-between bg-[#0A1928] overflow-hidden select-none" aria-label="GazeInto Cockpit Dashboard">
   
   <!-- Ambient High-Definition Video Background Layer with Fallback Poster -->
   <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -11,67 +11,72 @@
       muted
       playsinline
       poster="/og-image.jpg"
-      class="w-full h-full object-cover object-center opacity-95 scale-100"
+      class="w-full h-full object-cover object-center opacity-90 scale-100"
     >
       <source src="/videos/hero-bg.mp4" type="video/mp4" />
     </video>
     
-    <!-- Sophisticated Contrast Gradient Overlay (Preserving text legibility on left & VR character on right) -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/95 via-[#F8FAFC]/55 to-transparent/30"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/80 via-transparent to-transparent"></div>
+    <!-- 1. Global Ambient Translucent White Veil -->
+    <div class="absolute inset-0 bg-white/45 backdrop-blur-[1px]"></div>
+
+    <!-- 2. Left-to-Right Sophisticated White Scrim Gradient (Crystal clear typography on left) -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/98 via-[#F8FAFC]/80 to-[#F8FAFC]/30"></div>
+
+    <!-- 3. Bottom-to-Top White Gradient (Soft transition behind cards) -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/95 via-[#F8FAFC]/40 to-transparent"></div>
   </div>
 
   <!-- Main Container: Top Left Typography + Bottom 4-Column Horizontal Cards -->
-  <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-14 flex-1 flex flex-col justify-between pt-12 sm:pt-16 lg:pt-20 pb-10 sm:pb-14 lg:pb-16">
+  <div class="relative z-10 w-full max-w-[1920px] qhd:max-w-[2560px] 4k:max-w-[3400px] mx-auto px-4 sm:px-6 lg:px-10 qhd:px-16 4k:px-24 flex-1 flex flex-col justify-between pt-4 sm:pt-8 lg:pt-10 qhd:pt-16 pb-2 sm:pb-3 lg:pb-4 qhd:pb-8">
     
-    <!-- Top-Left Content Section: Main Typography & Copy -->
-    <div class="max-w-xl lg:max-w-2xl pt-16 sm:pt-28 lg:pt-36 xl:pt-44">
+    <!-- Top-Left Content Section: Main Typography & Copy (Lowered Comfortably) -->
+    <div class="max-w-xs sm:max-w-md lg:max-w-lg qhd:max-w-2xl 4k:max-w-3xl pt-16 sm:pt-28 md:pt-32 lg:pt-36 xl:pt-40 qhd:pt-52 4k:pt-64">
       
       <!-- Category Tag -->
-      <div class="flex items-center gap-2 mb-3 scroll-reveal">
-        <span class="w-5 h-[2px] bg-[#00A396] scroll-line"></span>
-        <span data-i18n="hero_category" class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase drop-shadow-sm">
+      <div class="flex items-center gap-2 mb-2 sm:mb-2.5 qhd:mb-4 scroll-reveal">
+        <span class="w-3.5 sm:w-4 qhd:w-6 h-[2px] bg-[#00A396] scroll-line"></span>
+        <span data-i18n="hero_category" class="font-mono text-[9px] sm:text-xs qhd:text-sm 4k:text-base font-bold tracking-[0.2em] text-[#00A396] uppercase drop-shadow-sm">
           노안 AI 진단 & 처방 엔진
         </span>
       </div>
 
       <!-- Headline (Blur to Sharp Typography with Interactive Hover Focus) -->
-      <div class="mb-3 select-none">
-        <h1 class="text-3xl sm:text-5xl xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.12] mb-2 drop-shadow-sm">
+      <div class="mb-2 sm:mb-2.5 qhd:mb-4 select-none">
+        <h1 class="text-xl sm:text-3xl lg:text-4xl qhd:text-5xl 4k:text-6xl font-black text-slate-900 tracking-tight leading-[1.18] break-keep drop-shadow-sm">
           <!-- Line 1: Blurred text that clarifies on hover -->
           <span id="hero-blurred-text" data-i18n="hero_title_blur" class="blur-presbyopia inline-block cursor-default transition-all duration-700" title="초점이 흐려진 상태 (마우스를 올리면 선명해집니다)">
             흐려진 글자 앞에서
           </span>
           <br />
           <!-- Line 2: Sharp text -->
-          <span data-i18n="hero_title_sharp" class="text-slate-900 inline-block mt-1 scroll-reveal scroll-reveal-delay-1">
+          <span data-i18n="hero_title_sharp" class="text-slate-900 inline-block mt-0.5 sm:mt-1 scroll-reveal scroll-reveal-delay-1">
             멈추지 않도록.
           </span>
         </h1>
       </div>
 
       <!-- Description Paragraph -->
-      <div class="max-w-xl mb-4">
-        <p data-i18n="hero_desc" class="text-sm sm:text-base xl:text-lg text-slate-800 font-medium leading-relaxed scroll-reveal scroll-reveal-delay-2 drop-shadow-sm">
+      <div class="max-w-xs sm:max-w-sm lg:max-w-md qhd:max-w-xl 4k:max-w-2xl mb-2 sm:mb-3 qhd:mb-5">
+        <p data-i18n="hero_desc" class="text-[11px] sm:text-xs lg:text-sm qhd:text-base 4k:text-lg text-slate-700 font-medium leading-relaxed break-keep scroll-reveal scroll-reveal-delay-2 drop-shadow-sm">
           게이즈인투의 AI는 노안의 진행 단계를 정량 판독하고, 당신의 눈이 실제로 머무는 거리에 맞춰 처방을 설계합니다.
         </p>
       </div>
 
     </div>
 
-    <!-- Bottom Section: 4 Horizontal Side-by-Side Cards (Raised slightly upward) -->
-    <div class="w-full mt-auto pt-4 pb-2 sm:pb-4">
+    <!-- Bottom Section: 4 Horizontal Side-by-Side Cards -->
+    <div class="w-full mt-auto pt-1 pb-1 sm:pb-2">
 
       <!-- Mobile Quick Tab Selector (Visible on small screens for easy thumb switching) -->
-      <div class="md:hidden flex items-center justify-between gap-1 p-1 bg-white/70 backdrop-blur-md rounded-2xl border border-slate-200/80 mb-3 text-xs font-bold shadow-xs">
-        <button type="button" onclick="window.selectHeroCard(0)" id="m-tab-0" class="flex-1 py-2 rounded-xl text-center transition-all bg-[#00A396] text-white shadow-xs">01 대시보드</button>
-        <button type="button" onclick="window.selectHeroCard(1)" id="m-tab-1" class="flex-1 py-2 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900">02 기술</button>
-        <button type="button" onclick="window.selectHeroCard(2)" id="m-tab-2" class="flex-1 py-2 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900">03 임상</button>
-        <button type="button" onclick="window.selectHeroCard(3)" id="m-tab-3" class="flex-1 py-2 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900">04 FAQ</button>
+      <div class="md:hidden flex items-center justify-between gap-1 p-1 bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200/80 mb-2 text-xs font-bold shadow-xs">
+        <button type="button" onclick="window.selectHeroCard(0)" id="m-tab-0" class="flex-1 py-1.5 rounded-xl text-center transition-all bg-[#00A396] text-white shadow-xs">01 대시보드</button>
+        <button type="button" onclick="window.selectHeroCard(1)" id="m-tab-1" class="flex-1 py-1.5 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900">02 기술</button>
+        <button type="button" onclick="window.selectHeroCard(2)" id="m-tab-2" class="flex-1 py-1.5 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900">03 임상</button>
+        <button type="button" onclick="window.selectHeroCard(3)" id="m-tab-3" class="flex-1 py-1.5 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900">04 FAQ</button>
       </div>
       
       <!-- 4-Column Grid along the bottom -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-5 w-full" id="hero-card-grid" role="tablist" aria-label="Dashboard Cockpit Cards">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-3.5 qhd:gap-6 4k:gap-8 w-full" id="hero-card-grid" role="tablist" aria-label="Dashboard Cockpit Cards">
         
         <!-- ========================================================= -->
         <!-- CARD 0: 01 대시보드 (Live Prescribed Optic) -->
@@ -83,73 +88,73 @@
           aria-selected="true"
           aria-label="01 LIVE PRESCRIBED OPTIC"
           onclick="window.selectHeroCard(0)"
-          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-xl ring-2 ring-[#00A396]/20 min-h-[300px] xl:min-h-[310px] hover:scale-[1.03] hover:-translate-y-1 hover:shadow-2xl z-20 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
+          class="hero-bottom-card rounded-2xl lg:rounded-3xl p-3 sm:p-3.5 lg:p-4 qhd:p-6 4k:p-8 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-lg ring-2 ring-[#00A396]/20 min-h-[225px] sm:min-h-[235px] lg:min-h-[245px] qhd:min-h-[300px] 4k:min-h-[380px] z-20 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
-          <div class="flex items-center justify-between pb-3 border-b border-slate-200/70">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#00A396] shadow-[0_0_8px_#00A396]"></span>
-              <span data-i18n="card0_title" class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/70">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#00A396] shadow-[0_0_6px_#00A396]"></span>
+              <span data-i18n="card0_title" class="font-mono text-[11px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase">
                 01 / LIVE PRESCRIBED OPTIC
               </span>
             </div>
-            <span data-i18n="card0_badge" class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card0_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               AUTO CALIBRATE
             </span>
           </div>
 
           <!-- Card Body: Distance buttons + Output + Biomarkers -->
-          <div class="space-y-2.5 my-auto">
+          <div class="space-y-1.5 qhd:space-y-2.5 my-auto">
             <div class="flex items-center justify-between text-xs">
-              <span data-i18n="card0_dist_label" class="text-slate-600 font-semibold">거리별 처방 가입도</span>
-              <span data-i18n="card0_dist_tag" class="font-mono font-bold text-[#00A396] text-[11px]">실시간 AI 거리 보정</span>
+              <span data-i18n="card0_dist_label" class="text-slate-600 font-semibold text-[10px] sm:text-[11px] qhd:text-xs">거리별 처방 가입도</span>
+              <span data-i18n="card0_dist_tag" class="font-mono font-bold text-[#00A396] text-[9px] sm:text-[10px] qhd:text-xs">실시간 AI 거리 보정</span>
             </div>
 
             <!-- Distance Buttons -->
-            <div class="grid grid-cols-5 gap-1.5" id="hero-dist-buttons" role="group" aria-label="Reading Distance Gauge">
-              <button type="button" data-dist="25" data-add="+2.25" aria-label="Distance 25cm, Add +2.25D" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
-                <div class="font-mono text-[9px] text-slate-400">25cm</div>
-                <div class="font-mono text-xs font-bold text-slate-700">+2.25</div>
+            <div class="grid grid-cols-5 gap-1 qhd:gap-2" id="hero-dist-buttons" role="group" aria-label="Reading Distance Gauge">
+              <button type="button" data-dist="25" data-add="+2.25" aria-label="Distance 25cm, Add +2.25D" class="dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
+                <div class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-slate-400">25cm</div>
+                <div class="font-mono text-[10px] sm:text-[11px] qhd:text-sm font-bold text-slate-700">+2.25</div>
               </button>
-              <button type="button" data-dist="33" data-add="+1.75" aria-label="Distance 33cm, Add +1.75D" class="dist-btn p-1.5 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs focus:outline-none">
-                <div class="font-mono text-[9px] text-[#00A396] font-bold">33cm★</div>
-                <div class="font-mono text-xs font-black text-[#00A396]">+1.75</div>
+              <button type="button" data-dist="33" data-add="+1.75" aria-label="Distance 33cm, Add +1.75D" class="dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs focus:outline-none">
+                <div class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-[#00A396] font-bold">33cm★</div>
+                <div class="font-mono text-[10px] sm:text-[11px] qhd:text-sm font-black text-[#00A396]">+1.75</div>
               </button>
-              <button type="button" data-dist="45" data-add="+1.25" aria-label="Distance 45cm, Add +1.25D" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
-                <div class="font-mono text-[9px] text-slate-400">45cm</div>
-                <div class="font-mono text-xs font-bold text-slate-700">+1.25</div>
+              <button type="button" data-dist="45" data-add="+1.25" aria-label="Distance 45cm, Add +1.25D" class="dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
+                <div class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-slate-400">45cm</div>
+                <div class="font-mono text-[10px] sm:text-[11px] qhd:text-sm font-bold text-slate-700">+1.25</div>
               </button>
-              <button type="button" data-dist="60" data-add="+0.75" aria-label="Distance 60cm, Add +0.75D" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
-                <div class="font-mono text-[9px] text-slate-400">60cm</div>
-                <div class="font-mono text-xs font-bold text-slate-700">+0.75</div>
+              <button type="button" data-dist="60" data-add="+0.75" aria-label="Distance 60cm, Add +0.75D" class="dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
+                <div class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-slate-400">60cm</div>
+                <div class="font-mono text-[10px] sm:text-[11px] qhd:text-sm font-bold text-slate-700">+0.75</div>
               </button>
-              <button type="button" data-dist="80" data-add="+0.50" aria-label="Distance 80cm, Add +0.50D" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
-                <div class="font-mono text-[9px] text-slate-400">80cm</div>
-                <div class="font-mono text-xs font-bold text-slate-700">+0.50</div>
+              <button type="button" data-dist="80" data-add="+0.50" aria-label="Distance 80cm, Add +0.50D" class="dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
+                <div class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-slate-400">80cm</div>
+                <div class="font-mono text-[10px] sm:text-[11px] qhd:text-sm font-bold text-slate-700">+0.50</div>
               </button>
             </div>
 
             <!-- Output Display -->
-            <div class="p-2.5 rounded-2xl bg-[#081726] text-white flex items-center justify-between shadow-xs">
+            <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-[#081726] text-white flex items-center justify-between shadow-xs">
               <div>
-                <span data-i18n="card0_rec_title" class="font-mono text-[9px] text-[#22D3EE] uppercase tracking-wider font-bold block">RECOMMENDED ADD</span>
-                <span data-i18n="card0_rec_desc" class="text-xs text-slate-300">근거리 실제 작업 환경 맞춤 처방값</span>
+                <span data-i18n="card0_rec_title" class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-[#22D3EE] uppercase tracking-wider font-bold block">RECOMMENDED ADD</span>
+                <span data-i18n="card0_rec_desc" class="text-[10px] sm:text-[11px] qhd:text-xs text-slate-300 break-keep">근거리 작업 맞춤 처방</span>
               </div>
               <div class="flex items-baseline gap-1">
-                <span id="hero-live-add-val" class="text-2xl sm:text-3xl font-black font-mono text-white tracking-tight">+1.75</span>
-                <span class="text-xs text-[#00C4B4] font-mono font-bold">D</span>
+                <span id="hero-live-add-val" class="text-lg sm:text-xl qhd:text-3xl 4k:text-4xl font-black font-mono text-white tracking-tight">+1.75</span>
+                <span class="text-[10px] sm:text-xs qhd:text-sm text-[#00C4B4] font-mono font-bold">D</span>
               </div>
             </div>
 
             <!-- 3 Biomarker mini tags -->
-            <div class="grid grid-cols-3 gap-1 text-center text-[10px]">
-              <div data-i18n-html="card0_bio_amd" class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold">
+            <div class="grid grid-cols-3 gap-1 text-center text-[8px] sm:text-[9px] qhd:text-xs">
+              <div data-i18n-html="card0_bio_amd" class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold truncate">
                 AMD <span class="text-[#00A396]">&lt;1%</span>
               </div>
-              <div data-i18n-html="card0_bio_glaucoma" class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold">
+              <div data-i18n-html="card0_bio_glaucoma" class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold truncate">
                 녹내장 <span class="text-[#00A396]">0.32</span>
               </div>
-              <div data-i18n-html="card0_bio_dr" class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold">
+              <div data-i18n-html="card0_bio_dr" class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold truncate">
                 DR <span class="text-slate-900">Clear</span>
               </div>
             </div>
@@ -166,42 +171,42 @@
           aria-selected="false"
           aria-label="02 ALL-IN-ONE XR WORKFLOW"
           onclick="window.selectHeroCard(1)"
-          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/40 hover:bg-white/80 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 min-h-[290px] xl:min-h-[300px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
+          class="hero-bottom-card rounded-2xl lg:rounded-3xl p-3 sm:p-3.5 lg:p-4 qhd:p-6 4k:p-8 hidden md:flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/50 hover:bg-white/75 backdrop-blur-md border border-white/60 shadow-xs min-h-[225px] sm:min-h-[235px] lg:min-h-[245px] qhd:min-h-[300px] 4k:min-h-[380px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
-          <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-              <span data-i18n="card1_title" class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
+              <span data-i18n="card1_title" class="font-mono text-[11px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase">
                 02 / XR WORKFLOW
               </span>
             </div>
-            <span data-i18n="card1_badge" class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card1_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               3-STEP PROCESS
             </span>
           </div>
 
           <!-- Card Body: 3 Detailed Step Rows -->
-          <div class="space-y-2 my-auto text-xs">
-            <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-2.5 shadow-2xs">
-              <span class="font-mono font-black text-[#00A396] text-xs px-2 py-0.5 rounded-lg bg-[#00A396]/10 shrink-0 mt-0.5">01</span>
+          <div class="space-y-1 sm:space-y-1.5 qhd:space-y-2.5 my-auto text-xs">
+            <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-1.5 qhd:gap-2.5 shadow-2xs">
+              <span class="font-mono font-black text-[#00A396] text-[10px] sm:text-[11px] qhd:text-xs px-1.5 py-0.5 rounded-md bg-[#00A396]/10 shrink-0 mt-0.5">01</span>
               <div>
-                <div data-i18n="card1_step1_title" class="font-bold text-slate-900 text-xs sm:text-sm">자가 착용 (Wear)</div>
-                <div data-i18n="card1_step1_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">병원 방문 없이 가정·일상에서 가볍게 착용 후 즉시 시작</div>
+                <div data-i18n="card1_step1_title" class="font-bold text-slate-900 text-[11px] sm:text-xs qhd:text-sm">자가 착용 (Wear)</div>
+                <div data-i18n="card1_step1_desc" class="text-[9px] sm:text-[10px] qhd:text-xs text-slate-600 leading-tight mt-0.5 break-keep">병원 방문 없이 일상에서 착용 후 즉시 시작</div>
               </div>
             </div>
-            <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-2.5 shadow-2xs">
-              <span class="font-mono font-black text-[#00A396] text-xs px-2 py-0.5 rounded-lg bg-[#00A396]/10 shrink-0 mt-0.5">02</span>
+            <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-1.5 qhd:gap-2.5 shadow-2xs">
+              <span class="font-mono font-black text-[#00A396] text-[10px] sm:text-[11px] qhd:text-xs px-1.5 py-0.5 rounded-md bg-[#00A396]/10 shrink-0 mt-0.5">02</span>
               <div>
-                <div data-i18n="card1_step2_title" class="font-bold text-slate-900 text-xs sm:text-sm">시선 유도 자동 촬영</div>
-                <div data-i18n="card1_step2_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">지능형 동공 정렬 인터랙션으로 고해상도 안저 이미지 캡처</div>
+                <div data-i18n="card1_step2_title" class="font-bold text-slate-900 text-[11px] sm:text-xs qhd:text-sm">시선 유도 자동 촬영</div>
+                <div data-i18n="card1_step2_desc" class="text-[9px] sm:text-[10px] qhd:text-xs text-slate-600 leading-tight mt-0.5 break-keep">지능형 동공 정렬로 고해상도 안저 캡처</div>
               </div>
             </div>
-            <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-2.5 shadow-2xs">
-              <span class="font-mono font-black text-[#00A396] text-xs px-2 py-0.5 rounded-lg bg-[#00A396]/10 shrink-0 mt-0.5">03</span>
+            <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-1.5 qhd:gap-2.5 shadow-2xs">
+              <span class="font-mono font-black text-[#00A396] text-[10px] sm:text-[11px] qhd:text-xs px-1.5 py-0.5 rounded-md bg-[#00A396]/10 shrink-0 mt-0.5">03</span>
               <div>
-                <div data-i18n="card1_step3_title" class="font-bold text-slate-900 text-xs sm:text-sm">3대 질환 온디바이스 판독</div>
-                <div data-i18n="card1_step3_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">황반변성(AMD), 녹내장, 당뇨망막 징후를 30초 내 정량 분석</div>
+                <div data-i18n="card1_step3_title" class="font-bold text-slate-900 text-[11px] sm:text-xs qhd:text-sm">3대 질환 온디바이스 판독</div>
+                <div data-i18n="card1_step3_desc" class="text-[9px] sm:text-[10px] qhd:text-xs text-slate-600 leading-tight mt-0.5 break-keep">AMD, 녹내장, 당뇨망막 30초 내 정량 분석</div>
               </div>
             </div>
           </div>
@@ -217,58 +222,58 @@
           aria-selected="false"
           aria-label="03 CLINICAL MATRIX"
           onclick="window.selectHeroCard(2)"
-          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/40 hover:bg-white/80 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 min-h-[290px] xl:min-h-[300px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
+          class="hero-bottom-card rounded-2xl lg:rounded-3xl p-3 sm:p-3.5 lg:p-4 qhd:p-6 4k:p-8 hidden md:flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/50 hover:bg-white/75 backdrop-blur-md border border-white/60 shadow-xs min-h-[225px] sm:min-h-[235px] lg:min-h-[245px] qhd:min-h-[300px] 4k:min-h-[380px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
-          <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-              <span data-i18n="card2_title" class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
+              <span data-i18n="card2_title" class="font-mono text-[11px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase">
                 03 / CLINICAL MATRIX
               </span>
             </div>
-            <span data-i18n="card2_badge" class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card2_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               CLINICAL VALIDATED
             </span>
           </div>
 
           <!-- Card Body: 3 Biomarkers + Clinical Stats Table -->
-          <div class="space-y-2.5 my-auto text-xs">
+          <div class="space-y-1.5 qhd:space-y-2.5 my-auto text-xs">
             <!-- 3 Target Diseases -->
-            <div class="grid grid-cols-3 gap-1.5 text-center">
-              <div class="p-2 rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
-                <div data-i18n="card2_amd_label" class="text-slate-500 font-medium text-[10px]">황반변성(AMD)</div>
-                <div data-i18n="card2_amd_val" class="font-bold text-[#00A396] font-mono text-xs mt-0.5">정상 &lt;1%</div>
+            <div class="grid grid-cols-3 gap-1 qhd:gap-2 text-center">
+              <div class="p-1 sm:p-1.5 qhd:p-2 rounded-lg lg:rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
+                <div data-i18n="card2_amd_label" class="text-slate-500 font-medium text-[8px] sm:text-[9px] qhd:text-xs truncate">황반변성</div>
+                <div data-i18n="card2_amd_val" class="font-bold text-[#00A396] font-mono text-[10px] sm:text-[11px] qhd:text-sm mt-0.5">&lt;1%</div>
               </div>
-              <div class="p-2 rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
-                <div data-i18n="card2_glaucoma_label" class="text-slate-500 font-medium text-[10px]">시신경(녹내장)</div>
-                <div data-i18n="card2_glaucoma_val" class="font-bold text-[#00A396] font-mono text-xs mt-0.5">C/D 0.32</div>
+              <div class="p-1 sm:p-1.5 qhd:p-2 rounded-lg lg:rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
+                <div data-i18n="card2_glaucoma_label" class="text-slate-500 font-medium text-[8px] sm:text-[9px] qhd:text-xs truncate">녹내장</div>
+                <div data-i18n="card2_glaucoma_val" class="font-bold text-[#00A396] font-mono text-[10px] sm:text-[11px] qhd:text-sm mt-0.5">0.32</div>
               </div>
-              <div class="p-2 rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
-                <div data-i18n="card2_dr_label" class="text-slate-500 font-medium text-[10px]">망막혈관(DR)</div>
-                <div data-i18n="card2_dr_val" class="font-bold text-slate-800 font-mono text-xs mt-0.5">Clear</div>
+              <div class="p-1 sm:p-1.5 qhd:p-2 rounded-lg lg:rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
+                <div data-i18n="card2_dr_label" class="text-slate-500 font-medium text-[8px] sm:text-[9px] qhd:text-xs truncate">당뇨망막</div>
+                <div data-i18n="card2_dr_val" class="font-bold text-slate-800 font-mono text-[10px] sm:text-[11px] qhd:text-sm mt-0.5">Clear</div>
               </div>
             </div>
 
             <!-- Big Stat Badge -->
-            <div class="p-3 rounded-2xl bg-slate-900 text-white flex items-center justify-between text-xs shadow-2xs">
-              <div class="text-center">
-                <div class="font-mono font-black text-base text-[#00C4B4]">98.4%</div>
-                <div data-i18n="card2_stat_acc" class="text-[9px] text-slate-400">판독 일치율</div>
+            <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-slate-900 text-white flex items-center justify-between text-xs shadow-2xs">
+              <div class="text-center flex-1">
+                <div class="font-mono font-black text-xs sm:text-sm qhd:text-xl text-[#00C4B4]">98.4%</div>
+                <div data-i18n="card2_stat_acc" class="text-[7px] sm:text-[8px] qhd:text-xs text-slate-400">일치율</div>
               </div>
               <span class="text-slate-700">|</span>
-              <div class="text-center">
-                <div class="font-mono font-black text-base text-white">4개</div>
-                <div data-i18n="card2_stat_hosp" class="text-[9px] text-slate-400">협력 안과</div>
+              <div class="text-center flex-1">
+                <div class="font-mono font-black text-xs sm:text-sm qhd:text-xl text-white">4개</div>
+                <div data-i18n="card2_stat_hosp" class="text-[7px] sm:text-[8px] qhd:text-xs text-slate-400">협력 안과</div>
               </div>
               <span class="text-slate-700">|</span>
-              <div class="text-center">
-                <div class="font-mono font-black text-base text-white">12만+</div>
-                <div data-i18n="card2_stat_data" class="text-[9px] text-slate-400">학습 데이터</div>
+              <div class="text-center flex-1">
+                <div class="font-mono font-black text-xs sm:text-sm qhd:text-xl text-white">12만+</div>
+                <div data-i18n="card2_stat_data" class="text-[7px] sm:text-[8px] qhd:text-xs text-slate-400">학습 데이터</div>
               </div>
             </div>
 
-            <div data-i18n="card2_irb_badge" class="p-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center text-[10px] text-emerald-800 font-semibold">
+            <div data-i18n="card2_irb_badge" class="p-1 qhd:p-2 rounded-lg lg:rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center text-[8px] sm:text-[9px] qhd:text-xs text-emerald-800 font-semibold break-keep">
               ✓ 대학병원 임상 실증 및 IRB 승인 완료
             </div>
           </div>
@@ -284,34 +289,34 @@
           aria-selected="false"
           aria-label="04 FAQ & SUPPORT"
           onclick="window.selectHeroCard(3)"
-          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/40 hover:bg-white/80 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 min-h-[290px] xl:min-h-[300px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
+          class="hero-bottom-card rounded-2xl lg:rounded-3xl p-3 sm:p-3.5 lg:p-4 qhd:p-6 4k:p-8 hidden md:flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/50 hover:bg-white/75 backdrop-blur-md border border-white/60 shadow-xs min-h-[225px] sm:min-h-[235px] lg:min-h-[245px] qhd:min-h-[300px] 4k:min-h-[380px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
-          <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-              <span data-i18n="card3_title" class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
+              <span data-i18n="card3_title" class="font-mono text-[11px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase">
                 04 / FAQ & SUPPORT
               </span>
             </div>
-            <span data-i18n="card3_badge" class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card3_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               FAQ & SUPPORT
             </span>
           </div>
 
           <!-- Card Body: 3 Expanded Q&As -->
-          <div class="space-y-2 my-auto text-xs">
-            <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
-              <span data-i18n="card3_q1_title" class="font-bold text-slate-900 text-xs block">Q1. 혼자서 촬영 가능한가요?</span>
-              <p data-i18n="card3_q1_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">지능형 시선 유도(Gaze Guidance)가 동공을 가이드하여 비숙련자도 30초 내 촬영</p>
+          <div class="space-y-1 sm:space-y-1.5 qhd:space-y-2.5 my-auto text-xs">
+            <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
+              <span data-i18n="card3_q1_title" class="font-bold text-slate-900 text-[10px] sm:text-[11px] qhd:text-xs block">Q1. 혼자서 촬영 가능한가요?</span>
+              <p data-i18n="card3_q1_desc" class="text-[8px] sm:text-[9px] qhd:text-[11px] text-slate-600 leading-tight mt-0.5 break-keep">시선 유도로 비숙련자도 30초 내 촬영</p>
             </div>
-            <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
-              <span data-i18n="card3_q2_title" class="font-bold text-slate-900 text-xs block">Q2. 안경원·의원 EMR 연동</span>
-              <p data-i18n="card3_q2_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">처방 데이터 및 고해상도 안저 리포트를 기존 전자의무기록(EMR)과 즉시 연동</p>
+            <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
+              <span data-i18n="card3_q2_title" class="font-bold text-slate-900 text-[10px] sm:text-[11px] qhd:text-xs block">Q2. 안경원·의원 EMR 연동</span>
+              <p data-i18n="card3_q2_desc" class="text-[8px] sm:text-[9px] qhd:text-[11px] text-slate-600 leading-tight mt-0.5 break-keep">처방 및 리포트를 기존 EMR과 즉시 연동</p>
             </div>
-            <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
-              <span data-i18n="card3_q3_title" class="font-bold text-slate-900 text-xs block">Q3. 도입 상담 및 방문 데모</span>
-              <p data-i18n="card3_q3_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">공식 이메일(gazeinto1nc@gmail.com)로 접수 시 전담팀 1:1 시연</p>
+            <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
+              <span data-i18n="card3_q3_title" class="font-bold text-slate-900 text-[10px] sm:text-[11px] qhd:text-xs block">Q3. 도입 상담 및 방문 데모</span>
+              <p data-i18n="card3_q3_desc" class="text-[8px] sm:text-[9px] qhd:text-[11px] text-slate-600 leading-tight mt-0.5 break-keep">이메일 접수 시 전담팀 1:1 방문 시연</p>
             </div>
           </div>
         </div>
@@ -353,13 +358,13 @@
     cardElements.forEach((card, i) => {
       if (!card) return;
       if (i === activeCardIndex) {
-        // Active Solid Card
-        card.className = 'hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-xl ring-2 ring-[#00A396]/20 min-h-[300px] xl:min-h-[310px] hover:scale-[1.03] hover:-translate-y-1 hover:shadow-2xl z-20 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40';
+        // Active Card: Solid white background, teal accent border & glow ring, visible on all viewports
+        card.className = 'hero-bottom-card rounded-2xl lg:rounded-3xl p-3 sm:p-3.5 lg:p-4 qhd:p-6 4k:p-8 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-lg ring-2 ring-[#00A396]/20 min-h-[225px] sm:min-h-[235px] lg:min-h-[245px] qhd:min-h-[300px] 4k:min-h-[380px] z-20 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40';
         card.setAttribute('aria-selected', 'true');
         card.tabIndex = 0;
       } else {
-        // Translucent Frosted Glass Inactive Card
-        card.className = 'hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/40 hover:bg-white/80 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 min-h-[290px] xl:min-h-[300px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40';
+        // Inactive Card: Hidden on mobile (<md), Frosted glass flex on desktop (>=md), gentle background hover
+        card.className = 'hero-bottom-card rounded-2xl lg:rounded-3xl p-3 sm:p-3.5 lg:p-4 qhd:p-6 4k:p-8 hidden md:flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/50 hover:bg-white/75 backdrop-blur-md border border-white/60 shadow-xs min-h-[225px] sm:min-h-[235px] lg:min-h-[245px] qhd:min-h-[300px] 4k:min-h-[380px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40';
         card.setAttribute('aria-selected', 'false');
       }
     });
@@ -368,9 +373,9 @@
     mobileTabs.forEach((tab, i) => {
       if (!tab) return;
       if (i === activeCardIndex) {
-        tab.className = 'flex-1 py-2 rounded-xl text-center transition-all bg-[#00A396] text-white font-bold shadow-xs';
+        tab.className = 'flex-1 py-1.5 rounded-xl text-center transition-all bg-[#00A396] text-white font-bold shadow-xs';
       } else {
-        tab.className = 'flex-1 py-2 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900 font-medium';
+        tab.className = 'flex-1 py-1.5 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900 font-medium';
       }
     });
 
@@ -379,10 +384,10 @@
       const targetNavId = navIdList[activeCardIndex];
       const navDot = link.querySelector('.nav-dot');
       if (link.id === targetNavId) {
-        link.className = 'nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80';
+        link.className = 'nav-link px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 flex items-center gap-1 sm:gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80 shrink-0';
         if (navDot) navDot.classList.remove('hidden');
       } else {
-        link.className = 'nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600';
+        link.className = 'nav-link px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 flex items-center gap-1 sm:gap-1.5 hover:text-slate-900 text-slate-600 shrink-0';
         if (navDot) navDot.classList.add('hidden');
       }
     });
@@ -426,18 +431,18 @@
     const handleDistanceSelect = (e: Event) => {
       e.stopPropagation();
       distBtns.forEach(b => {
-        b.className = 'dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none';
+        b.className = 'dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none';
         const num = b.querySelector('.font-bold, .font-black') as HTMLElement;
-        const sub = b.querySelector('.text-[9px]') as HTMLElement;
-        if (num) num.className = 'font-mono text-xs font-bold text-slate-700';
-        if (sub) sub.className = 'font-mono text-[9px] text-slate-400';
+        const sub = b.querySelector('.text-[7px], .text-[8px], .text-[9px], .text-[10px]') as HTMLElement;
+        if (num) num.className = 'font-mono text-[10px] sm:text-[11px] qhd:text-sm font-bold text-slate-700';
+        if (sub) sub.className = 'font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-slate-400';
       });
 
-      btn.className = 'dist-btn p-1.5 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs focus:outline-none';
+      btn.className = 'dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs focus:outline-none';
       const activeNum = btn.querySelector('.font-bold, .font-black') as HTMLElement;
-      const activeSub = btn.querySelector('.text-[9px]') as HTMLElement;
-      if (activeNum) activeNum.className = 'font-mono text-xs font-black text-[#00A396]';
-      if (activeSub) activeSub.className = 'font-mono text-[9px] text-[#00A396] font-bold';
+      const activeSub = btn.querySelector('.text-[7px], .text-[8px], .text-[9px], .text-[10px]') as HTMLElement;
+      if (activeNum) activeNum.className = 'font-mono text-[10px] sm:text-[11px] qhd:text-sm font-black text-[#00A396]';
+      if (activeSub) activeSub.className = 'font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-[#00A396] font-bold';
 
       const addVal = btn.getAttribute('data-add');
       if (addValDisplay && addVal) {
@@ -482,10 +487,9 @@
     opacity: 1;
   }
 
-  /* Smooth card scaling & lift effect */
+  /* Smooth card state transition on click */
   .hero-bottom-card {
-    will-change: transform, box-shadow;
-    transform-origin: center bottom;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
   }
 </style>
+

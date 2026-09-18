@@ -5,25 +5,25 @@
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#00A396] via-[#22D3EE] to-[#00C4B4] z-50"></div>
 
-  <div class="max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16 h-20 flex items-center justify-between">
+  <div class="max-w-[1920px] qhd:max-w-[2560px] 4k:max-w-[3400px] mx-auto px-3 sm:px-8 lg:px-10 qhd:px-16 4k:px-24 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
     <!-- Brand Logo -->
-    <a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-dashboard');" class="flex items-center gap-3 group">
+    <a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-dashboard');" class="flex items-center gap-2 sm:gap-3 group shrink-0">
       <!-- Focal Lens Logo Symbol -->
-      <div class="relative w-8 h-8 flex items-center justify-center">
-        <div class="absolute w-6 h-6 rounded-full border-2 border-slate-900 -left-0.5 group-hover:scale-105 transition-transform duration-300"></div>
-        <div class="absolute w-6 h-6 rounded-full border-2 border-slate-900 -right-0.5 group-hover:scale-105 transition-transform duration-300"></div>
-        <div class="absolute w-3 h-5 bg-[#00A396] rounded-full opacity-95 group-hover:bg-[#00C4B4] transition-colors"></div>
+      <div class="relative w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center">
+        <div class="absolute w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 border-slate-900 -left-0.5 group-hover:scale-105 transition-transform duration-300"></div>
+        <div class="absolute w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 border-slate-900 -right-0.5 group-hover:scale-105 transition-transform duration-300"></div>
+        <div class="absolute w-2.5 h-4 sm:w-3 sm:h-5 bg-[#00A396] rounded-full opacity-95 group-hover:bg-[#00C4B4] transition-colors"></div>
       </div>
-      <span class="text-2xl font-extrabold tracking-tight text-slate-900 font-display">gazeinto</span>
+      <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 font-display">gazeinto</span>
     </a>
 
     <!-- Navigation Menu with Tab & Scroll Synchronization -->
-    <nav class="flex items-center gap-1.5 sm:gap-2 p-1 rounded-full bg-slate-200/40 border border-slate-200/60 text-xs sm:text-sm font-medium text-slate-600" id="header-nav">
+    <nav class="hidden sm:flex items-center gap-1 sm:gap-1.5 p-1 rounded-full bg-slate-200/40 border border-slate-200/60 text-xs sm:text-sm font-medium text-slate-600 shrink-0" id="header-nav">
       <a 
         href="#hero" 
         id="nav-hero"
         onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-dashboard');"
-        class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80"
+        class="nav-link px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 flex items-center gap-1 sm:gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80 shrink-0"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396]"></span>
         <span data-i18n="nav_dashboard">01 대시보드</span>
@@ -33,7 +33,7 @@
         href="#hero" 
         id="nav-tech"
         onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-tech');"
-        class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600"
+        class="nav-link px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 flex items-center gap-1 sm:gap-1.5 hover:text-slate-900 text-slate-600 shrink-0"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
         <span data-i18n="nav_tech">02 기술</span>
@@ -43,7 +43,7 @@
         href="#hero" 
         id="nav-clinical"
         onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-clinical');"
-        class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600"
+        class="nav-link px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 flex items-center gap-1 sm:gap-1.5 hover:text-slate-900 text-slate-600 shrink-0"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
         <span data-i18n="nav_clinical">03 임상 근거</span>
@@ -53,7 +53,7 @@
         href="#hero" 
         id="nav-faq"
         onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-faq');"
-        class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600"
+        class="nav-link px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 flex items-center gap-1 sm:gap-1.5 hover:text-slate-900 text-slate-600 shrink-0"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
         <span data-i18n="nav_faq">04 FAQ</span>
@@ -61,14 +61,14 @@
     </nav>
 
     <!-- Right Controls: Language Switcher & Contact Button -->
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2 sm:gap-3 shrink-0">
       <!-- Language Switcher Pill (KR / EN) -->
-      <div class="flex items-center p-0.5 rounded-full bg-slate-200/60 border border-slate-300/80 text-[11px] font-mono font-bold" id="lang-switcher">
+      <div class="flex items-center p-0.5 rounded-full bg-slate-200/60 border border-slate-300/80 text-[10px] sm:text-[11px] font-mono font-bold shrink-0" id="lang-switcher">
         <button
           type="button"
           onclick="window.setLanguage('ko')"
           id="btn-lang-ko"
-          class="px-2.5 py-1 rounded-full transition-all duration-200 bg-white text-slate-950 shadow-xs"
+          class="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full transition-all duration-200 bg-white text-slate-950 shadow-xs"
           title="한국어 버전"
         >
           KR
@@ -77,7 +77,7 @@
           type="button"
           onclick="window.setLanguage('en')"
           id="btn-lang-en"
-          class="px-2.5 py-1 rounded-full transition-all duration-200 text-slate-500 hover:text-slate-900"
+          class="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full transition-all duration-200 text-slate-500 hover:text-slate-900"
           title="English Version"
         >
           EN
@@ -88,10 +88,10 @@
       <button 
         type="button"
         onclick="window.openContactModal('b2b')"
-        class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-[#0F2236] hover:bg-[#1A334E] transition-all shadow-sm"
+        class="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-xs font-bold text-white bg-[#0F2236] hover:bg-[#1A334E] transition-all shadow-sm shrink-0"
       >
         <span data-i18n="btn_contact">도입 문의</span>
-        <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
         </svg>
       </button>

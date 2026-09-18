@@ -4,6 +4,10 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        'qhd': '2100px',
+        '4k': '3000px',
+      },
       colors: {
         brand: {
           bg: '#050B14',

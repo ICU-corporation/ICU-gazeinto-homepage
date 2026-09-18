@@ -128,3 +128,16 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Natural word breaking for Korean & English typography */
+.break-keep {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* Glassmorphism panel shine */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
