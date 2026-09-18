@@ -1,30 +1,31 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-screen pt-20 pb-8 flex flex-col justify-between bg-[#0A1928] overflow-hidden select-none">
+<section id="hero" class="relative min-h-screen pt-20 pb-8 flex flex-col justify-between bg-[#0A1928] overflow-hidden select-none" aria-label="GazeInto Cockpit Dashboard">
   
-  <!-- Ambient High-Definition Video Background Layer -->
+  <!-- Ambient High-Definition Video Background Layer with Fallback Poster -->
   <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
     <video
       autoplay
       loop
       muted
       playsinline
+      poster="/og-image.jpg"
       class="w-full h-full object-cover object-center opacity-95 scale-100"
     >
       <source src="/videos/hero-bg.mp4" type="video/mp4" />
     </video>
     
-    <!-- Sophisticated Contrast Gradient Overlay (Preserving VR character in center/right) -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/95 via-[#F8FAFC]/45 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/70 via-transparent to-transparent"></div>
+    <!-- Sophisticated Contrast Gradient Overlay (Preserving text legibility on left & VR character on right) -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/95 via-[#F8FAFC]/55 to-transparent/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/80 via-transparent to-transparent"></div>
   </div>
 
   <!-- Main Container: Top Left Typography + Bottom 4-Column Horizontal Cards -->
   <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-14 flex-1 flex flex-col justify-between pt-12 sm:pt-16 lg:pt-20 pb-10 sm:pb-14 lg:pb-16">
     
-    <!-- Top-Left Content Section: Main Typography & Copy (Lowered Further) -->
-    <div class="max-w-xl lg:max-w-2xl pt-6 sm:pt-12 lg:pt-16 xl:pt-20">
+    <!-- Top-Left Content Section: Main Typography & Copy -->
+    <div class="max-w-xl lg:max-w-2xl pt-16 sm:pt-28 lg:pt-36 xl:pt-44">
       
       <!-- Category Tag -->
       <div class="flex items-center gap-2 mb-3 scroll-reveal">
@@ -60,17 +61,29 @@
 
     <!-- Bottom Section: 4 Horizontal Side-by-Side Cards (Raised slightly upward) -->
     <div class="w-full mt-auto pt-4 pb-2 sm:pb-4">
+
+      <!-- Mobile Quick Tab Selector (Visible on small screens for easy thumb switching) -->
+      <div class="md:hidden flex items-center justify-between gap-1 p-1 bg-white/70 backdrop-blur-md rounded-2xl border border-slate-200/80 mb-3 text-xs font-bold shadow-xs">
+        <button type="button" onclick="window.selectHeroCard(0)" id="m-tab-0" class="flex-1 py-2 rounded-xl text-center transition-all bg-[#00A396] text-white shadow-xs">01 대시보드</button>
+        <button type="button" onclick="window.selectHeroCard(1)" id="m-tab-1" class="flex-1 py-2 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900">02 기술</button>
+        <button type="button" onclick="window.selectHeroCard(2)" id="m-tab-2" class="flex-1 py-2 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900">03 임상</button>
+        <button type="button" onclick="window.selectHeroCard(3)" id="m-tab-3" class="flex-1 py-2 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900">04 FAQ</button>
+      </div>
       
       <!-- 4-Column Grid along the bottom -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-5 w-full" id="hero-card-grid">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-5 w-full" id="hero-card-grid" role="tablist" aria-label="Dashboard Cockpit Cards">
         
         <!-- ========================================================= -->
         <!-- CARD 0: 01 대시보드 (Live Prescribed Optic) -->
         <!-- ========================================================= -->
         <div
           id="hero-card-0"
+          role="tab"
+          tabindex="0"
+          aria-selected="true"
+          aria-label="01 LIVE PRESCRIBED OPTIC"
           onclick="window.selectHeroCard(0)"
-          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-xl ring-2 ring-[#00A396]/20 min-h-[310px] xl:min-h-[320px]"
+          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-xl ring-2 ring-[#00A396]/20 min-h-[300px] xl:min-h-[310px] hover:scale-[1.03] hover:-translate-y-1 hover:shadow-2xl z-20 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
           <div class="flex items-center justify-between pb-3 border-b border-slate-200/70">
@@ -93,24 +106,24 @@
             </div>
 
             <!-- Distance Buttons -->
-            <div class="grid grid-cols-5 gap-1.5" id="hero-dist-buttons">
-              <button type="button" data-dist="25" data-add="+2.25" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+            <div class="grid grid-cols-5 gap-1.5" id="hero-dist-buttons" role="group" aria-label="Reading Distance Gauge">
+              <button type="button" data-dist="25" data-add="+2.25" aria-label="Distance 25cm, Add +2.25D" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
                 <div class="font-mono text-[9px] text-slate-400">25cm</div>
                 <div class="font-mono text-xs font-bold text-slate-700">+2.25</div>
               </button>
-              <button type="button" data-dist="33" data-add="+1.75" class="dist-btn p-1.5 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs">
+              <button type="button" data-dist="33" data-add="+1.75" aria-label="Distance 33cm, Add +1.75D" class="dist-btn p-1.5 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs focus:outline-none">
                 <div class="font-mono text-[9px] text-[#00A396] font-bold">33cm★</div>
                 <div class="font-mono text-xs font-black text-[#00A396]">+1.75</div>
               </button>
-              <button type="button" data-dist="45" data-add="+1.25" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+              <button type="button" data-dist="45" data-add="+1.25" aria-label="Distance 45cm, Add +1.25D" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
                 <div class="font-mono text-[9px] text-slate-400">45cm</div>
                 <div class="font-mono text-xs font-bold text-slate-700">+1.25</div>
               </button>
-              <button type="button" data-dist="60" data-add="+0.75" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+              <button type="button" data-dist="60" data-add="+0.75" aria-label="Distance 60cm, Add +0.75D" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
                 <div class="font-mono text-[9px] text-slate-400">60cm</div>
                 <div class="font-mono text-xs font-bold text-slate-700">+0.75</div>
               </button>
-              <button type="button" data-dist="80" data-add="+0.50" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+              <button type="button" data-dist="80" data-add="+0.50" aria-label="Distance 80cm, Add +0.50D" class="dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
                 <div class="font-mono text-[9px] text-slate-400">80cm</div>
                 <div class="font-mono text-xs font-bold text-slate-700">+0.50</div>
               </button>
@@ -148,8 +161,12 @@
         <!-- ========================================================= -->
         <div
           id="hero-card-1"
+          role="tab"
+          tabindex="0"
+          aria-selected="false"
+          aria-label="02 ALL-IN-ONE XR WORKFLOW"
           onclick="window.selectHeroCard(1)"
-          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md border border-white/60 shadow-sm min-h-[290px] xl:min-h-[300px]"
+          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/40 hover:bg-white/80 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 min-h-[290px] xl:min-h-[300px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
           <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
@@ -195,8 +212,12 @@
         <!-- ========================================================= -->
         <div
           id="hero-card-2"
+          role="tab"
+          tabindex="0"
+          aria-selected="false"
+          aria-label="03 CLINICAL MATRIX"
           onclick="window.selectHeroCard(2)"
-          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md border border-white/60 shadow-sm min-h-[290px] xl:min-h-[300px]"
+          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/40 hover:bg-white/80 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 min-h-[290px] xl:min-h-[300px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
           <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
@@ -258,8 +279,12 @@
         <!-- ========================================================= -->
         <div
           id="hero-card-3"
+          role="tab"
+          tabindex="0"
+          aria-selected="false"
+          aria-label="04 FAQ & SUPPORT"
           onclick="window.selectHeroCard(3)"
-          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md border border-white/60 shadow-sm min-h-[290px] xl:min-h-[300px]"
+          class="hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/40 hover:bg-white/80 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 min-h-[290px] xl:min-h-[300px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
           <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
@@ -311,6 +336,13 @@
     document.getElementById('hero-card-3')
   ];
 
+  const mobileTabs = [
+    document.getElementById('m-tab-0'),
+    document.getElementById('m-tab-1'),
+    document.getElementById('m-tab-2'),
+    document.getElementById('m-tab-3')
+  ];
+
   const headerLinks = document.querySelectorAll('.nav-link');
   const navIdList = ['nav-hero', 'nav-tech', 'nav-clinical', 'nav-faq'];
 
@@ -322,10 +354,23 @@
       if (!card) return;
       if (i === activeCardIndex) {
         // Active Solid Card
-        card.className = 'hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-xl ring-2 ring-[#00A396]/20 min-h-[290px] xl:min-h-[300px] scale-[1.02] z-20';
+        card.className = 'hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-xl ring-2 ring-[#00A396]/20 min-h-[300px] xl:min-h-[310px] hover:scale-[1.03] hover:-translate-y-1 hover:shadow-2xl z-20 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40';
+        card.setAttribute('aria-selected', 'true');
+        card.tabIndex = 0;
       } else {
         // Translucent Frosted Glass Inactive Card
-        card.className = 'hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md border border-white/60 shadow-sm min-h-[290px] xl:min-h-[300px] scale-100 opacity-90 hover:opacity-100 z-10';
+        card.className = 'hero-bottom-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/40 hover:bg-white/80 backdrop-blur-md border border-white/60 shadow-sm hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 min-h-[290px] xl:min-h-[300px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40';
+        card.setAttribute('aria-selected', 'false');
+      }
+    });
+
+    // Update Mobile Quick Tabs
+    mobileTabs.forEach((tab, i) => {
+      if (!tab) return;
+      if (i === activeCardIndex) {
+        tab.className = 'flex-1 py-2 rounded-xl text-center transition-all bg-[#00A396] text-white font-bold shadow-xs';
+      } else {
+        tab.className = 'flex-1 py-2 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900 font-medium';
       }
     });
 
@@ -342,6 +387,17 @@
       }
     });
   }
+
+  // Keyboard navigation for cards
+  cardElements.forEach((card, index) => {
+    if (!card) return;
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectHeroCard(index);
+      }
+    });
+  });
 
   // Expose to window for global header navigation
   (window as any).selectHeroCard = selectHeroCard;
@@ -367,17 +423,17 @@
   const addValDisplay = document.getElementById('hero-live-add-val');
 
   distBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    const handleDistanceSelect = (e: Event) => {
       e.stopPropagation();
       distBtns.forEach(b => {
-        b.className = 'dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all';
+        b.className = 'dist-btn p-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none';
         const num = b.querySelector('.font-bold, .font-black') as HTMLElement;
         const sub = b.querySelector('.text-[9px]') as HTMLElement;
         if (num) num.className = 'font-mono text-xs font-bold text-slate-700';
         if (sub) sub.className = 'font-mono text-[9px] text-slate-400';
       });
 
-      btn.className = 'dist-btn p-1.5 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs';
+      btn.className = 'dist-btn p-1.5 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs focus:outline-none';
       const activeNum = btn.querySelector('.font-bold, .font-black') as HTMLElement;
       const activeSub = btn.querySelector('.text-[9px]') as HTMLElement;
       if (activeNum) activeNum.className = 'font-mono text-xs font-black text-[#00A396]';
@@ -386,6 +442,14 @@
       const addVal = btn.getAttribute('data-add');
       if (addValDisplay && addVal) {
         addValDisplay.textContent = addVal;
+      }
+    };
+
+    btn.addEventListener('click', handleDistanceSelect);
+    btn.addEventListener('keydown', (e: any) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleDistanceSelect(e);
       }
     });
   });
@@ -416,5 +480,12 @@
   .blur-presbyopia:hover, .blur-none {
     filter: blur(0px);
     opacity: 1;
+  }
+
+  /* Smooth card scaling & lift effect */
+  .hero-bottom-card {
+    will-change: transform, box-shadow;
+    transform-origin: center bottom;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
   }
 </style>

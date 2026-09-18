@@ -1,0 +1,9 @@
+# Allow all web crawlers
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.gazeinto.kr
+
+# Sitemaps
+Sitemap: https://www.gazeinto.kr/sitemap.xml

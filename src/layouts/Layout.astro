@@ -20,42 +20,72 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Global Canonical & Multilingual Hreflang for Google -->
+    <link rel="canonical" href="https://www.gazeinto.kr/" />
+    <link rel="alternate" hreflang="ko" href="https://www.gazeinto.kr/" />
+    <link rel="alternate" hreflang="en" href="https://www.gazeinto.kr/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.gazeinto.kr/" />
+
     <!-- SEO Primary Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="keywords" content="게이즈인투, GazeInto, XR 안저 카메라, Fundus Camera, 노안 진단, 황반변성, 녹내장, 당뇨망막병증, AI 검안" />
+    <meta name="keywords" content="GazeInto, XR Fundus Camera, Presbyopia AI Diagnosis, Retinal Screening, Age-Related Macular Degeneration, Glaucoma, Diabetic Retinopathy, Ophthalmic AI, 게이즈인투, 노안 AI 진단, 안저 카메라" />
     <meta name="author" content="GazeInto Inc." />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.gazeinto.kr/" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:image" content="https://www.gazeinto.kr/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:site_name" content="GazeInto Inc." />
-    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ko_KR" />
 
-    <!-- Twitter -->
+    <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.gazeinto.kr/" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="/og-image.svg" />
+    <meta property="twitter:image" content="https://www.gazeinto.kr/og-image.png" />
 
-    <!-- JSON-LD Structured Data -->
+    <!-- Google Search Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "MedicalDevice",
-      "name": "GazeInto XR Fundus Camera",
-      "manufacturer": {
-        "@type": "Organization",
-        "name": "GazeInto Inc.",
-        "url": "https://www.gazeinto.kr",
-        "email": "gazeinto1nc@gmail.com"
-      },
-      "description": description
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.gazeinto.kr/#organization",
+          "name": "GazeInto Inc.",
+          "url": "https://www.gazeinto.kr",
+          "logo": "https://www.gazeinto.kr/og-image.png",
+          "email": "gazeinto1nc@gmail.com",
+          "sameAs": [
+            "https://www.gazeinto.kr"
+          ]
+        },
+        {
+          "@type": "MedicalWebPage",
+          "@id": "https://www.gazeinto.kr/#webpage",
+          "url": "https://www.gazeinto.kr/",
+          "name": title,
+          "description": description,
+          "inLanguage": ["en", "ko"],
+          "about": [
+            {
+              "@type": "MedicalDevice",
+              "name": "GazeInto XR Fundus Camera & AI Screening System",
+              "recognizingAuthority": "IRB Certified Clinical Validation",
+              "purpose": "Self-operated non-mydriatic XR fundus screening and quantitative presbyopia diagnostic refraction system"
+            }
+          ]
+        }
+      ]
     })} />
   </head>
   <body class="bg-[#F8FAFC] text-slate-900 font-sans antialiased selection:bg-[#00A396]/20 selection:text-[#00A396]">
