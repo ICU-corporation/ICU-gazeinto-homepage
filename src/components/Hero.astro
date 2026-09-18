@@ -80,62 +80,23 @@
 
       </div>
 
-      <!-- Right Column: Melius-Style Layered 3D Card Deck -->
-      <div class="lg:col-span-7 xl:col-span-7 w-full flex flex-col items-center">
+      <!-- Right Column: Fanned-Out Radial 3D Card Deck (부채꼴 카드 덱) -->
+      <div class="lg:col-span-7 xl:col-span-7 w-full flex flex-col items-center relative">
         
-        <!-- Top Controls Bar: Tabs & Flip Arrows -->
-        <div class="w-full max-w-xl flex items-center justify-between gap-3 mb-6 px-2">
-          
-          <!-- Category Tab Indicator Pills -->
-          <div class="flex items-center gap-1 sm:gap-1.5 p-1 rounded-2xl bg-slate-200/50 backdrop-blur-md border border-slate-300/60 shadow-sm" id="stack-tab-bar">
-            <button
-              type="button"
-              onclick="window.goToStackCard(0)"
-              data-tab-idx="0"
-              class="stack-tab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-300 bg-white text-slate-950 shadow-sm border border-slate-200/80 flex items-center gap-1.5"
-            >
-              <span class="w-1.5 h-1.5 rounded-full bg-[#00A396]"></span>
-              <span>01 대시보드</span>
-            </button>
-
-            <button
-              type="button"
-              onclick="window.goToStackCard(1)"
-              data-tab-idx="1"
-              class="stack-tab-btn px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-300 text-slate-600 hover:text-slate-900 flex items-center gap-1.5"
-            >
-              <span class="w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
-              <span>02 기술</span>
-            </button>
-
-            <button
-              type="button"
-              onclick="window.goToStackCard(2)"
-              data-tab-idx="2"
-              class="stack-tab-btn px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-300 text-slate-600 hover:text-slate-900 flex items-center gap-1.5"
-            >
-              <span class="w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
-              <span>03 임상 근거</span>
-            </button>
-
-            <button
-              type="button"
-              onclick="window.goToStackCard(3)"
-              data-tab-idx="3"
-              class="stack-tab-btn px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-300 text-slate-600 hover:text-slate-900 flex items-center gap-1.5"
-            >
-              <span class="w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
-              <span>04 FAQ</span>
-            </button>
+        <!-- Subtle Top Controls: Prev / Next Flip Arrows + Live Hub Indicator -->
+        <div class="w-full max-w-xl flex items-center justify-between gap-3 mb-3 px-3">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-slate-700 bg-white/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200/80 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-[#00A396] animate-pulse"></span>
+            <span id="fanned-active-title">01 / LIVE PRESCRIBED OPTIC</span>
           </div>
 
           <!-- Flip Controls (Prev / Next Arrows) -->
-          <div class="flex items-center gap-1.5">
+          <div class="flex items-center gap-2">
             <button
               type="button"
               id="card-prev-btn"
               onclick="window.prevStackCard()"
-              class="w-8 h-8 rounded-full bg-white/80 hover:bg-white border border-slate-200/80 shadow-sm flex items-center justify-center text-slate-700 hover:text-slate-950 transition-all hover:scale-105 active:scale-95"
+              class="w-9 h-9 rounded-full bg-white/85 hover:bg-white border border-slate-200/90 shadow-sm flex items-center justify-center text-slate-700 hover:text-slate-950 transition-all hover:scale-105 active:scale-95"
               title="이전 카드"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +107,7 @@
               type="button"
               id="card-next-btn"
               onclick="window.nextStackCard()"
-              class="w-8 h-8 rounded-full bg-slate-900 hover:bg-slate-800 text-white shadow-sm flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+              class="w-9 h-9 rounded-full bg-slate-900 hover:bg-slate-800 text-white shadow-md flex items-center justify-center transition-all hover:scale-105 active:scale-95"
               title="다음 카드 넘기기"
             >
               <svg class="w-4 h-4 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,11 +115,10 @@
               </svg>
             </button>
           </div>
-
         </div>
 
-        <!-- 3D Stack Deck Viewport -->
-        <div class="w-full max-w-xl relative h-[530px] pt-14 flex items-center justify-center perspective-[1200px]" id="card-deck-viewport">
+        <!-- Fanned Deck Viewport with Left Pivot Origin -->
+        <div class="w-full max-w-xl relative h-[560px] flex items-center justify-center overflow-visible" id="card-deck-viewport">
           
           <!-- ========================================================= -->
           <!-- STACK CARD 0: 01 대시보드 (Live Prescribed Optic) -->
@@ -166,8 +126,8 @@
           <div
             id="stack-card-0"
             onclick="window.goToStackCard(0)"
-            class="stack-card absolute inset-x-0 bottom-0 h-[460px] rounded-[2rem] bg-white/95 backdrop-blur-2xl border border-white/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-            style="transform: translateY(0px) scale(1); z-index: 40; box-shadow: 0 25px 50px -12px rgba(8,23,38,0.22);"
+            class="fan-card absolute inset-x-0 h-[460px] rounded-[2rem] bg-white/95 backdrop-blur-2xl border border-white/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-left hover:brightness-105"
+            style="transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); z-index: 40; box-shadow: 0 25px 50px -12px rgba(8,23,38,0.22);"
           >
             <!-- Card Header -->
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
@@ -261,8 +221,8 @@
           <div
             id="stack-card-1"
             onclick="window.goToStackCard(1)"
-            class="stack-card absolute inset-x-0 bottom-0 h-[460px] rounded-[2rem] bg-white/95 backdrop-blur-2xl border border-white/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-            style="transform: translateY(-22px) scale(0.95); z-index: 30; opacity: 0.88; box-shadow: 0 20px 40px -10px rgba(8,23,38,0.18);"
+            class="fan-card absolute inset-x-0 h-[460px] rounded-[2rem] bg-white/95 backdrop-blur-2xl border border-white/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-left hover:brightness-105"
+            style="transform: translateY(-50px) translateX(28px) rotate(-9deg) scale(0.96); z-index: 30; opacity: 0.90; box-shadow: 0 20px 40px -10px rgba(8,23,38,0.18);"
           >
             <!-- Card Header -->
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
@@ -326,8 +286,8 @@
           <div
             id="stack-card-2"
             onclick="window.goToStackCard(2)"
-            class="stack-card absolute inset-x-0 bottom-0 h-[460px] rounded-[2rem] bg-white/95 backdrop-blur-2xl border border-white/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-            style="transform: translateY(-44px) scale(0.90); z-index: 20; opacity: 0.65; box-shadow: 0 15px 30px -10px rgba(8,23,38,0.14);"
+            class="fan-card absolute inset-x-0 h-[460px] rounded-[2rem] bg-white/95 backdrop-blur-2xl border border-white/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-left hover:brightness-105"
+            style="transform: translateY(-95px) translateX(55px) rotate(-17deg) scale(0.92); z-index: 20; opacity: 0.75; box-shadow: 0 15px 30px -10px rgba(8,23,38,0.14);"
           >
             <!-- Card Header -->
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
@@ -408,8 +368,8 @@
           <div
             id="stack-card-3"
             onclick="window.goToStackCard(3)"
-            class="stack-card absolute inset-x-0 bottom-0 h-[460px] rounded-[2rem] bg-white/95 backdrop-blur-2xl border border-white/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-            style="transform: translateY(-66px) scale(0.85); z-index: 10; opacity: 0.45; box-shadow: 0 10px 20px -5px rgba(8,23,38,0.1);"
+            class="fan-card absolute inset-x-0 h-[460px] rounded-[2rem] bg-white/95 backdrop-blur-2xl border border-white/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] origin-left hover:brightness-105"
+            style="transform: translateY(50px) translateX(28px) rotate(9deg) scale(0.96); z-index: 10; opacity: 0.85; box-shadow: 0 10px 20px -5px rgba(8,23,38,0.1);"
           >
             <!-- Card Header -->
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
@@ -479,7 +439,7 @@
 
 <script>
   // ==============================================================
-  // Melius-style 3D Stacked Card Deck Animation & Controller
+  // Fanned-Out 3D Card Deck Animation & Controller (부채꼴 레이아웃)
   // ==============================================================
   let currentCardIndex = 0;
   const totalCards = 4;
@@ -490,46 +450,48 @@
     document.getElementById('stack-card-3')
   ];
 
-  const tabButtons = document.querySelectorAll('.stack-tab-btn');
-  const headerLinks = document.querySelectorAll('.nav-link');
-
-  const navIdList = ['nav-hero', 'nav-tech', 'nav-clinical', 'nav-faq'];
-
-  // Card Stacking Styles for each position offset (0 = front, 1 = behind, 2 = 2nd behind, 3 = 3rd behind)
-  const stackConfigs = [
-    { translateY: 0, scale: 1, zIndex: 40, opacity: 1, shadow: '0 25px 50px -12px rgba(8,23,38,0.22)' },
-    { translateY: -22, scale: 0.95, zIndex: 30, opacity: 0.88, shadow: '0 20px 40px -10px rgba(8,23,38,0.18)' },
-    { translateY: -44, scale: 0.90, zIndex: 20, opacity: 0.65, shadow: '0 15px 30px -10px rgba(8,23,38,0.14)' },
-    { translateY: -66, scale: 0.85, zIndex: 10, opacity: 0.45, shadow: '0 10px 20px -5px rgba(8,23,38,0.1)' }
+  const cardTitles = [
+    '01 / LIVE PRESCRIBED OPTIC',
+    '02 / ALL-IN-ONE XR WORKFLOW',
+    '03 / CLINICAL COMPARISON MATRIX',
+    '04 / FREQUENTLY ASKED QUESTIONS'
   ];
 
-  function updateStackLayout() {
+  const activeTitleDisplay = document.getElementById('fanned-active-title');
+  const headerLinks = document.querySelectorAll('.nav-link');
+  const navIdList = ['nav-hero', 'nav-tech', 'nav-clinical', 'nav-faq'];
+
+  // Dynamic Fanned Geometry Configurations based on relative position offset (diff = 0: Active Center)
+  // Origin is anchored on the left side to fan outward towards the right (as requested in 3rd image)
+  const fanConfigs = [
+    // diff 0 (Active in Front): Center, Level, Full Scale
+    { translateY: 0, translateX: 0, rotate: 0, scale: 1, zIndex: 40, opacity: 1, shadow: '0 25px 50px -12px rgba(8,23,38,0.22)' },
+    // diff 1 (1st card fan-up): Upper angle, shifted up/right
+    { translateY: -50, translateX: 28, rotate: -9, scale: 0.96, zIndex: 30, opacity: 0.90, shadow: '0 20px 40px -10px rgba(8,23,38,0.18)' },
+    // diff 2 (2nd card fan-far-up): Far upper angle
+    { translateY: -95, translateX: 55, rotate: -17, scale: 0.92, zIndex: 20, opacity: 0.75, shadow: '0 15px 30px -10px rgba(8,23,38,0.14)' },
+    // diff 3 (3rd card fan-down): Lower angle, shifted down/right
+    { translateY: 50, translateX: 28, rotate: 9, scale: 0.96, zIndex: 10, opacity: 0.85, shadow: '0 10px 20px -5px rgba(8,23,38,0.1)' }
+  ];
+
+  function updateFanLayout() {
     cards.forEach((card, i) => {
       if (!card) return;
       const diff = (i - currentCardIndex + totalCards) % totalCards;
-      const config = stackConfigs[diff];
+      const config = fanConfigs[diff];
 
-      card.style.transform = `translateY(${config.translateY}px) scale(${config.scale})`;
+      card.style.transform = `translateY(${config.translateY}px) translateX(${config.translateX}px) rotate(${config.rotate}deg) scale(${config.scale})`;
       card.style.zIndex = `${config.zIndex}`;
       card.style.opacity = `${config.opacity}`;
       card.style.boxShadow = config.shadow;
-      card.style.pointerEvents = diff === 0 ? 'auto' : 'auto';
     });
 
-    // Update Tab Switcher in the Deck Bar
-    tabButtons.forEach((btn, idx) => {
-      const dot = btn.querySelector('span');
-      if (idx === currentCardIndex) {
-        btn.className = 'stack-tab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-300 bg-white text-slate-950 shadow-sm border border-slate-200/80 flex items-center gap-1.5';
-        if (dot) dot.classList.remove('hidden');
-      } else {
-        btn.className = 'stack-tab-btn px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-300 text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
-        if (dot) dot.classList.add('hidden');
-      }
-    });
+    if (activeTitleDisplay) {
+      activeTitleDisplay.textContent = cardTitles[currentCardIndex];
+    }
 
     // Update Header Navigation Capsule
-    headerLinks.forEach((link, idx) => {
+    headerLinks.forEach((link) => {
       const targetNavId = navIdList[currentCardIndex];
       const navDot = link.querySelector('.nav-dot');
       if (link.id === targetNavId) {
@@ -545,18 +507,18 @@
   function goToStackCard(index: number) {
     if (index >= 0 && index < totalCards) {
       currentCardIndex = index;
-      updateStackLayout();
+      updateFanLayout();
     }
   }
 
   function nextStackCard() {
     currentCardIndex = (currentCardIndex + 1) % totalCards;
-    updateStackLayout();
+    updateFanLayout();
   }
 
   function prevStackCard() {
     currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
-    updateStackLayout();
+    updateFanLayout();
   }
 
   // Expose to window for global buttons
@@ -627,6 +589,6 @@
     });
   });
 
-  // Initialize Stack Layout
-  updateStackLayout();
+  // Initialize Fan Layout
+  updateFanLayout();
 </script>
