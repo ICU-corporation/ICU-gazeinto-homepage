@@ -80,42 +80,8 @@
 
       </div>
 
-      <!-- Right Column: Fanned-Out Radial 3D Card Deck (시인성 극대화 부채꼴 덱) -->
-      <div class="lg:col-span-7 xl:col-span-7 w-full flex flex-col items-center relative">
-        
-        <!-- Clean Separate Top Navigation Bar (헤더와 겹치지 않도록 독립 배치) -->
-        <div class="w-full max-w-xl flex items-center justify-between gap-3 mb-6 px-3">
-          <div class="flex items-center gap-2 text-xs font-mono font-bold text-slate-800 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-slate-200 shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-[#00A396] animate-pulse"></span>
-            <span id="fanned-active-title">01 / LIVE PRESCRIBED OPTIC</span>
-          </div>
-
-          <!-- Flip Controls (Prev / Next Arrows) -->
-          <div class="flex items-center gap-2">
-            <button
-              type="button"
-              id="card-prev-btn"
-              onclick="window.prevStackCard()"
-              class="w-9 h-9 rounded-full bg-white hover:bg-slate-50 border border-slate-300/90 shadow-sm flex items-center justify-center text-slate-800 hover:text-slate-950 transition-all hover:scale-105 active:scale-95"
-              title="이전 카드 (← 방향키)"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-              </svg>
-            </button>
-            <button
-              type="button"
-              id="card-next-btn"
-              onclick="window.nextStackCard()"
-              class="w-9 h-9 rounded-full bg-slate-900 hover:bg-slate-800 text-white shadow-md flex items-center justify-center transition-all hover:scale-105 active:scale-95"
-              title="다음 카드 넘기기 (→ 방향키)"
-            >
-              <svg class="w-4 h-4 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-              </svg>
-            </button>
-          </div>
-        </div>
+      <!-- Right Column: Pure Fanned-Out Radial 3D Card Deck (뒤쪽 간섭 요소 완전 제거) -->
+      <div class="lg:col-span-7 xl:col-span-7 w-full flex flex-col items-center justify-center relative">
 
         <!-- Fanned Deck Viewport with Right Pivot Origin -->
         <div class="w-full max-w-xl relative h-[560px] flex items-center justify-center overflow-visible" id="card-deck-viewport">
@@ -207,13 +173,36 @@
               </div>
             </div>
 
-            <!-- Card Bottom Bar with Flip Trigger -->
+            <!-- Card Bottom Bar with Flip Trigger & Controls -->
             <div class="card-footer pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
-              <span class="font-mono text-xs text-slate-400 font-semibold">01 / 04</span>
-              <button type="button" onclick="event.stopPropagation(); window.nextStackCard();" class="font-bold text-[#00A396] hover:text-[#008277] flex items-center gap-1 group">
-                <span>02 기술 보기</span>
-                <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-              </button>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs text-slate-400 font-semibold">01 / 04</span>
+                <span class="text-slate-300">·</span>
+                <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
+              </div>
+              
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  onclick="event.stopPropagation(); window.prevStackCard();"
+                  class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
+                  title="이전 카드"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onclick="event.stopPropagation(); window.nextStackCard();"
+                  class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
+                >
+                  <span>02 기술 보기</span>
+                  <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -272,13 +261,36 @@
               </div>
             </div>
 
-            <!-- Card Bottom Bar with Flip Trigger -->
+            <!-- Card Bottom Bar with Flip Trigger & Controls -->
             <div class="card-footer pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
-              <span class="font-mono text-xs text-slate-400 font-semibold">02 / 04</span>
-              <button type="button" onclick="event.stopPropagation(); window.nextStackCard();" class="font-bold text-[#00A396] hover:text-[#008277] flex items-center gap-1 group">
-                <span>03 임상 근거 보기</span>
-                <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-              </button>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs text-slate-400 font-semibold">02 / 04</span>
+                <span class="text-slate-300">·</span>
+                <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  onclick="event.stopPropagation(); window.prevStackCard();"
+                  class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
+                  title="이전 카드"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onclick="event.stopPropagation(); window.nextStackCard();"
+                  class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
+                >
+                  <span>03 임상 근거 보기</span>
+                  <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -356,13 +368,36 @@
               </div>
             </div>
 
-            <!-- Card Bottom Bar with Flip Trigger -->
+            <!-- Card Bottom Bar with Flip Trigger & Controls -->
             <div class="card-footer pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
-              <span class="font-mono text-xs text-slate-400 font-semibold">03 / 04</span>
-              <button type="button" onclick="event.stopPropagation(); window.nextStackCard();" class="font-bold text-[#00A396] hover:text-[#008277] flex items-center gap-1 group">
-                <span>04 FAQ 보기</span>
-                <span class="group-hover:translate-x-0.5 transition-transform">→</span>
-              </button>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs text-slate-400 font-semibold">03 / 04</span>
+                <span class="text-slate-300">·</span>
+                <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  onclick="event.stopPropagation(); window.prevStackCard();"
+                  class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
+                  title="이전 카드"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onclick="event.stopPropagation(); window.nextStackCard();"
+                  class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
+                >
+                  <span>04 FAQ 보기</span>
+                  <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -421,13 +456,36 @@
               </div>
             </div>
 
-            <!-- Card Bottom Bar with Flip Trigger -->
+            <!-- Card Bottom Bar with Flip Trigger & Controls -->
             <div class="card-footer pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
-              <span class="font-mono text-xs text-slate-400 font-semibold">04 / 04</span>
-              <button type="button" onclick="event.stopPropagation(); window.goToStackCard(0);" class="font-bold text-[#00A396] hover:text-[#008277] flex items-center gap-1 group">
-                <span>01 대시보드로 돌아가기</span>
-                <span class="group-hover:translate-x-0.5 transition-transform">↺</span>
-              </button>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs text-slate-400 font-semibold">04 / 04</span>
+                <span class="text-slate-300">·</span>
+                <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button
+                  type="button"
+                  onclick="event.stopPropagation(); window.prevStackCard();"
+                  class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
+                  title="이전 카드"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onclick="event.stopPropagation(); window.goToStackCard(0);"
+                  class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
+                >
+                  <span>01 대시보드로 돌아가기</span>
+                  <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -443,7 +501,7 @@
 
 <script>
   // ==============================================================
-  // High-Legibility Fanned-Out 3D Card Deck Animation & Controller
+  // Pure High-Legibility Fanned-Out 3D Card Deck Animation & Controller
   // ==============================================================
   let currentCardIndex = 0;
   const totalCards = 4;
@@ -454,14 +512,6 @@
     document.getElementById('stack-card-3')
   ];
 
-  const cardTitles = [
-    '01 / LIVE PRESCRIBED OPTIC',
-    '02 / ALL-IN-ONE XR WORKFLOW',
-    '03 / CLINICAL COMPARISON MATRIX',
-    '04 / FREQUENTLY ASKED QUESTIONS'
-  ];
-
-  const activeTitleDisplay = document.getElementById('fanned-active-title');
   const headerLinks = document.querySelectorAll('.nav-link');
   const navIdList = ['nav-hero', 'nav-tech', 'nav-clinical', 'nav-faq'];
 
@@ -516,10 +566,6 @@
         }
       }
     });
-
-    if (activeTitleDisplay) {
-      activeTitleDisplay.textContent = cardTitles[currentCardIndex];
-    }
 
     // Update Header Navigation Capsule
     headerLinks.forEach((link) => {
