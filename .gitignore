@@ -19,3 +19,7 @@ pnpm-debug.log*
 # OS files
 .DS_Store
 Thumbs.db
+
+# local raw video assets
+video/
+
