@@ -80,11 +80,11 @@
 
       </div>
 
-      <!-- Right Column: Parallel 4-Card Stepped Stack Deck (평행 계단식 슬라이드 덱) -->
+      <!-- Right Column: Widely-Spaced Parallel 4-Card Stack Deck (간격 확장 평행 계단식 슬라이드 덱) -->
       <div class="lg:col-span-7 xl:col-span-7 w-full flex flex-col items-center justify-center relative">
 
-        <!-- Parallel Deck Viewport with Room for 4 Stepped Cards -->
-        <div class="w-full max-w-xl relative h-[580px] flex items-end justify-center overflow-visible pb-4" id="card-deck-viewport">
+        <!-- Parallel Deck Viewport with Generous Room for Widely Spaced Cards -->
+        <div class="w-full max-w-xl relative h-[650px] flex items-end justify-center overflow-visible pb-4" id="card-deck-viewport">
           
           <!-- ========================================================= -->
           <!-- STACK CARD 0: 01 대시보드 (Live Prescribed Optic) -->
@@ -213,7 +213,7 @@
             id="stack-card-1"
             onclick="window.goToStackCard(1)"
             class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
-            style="transform: translateY(-36px) scale(0.96); z-index: 30; opacity: 0.96; box-shadow: 0 20px 40px -10px rgba(8,23,38,0.18);"
+            style="transform: translateY(-54px) scale(0.95); z-index: 30; opacity: 0.96; box-shadow: 0 20px 40px -10px rgba(8,23,38,0.18);"
           >
             <!-- Card Header -->
             <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
@@ -301,7 +301,7 @@
             id="stack-card-2"
             onclick="window.goToStackCard(2)"
             class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
-            style="transform: translateY(-72px) scale(0.92); z-index: 20; opacity: 0.92; box-shadow: 0 15px 30px -10px rgba(8,23,38,0.14);"
+            style="transform: translateY(-108px) scale(0.90); z-index: 20; opacity: 0.92; box-shadow: 0 15px 30px -10px rgba(8,23,38,0.14);"
           >
             <!-- Card Header -->
             <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
@@ -408,7 +408,7 @@
             id="stack-card-3"
             onclick="window.goToStackCard(3)"
             class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
-            style="transform: translateY(-108px) scale(0.88); z-index: 10; opacity: 0.88; box-shadow: 0 10px 20px -5px rgba(8,23,38,0.12);"
+            style="transform: translateY(-162px) scale(0.85); z-index: 10; opacity: 0.88; box-shadow: 0 10px 20px -5px rgba(8,23,38,0.12);"
           >
             <!-- Card Header -->
             <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
@@ -501,7 +501,7 @@
 
 <script>
   // ==============================================================
-  // Parallel Stepped 3D Card Deck Animation & Controller
+  // Widely Spaced Parallel Stepped 3D Card Deck Animation & Controller
   // ==============================================================
   let currentCardIndex = 0;
   const totalCards = 4;
@@ -515,16 +515,16 @@
   const headerLinks = document.querySelectorAll('.nav-link');
   const navIdList = ['nav-hero', 'nav-tech', 'nav-clinical', 'nav-faq'];
 
-  // Parallel Stepped Vertical Configurations (평행 계단식 4단 스택)
+  // Parallel Stepped Vertical Configurations with Generous Spacing (54px Step)
   const stackConfigs = [
     // diff 0 (Active Front Focus): Level, Full Scale, 100% Solid White
     { translateY: 0, scale: 1, zIndex: 40, opacity: 1, shadow: '0 30px 60px -15px rgba(8,23,38,0.24)' },
-    // diff 1 (1st card behind): Stepped up -36px
-    { translateY: -36, scale: 0.96, zIndex: 30, opacity: 0.96, shadow: '0 20px 40px -10px rgba(8,23,38,0.18)' },
-    // diff 2 (2nd card behind): Stepped up -72px
-    { translateY: -72, scale: 0.92, zIndex: 20, opacity: 0.92, shadow: '0 15px 30px -10px rgba(8,23,38,0.14)' },
-    // diff 3 (3rd card behind): Stepped up -108px (모든 4개 카드 탭 노출)
-    { translateY: -108, scale: 0.88, zIndex: 10, opacity: 0.88, shadow: '0 10px 20px -5px rgba(8,23,38,0.12)' }
+    // diff 1 (1st card behind): Stepped up -54px
+    { translateY: -54, scale: 0.95, zIndex: 30, opacity: 0.96, shadow: '0 20px 40px -10px rgba(8,23,38,0.18)' },
+    // diff 2 (2nd card behind): Stepped up -108px
+    { translateY: -108, scale: 0.90, zIndex: 20, opacity: 0.92, shadow: '0 15px 30px -10px rgba(8,23,38,0.14)' },
+    // diff 3 (3rd card behind): Stepped up -162px (모든 4개 카드 탭 100% 시원하게 노출)
+    { translateY: -162, scale: 0.85, zIndex: 10, opacity: 0.88, shadow: '0 10px 20px -5px rgba(8,23,38,0.12)' }
   ];
 
   function updateStackLayout() {
