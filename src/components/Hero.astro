@@ -29,7 +29,7 @@
       <!-- Category Tag -->
       <div class="flex items-center gap-2 mb-3 scroll-reveal">
         <span class="w-5 h-[2px] bg-[#00A396] scroll-line"></span>
-        <span class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase drop-shadow-sm">
+        <span data-i18n="hero_category" class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase drop-shadow-sm">
           노안 AI 진단 & 처방 엔진
         </span>
       </div>
@@ -38,12 +38,12 @@
       <div class="mb-3 select-none">
         <h1 class="text-3xl sm:text-5xl xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.12] mb-2 drop-shadow-sm">
           <!-- Line 1: Blurred text that clarifies on hover -->
-          <span id="hero-blurred-text" class="blur-presbyopia inline-block cursor-default transition-all duration-700" title="초점이 흐려진 상태 (마우스를 올리면 선명해집니다)">
+          <span id="hero-blurred-text" data-i18n="hero_title_blur" class="blur-presbyopia inline-block cursor-default transition-all duration-700" title="초점이 흐려진 상태 (마우스를 올리면 선명해집니다)">
             흐려진 글자 앞에서
           </span>
           <br />
           <!-- Line 2: Sharp text -->
-          <span class="text-slate-900 inline-block mt-1 scroll-reveal scroll-reveal-delay-1">
+          <span data-i18n="hero_title_sharp" class="text-slate-900 inline-block mt-1 scroll-reveal scroll-reveal-delay-1">
             멈추지 않도록.
           </span>
         </h1>
@@ -51,7 +51,7 @@
 
       <!-- Description Paragraph -->
       <div class="max-w-xl mb-4">
-        <p class="text-sm sm:text-base xl:text-lg text-slate-800 font-medium leading-relaxed scroll-reveal scroll-reveal-delay-2 drop-shadow-sm">
+        <p data-i18n="hero_desc" class="text-sm sm:text-base xl:text-lg text-slate-800 font-medium leading-relaxed scroll-reveal scroll-reveal-delay-2 drop-shadow-sm">
           게이즈인투의 AI는 노안의 진행 단계를 정량 판독하고, 당신의 눈이 실제로 머무는 거리에 맞춰 처방을 설계합니다.
         </p>
       </div>
@@ -76,11 +76,11 @@
           <div class="flex items-center justify-between pb-3 border-b border-slate-200/70">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-[#00A396] shadow-[0_0_8px_#00A396]"></span>
-              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+              <span data-i18n="card0_title" class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
                 01 / LIVE PRESCRIBED OPTIC
               </span>
             </div>
-            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card0_badge" class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               AUTO CALIBRATE
             </span>
           </div>
@@ -88,8 +88,8 @@
           <!-- Card Body: Distance buttons + Output + Biomarkers -->
           <div class="space-y-2.5 my-auto">
             <div class="flex items-center justify-between text-xs">
-              <span class="text-slate-600 font-semibold">거리별 처방 가입도</span>
-              <span class="font-mono font-bold text-[#00A396] text-[11px]">실시간 AI 거리 보정</span>
+              <span data-i18n="card0_dist_label" class="text-slate-600 font-semibold">거리별 처방 가입도</span>
+              <span data-i18n="card0_dist_tag" class="font-mono font-bold text-[#00A396] text-[11px]">실시간 AI 거리 보정</span>
             </div>
 
             <!-- Distance Buttons -->
@@ -119,8 +119,8 @@
             <!-- Output Display -->
             <div class="p-2.5 rounded-2xl bg-[#081726] text-white flex items-center justify-between shadow-xs">
               <div>
-                <span class="font-mono text-[9px] text-[#22D3EE] uppercase tracking-wider font-bold block">RECOMMENDED ADD</span>
-                <span class="text-xs text-slate-300">근거리 실제 작업 환경 맞춤 처방값</span>
+                <span data-i18n="card0_rec_title" class="font-mono text-[9px] text-[#22D3EE] uppercase tracking-wider font-bold block">RECOMMENDED ADD</span>
+                <span data-i18n="card0_rec_desc" class="text-xs text-slate-300">근거리 실제 작업 환경 맞춤 처방값</span>
               </div>
               <div class="flex items-baseline gap-1">
                 <span id="hero-live-add-val" class="text-2xl sm:text-3xl font-black font-mono text-white tracking-tight">+1.75</span>
@@ -130,13 +130,13 @@
 
             <!-- 3 Biomarker mini tags -->
             <div class="grid grid-cols-3 gap-1 text-center text-[10px]">
-              <div class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold">
+              <div data-i18n-html="card0_bio_amd" class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold">
                 AMD <span class="text-[#00A396]">&lt;1%</span>
               </div>
-              <div class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold">
+              <div data-i18n-html="card0_bio_glaucoma" class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold">
                 녹내장 <span class="text-[#00A396]">0.32</span>
               </div>
-              <div class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold">
+              <div data-i18n-html="card0_bio_dr" class="p-1 rounded-lg bg-slate-100/90 border border-slate-200/80 font-mono text-slate-700 font-bold">
                 DR <span class="text-slate-900">Clear</span>
               </div>
             </div>
@@ -146,7 +146,7 @@
           <div class="pt-2.5 border-t border-slate-200/70 flex items-center justify-between text-xs text-slate-600">
             <span class="font-mono text-slate-400 font-semibold">01 / 04</span>
             <span class="text-[#00A396] font-mono font-bold flex items-center gap-1">
-              <span>ACTIVE COCKPIT</span>
+              <span data-i18n="card0_status">ACTIVE COCKPIT</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
               </svg>
@@ -166,11 +166,11 @@
           <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+              <span data-i18n="card1_title" class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
                 02 / XR WORKFLOW
               </span>
             </div>
-            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card1_badge" class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               3-STEP PROCESS
             </span>
           </div>
@@ -180,22 +180,22 @@
             <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-2.5 shadow-2xs">
               <span class="font-mono font-black text-[#00A396] text-xs px-2 py-0.5 rounded-lg bg-[#00A396]/10 shrink-0 mt-0.5">01</span>
               <div>
-                <div class="font-bold text-slate-900 text-xs sm:text-sm">자가 착용 (Wear)</div>
-                <div class="text-[11px] text-slate-600 leading-tight mt-0.5">병원 방문 없이 가정·일상에서 가볍게 착용 후 즉시 시작</div>
+                <div data-i18n="card1_step1_title" class="font-bold text-slate-900 text-xs sm:text-sm">자가 착용 (Wear)</div>
+                <div data-i18n="card1_step1_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">병원 방문 없이 가정·일상에서 가볍게 착용 후 즉시 시작</div>
               </div>
             </div>
             <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-2.5 shadow-2xs">
               <span class="font-mono font-black text-[#00A396] text-xs px-2 py-0.5 rounded-lg bg-[#00A396]/10 shrink-0 mt-0.5">02</span>
               <div>
-                <div class="font-bold text-slate-900 text-xs sm:text-sm">시선 유도 자동 촬영</div>
-                <div class="text-[11px] text-slate-600 leading-tight mt-0.5">지능형 동공 정렬 인터랙션으로 고해상도 안저 이미지 캡처</div>
+                <div data-i18n="card1_step2_title" class="font-bold text-slate-900 text-xs sm:text-sm">시선 유도 자동 촬영</div>
+                <div data-i18n="card1_step2_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">지능형 동공 정렬 인터랙션으로 고해상도 안저 이미지 캡처</div>
               </div>
             </div>
             <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-2.5 shadow-2xs">
               <span class="font-mono font-black text-[#00A396] text-xs px-2 py-0.5 rounded-lg bg-[#00A396]/10 shrink-0 mt-0.5">03</span>
               <div>
-                <div class="font-bold text-slate-900 text-xs sm:text-sm">3대 질환 온디바이스 판독</div>
-                <div class="text-[11px] text-slate-600 leading-tight mt-0.5">황반변성(AMD), 녹내장, 당뇨망막 징후를 30초 내 정량 분석</div>
+                <div data-i18n="card1_step3_title" class="font-bold text-slate-900 text-xs sm:text-sm">3대 질환 온디바이스 판독</div>
+                <div data-i18n="card1_step3_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">황반변성(AMD), 녹내장, 당뇨망막 징후를 30초 내 정량 분석</div>
               </div>
             </div>
           </div>
@@ -204,7 +204,7 @@
           <div class="pt-2.5 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-600">
             <span class="font-mono text-slate-400 font-semibold">02 / 04</span>
             <span class="text-slate-800 font-mono font-bold flex items-center gap-1">
-              <span>VIEW TECH</span>
+              <span data-i18n="card1_action">VIEW TECH</span>
               <svg class="w-3.5 h-3.5 text-[#00A396]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
               </svg>
@@ -224,11 +224,11 @@
           <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+              <span data-i18n="card2_title" class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
                 03 / CLINICAL MATRIX
               </span>
             </div>
-            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card2_badge" class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               CLINICAL VALIDATED
             </span>
           </div>
@@ -238,16 +238,16 @@
             <!-- 3 Target Diseases -->
             <div class="grid grid-cols-3 gap-1.5 text-center">
               <div class="p-2 rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
-                <div class="text-slate-500 font-medium text-[10px]">황반변성(AMD)</div>
-                <div class="font-bold text-[#00A396] font-mono text-xs mt-0.5">정상 &lt;1%</div>
+                <div data-i18n="card2_amd_label" class="text-slate-500 font-medium text-[10px]">황반변성(AMD)</div>
+                <div data-i18n="card2_amd_val" class="font-bold text-[#00A396] font-mono text-xs mt-0.5">정상 &lt;1%</div>
               </div>
               <div class="p-2 rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
-                <div class="text-slate-500 font-medium text-[10px]">시신경(녹내장)</div>
-                <div class="font-bold text-[#00A396] font-mono text-xs mt-0.5">C/D 0.32</div>
+                <div data-i18n="card2_glaucoma_label" class="text-slate-500 font-medium text-[10px]">시신경(녹내장)</div>
+                <div data-i18n="card2_glaucoma_val" class="font-bold text-[#00A396] font-mono text-xs mt-0.5">C/D 0.32</div>
               </div>
               <div class="p-2 rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
-                <div class="text-slate-500 font-medium text-[10px]">망막혈관(DR)</div>
-                <div class="font-bold text-slate-800 font-mono text-xs mt-0.5">Clear</div>
+                <div data-i18n="card2_dr_label" class="text-slate-500 font-medium text-[10px]">망막혈관(DR)</div>
+                <div data-i18n="card2_dr_val" class="font-bold text-slate-800 font-mono text-xs mt-0.5">Clear</div>
               </div>
             </div>
 
@@ -255,21 +255,21 @@
             <div class="p-3 rounded-2xl bg-slate-900 text-white flex items-center justify-between text-xs shadow-2xs">
               <div class="text-center">
                 <div class="font-mono font-black text-base text-[#00C4B4]">98.4%</div>
-                <div class="text-[9px] text-slate-400">판독 일치율</div>
+                <div data-i18n="card2_stat_acc" class="text-[9px] text-slate-400">판독 일치율</div>
               </div>
               <span class="text-slate-700">|</span>
               <div class="text-center">
                 <div class="font-mono font-black text-base text-white">4개</div>
-                <div class="text-[9px] text-slate-400">협력 안과</div>
+                <div data-i18n="card2_stat_hosp" class="text-[9px] text-slate-400">협력 안과</div>
               </div>
               <span class="text-slate-700">|</span>
               <div class="text-center">
                 <div class="font-mono font-black text-base text-white">12만+</div>
-                <div class="text-[9px] text-slate-400">학습 데이터</div>
+                <div data-i18n="card2_stat_data" class="text-[9px] text-slate-400">학습 데이터</div>
               </div>
             </div>
 
-            <div class="p-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center text-[10px] text-emerald-800 font-semibold">
+            <div data-i18n="card2_irb_badge" class="p-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center text-[10px] text-emerald-800 font-semibold">
               ✓ 대학병원 임상 실증 및 IRB 승인 완료
             </div>
           </div>
@@ -278,7 +278,7 @@
           <div class="pt-2.5 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-600">
             <span class="font-mono text-slate-400 font-semibold">03 / 04</span>
             <span class="text-slate-800 font-mono font-bold flex items-center gap-1">
-              <span>VIEW CLINICAL</span>
+              <span data-i18n="card2_action">VIEW CLINICAL</span>
               <svg class="w-3.5 h-3.5 text-[#00A396]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
               </svg>
@@ -298,11 +298,11 @@
           <div class="flex items-center justify-between pb-3 border-b border-slate-200/60">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+              <span data-i18n="card3_title" class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
                 04 / FAQ & SUPPORT
               </span>
             </div>
-            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card3_badge" class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               FAQ & SUPPORT
             </span>
           </div>
@@ -310,16 +310,16 @@
           <!-- Card Body: 3 Expanded Q&As -->
           <div class="space-y-2 my-auto text-xs">
             <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
-              <span class="font-bold text-slate-900 text-xs block">Q1. 혼자서 촬영 가능한가요?</span>
-              <p class="text-[11px] text-slate-600 leading-tight mt-0.5">지능형 시선 유도(Gaze Guidance)가 동공을 가이드하여 비숙련자도 30초 내 촬영</p>
+              <span data-i18n="card3_q1_title" class="font-bold text-slate-900 text-xs block">Q1. 혼자서 촬영 가능한가요?</span>
+              <p data-i18n="card3_q1_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">지능형 시선 유도(Gaze Guidance)가 동공을 가이드하여 비숙련자도 30초 내 촬영</p>
             </div>
             <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
-              <span class="font-bold text-slate-900 text-xs block">Q2. 안경원·의원 EMR 연동</span>
-              <p class="text-[11px] text-slate-600 leading-tight mt-0.5">처방 데이터 및 고해상도 안저 리포트를 기존 전자의무기록(EMR)과 즉시 연동</p>
+              <span data-i18n="card3_q2_title" class="font-bold text-slate-900 text-xs block">Q2. 안경원·의원 EMR 연동</span>
+              <p data-i18n="card3_q2_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">처방 데이터 및 고해상도 안저 리포트를 기존 전자의무기록(EMR)과 즉시 연동</p>
             </div>
             <div class="p-2.5 rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
-              <span class="font-bold text-slate-900 text-xs block">Q3. 도입 상담 및 방문 데모</span>
-              <p class="text-[11px] text-slate-600 leading-tight mt-0.5">공식 이메일(gazeinto1nc@gmail.com)로 접수 시 전담팀 1:1 시연</p>
+              <span data-i18n="card3_q3_title" class="font-bold text-slate-900 text-xs block">Q3. 도입 상담 및 방문 데모</span>
+              <p data-i18n="card3_q3_desc" class="text-[11px] text-slate-600 leading-tight mt-0.5">공식 이메일(gazeinto1nc@gmail.com)로 접수 시 전담팀 1:1 시연</p>
             </div>
           </div>
 
@@ -327,7 +327,7 @@
           <div class="pt-2.5 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-600">
             <span class="font-mono text-slate-400 font-semibold">04 / 04</span>
             <span class="text-slate-800 font-mono font-bold flex items-center gap-1">
-              <span>VIEW FAQ</span>
+              <span data-i18n="card3_action">VIEW FAQ</span>
               <svg class="w-3.5 h-3.5 text-[#00A396]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
               </svg>
