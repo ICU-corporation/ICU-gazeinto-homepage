@@ -15,9 +15,9 @@
       <source src="/videos/hero-bg.mp4" type="video/mp4" />
     </video>
     
-    <!-- Sophisticated Contrast Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/95 via-[#F8FAFC]/75 to-[#F8FAFC]/35"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/40 to-transparent"></div>
+    <!-- Sophisticated Contrast Gradient Overlay (Preserving VR visual in background) -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/95 via-[#F8FAFC]/50 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/60 via-transparent to-transparent"></div>
   </div>
 
   <!-- Main Container: Top Typography + Bottom Wide Landscape Stepped Stack -->
@@ -487,16 +487,42 @@
   const headerLinks = document.querySelectorAll('.nav-link');
   const navIdList = ['nav-hero', 'nav-tech', 'nav-clinical', 'nav-faq'];
 
-  // Downward Stepped Layout Configurations (40px Step Downwards)
+  // Downward Stepped Layout Configurations (42px Step Downwards)
+  // Active card: Solid opaque white.
+  // Behind cards: Semi-transparent glassmorphism (translucent background visible through glass)
   const stackConfigs = [
-    // diff 0 (Active Top Focus): Top Level, Full Scale, Solid White
-    { translateY: 0, scale: 1, zIndex: 40, bg: 'bg-white', shadow: '0 25px 50px -12px rgba(8,23,38,0.18), 0 0 0 1px rgba(226,232,240,0.8)' },
-    // diff 1 (1st card below): Stepped Down +42px
-    { translateY: 42, scale: 0.98, zIndex: 30, bg: 'bg-[#F8FAFC]', shadow: '0 15px 30px -10px rgba(8,23,38,0.12), 0 0 0 1px rgba(226,232,240,0.7)' },
-    // diff 2 (2nd card below): Stepped Down +84px
-    { translateY: 84, scale: 0.96, zIndex: 20, bg: 'bg-[#F1F5F9]', shadow: '0 10px 20px -8px rgba(8,23,38,0.10), 0 0 0 1px rgba(203,213,225,0.6)' },
-    // diff 3 (3rd card below): Stepped Down +126px
-    { translateY: 126, scale: 0.94, zIndex: 10, bg: 'bg-[#E2E8F0]', shadow: '0 6px 15px -5px rgba(8,23,38,0.08), 0 0 0 1px rgba(148,163,184,0.5)' }
+    // diff 0 (Active Top Focus): Solid Crisp White + Rich Shadow
+    {
+      translateY: 0,
+      scale: 1,
+      zIndex: 40,
+      cardClass: 'bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_25px_50px_-12px_rgba(8,23,38,0.18)]',
+      footerClass: 'bg-white/90 border-t border-slate-100'
+    },
+    // diff 1 (1st card below): Semi-transparent frosted glass (VR bg visible through)
+    {
+      translateY: 42,
+      scale: 0.98,
+      zIndex: 30,
+      cardClass: 'bg-white/35 backdrop-blur-md border border-white/50 shadow-[0_15px_30px_-10px_rgba(8,23,38,0.10)]',
+      footerClass: 'bg-white/85 hover:bg-white/95 backdrop-blur-md border-t border-slate-200/80'
+    },
+    // diff 2 (2nd card below): Semi-transparent frosted glass
+    {
+      translateY: 84,
+      scale: 0.96,
+      zIndex: 20,
+      cardClass: 'bg-white/25 backdrop-blur-md border border-white/40 shadow-[0_10px_20px_-8px_rgba(8,23,38,0.08)]',
+      footerClass: 'bg-white/80 hover:bg-white/90 backdrop-blur-md border-t border-slate-200/70'
+    },
+    // diff 3 (3rd card below): Semi-transparent frosted glass
+    {
+      translateY: 126,
+      scale: 0.94,
+      zIndex: 10,
+      cardClass: 'bg-white/15 backdrop-blur-md border border-white/30 shadow-[0_6px_15px_-5px_rgba(8,23,38,0.06)]',
+      footerClass: 'bg-white/75 hover:bg-white/85 backdrop-blur-md border-t border-slate-200/60'
+    }
   ];
 
   function updateStackLayout() {
@@ -507,14 +533,15 @@
 
       card.style.transform = `translateY(${config.translateY}px) scale(${config.scale})`;
       card.style.zIndex = `${config.zIndex}`;
-      card.style.boxShadow = config.shadow;
 
       const header = card.querySelector('.card-header') as HTMLElement;
       const body = card.querySelector('.card-body') as HTMLElement;
+      const footer = card.querySelector('.card-footer') as HTMLElement;
       const footerControls = card.querySelector('.card-footer-controls') as HTMLElement;
 
+      card.className = `stack-card absolute inset-x-0 top-0 h-[290px] sm:h-[280px] rounded-3xl ${config.cardClass} p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]`;
+
       if (diff === 0) {
-        card.className = 'stack-card absolute inset-x-0 top-0 h-[290px] sm:h-[280px] rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.01]';
         if (header) {
           header.style.opacity = '1';
         }
@@ -522,18 +549,23 @@
           body.style.opacity = '1';
           body.style.pointerEvents = 'auto';
         }
+        if (footer) {
+          footer.className = 'card-footer pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 bg-white/90';
+        }
         if (footerControls) {
           footerControls.style.opacity = '1';
           footerControls.style.pointerEvents = 'auto';
         }
       } else {
-        card.className = `stack-card absolute inset-x-0 top-0 h-[290px] sm:h-[280px] rounded-3xl ${config.bg} border border-slate-200/90 p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.01]`;
         if (header) {
           header.style.opacity = '0';
         }
         if (body) {
           body.style.opacity = '0';
           body.style.pointerEvents = 'none';
+        }
+        if (footer) {
+          footer.className = `card-footer pt-2.5 px-5 -mx-5 -mb-5 pb-3.5 rounded-b-3xl ${config.footerClass} flex items-center justify-between text-xs text-slate-800 transition-colors duration-200`;
         }
         if (footerControls) {
           footerControls.style.opacity = '0';
