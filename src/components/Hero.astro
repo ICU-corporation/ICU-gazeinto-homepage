@@ -1,7 +1,7 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-[95vh] lg:min-h-screen pt-20 flex flex-col justify-between bg-[#0A1928] overflow-hidden select-none">
+<section id="hero" class="relative min-h-[96vh] lg:min-h-screen pt-20 flex flex-col justify-between bg-[#0A1928] overflow-hidden select-none">
   
   <!-- Ambient High-Definition Video Background Layer -->
   <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -17,51 +17,50 @@
     
     <!-- Sophisticated Contrast Gradient Overlay -->
     <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/95 via-[#F8FAFC]/75 to-[#F8FAFC]/35"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/95 via-transparent to-[#F8FAFC]/25"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-[#F8FAFC]/40 to-transparent"></div>
   </div>
 
-  <!-- Main Split Dashboard Container -->
-  <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16 flex-1 flex flex-col justify-center py-10 lg:py-16">
+  <!-- Main Container: Top Typography + Bottom Wide Landscape Stepped Stack -->
+  <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16 flex-1 flex flex-col justify-between pt-10 sm:pt-14 pb-8">
     
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16 items-center">
+    <!-- Top Content Section: Main Typography & CTA (Raised Slightly Upward) -->
+    <div class="max-w-4xl pt-2 sm:pt-4">
       
-      <!-- Left Column: Main Typography & Brand Core (Vertically Centered in Middle) -->
-      <div class="lg:col-span-5 xl:col-span-5 flex flex-col justify-center my-auto pt-2 lg:pt-0">
-        
-        <!-- Category Tag -->
-        <div class="flex items-center gap-2 mb-6 scroll-reveal">
-          <span class="w-5 h-[2px] bg-[#00A396] scroll-line"></span>
-          <span class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase drop-shadow-sm">
-            노안 AI 진단 & 처방 엔진
+      <!-- Category Tag -->
+      <div class="flex items-center gap-2 mb-4 scroll-reveal">
+        <span class="w-5 h-[2px] bg-[#00A396] scroll-line"></span>
+        <span class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase drop-shadow-sm">
+          노안 AI 진단 & 처방 엔진
+        </span>
+      </div>
+
+      <!-- Headline (Blur to Sharp Typography with Interactive Hover Focus) -->
+      <div class="mb-4 select-none">
+        <h1 class="text-3xl sm:text-5xl xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.12] mb-2 drop-shadow-sm">
+          <!-- Line 1: Blurred text that clarifies on hover -->
+          <span id="hero-blurred-text" class="blur-presbyopia inline-block cursor-default transition-all duration-700" title="초점이 흐려진 상태 (마우스를 올리면 선명해집니다)">
+            흐려진 글자 앞에서
           </span>
-        </div>
+          <br />
+          <!-- Line 2: Sharp text -->
+          <span class="text-slate-900 inline-block mt-1 scroll-reveal scroll-reveal-delay-1">
+            멈추지 않도록.
+          </span>
+        </h1>
+      </div>
 
-        <!-- Headline (Blur to Sharp Typography with Interactive Hover Focus) -->
-        <div class="mb-6 select-none">
-          <h1 class="text-4xl sm:text-5xl xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.15] mb-2 drop-shadow-sm">
-            <!-- Line 1: Blurred text that clarifies on hover -->
-            <span id="hero-blurred-text" class="blur-presbyopia inline-block cursor-default transition-all duration-700" title="초점이 흐려진 상태 (마우스를 올리면 선명해집니다)">
-              흐려진 글자 앞에서
-            </span>
-            <br />
-            <!-- Line 2: Sharp text -->
-            <span class="text-slate-900 inline-block mt-2 scroll-reveal scroll-reveal-delay-1">
-              멈추지 않도록.
-            </span>
-          </h1>
-        </div>
-
-        <!-- Description Paragraph -->
-        <p class="text-base sm:text-lg text-slate-800 font-medium leading-relaxed max-w-xl mb-8 scroll-reveal scroll-reveal-delay-2 drop-shadow-sm">
+      <!-- Description Paragraph & CTAs in Single Balanced Flow -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 max-w-4xl mb-6">
+        <p class="text-sm sm:text-base xl:text-lg text-slate-800 font-medium leading-relaxed max-w-xl scroll-reveal scroll-reveal-delay-2 drop-shadow-sm">
           게이즈인투의 AI는 노안의 진행 단계를 정량 판독하고, 당신의 눈이 실제로 머무는 거리에 맞춰 처방을 설계합니다.
         </p>
 
         <!-- Quick CTA Buttons -->
-        <div class="flex flex-wrap items-center gap-4 scroll-reveal scroll-reveal-delay-3">
+        <div class="flex flex-wrap items-center gap-3 shrink-0 scroll-reveal scroll-reveal-delay-3">
           <button
             type="button"
             onclick="window.openContactModal('trial')"
-            class="px-7 py-3.5 rounded-xl bg-[#0F2236] hover:bg-[#1A334E] text-white text-sm font-bold tracking-tight shadow-md transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2"
+            class="px-6 py-3 rounded-xl bg-[#0F2236] hover:bg-[#1A334E] text-white text-xs sm:text-sm font-bold tracking-tight shadow-md transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2"
           >
             <span>30초 자가 진단 시작</span>
             <svg class="w-4 h-4 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,423 +71,414 @@
           <button
             type="button"
             onclick="window.openContactModal('b2b')"
-            class="px-7 py-3.5 rounded-xl bg-white/85 hover:bg-white text-slate-800 text-sm font-semibold tracking-tight border border-slate-300/80 shadow-sm backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
+            class="px-6 py-3 rounded-xl bg-white/90 hover:bg-white text-slate-800 text-xs sm:text-sm font-semibold tracking-tight border border-slate-300/80 shadow-sm backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
           >
             안경원·의원 도입 문의
           </button>
         </div>
-
       </div>
 
-      <!-- Right Column: Widely-Spaced Parallel 4-Card Stack Deck (간격 확장 평행 계단식 슬라이드 덱) -->
-      <div class="lg:col-span-7 xl:col-span-7 w-full flex flex-col items-center justify-center relative">
+    </div>
 
-        <!-- Parallel Deck Viewport with Generous Room for Widely Spaced Cards -->
-        <div class="w-full max-w-xl relative h-[650px] flex items-end justify-center overflow-visible pb-4" id="card-deck-viewport">
-          
-          <!-- ========================================================= -->
-          <!-- STACK CARD 0: 01 대시보드 (Live Prescribed Optic) -->
-          <!-- ========================================================= -->
-          <div
-            id="stack-card-0"
-            onclick="window.goToStackCard(0)"
-            class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-white border border-slate-200/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
-            style="transform: translateY(0px) scale(1); z-index: 40; box-shadow: 0 30px 60px -15px rgba(8,23,38,0.24);"
-          >
-            <!-- Card Header (Always Visible on Stepped Tabs) -->
-            <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#00A396] shadow-[0_0_8px_#00A396]"></span>
-                <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
-                  01 / LIVE PRESCRIBED OPTIC
-                </span>
-              </div>
-              <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
-                AUTO CALIBRATE
+    <!-- Bottom Section: Wide Landscape 4-Card Stepped Deck (가로형 와이드 스택 덱) -->
+    <div class="w-full flex flex-col items-center justify-end relative pt-12 mt-auto">
+
+      <!-- Wide Stack Viewport with Stepped Tabs Peeking from Behind -->
+      <div class="w-full max-w-5xl xl:max-w-6xl relative h-[360px] sm:h-[340px] flex items-end justify-center overflow-visible pb-2" id="card-deck-viewport">
+        
+        <!-- ========================================================= -->
+        <!-- WIDE STACK CARD 0: 01 대시보드 (Live Prescribed Optic) -->
+        <!-- ========================================================= -->
+        <div
+          id="stack-card-0"
+          onclick="window.goToStackCard(0)"
+          class="stack-card absolute inset-x-0 bottom-2 h-[310px] rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.01]"
+          style="transform: translateY(0px) scale(1); z-index: 40; box-shadow: 0 30px 60px -15px rgba(8,23,38,0.22);"
+        >
+          <!-- Card Header (Visible on Stack Tabs) -->
+          <div class="card-header flex items-center justify-between pb-2.5 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#00A396] shadow-[0_0_8px_#00A396]"></span>
+              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+                01 / LIVE PRESCRIBED OPTIC & DIAGNOSIS
               </span>
             </div>
-
-            <!-- Card Body (Only active card displays full body to keep 100% clean legibility) -->
-            <div class="card-body space-y-4 transition-opacity duration-300">
-              <div class="space-y-2">
-                <div class="flex items-center justify-between text-xs">
-                  <span class="text-slate-600 font-medium">작업 거리별 처방 가입도</span>
-                  <span class="font-mono font-bold text-[#00A396]">실시간 보정값</span>
-                </div>
-
-                <div class="grid grid-cols-5 gap-1.5" id="hero-dist-buttons">
-                  <button type="button" data-dist="25" data-add="+2.25" class="dist-btn p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
-                    <div class="font-mono text-[10px] text-slate-400">25cm</div>
-                    <div class="font-mono text-xs font-bold text-slate-700">+2.25</div>
-                  </button>
-                  <button type="button" data-dist="33" data-add="+1.75" class="dist-btn p-2 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-sm">
-                    <div class="font-mono text-[10px] text-[#00A396] font-bold">33cm ★</div>
-                    <div class="font-mono text-xs font-black text-[#00A396]">+1.75</div>
-                  </button>
-                  <button type="button" data-dist="45" data-add="+1.25" class="dist-btn p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
-                    <div class="font-mono text-[10px] text-slate-400">45cm</div>
-                    <div class="font-mono text-xs font-bold text-slate-700">+1.25</div>
-                  </button>
-                  <button type="button" data-dist="60" data-add="+0.75" class="dist-btn p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
-                    <div class="font-mono text-[10px] text-slate-400">60cm</div>
-                    <div class="font-mono text-xs font-bold text-slate-700">+0.75</div>
-                  </button>
-                  <button type="button" data-dist="80" data-add="+0.50" class="dist-btn p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
-                    <div class="font-mono text-[10px] text-slate-400">80cm</div>
-                    <div class="font-mono text-xs font-bold text-slate-700">+0.50</div>
-                  </button>
-                </div>
-
-                <!-- Output Display -->
-                <div class="p-4 rounded-2xl bg-[#081726] text-white flex items-center justify-between shadow-sm">
-                  <div>
-                    <span class="font-mono text-[10px] text-[#22D3EE] uppercase tracking-wider font-bold block mb-0.5">
-                      RECOMMENDED ADD
-                    </span>
-                    <span class="text-xs text-slate-300">근거리 주시 환경 기반 처방값</span>
-                  </div>
-                  <div class="flex items-baseline gap-1">
-                    <span id="hero-live-add-val" class="text-3xl font-black font-mono text-white tracking-tight">
-                      +1.75
-                    </span>
-                    <span class="text-xs text-[#00C4B4] font-mono font-bold">D</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Biomarker Badges -->
-              <div class="grid grid-cols-3 gap-2 text-center text-xs">
-                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <div class="text-slate-500 font-medium text-[11px]">황반 (AMD)</div>
-                  <div class="font-bold text-[#00A396] font-mono">정상 (&lt;1%)</div>
-                </div>
-                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <div class="text-slate-500 font-medium text-[11px]">시신경 (녹내장)</div>
-                  <div class="font-bold text-[#00A396] font-mono">C/D 0.32 안정</div>
-                </div>
-                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <div class="text-slate-500 font-medium text-[11px]">망막혈관 (DR)</div>
-                  <div class="font-bold text-slate-800 font-mono">Clear</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card Bottom Bar with Flip Trigger & Controls -->
-            <div class="card-footer pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs text-slate-400 font-semibold">01 / 04</span>
-                <span class="text-slate-300">·</span>
-                <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
-              </div>
-              
-              <div class="flex items-center gap-2">
-                <button
-                  type="button"
-                  onclick="event.stopPropagation(); window.prevStackCard();"
-                  class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                  title="이전 카드 (←)"
-                >
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  onclick="event.stopPropagation(); window.nextStackCard();"
-                  class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
-                >
-                  <span>02 기술 보기</span>
-                  <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
+            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
+              AUTO CALIBRATE
+            </span>
           </div>
 
-          <!-- ========================================================= -->
-          <!-- STACK CARD 1: 02 기술 (3-Step All-In-One XR Flow) -->
-          <!-- ========================================================= -->
-          <div
-            id="stack-card-1"
-            onclick="window.goToStackCard(1)"
-            class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
-            style="transform: translateY(-54px) scale(0.95); z-index: 30; opacity: 0.96; box-shadow: 0 20px 40px -10px rgba(8,23,38,0.18);"
-          >
-            <!-- Card Header -->
-            <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-                <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
-                  02 / ALL-IN-ONE XR WORKFLOW
-                </span>
+          <!-- Card Body: Wide 2-Column Dashboard Cockpit -->
+          <div class="card-body grid grid-cols-1 lg:grid-cols-12 gap-5 items-center my-auto transition-opacity duration-300">
+            
+            <!-- Left Sub-Column: Distance Slider & Prescribed ADD Output -->
+            <div class="lg:col-span-7 space-y-2.5">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-slate-600 font-medium">근거리 주시 거리별 처방 가입도</span>
+                <span class="font-mono font-bold text-[#00A396]">실시간 AI 거리 보정</span>
               </div>
-              <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
-                3-STEP PROCESS
-              </span>
-            </div>
 
-            <!-- Steps List -->
-            <div class="card-body space-y-2.5 transition-opacity duration-300">
-              <div class="p-3 rounded-xl bg-white border border-slate-200 flex items-start gap-3 shadow-xs">
-                <span class="font-mono font-black text-[#00A396] text-sm shrink-0">01</span>
+              <!-- Distance Buttons -->
+              <div class="grid grid-cols-5 gap-1.5" id="hero-dist-buttons">
+                <button type="button" data-dist="25" data-add="+2.25" class="dist-btn p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                  <div class="font-mono text-[10px] text-slate-400">25cm</div>
+                  <div class="font-mono text-xs font-bold text-slate-700">+2.25</div>
+                </button>
+                <button type="button" data-dist="33" data-add="+1.75" class="dist-btn p-2 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-sm">
+                  <div class="font-mono text-[10px] text-[#00A396] font-bold">33cm ★</div>
+                  <div class="font-mono text-xs font-black text-[#00A396]">+1.75</div>
+                </button>
+                <button type="button" data-dist="45" data-add="+1.25" class="dist-btn p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                  <div class="font-mono text-[10px] text-slate-400">45cm</div>
+                  <div class="font-mono text-xs font-bold text-slate-700">+1.25</div>
+                </button>
+                <button type="button" data-dist="60" data-add="+0.75" class="dist-btn p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                  <div class="font-mono text-[10px] text-slate-400">60cm</div>
+                  <div class="font-mono text-xs font-bold text-slate-700">+0.75</div>
+                </button>
+                <button type="button" data-dist="80" data-add="+0.50" class="dist-btn p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                  <div class="font-mono text-[10px] text-slate-400">80cm</div>
+                  <div class="font-mono text-xs font-bold text-slate-700">+0.50</div>
+                </button>
+              </div>
+
+              <!-- Output Display Card -->
+              <div class="p-3 rounded-2xl bg-[#081726] text-white flex items-center justify-between shadow-sm">
                 <div>
-                  <h4 class="text-xs font-bold text-slate-900">자가 착용 (Self-operated Wear)</h4>
-                  <p class="text-xs text-slate-500 leading-snug mt-0.5">병원 방문 없이 집이나 일상 공간에서 가볍게 착용 후 즉시 시작</p>
+                  <span class="font-mono text-[9px] text-[#22D3EE] uppercase tracking-wider font-bold block">RECOMMENDED ADD</span>
+                  <span class="text-xs text-slate-300">근거리 실제 작업 환경 맞춤 처방값</span>
                 </div>
-              </div>
-
-              <div class="p-3 rounded-xl bg-white border border-slate-200 flex items-start gap-3 shadow-xs">
-                <span class="font-mono font-black text-[#00A396] text-sm shrink-0">02</span>
-                <div>
-                  <h4 class="text-xs font-bold text-slate-900">시선 유도 자동 촬영 (Gaze Guidance)</h4>
-                  <p class="text-xs text-slate-500 leading-snug mt-0.5">동공 정렬 인터랙션으로 고해상도 망막 안저 이미지 자동 캡처</p>
+                <div class="flex items-baseline gap-1">
+                  <span id="hero-live-add-val" class="text-2xl sm:text-3xl font-black font-mono text-white tracking-tight">+1.75</span>
+                  <span class="text-xs text-[#00C4B4] font-mono font-bold">D</span>
                 </div>
-              </div>
-
-              <div class="p-3 rounded-xl bg-white border border-slate-200 flex items-start gap-3 shadow-xs">
-                <span class="font-mono font-black text-[#00A396] text-sm shrink-0">03</span>
-                <div>
-                  <h4 class="text-xs font-bold text-slate-900">3대 실명 질환 AI 분석 (AI Screening)</h4>
-                  <p class="text-xs text-slate-500 leading-snug mt-0.5">황반변성(AMD), 녹내장, 당뇨망막병증 초기 징후를 온디바이스 판독</p>
-                </div>
-              </div>
-
-              <!-- Feature Highlight Pill -->
-              <div class="p-3.5 rounded-xl bg-[#081726] text-white flex items-center justify-between text-xs">
-                <span class="text-[#22D3EE] font-mono font-bold">검사 시간 단 30초</span>
-                <span class="text-slate-300">정밀 일치율 98.4%</span>
               </div>
             </div>
 
-            <!-- Card Bottom Bar with Flip Trigger & Controls -->
-            <div class="card-footer pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs text-slate-400 font-semibold">02 / 04</span>
-                <span class="text-slate-300">·</span>
-                <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
+            <!-- Right Sub-Column: Biomarkers & Clinical Stats -->
+            <div class="lg:col-span-5 space-y-2.5">
+              <!-- 3 Biomarker Cards -->
+              <div class="grid grid-cols-3 gap-1.5 text-center text-xs">
+                <div class="p-2 rounded-xl bg-slate-50 border border-slate-200">
+                  <div class="text-slate-500 font-medium text-[10px]">황반 (AMD)</div>
+                  <div class="font-bold text-[#00A396] font-mono text-[11px]">정상 (&lt;1%)</div>
+                </div>
+                <div class="p-2 rounded-xl bg-slate-50 border border-slate-200">
+                  <div class="text-slate-500 font-medium text-[10px]">시신경 (녹내장)</div>
+                  <div class="font-bold text-[#00A396] font-mono text-[11px]">C/D 0.32 안정</div>
+                </div>
+                <div class="p-2 rounded-xl bg-slate-50 border border-slate-200">
+                  <div class="text-slate-500 font-medium text-[10px]">망막혈관 (DR)</div>
+                  <div class="font-bold text-slate-800 font-mono text-[11px]">Clear</div>
+                </div>
               </div>
 
-              <div class="flex items-center gap-2">
-                <button
-                  type="button"
-                  onclick="event.stopPropagation(); window.prevStackCard();"
-                  class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                  title="이전 카드 (←)"
-                >
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  onclick="event.stopPropagation(); window.nextStackCard();"
-                  class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
-                >
-                  <span>03 임상 근거 보기</span>
-                  <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </button>
+              <!-- Clinical Validation Highlights -->
+              <div class="p-2.5 rounded-xl bg-slate-100/80 border border-slate-200/80 flex items-center justify-between text-xs text-slate-700">
+                <div><strong class="font-mono font-extrabold text-slate-950">98.4%</strong> 판독 일치율</div>
+                <span class="text-slate-300">|</span>
+                <div><strong class="font-mono font-extrabold text-slate-950">4개</strong> 협력 안과</div>
+                <span class="text-slate-300">|</span>
+                <div><strong class="font-mono font-extrabold text-slate-950">12만</strong> 학습 데이터</div>
               </div>
             </div>
+
           </div>
 
-          <!-- ========================================================= -->
-          <!-- STACK CARD 2: 03 임상 근거 (Clinical Matrix) -->
-          <!-- ========================================================= -->
-          <div
-            id="stack-card-2"
-            onclick="window.goToStackCard(2)"
-            class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
-            style="transform: translateY(-108px) scale(0.90); z-index: 20; opacity: 0.92; box-shadow: 0 15px 30px -10px rgba(8,23,38,0.14);"
-          >
-            <!-- Card Header -->
-            <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-                <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
-                  03 / CLINICAL COMPARISON MATRIX
-                </span>
-              </div>
-              <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
-                CLINICAL VALIDATED
+          <!-- Card Footer -->
+          <div class="card-footer pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-xs text-slate-400 font-semibold">01 / 04</span>
+              <span class="text-slate-300">·</span>
+              <span class="text-[11px] text-slate-400">카드를 누르면 다음 카드로 넘어갑니다</span>
+            </div>
+            
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                onclick="event.stopPropagation(); window.prevStackCard();"
+                class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
+                title="이전 카드 (←)"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button
+                type="button"
+                onclick="event.stopPropagation(); window.nextStackCard();"
+                class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
+              >
+                <span>02 기술 보기</span>
+                <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- WIDE STACK CARD 1: 02 기술 (3-Step All-In-One XR Flow) -->
+        <!-- ========================================================= -->
+        <div
+          id="stack-card-1"
+          onclick="window.goToStackCard(1)"
+          class="stack-card absolute inset-x-0 bottom-2 h-[310px] rounded-3xl bg-[#FAFCFE] border border-slate-300/90 p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.01]"
+          style="transform: translateY(-46px) scale(0.96); z-index: 30; opacity: 0.96; box-shadow: 0 20px 40px -10px rgba(8,23,38,0.16);"
+        >
+          <!-- Card Header -->
+          <div class="card-header flex items-center justify-between pb-2.5 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
+              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+                02 / ALL-IN-ONE XR WORKFLOW
               </span>
             </div>
+            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
+              3-STEP PROCESS
+            </span>
+          </div>
 
-            <!-- Comparison Table -->
-            <div class="card-body space-y-4 transition-opacity duration-300">
-              <div class="rounded-2xl border border-slate-200 overflow-hidden text-xs bg-white">
-                <table class="w-full text-center">
-                  <thead class="bg-slate-100 font-mono text-[10px] text-slate-600 uppercase border-b border-slate-200">
-                    <tr>
-                      <th class="py-2.5 px-3 text-left">장비 유형</th>
-                      <th class="py-2.5 px-1">검사자 불필요</th>
-                      <th class="py-2.5 px-1">재택/비대면</th>
-                      <th class="py-2.5 px-1">온디바이스 AI</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-slate-100">
-                    <tr class="text-slate-500 bg-white">
-                      <td class="py-2.5 px-3 text-left font-medium">거치형 안저기</td>
-                      <td class="py-2.5 px-1 text-slate-300">—</td>
-                      <td class="py-2.5 px-1 text-slate-300">—</td>
-                      <td class="py-2.5 px-1 text-slate-300">—</td>
-                    </tr>
-                    <tr class="text-slate-500 bg-white">
-                      <td class="py-2.5 px-3 text-left font-medium">핸드헬드 카메라</td>
-                      <td class="py-2.5 px-1 text-slate-300">—</td>
-                      <td class="py-2.5 px-1 text-slate-300">—</td>
-                      <td class="py-2.5 px-1 text-slate-300">—</td>
-                    </tr>
-                    <tr class="bg-slate-900 text-white font-bold">
-                      <td class="py-2.5 px-3 text-left text-[#00C4B4]">GazeInto XR</td>
-                      <td class="py-2.5 px-1 text-[#00C4B4] text-sm">✓</td>
-                      <td class="py-2.5 px-1 text-[#00C4B4] text-sm">✓</td>
-                      <td class="py-2.5 px-1 text-[#00C4B4] text-sm">✓</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <!-- Targeted 3 Diseases -->
-              <div class="grid grid-cols-3 gap-2 text-center text-xs">
-                <div class="p-2.5 rounded-xl bg-white border border-slate-200">
-                  <div class="font-bold text-slate-900 text-xs">황반변성</div>
-                  <div class="text-[10px] text-slate-500 mt-0.5">드루젠 조기포착</div>
-                </div>
-                <div class="p-2.5 rounded-xl bg-white border border-slate-200">
-                  <div class="font-bold text-slate-900 text-xs">녹내장</div>
-                  <div class="text-[10px] text-slate-500 mt-0.5">C/D비 정밀계측</div>
-                </div>
-                <div class="p-2.5 rounded-xl bg-white border border-slate-200">
-                  <div class="font-bold text-slate-900 text-xs">당뇨망막병증</div>
-                  <div class="text-[10px] text-slate-500 mt-0.5">미세출혈 감지</div>
-                </div>
+          <!-- Card Body: 3 Step Horizontal Columns -->
+          <div class="card-body grid grid-cols-1 md:grid-cols-3 gap-3 my-auto transition-opacity duration-300">
+            <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col justify-between">
+              <div>
+                <span class="font-mono font-black text-[#00A396] text-sm block mb-1">STEP 01</span>
+                <h4 class="text-xs sm:text-sm font-bold text-slate-900">자가 착용 (Wear)</h4>
+                <p class="text-[11px] text-slate-500 leading-tight mt-1">병원 방문 없이 가정/일상 공간에서 가볍게 착용 후 즉시 시작</p>
               </div>
             </div>
 
-            <!-- Card Bottom Bar with Flip Trigger & Controls -->
-            <div class="card-footer pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs text-slate-400 font-semibold">03 / 04</span>
-                <span class="text-slate-300">·</span>
-                <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
+            <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col justify-between">
+              <div>
+                <span class="font-mono font-black text-[#00A396] text-sm block mb-1">STEP 02</span>
+                <h4 class="text-xs sm:text-sm font-bold text-slate-900">시선 유도 자동 촬영 (Capture)</h4>
+                <p class="text-[11px] text-slate-500 leading-tight mt-1">동공 정렬 인터랙션으로 고해상도 망막 안저 이미지 자동 캡처</p>
               </div>
+            </div>
 
-              <div class="flex items-center gap-2">
-                <button
-                  type="button"
-                  onclick="event.stopPropagation(); window.prevStackCard();"
-                  class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                  title="이전 카드 (←)"
-                >
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  onclick="event.stopPropagation(); window.nextStackCard();"
-                  class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
-                >
-                  <span>04 FAQ 보기</span>
-                  <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </button>
+            <div class="p-3 rounded-2xl bg-white border border-slate-200 shadow-xs flex flex-col justify-between">
+              <div>
+                <span class="font-mono font-black text-[#00A396] text-sm block mb-1">STEP 03</span>
+                <h4 class="text-xs sm:text-sm font-bold text-slate-900">3대 질환 AI 분석 (Screen)</h4>
+                <p class="text-[11px] text-slate-500 leading-tight mt-1">황반변성(AMD), 녹내장, 당뇨망막병증 초기 징후를 온디바이스 판독</p>
               </div>
             </div>
           </div>
 
-          <!-- ========================================================= -->
-          <!-- STACK CARD 3: 04 FAQ (Frequently Asked Questions) -->
-          <!-- ========================================================= -->
-          <div
-            id="stack-card-3"
-            onclick="window.goToStackCard(3)"
-            class="stack-card absolute inset-x-0 bottom-4 h-[460px] rounded-[2rem] bg-[#FAFCFE] border border-slate-300/90 p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]"
-            style="transform: translateY(-162px) scale(0.85); z-index: 10; opacity: 0.88; box-shadow: 0 10px 20px -5px rgba(8,23,38,0.12);"
-          >
-            <!-- Card Header -->
-            <div class="card-header flex items-center justify-between pb-3 border-b border-slate-100">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-                <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
-                  04 / FREQUENTLY ASKED QUESTIONS
-                </span>
-              </div>
-              <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
-                FAQ & SUPPORT
+          <!-- Card Footer -->
+          <div class="card-footer pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-xs text-slate-400 font-semibold">02 / 04</span>
+              <span class="text-slate-300">·</span>
+              <span class="text-[#00A396] font-mono font-semibold">검사 소요 시간 단 30초</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                onclick="event.stopPropagation(); window.prevStackCard();"
+                class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
+                title="이전 카드 (←)"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button
+                type="button"
+                onclick="event.stopPropagation(); window.nextStackCard();"
+                class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
+              >
+                <span>03 임상 근거 보기</span>
+                <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- WIDE STACK CARD 2: 03 임상 근거 (Clinical Matrix) -->
+        <!-- ========================================================= -->
+        <div
+          id="stack-card-2"
+          onclick="window.goToStackCard(2)"
+          class="stack-card absolute inset-x-0 bottom-2 h-[310px] rounded-3xl bg-[#FAFCFE] border border-slate-300/90 p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.01]"
+          style="transform: translateY(-92px) scale(0.92); z-index: 20; opacity: 0.92; box-shadow: 0 15px 30px -10px rgba(8,23,38,0.14);"
+        >
+          <!-- Card Header -->
+          <div class="card-header flex items-center justify-between pb-2.5 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
+              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+                03 / CLINICAL COMPARISON MATRIX
               </span>
             </div>
+            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
+              CLINICAL VALIDATED
+            </span>
+          </div>
 
-            <!-- Compact Accordion List -->
-            <div class="card-body space-y-2 overflow-y-auto max-h-[280px] pr-1 transition-opacity duration-300">
-              <div class="rounded-xl border border-slate-200 bg-white overflow-hidden">
-                <button type="button" class="dash-faq-toggle w-full p-3 text-left flex items-center justify-between text-xs font-bold text-slate-900 hover:text-[#00A396] transition-colors">
-                  <span>Q1. 비숙련자나 어르신도 혼자 촬영할 수 있나요?</span>
-                  <span class="text-slate-400 font-mono text-sm">+</span>
-                </button>
-                <div class="dash-faq-answer hidden px-3 pb-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200/60 pt-2">
-                  지능형 시선 유도(Gaze Guidance)가 동공 위치를 자동 가이드하여 누구나 혼자서 30초 내에 촬영합니다.
-                </div>
-              </div>
-
-              <div class="rounded-xl border border-slate-200 bg-white overflow-hidden">
-                <button type="button" class="dash-faq-toggle w-full p-3 text-left flex items-center justify-between text-xs font-bold text-slate-900 hover:text-[#00A396] transition-colors">
-                  <span>Q2. 재택 환경 및 이동 검진에서도 가능한가요?</span>
-                  <span class="text-slate-400 font-mono text-sm">+</span>
-                </button>
-                <div class="dash-faq-answer hidden px-3 pb-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200/60 pt-2">
-                  거대 암실 장비가 필요 없는 컴팩트 일체형 헤드셋으로 가정 및 보건지소 등에서도 편리하게 운용됩니다.
-                </div>
-              </div>
-
-              <div class="rounded-xl border border-slate-200 bg-white overflow-hidden">
-                <button type="button" class="dash-faq-toggle w-full p-3 text-left flex items-center justify-between text-xs font-bold text-slate-900 hover:text-[#00A396] transition-colors">
-                  <span>Q3. 안경원·의원 도입 상담은 어떻게 하나요?</span>
-                  <span class="text-slate-400 font-mono text-sm">+</span>
-                </button>
-                <div class="dash-faq-answer hidden px-3 pb-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200/60 pt-2">
-                  상단의 '도입 문의' 또는 공식 이메일(gazeinto1nc@gmail.com)로 접수해주시면 전담팀이 방문 데모를 진행합니다.
-                </div>
-              </div>
+          <!-- Card Body: Comparison Table + Targeted Diseases -->
+          <div class="card-body grid grid-cols-1 lg:grid-cols-12 gap-4 items-center my-auto transition-opacity duration-300">
+            <!-- Left Table -->
+            <div class="lg:col-span-7 rounded-2xl border border-slate-200 overflow-hidden text-xs bg-white">
+              <table class="w-full text-center">
+                <thead class="bg-slate-100 font-mono text-[10px] text-slate-600 uppercase border-b border-slate-200">
+                  <tr>
+                    <th class="py-2 px-3 text-left">장비 유형</th>
+                    <th class="py-2 px-1">검사자 불필요</th>
+                    <th class="py-2 px-1">재택/비대면</th>
+                    <th class="py-2 px-1">온디바이스 AI</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <tr class="text-slate-500 bg-white">
+                    <td class="py-1.5 px-3 text-left font-medium">거치형 안저기</td>
+                    <td class="py-1.5 px-1 text-slate-300">—</td>
+                    <td class="py-1.5 px-1 text-slate-300">—</td>
+                    <td class="py-1.5 px-1 text-slate-300">—</td>
+                  </tr>
+                  <tr class="text-slate-500 bg-white">
+                    <td class="py-1.5 px-3 text-left font-medium">핸드헬드 카메라</td>
+                    <td class="py-1.5 px-1 text-slate-300">—</td>
+                    <td class="py-1.5 px-1 text-slate-300">—</td>
+                    <td class="py-1.5 px-1 text-slate-300">—</td>
+                  </tr>
+                  <tr class="bg-slate-900 text-white font-bold">
+                    <td class="py-2 px-3 text-left text-[#00C4B4]">GazeInto XR</td>
+                    <td class="py-2 px-1 text-[#00C4B4]">✓</td>
+                    <td class="py-2 px-1 text-[#00C4B4]">✓</td>
+                    <td class="py-2 px-1 text-[#00C4B4]">✓</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
-            <!-- Card Bottom Bar with Flip Trigger & Controls -->
-            <div class="card-footer pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
-              <div class="flex items-center gap-2">
-                <span class="font-mono text-xs text-slate-400 font-semibold">04 / 04</span>
-                <span class="text-slate-300">·</span>
-                <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
+            <!-- Right Diseases Cards -->
+            <div class="lg:col-span-5 grid grid-cols-3 gap-1.5 text-center text-xs">
+              <div class="p-2 rounded-xl bg-white border border-slate-200">
+                <div class="font-bold text-slate-900 text-[11px]">황반변성</div>
+                <div class="text-[9px] text-slate-500 mt-0.5">드루젠 조기포착</div>
               </div>
-
-              <div class="flex items-center gap-2">
-                <button
-                  type="button"
-                  onclick="event.stopPropagation(); window.prevStackCard();"
-                  class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                  title="이전 카드 (←)"
-                >
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  onclick="event.stopPropagation(); window.goToStackCard(0);"
-                  class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
-                >
-                  <span>01 대시보드로 돌아가기</span>
-                  <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                  </svg>
-                </button>
+              <div class="p-2 rounded-xl bg-white border border-slate-200">
+                <div class="font-bold text-slate-900 text-[11px]">녹내장</div>
+                <div class="text-[9px] text-slate-500 mt-0.5">C/D비 계측</div>
+              </div>
+              <div class="p-2 rounded-xl bg-white border border-slate-200">
+                <div class="font-bold text-slate-900 text-[11px]">당뇨망막병증</div>
+                <div class="text-[9px] text-slate-500 mt-0.5">미세출혈 감지</div>
               </div>
             </div>
           </div>
 
+          <!-- Card Footer -->
+          <div class="card-footer pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-xs text-slate-400 font-semibold">03 / 04</span>
+              <span class="text-slate-300">·</span>
+              <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                onclick="event.stopPropagation(); window.prevStackCard();"
+                class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
+                title="이전 카드 (←)"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button
+                type="button"
+                onclick="event.stopPropagation(); window.nextStackCard();"
+                class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
+              >
+                <span>04 FAQ 보기</span>
+                <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- WIDE STACK CARD 3: 04 FAQ (Frequently Asked Questions) -->
+        <!-- ========================================================= -->
+        <div
+          id="stack-card-3"
+          onclick="window.goToStackCard(3)"
+          class="stack-card absolute inset-x-0 bottom-2 h-[310px] rounded-3xl bg-[#FAFCFE] border border-slate-300/90 p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.01]"
+          style="transform: translateY(-138px) scale(0.88); z-index: 10; opacity: 0.88; box-shadow: 0 10px 20px -5px rgba(8,23,38,0.12);"
+        >
+          <!-- Card Header -->
+          <div class="card-header flex items-center justify-between pb-2.5 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
+              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
+                04 / FREQUENTLY ASKED QUESTIONS
+              </span>
+            </div>
+            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
+              FAQ & SUPPORT
+            </span>
+          </div>
+
+          <!-- Card Body: 3 Q&A Cards side-by-side in wide format -->
+          <div class="card-body grid grid-cols-1 md:grid-cols-3 gap-3 my-auto transition-opacity duration-300">
+            <div class="p-3 rounded-2xl bg-white border border-slate-200">
+              <span class="text-xs font-bold text-slate-900 block mb-1">Q1. 혼자 촬영 가능한가요?</span>
+              <p class="text-[11px] text-slate-600 leading-snug">지능형 시선 유도(Gaze Guidance)가 동공 위치를 자동 가이드하여 비숙련자도 30초 내에 촬영합니다.</p>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-white border border-slate-200">
+              <span class="text-xs font-bold text-slate-900 block mb-1">Q2. 재택/이동 검진 가능한가요?</span>
+              <p class="text-[11px] text-slate-600 leading-snug">거대 암실 장비가 필요 없는 컴팩트 일체형 헤드셋으로 가정 및 보건지소 등에서도 편리하게 운용됩니다.</p>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-white border border-slate-200">
+              <span class="text-xs font-bold text-slate-900 block mb-1">Q3. 도입 상담은 어떻게 하나요?</span>
+              <p class="text-[11px] text-slate-600 leading-snug">상단의 '도입 문의' 또는 공식 이메일(gazeinto1nc@gmail.com)로 접수해주시면 전담팀이 데모를 진행합니다.</p>
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="card-footer pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 transition-opacity duration-300">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-xs text-slate-400 font-semibold">04 / 04</span>
+              <span class="text-slate-300">·</span>
+              <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                onclick="event.stopPropagation(); window.prevStackCard();"
+                class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
+                title="이전 카드 (←)"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button
+                type="button"
+                onclick="event.stopPropagation(); window.goToStackCard(0);"
+                class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all"
+              >
+                <span>01 대시보드로 돌아가기</span>
+                <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -501,7 +491,7 @@
 
 <script>
   // ==============================================================
-  // Widely Spaced Parallel Stepped 3D Card Deck Animation & Controller
+  // Wide Landscape Stepped 3D Card Deck Animation & Controller
   // ==============================================================
   let currentCardIndex = 0;
   const totalCards = 4;
@@ -515,16 +505,16 @@
   const headerLinks = document.querySelectorAll('.nav-link');
   const navIdList = ['nav-hero', 'nav-tech', 'nav-clinical', 'nav-faq'];
 
-  // Parallel Stepped Vertical Configurations with Generous Spacing (54px Step)
+  // Wide Landscape Stepped Vertical Configurations (46px Step)
   const stackConfigs = [
     // diff 0 (Active Front Focus): Level, Full Scale, 100% Solid White
-    { translateY: 0, scale: 1, zIndex: 40, opacity: 1, shadow: '0 30px 60px -15px rgba(8,23,38,0.24)' },
-    // diff 1 (1st card behind): Stepped up -54px
-    { translateY: -54, scale: 0.95, zIndex: 30, opacity: 0.96, shadow: '0 20px 40px -10px rgba(8,23,38,0.18)' },
-    // diff 2 (2nd card behind): Stepped up -108px
-    { translateY: -108, scale: 0.90, zIndex: 20, opacity: 0.92, shadow: '0 15px 30px -10px rgba(8,23,38,0.14)' },
-    // diff 3 (3rd card behind): Stepped up -162px (모든 4개 카드 탭 100% 시원하게 노출)
-    { translateY: -162, scale: 0.85, zIndex: 10, opacity: 0.88, shadow: '0 10px 20px -5px rgba(8,23,38,0.12)' }
+    { translateY: 0, scale: 1, zIndex: 40, opacity: 1, shadow: '0 30px 60px -15px rgba(8,23,38,0.22)' },
+    // diff 1 (1st card behind): Stepped up -46px
+    { translateY: -46, scale: 0.96, zIndex: 30, opacity: 0.96, shadow: '0 20px 40px -10px rgba(8,23,38,0.16)' },
+    // diff 2 (2nd card behind): Stepped up -92px
+    { translateY: -92, scale: 0.92, zIndex: 20, opacity: 0.92, shadow: '0 15px 30px -10px rgba(8,23,38,0.14)' },
+    // diff 3 (3rd card behind): Stepped up -138px
+    { translateY: -138, scale: 0.88, zIndex: 10, opacity: 0.88, shadow: '0 10px 20px -5px rgba(8,23,38,0.12)' }
   ];
 
   function updateStackLayout() {
@@ -648,20 +638,6 @@
       const addVal = btn.getAttribute('data-add');
       if (addValDisplay && addVal) {
         addValDisplay.textContent = addVal;
-      }
-    });
-  });
-
-  // Mini FAQ Accordion inside Card 3
-  const faqToggles = document.querySelectorAll('.dash-faq-toggle');
-  faqToggles.forEach(toggle => {
-    toggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const ans = toggle.nextElementSibling as HTMLElement;
-      const isHidden = ans.classList.contains('hidden');
-      document.querySelectorAll('.dash-faq-answer').forEach(a => a.classList.add('hidden'));
-      if (isHidden) {
-        ans.classList.remove('hidden');
       }
     });
   });
