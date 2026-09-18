@@ -1,7 +1,7 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-[96vh] lg:min-h-screen pt-20 flex flex-col justify-between bg-[#0A1928] overflow-hidden select-none">
+<section id="hero" class="relative min-h-[96vh] lg:min-h-screen pt-20 pb-6 flex flex-col justify-between bg-[#0A1928] overflow-hidden select-none">
   
   <!-- Ambient High-Definition Video Background Layer -->
   <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -10,24 +10,24 @@
       loop
       muted
       playsinline
-      class="w-full h-full object-cover object-center opacity-90 scale-100"
+      class="w-full h-full object-cover object-center opacity-95 scale-100"
     >
       <source src="/videos/hero-bg.mp4" type="video/mp4" />
     </video>
     
-    <!-- Sophisticated Contrast Gradient Overlay (Preserving VR visual in background) -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/95 via-[#F8FAFC]/50 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/60 via-transparent to-transparent"></div>
+    <!-- Sophisticated Contrast Gradient Overlay (Preserving VR character in center/right) -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/95 via-[#F8FAFC]/45 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/70 via-transparent to-transparent"></div>
   </div>
 
-  <!-- Main Container: Top Typography + Bottom Wide Landscape Stepped Stack -->
-  <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16 flex-1 flex flex-col justify-between pt-16 sm:pt-24 lg:pt-28 pb-8">
+  <!-- Main Container: Top Left Typography + Bottom 4-Column Horizontal Cards -->
+  <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-14 flex-1 flex flex-col justify-between pt-10 sm:pt-14 lg:pt-16 pb-4">
     
-    <!-- Top Content Section: Main Typography & Copy -->
-    <div class="max-w-4xl pt-2 sm:pt-4">
+    <!-- Top-Left Content Section: Main Typography & Copy (As Mockup) -->
+    <div class="max-w-xl lg:max-w-2xl pt-2 sm:pt-4">
       
       <!-- Category Tag -->
-      <div class="flex items-center gap-2 mb-4 scroll-reveal">
+      <div class="flex items-center gap-2 mb-3 scroll-reveal">
         <span class="w-5 h-[2px] bg-[#00A396] scroll-line"></span>
         <span class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase drop-shadow-sm">
           노안 AI 진단 & 처방 엔진
@@ -35,7 +35,7 @@
       </div>
 
       <!-- Headline (Blur to Sharp Typography with Interactive Hover Focus) -->
-      <div class="mb-4 select-none">
+      <div class="mb-3 select-none">
         <h1 class="text-3xl sm:text-5xl xl:text-6xl font-black text-slate-900 tracking-tight leading-[1.12] mb-2 drop-shadow-sm">
           <!-- Line 1: Blurred text that clarifies on hover -->
           <span id="hero-blurred-text" class="blur-presbyopia inline-block cursor-default transition-all duration-700" title="초점이 흐려진 상태 (마우스를 올리면 선명해집니다)">
@@ -50,7 +50,7 @@
       </div>
 
       <!-- Description Paragraph -->
-      <div class="max-w-3xl mb-4">
+      <div class="max-w-xl mb-4">
         <p class="text-sm sm:text-base xl:text-lg text-slate-800 font-medium leading-relaxed scroll-reveal scroll-reveal-delay-2 drop-shadow-sm">
           게이즈인투의 AI는 노안의 진행 단계를 정량 판독하고, 당신의 눈이 실제로 머무는 거리에 맞춰 처방을 설계합니다.
         </p>
@@ -58,408 +58,248 @@
 
     </div>
 
-    <!-- Bottom Section: Wide Landscape 4-Card Stepped Down Deck (아래로 계단식 적층되는 와이드 스택 덱) -->
-    <div class="w-full flex flex-col items-center justify-start relative pt-6 mt-auto">
-
-      <!-- Wide Stack Viewport (Cards Step Downward) -->
-      <div class="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px] relative h-[420px] sm:h-[400px] overflow-visible pb-4" id="card-deck-viewport">
+    <!-- Bottom Section: 4 Horizontal Side-by-Side Cards (하단 4개 가로 배치 카드) -->
+    <div class="w-full mt-auto pt-6">
+      
+      <!-- 4-Column Grid along the bottom -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 xl:gap-4 w-full" id="hero-card-grid">
         
         <!-- ========================================================= -->
-        <!-- WIDE STACK CARD 0: 01 대시보드 (Live Prescribed Optic) -->
+        <!-- CARD 0: 01 대시보드 (Live Prescribed Optic) -->
         <!-- ========================================================= -->
         <div
-          id="stack-card-0"
-          onclick="window.goToStackCard(0)"
-          class="stack-card absolute inset-x-0 top-0 h-[290px] sm:h-[280px] rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.01]"
-          style="transform: translateY(0px) scale(1); z-index: 40; box-shadow: 0 25px 50px -12px rgba(8,23,38,0.18), 0 0 0 1px rgba(226,232,240,0.8);"
+          id="hero-card-0"
+          onclick="window.selectHeroCard(0)"
+          class="hero-bottom-card rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-xl ring-2 ring-[#00A396]/20 h-[260px] sm:h-[250px]"
         >
           <!-- Card Header -->
-          <div class="card-header flex items-center justify-between pb-2 border-b border-slate-100">
-            <div class="flex items-center gap-2.5">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/70">
+            <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-[#00A396] shadow-[0_0_8px_#00A396]"></span>
-              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
-                01 / LIVE PRESCRIBED OPTIC & DIAGNOSIS
+              <span class="font-mono text-xs font-extrabold tracking-wider text-slate-900 uppercase">
+                01 / LIVE PRESCRIBED OPTIC
               </span>
             </div>
-            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
+            <span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               AUTO CALIBRATE
             </span>
           </div>
 
-          <!-- Card Body: Wide 3-Column Dashboard Cockpit -->
-          <div class="card-body grid grid-cols-1 lg:grid-cols-12 gap-5 items-center my-auto transition-opacity duration-300">
-            
-            <!-- Left Sub-Column: Distance Slider & Prescribed ADD Output (6 cols) -->
-            <div class="lg:col-span-6 space-y-2">
-              <div class="flex items-center justify-between text-xs">
-                <span class="text-slate-600 font-semibold">근거리 주시 거리별 처방 가입도</span>
-                <span class="font-mono font-bold text-[#00A396] text-[11px]">실시간 AI 보정</span>
-              </div>
-
-              <!-- Distance Buttons -->
-              <div class="grid grid-cols-5 gap-1.5" id="hero-dist-buttons">
-                <button type="button" data-dist="25" data-add="+2.25" class="dist-btn p-1.5 sm:p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
-                  <div class="font-mono text-[10px] text-slate-400">25cm</div>
-                  <div class="font-mono text-xs font-bold text-slate-700">+2.25</div>
-                </button>
-                <button type="button" data-dist="33" data-add="+1.75" class="dist-btn p-1.5 sm:p-2 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-sm">
-                  <div class="font-mono text-[10px] text-[#00A396] font-bold">33cm ★</div>
-                  <div class="font-mono text-xs font-black text-[#00A396]">+1.75</div>
-                </button>
-                <button type="button" data-dist="45" data-add="+1.25" class="dist-btn p-1.5 sm:p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
-                  <div class="font-mono text-[10px] text-slate-400">45cm</div>
-                  <div class="font-mono text-xs font-bold text-slate-700">+1.25</div>
-                </button>
-                <button type="button" data-dist="60" data-add="+0.75" class="dist-btn p-1.5 sm:p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
-                  <div class="font-mono text-[10px] text-slate-400">60cm</div>
-                  <div class="font-mono text-xs font-bold text-slate-700">+0.75</div>
-                </button>
-                <button type="button" data-dist="80" data-add="+0.50" class="dist-btn p-1.5 sm:p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
-                  <div class="font-mono text-[10px] text-slate-400">80cm</div>
-                  <div class="font-mono text-xs font-bold text-slate-700">+0.50</div>
-                </button>
-              </div>
-
-              <!-- Output Display Card -->
-              <div class="p-2.5 sm:p-3 rounded-2xl bg-[#081726] text-white flex items-center justify-between shadow-sm">
-                <div>
-                  <span class="font-mono text-[9px] text-[#22D3EE] uppercase tracking-wider font-bold block">RECOMMENDED ADD</span>
-                  <span class="text-xs text-slate-300">근거리 실제 작업 환경 맞춤 처방값</span>
-                </div>
-                <div class="flex items-baseline gap-1">
-                  <span id="hero-live-add-val" class="text-2xl sm:text-3xl font-black font-mono text-white tracking-tight">+1.75</span>
-                  <span class="text-xs text-[#00C4B4] font-mono font-bold">D</span>
-                </div>
-              </div>
+          <!-- Card Body: Distance buttons + Output -->
+          <div class="space-y-2 my-auto">
+            <div class="flex items-center justify-between text-[11px]">
+              <span class="text-slate-600 font-semibold">거리별 처방 가입도</span>
+              <span class="font-mono font-bold text-[#00A396]">실시간 AI</span>
             </div>
 
-            <!-- Right Sub-Column: Biomarkers & Clinical Stats (6 cols) -->
-            <div class="lg:col-span-6 space-y-2">
-              <!-- 3 Biomarker Cards -->
-              <div class="grid grid-cols-3 gap-2 text-center text-xs">
-                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <div class="text-slate-500 font-medium text-[10px]">황반 (AMD)</div>
-                  <div class="font-bold text-[#00A396] font-mono text-xs mt-0.5">정상 (&lt;1%)</div>
-                </div>
-                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <div class="text-slate-500 font-medium text-[10px]">시신경 (녹내장)</div>
-                  <div class="font-bold text-[#00A396] font-mono text-xs mt-0.5">C/D 0.32 안정</div>
-                </div>
-                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <div class="text-slate-500 font-medium text-[10px]">망막혈관 (DR)</div>
-                  <div class="font-bold text-slate-800 font-mono text-xs mt-0.5">Clear</div>
-                </div>
-              </div>
-
-              <!-- Clinical Validation Highlights -->
-              <div class="p-2.5 rounded-xl bg-slate-100/80 border border-slate-200/80 flex items-center justify-between text-xs text-slate-700">
-                <div><strong class="font-mono font-extrabold text-slate-950">98.4%</strong> 판독 일치율</div>
-                <span class="text-slate-300">|</span>
-                <div><strong class="font-mono font-extrabold text-slate-950">4개</strong> 협력 안과</div>
-                <span class="text-slate-300">|</span>
-                <div><strong class="font-mono font-extrabold text-slate-950">12만</strong> 학습 데이터</div>
-              </div>
+            <!-- Distance Buttons -->
+            <div class="grid grid-cols-5 gap-1" id="hero-dist-buttons">
+              <button type="button" data-dist="25" data-add="+2.25" class="dist-btn p-1 rounded-lg border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                <div class="font-mono text-[9px] text-slate-400">25cm</div>
+                <div class="font-mono text-[11px] font-bold text-slate-700">+2.25</div>
+              </button>
+              <button type="button" data-dist="33" data-add="+1.75" class="dist-btn p-1 rounded-lg border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs">
+                <div class="font-mono text-[9px] text-[#00A396] font-bold">33cm★</div>
+                <div class="font-mono text-[11px] font-black text-[#00A396]">+1.75</div>
+              </button>
+              <button type="button" data-dist="45" data-add="+1.25" class="dist-btn p-1 rounded-lg border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                <div class="font-mono text-[9px] text-slate-400">45cm</div>
+                <div class="font-mono text-[11px] font-bold text-slate-700">+1.25</div>
+              </button>
+              <button type="button" data-dist="60" data-add="+0.75" class="dist-btn p-1 rounded-lg border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                <div class="font-mono text-[9px] text-slate-400">60cm</div>
+                <div class="font-mono text-[11px] font-bold text-slate-700">+0.75</div>
+              </button>
+              <button type="button" data-dist="80" data-add="+0.50" class="dist-btn p-1 rounded-lg border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                <div class="font-mono text-[9px] text-slate-400">80cm</div>
+                <div class="font-mono text-[11px] font-bold text-slate-700">+0.50</div>
+              </button>
             </div>
 
+            <!-- Output Display -->
+            <div class="p-2 rounded-xl bg-[#081726] text-white flex items-center justify-between shadow-xs">
+              <div>
+                <span class="font-mono text-[8px] text-[#22D3EE] uppercase tracking-wider font-bold block">RECOMMENDED ADD</span>
+                <span class="text-[10px] text-slate-300">작업 거리 맞춤 처방</span>
+              </div>
+              <div class="flex items-baseline gap-1">
+                <span id="hero-live-add-val" class="text-xl sm:text-2xl font-black font-mono text-white tracking-tight">+1.75</span>
+                <span class="text-[10px] text-[#00C4B4] font-mono font-bold">D</span>
+              </div>
+            </div>
           </div>
 
-          <!-- Card Footer (Visible Ledge Tab when Card Steps Down) -->
-          <div class="card-footer pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
-              <span class="font-mono text-xs text-slate-900 font-bold">01 / LIVE PRESCRIBED OPTIC</span>
-              <span class="text-slate-300">·</span>
-              <span class="text-[11px] text-slate-400">카드를 누르면 다음 카드로 넘어갑니다</span>
-            </div>
-            
-            <div class="card-footer-controls flex items-center gap-2 transition-opacity duration-300">
-              <button
-                type="button"
-                onclick="event.stopPropagation(); window.prevStackCard();"
-                class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                title="이전 카드 (←)"
-              >
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-                </svg>
-              </button>
-              <button
-                type="button"
-                onclick="event.stopPropagation(); window.nextStackCard();"
-                class="px-3.5 py-1 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all text-xs"
-              >
-                <span>02 기술 보기</span>
-                <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-                </svg>
-              </button>
-            </div>
+          <!-- Card Footer -->
+          <div class="pt-1.5 border-t border-slate-200/70 flex items-center justify-between text-[11px] text-slate-600">
+            <span class="font-mono text-slate-400 font-semibold">01 / 04</span>
+            <span class="text-[#00A396] font-mono font-bold flex items-center gap-1">
+              <span>ACTIVE COCKPIT</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+              </svg>
+            </span>
           </div>
         </div>
 
         <!-- ========================================================= -->
-        <!-- WIDE STACK CARD 1: 02 기술 (3-Step All-In-One XR Flow) -->
+        <!-- CARD 1: 02 기술 (All-In-One XR Workflow) -->
         <!-- ========================================================= -->
         <div
-          id="stack-card-1"
-          onclick="window.goToStackCard(1)"
-          class="stack-card absolute inset-x-0 top-0 h-[290px] sm:h-[280px] rounded-3xl bg-[#F8FAFC] border border-slate-200/90 p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.01]"
-          style="transform: translateY(42px) scale(0.98); z-index: 30; box-shadow: 0 15px 30px -10px rgba(8,23,38,0.12), 0 0 0 1px rgba(226,232,240,0.7);"
+          id="hero-card-1"
+          onclick="window.selectHeroCard(1)"
+          class="hero-bottom-card rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md border border-white/60 shadow-sm h-[260px] sm:h-[250px]"
         >
           <!-- Card Header -->
-          <div class="card-header flex items-center justify-between pb-2 border-b border-slate-100">
-            <div class="flex items-center gap-2.5">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60">
+            <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
-                02 / ALL-IN-ONE XR WORKFLOW
+              <span class="font-mono text-xs font-extrabold tracking-wider text-slate-900 uppercase">
+                02 / XR WORKFLOW
               </span>
             </div>
-            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
+            <span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               3-STEP PROCESS
             </span>
           </div>
 
-          <!-- Card Body: 3 Step Horizontal Columns -->
-          <div class="card-body grid grid-cols-1 md:grid-cols-3 gap-3 my-auto transition-opacity duration-300">
-            <div class="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between">
+          <!-- Card Body: 3 Step Rows -->
+          <div class="space-y-1.5 my-auto text-xs">
+            <div class="p-1.5 rounded-xl bg-white/80 border border-slate-200/70 flex items-center gap-2 shadow-2xs">
+              <span class="font-mono font-black text-[#00A396] text-[10px] px-1.5 py-0.5 rounded bg-[#00A396]/10">01</span>
               <div>
-                <span class="font-mono font-black text-[#00A396] text-sm block mb-1">STEP 01</span>
-                <h4 class="text-xs sm:text-sm font-bold text-slate-900">자가 착용 (Wear)</h4>
-                <p class="text-[11px] text-slate-500 leading-tight mt-1.5">병원 방문 없이 가정/일상 공간에서 가볍게 착용 후 즉시 시작</p>
+                <div class="font-bold text-slate-900 text-[11px]">자가 착용 (Wear)</div>
+                <div class="text-[9px] text-slate-500">가정/일상에서 즉시 착용</div>
               </div>
             </div>
-
-            <div class="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between">
+            <div class="p-1.5 rounded-xl bg-white/80 border border-slate-200/70 flex items-center gap-2 shadow-2xs">
+              <span class="font-mono font-black text-[#00A396] text-[10px] px-1.5 py-0.5 rounded bg-[#00A396]/10">02</span>
               <div>
-                <span class="font-mono font-black text-[#00A396] text-sm block mb-1">STEP 02</span>
-                <h4 class="text-xs sm:text-sm font-bold text-slate-900">시선 유도 자동 촬영 (Capture)</h4>
-                <p class="text-[11px] text-slate-500 leading-tight mt-1.5">동공 정렬 인터랙션으로 고해상도 망막 안저 이미지 자동 캡처</p>
+                <div class="font-bold text-slate-900 text-[11px]">시선 유도 자동 촬영</div>
+                <div class="text-[9px] text-slate-500">동공 자동 정렬 안저 캡처</div>
               </div>
             </div>
-
-            <div class="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex flex-col justify-between">
+            <div class="p-1.5 rounded-xl bg-white/80 border border-slate-200/70 flex items-center gap-2 shadow-2xs">
+              <span class="font-mono font-black text-[#00A396] text-[10px] px-1.5 py-0.5 rounded bg-[#00A396]/10">03</span>
               <div>
-                <span class="font-mono font-black text-[#00A396] text-sm block mb-1">STEP 03</span>
-                <h4 class="text-xs sm:text-sm font-bold text-slate-900">3대 질환 AI 분석 (Screen)</h4>
-                <p class="text-[11px] text-slate-500 leading-tight mt-1.5">황반변성(AMD), 녹내장, 당뇨망막병증 초기 징후를 온디바이스 판독</p>
+                <div class="font-bold text-slate-900 text-[11px]">3대 질환 AI 분석</div>
+                <div class="text-[9px] text-slate-500">온디바이스 30초 판독</div>
               </div>
             </div>
           </div>
 
-          <!-- Card Footer (Exposed Ledge Tab) -->
-          <div class="card-footer pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
-              <span class="font-mono text-xs text-slate-900 font-bold">02 / ALL-IN-ONE XR WORKFLOW</span>
-              <span class="text-slate-300">·</span>
-              <span class="text-[#00A396] font-mono font-semibold text-[11px]">검사 소요 시간 단 30초</span>
-            </div>
-
-            <div class="card-footer-controls flex items-center gap-2 transition-opacity duration-300">
-              <button
-                type="button"
-                onclick="event.stopPropagation(); window.prevStackCard();"
-                class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                title="이전 카드 (←)"
-              >
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-                </svg>
-              </button>
-              <button
-                type="button"
-                onclick="event.stopPropagation(); window.nextStackCard();"
-                class="px-3.5 py-1 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all text-xs"
-              >
-                <span>03 임상 근거 보기</span>
-                <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-                </svg>
-              </button>
-            </div>
+          <!-- Card Footer -->
+          <div class="pt-1.5 border-t border-slate-200/60 flex items-center justify-between text-[11px] text-slate-600">
+            <span class="font-mono text-slate-400 font-semibold">02 / 04</span>
+            <span class="text-slate-700 font-mono font-bold flex items-center gap-1">
+              <span>VIEW TECH</span>
+              <svg class="w-3 h-3 text-[#00A396]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+              </svg>
+            </span>
           </div>
         </div>
 
         <!-- ========================================================= -->
-        <!-- WIDE STACK CARD 2: 03 임상 근거 (Clinical Matrix) -->
+        <!-- CARD 2: 03 임상 근거 (Clinical Matrix) -->
         <!-- ========================================================= -->
         <div
-          id="stack-card-2"
-          onclick="window.goToStackCard(2)"
-          class="stack-card absolute inset-x-0 top-0 h-[290px] sm:h-[280px] rounded-3xl bg-[#F1F5F9] border border-slate-200/90 p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.01]"
-          style="transform: translateY(84px) scale(0.96); z-index: 20; box-shadow: 0 10px 20px -8px rgba(8,23,38,0.10), 0 0 0 1px rgba(203,213,225,0.6);"
+          id="hero-card-2"
+          onclick="window.selectHeroCard(2)"
+          class="hero-bottom-card rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md border border-white/60 shadow-sm h-[260px] sm:h-[250px]"
         >
           <!-- Card Header -->
-          <div class="card-header flex items-center justify-between pb-2 border-b border-slate-100">
-            <div class="flex items-center gap-2.5">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60">
+            <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
-                03 / CLINICAL COMPARISON MATRIX
+              <span class="font-mono text-xs font-extrabold tracking-wider text-slate-900 uppercase">
+                03 / CLINICAL MATRIX
               </span>
             </div>
-            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
+            <span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               CLINICAL VALIDATED
             </span>
           </div>
 
-          <!-- Card Body: Comparison Table + Targeted Diseases -->
-          <div class="card-body grid grid-cols-1 lg:grid-cols-12 gap-4 items-center my-auto transition-opacity duration-300">
-            <!-- Left Table -->
-            <div class="lg:col-span-7 rounded-2xl border border-slate-200 overflow-hidden text-xs bg-white shadow-xs">
-              <table class="w-full text-center">
-                <thead class="bg-slate-100 font-mono text-[10px] text-slate-600 uppercase border-b border-slate-200">
-                  <tr>
-                    <th class="py-2 px-3 text-left">장비 유형</th>
-                    <th class="py-2 px-1">검사자 불필요</th>
-                    <th class="py-2 px-1">재택/비대면</th>
-                    <th class="py-2 px-1">온디바이스 AI</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100">
-                  <tr class="text-slate-500 bg-white">
-                    <td class="py-1 px-3 text-left font-medium">거치형 안저기</td>
-                    <td class="py-1 px-1 text-slate-300">—</td>
-                    <td class="py-1 px-1 text-slate-300">—</td>
-                    <td class="py-1 px-1 text-slate-300">—</td>
-                  </tr>
-                  <tr class="text-slate-500 bg-white">
-                    <td class="py-1 px-3 text-left font-medium">핸드헬드 카메라</td>
-                    <td class="py-1 px-1 text-slate-300">—</td>
-                    <td class="py-1 px-1 text-slate-300">—</td>
-                    <td class="py-1 px-1 text-slate-300">—</td>
-                  </tr>
-                  <tr class="bg-slate-900 text-white font-bold">
-                    <td class="py-1.5 px-3 text-left text-[#00C4B4]">GazeInto XR</td>
-                    <td class="py-1.5 px-1 text-[#00C4B4]">✓</td>
-                    <td class="py-1.5 px-1 text-[#00C4B4]">✓</td>
-                    <td class="py-1.5 px-1 text-[#00C4B4]">✓</td>
-                  </tr>
-                </tbody>
-              </table>
+          <!-- Card Body: 3 Biomarkers + Stats -->
+          <div class="space-y-2 my-auto text-xs">
+            <div class="grid grid-cols-3 gap-1 text-center">
+              <div class="p-1.5 rounded-xl bg-white/80 border border-slate-200/70">
+                <div class="text-slate-500 font-medium text-[9px]">황반(AMD)</div>
+                <div class="font-bold text-[#00A396] font-mono text-[10px]">정상 &lt;1%</div>
+              </div>
+              <div class="p-1.5 rounded-xl bg-white/80 border border-slate-200/70">
+                <div class="text-slate-500 font-medium text-[9px]">시신경</div>
+                <div class="font-bold text-[#00A396] font-mono text-[10px]">C/D 0.32</div>
+              </div>
+              <div class="p-1.5 rounded-xl bg-white/80 border border-slate-200/70">
+                <div class="text-slate-500 font-medium text-[9px]">망막혈관</div>
+                <div class="font-bold text-slate-800 font-mono text-[10px]">Clear</div>
+              </div>
             </div>
 
-            <!-- Right Diseases Cards -->
-            <div class="lg:col-span-5 grid grid-cols-3 gap-1.5 text-center text-xs">
-              <div class="p-2.5 rounded-xl bg-white border border-slate-200 shadow-xs">
-                <div class="font-bold text-slate-900 text-xs">황반변성</div>
-                <div class="text-[9px] text-slate-500 mt-0.5">드루젠 조기포착</div>
-              </div>
-              <div class="p-2.5 rounded-xl bg-white border border-slate-200 shadow-xs">
-                <div class="font-bold text-slate-900 text-xs">녹내장</div>
-                <div class="text-[9px] text-slate-500 mt-0.5">C/D비 계측</div>
-              </div>
-              <div class="p-2.5 rounded-xl bg-white border border-slate-200 shadow-xs">
-                <div class="font-bold text-slate-900 text-xs">당뇨망막</div>
-                <div class="text-[9px] text-slate-500 mt-0.5">미세출혈 감지</div>
-              </div>
+            <div class="p-2 rounded-xl bg-slate-900 text-white flex items-center justify-between text-[11px] shadow-2xs">
+              <div class="text-center"><div class="font-mono font-black text-[#00C4B4]">98.4%</div><div class="text-[8px] text-slate-400">일치율</div></div>
+              <span class="text-slate-600">|</span>
+              <div class="text-center"><div class="font-mono font-black text-white">4개</div><div class="text-[8px] text-slate-400">협력안과</div></div>
+              <span class="text-slate-600">|</span>
+              <div class="text-center"><div class="font-mono font-black text-white">12만</div><div class="text-[8px] text-slate-400">데이터</div></div>
             </div>
           </div>
 
-          <!-- Card Footer (Exposed Ledge Tab) -->
-          <div class="card-footer pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
-              <span class="font-mono text-xs text-slate-900 font-bold">03 / CLINICAL COMPARISON MATRIX</span>
-              <span class="text-slate-300">·</span>
-              <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
-            </div>
-
-            <div class="card-footer-controls flex items-center gap-2 transition-opacity duration-300">
-              <button
-                type="button"
-                onclick="event.stopPropagation(); window.prevStackCard();"
-                class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                title="이전 카드 (←)"
-              >
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-                </svg>
-              </button>
-              <button
-                type="button"
-                onclick="event.stopPropagation(); window.nextStackCard();"
-                class="px-3.5 py-1 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all text-xs"
-              >
-                <span>04 FAQ 보기</span>
-                <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
-                </svg>
-              </button>
-            </div>
+          <!-- Card Footer -->
+          <div class="pt-1.5 border-t border-slate-200/60 flex items-center justify-between text-[11px] text-slate-600">
+            <span class="font-mono text-slate-400 font-semibold">03 / 04</span>
+            <span class="text-slate-700 font-mono font-bold flex items-center gap-1">
+              <span>VIEW CLINICAL</span>
+              <svg class="w-3 h-3 text-[#00A396]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+              </svg>
+            </span>
           </div>
         </div>
 
         <!-- ========================================================= -->
-        <!-- WIDE STACK CARD 3: 04 FAQ (Frequently Asked Questions) -->
+        <!-- CARD 3: 04 FAQ & SUPPORT (Frequently Asked Questions) -->
         <!-- ========================================================= -->
         <div
-          id="stack-card-3"
-          onclick="window.goToStackCard(3)"
-          class="stack-card absolute inset-x-0 top-0 h-[290px] sm:h-[280px] rounded-3xl bg-[#E2E8F0] border border-slate-200/90 p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.01]"
-          style="transform: translateY(126px) scale(0.94); z-index: 10; box-shadow: 0 6px 15px -5px rgba(8,23,38,0.08), 0 0 0 1px rgba(148,163,184,0.5);"
+          id="hero-card-3"
+          onclick="window.selectHeroCard(3)"
+          class="hero-bottom-card rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md border border-white/60 shadow-sm h-[260px] sm:h-[250px]"
         >
           <!-- Card Header -->
-          <div class="card-header flex items-center justify-between pb-2 border-b border-slate-100">
-            <div class="flex items-center gap-2.5">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60">
+            <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-[#00A396]"></span>
-              <span class="font-mono text-xs sm:text-sm font-extrabold tracking-wider text-slate-900 uppercase">
-                04 / FREQUENTLY ASKED QUESTIONS
+              <span class="font-mono text-xs font-extrabold tracking-wider text-slate-900 uppercase">
+                04 / FAQ & SUPPORT
               </span>
             </div>
-            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#00A396]/10 text-[#00A396] font-bold border border-[#00A396]/20">
+            <span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
               FAQ & SUPPORT
             </span>
           </div>
 
-          <!-- Card Body: 3 Q&A Cards side-by-side in wide format -->
-          <div class="card-body grid grid-cols-1 md:grid-cols-3 gap-3 my-auto transition-opacity duration-300">
-            <div class="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
-              <span class="text-xs font-bold text-slate-900 block mb-1">Q1. 혼자 촬영 가능한가요?</span>
-              <p class="text-[11px] text-slate-600 leading-snug">지능형 시선 유도(Gaze Guidance)가 동공 위치를 자동 가이드하여 비숙련자도 30초 내에 촬영합니다.</p>
+          <!-- Card Body: 2 Quick Q&As -->
+          <div class="space-y-1.5 my-auto text-xs">
+            <div class="p-2 rounded-xl bg-white/80 border border-slate-200/70 shadow-2xs">
+              <span class="font-bold text-slate-900 text-[11px] block">Q. 혼자서 촬영 가능한가요?</span>
+              <p class="text-[10px] text-slate-600 leading-tight mt-0.5">지능형 시선 유도로 비숙련자도 30초 내 자동 촬영</p>
             </div>
-
-            <div class="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
-              <span class="text-xs font-bold text-slate-900 block mb-1">Q2. 재택/이동 검진 가능한가요?</span>
-              <p class="text-[11px] text-slate-600 leading-snug">거대 암실 장비가 필요 없는 컴팩트 일체형 헤드셋으로 가정 및 보건지소 등에서도 편리하게 운용됩니다.</p>
-            </div>
-
-            <div class="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
-              <span class="text-xs font-bold text-slate-900 block mb-1">Q3. 도입 상담은 어떻게 하나요?</span>
-              <p class="text-[11px] text-slate-600 leading-snug">상단의 '도입 문의' 또는 공식 이메일(gazeinto1nc@gmail.com)로 접수해주시면 전담팀이 데모를 진행합니다.</p>
+            <div class="p-2 rounded-xl bg-white/80 border border-slate-200/70 shadow-2xs">
+              <span class="font-bold text-slate-900 text-[11px] block">Q. 안경원 및 의원 도입 문의</span>
+              <p class="text-[10px] text-slate-600 leading-tight mt-0.5">전담팀이 현장 실증 및 소프트웨어 데모를 지원합니다</p>
             </div>
           </div>
 
-          <!-- Card Footer (Exposed Ledge Tab) -->
-          <div class="card-footer pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
-              <span class="font-mono text-xs text-slate-900 font-bold">04 / FREQUENTLY ASKED QUESTIONS</span>
-              <span class="text-slate-300">·</span>
-              <span class="text-[11px] text-slate-400">카드를 누르면 넘겨집니다</span>
-            </div>
-
-            <div class="card-footer-controls flex items-center gap-2 transition-opacity duration-300">
-              <button
-                type="button"
-                onclick="event.stopPropagation(); window.prevStackCard();"
-                class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all"
-                title="이전 카드 (←)"
-              >
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-                </svg>
-              </button>
-              <button
-                type="button"
-                onclick="event.stopPropagation(); window.goToStackCard(0);"
-                class="px-3.5 py-1 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold flex items-center gap-1.5 transition-all text-xs"
-              >
-                <span>01 대시보드로 돌아가기</span>
-                <svg class="w-3.5 h-3.5 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                </svg>
-              </button>
-            </div>
+          <!-- Card Footer -->
+          <div class="pt-1.5 border-t border-slate-200/60 flex items-center justify-between text-[11px] text-slate-600">
+            <span class="font-mono text-slate-400 font-semibold">04 / 04</span>
+            <span class="text-slate-700 font-mono font-bold flex items-center gap-1">
+              <span>VIEW FAQ</span>
+              <svg class="w-3 h-3 text-[#00A396]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+              </svg>
+            </span>
           </div>
         </div>
 
@@ -473,110 +313,37 @@
 
 <script>
   // ==============================================================
-  // Wide Landscape Stepped Downward Card Deck Animation & Controller
+  // 4-Column Horizontal Bottom Cards Interactive Controller
   // ==============================================================
-  let currentCardIndex = 0;
-  const totalCards = 4;
-  const cards = [
-    document.getElementById('stack-card-0'),
-    document.getElementById('stack-card-1'),
-    document.getElementById('stack-card-2'),
-    document.getElementById('stack-card-3')
+  let activeCardIndex = 0;
+  const cardElements = [
+    document.getElementById('hero-card-0'),
+    document.getElementById('hero-card-1'),
+    document.getElementById('hero-card-2'),
+    document.getElementById('hero-card-3')
   ];
 
   const headerLinks = document.querySelectorAll('.nav-link');
   const navIdList = ['nav-hero', 'nav-tech', 'nav-clinical', 'nav-faq'];
 
-  // Downward Stepped Layout Configurations (42px Step Downwards)
-  // Active card: Solid opaque white.
-  // Behind cards: Semi-transparent glassmorphism (translucent background visible through glass)
-  const stackConfigs = [
-    // diff 0 (Active Top Focus): Solid Crisp White + Rich Shadow
-    {
-      translateY: 0,
-      scale: 1,
-      zIndex: 40,
-      cardClass: 'bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-[0_25px_50px_-12px_rgba(8,23,38,0.18)]',
-      footerClass: 'bg-white/90 border-t border-slate-100'
-    },
-    // diff 1 (1st card below): Semi-transparent frosted glass (VR bg visible through)
-    {
-      translateY: 42,
-      scale: 0.98,
-      zIndex: 30,
-      cardClass: 'bg-white/35 backdrop-blur-md border border-white/50 shadow-[0_15px_30px_-10px_rgba(8,23,38,0.10)]',
-      footerClass: 'bg-white/85 hover:bg-white/95 backdrop-blur-md border-t border-slate-200/80'
-    },
-    // diff 2 (2nd card below): Semi-transparent frosted glass
-    {
-      translateY: 84,
-      scale: 0.96,
-      zIndex: 20,
-      cardClass: 'bg-white/25 backdrop-blur-md border border-white/40 shadow-[0_10px_20px_-8px_rgba(8,23,38,0.08)]',
-      footerClass: 'bg-white/80 hover:bg-white/90 backdrop-blur-md border-t border-slate-200/70'
-    },
-    // diff 3 (3rd card below): Semi-transparent frosted glass
-    {
-      translateY: 126,
-      scale: 0.94,
-      zIndex: 10,
-      cardClass: 'bg-white/15 backdrop-blur-md border border-white/30 shadow-[0_6px_15px_-5px_rgba(8,23,38,0.06)]',
-      footerClass: 'bg-white/75 hover:bg-white/85 backdrop-blur-md border-t border-slate-200/60'
-    }
-  ];
+  function selectHeroCard(index: number) {
+    if (index < 0 || index >= cardElements.length) return;
+    activeCardIndex = index;
 
-  function updateStackLayout() {
-    cards.forEach((card, i) => {
+    cardElements.forEach((card, i) => {
       if (!card) return;
-      const diff = (i - currentCardIndex + totalCards) % totalCards;
-      const config = stackConfigs[diff];
-
-      card.style.transform = `translateY(${config.translateY}px) scale(${config.scale})`;
-      card.style.zIndex = `${config.zIndex}`;
-
-      const header = card.querySelector('.card-header') as HTMLElement;
-      const body = card.querySelector('.card-body') as HTMLElement;
-      const footer = card.querySelector('.card-footer') as HTMLElement;
-      const footerControls = card.querySelector('.card-footer-controls') as HTMLElement;
-
-      card.className = `stack-card absolute inset-x-0 top-0 h-[290px] sm:h-[280px] rounded-3xl ${config.cardClass} p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:brightness-[1.02]`;
-
-      if (diff === 0) {
-        if (header) {
-          header.style.opacity = '1';
-        }
-        if (body) {
-          body.style.opacity = '1';
-          body.style.pointerEvents = 'auto';
-        }
-        if (footer) {
-          footer.className = 'card-footer pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 bg-white/90';
-        }
-        if (footerControls) {
-          footerControls.style.opacity = '1';
-          footerControls.style.pointerEvents = 'auto';
-        }
+      if (i === activeCardIndex) {
+        // Active Solid Card
+        card.className = 'hero-bottom-card rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-xl ring-2 ring-[#00A396]/20 h-[260px] sm:h-[250px] scale-[1.02] z-20';
       } else {
-        if (header) {
-          header.style.opacity = '0';
-        }
-        if (body) {
-          body.style.opacity = '0';
-          body.style.pointerEvents = 'none';
-        }
-        if (footer) {
-          footer.className = `card-footer pt-2.5 px-5 -mx-5 -mb-5 pb-3.5 rounded-b-3xl ${config.footerClass} flex items-center justify-between text-xs text-slate-800 transition-colors duration-200`;
-        }
-        if (footerControls) {
-          footerControls.style.opacity = '0';
-          footerControls.style.pointerEvents = 'none';
-        }
+        // Translucent Frosted Glass Inactive Card
+        card.className = 'hero-bottom-card rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 bg-white/40 hover:bg-white/70 backdrop-blur-md border border-white/60 shadow-sm h-[260px] sm:h-[250px] scale-100 opacity-90 hover:opacity-100 z-10';
       }
     });
 
     // Update Header Navigation Capsule
     headerLinks.forEach((link) => {
-      const targetNavId = navIdList[currentCardIndex];
+      const targetNavId = navIdList[activeCardIndex];
       const navDot = link.querySelector('.nav-dot');
       if (link.id === targetNavId) {
         link.className = 'nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80';
@@ -588,27 +355,9 @@
     });
   }
 
-  function goToStackCard(index: number) {
-    if (index >= 0 && index < totalCards) {
-      currentCardIndex = index;
-      updateStackLayout();
-    }
-  }
-
-  function nextStackCard() {
-    currentCardIndex = (currentCardIndex + 1) % totalCards;
-    updateStackLayout();
-  }
-
-  function prevStackCard() {
-    currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
-    updateStackLayout();
-  }
-
-  // Expose to window for global buttons
-  (window as any).goToStackCard = goToStackCard;
-  (window as any).nextStackCard = nextStackCard;
-  (window as any).prevStackCard = prevStackCard;
+  // Expose to window for global header navigation
+  (window as any).selectHeroCard = selectHeroCard;
+  (window as any).goToStackCard = selectHeroCard;
   (window as any).switchDashboardTab = (tabKey: string) => {
     const map: Record<string, number> = {
       'tab-dashboard': 0,
@@ -621,15 +370,9 @@
       'faq': 3
     };
     if (map[tabKey] !== undefined) {
-      goToStackCard(map[tabKey]);
+      selectHeroCard(map[tabKey]);
     }
   };
-
-  // Keyboard Arrow Key Navigation Support
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') nextStackCard();
-    if (e.key === 'ArrowLeft') prevStackCard();
-  });
 
   // Reading Distance Gauge Interactive Switcher in Card 0
   const distBtns = document.querySelectorAll('#hero-dist-buttons .dist-btn');
@@ -639,18 +382,18 @@
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       distBtns.forEach(b => {
-        b.className = 'dist-btn p-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all';
+        b.className = 'dist-btn p-1 rounded-lg border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all';
         const num = b.querySelector('.font-bold, .font-black') as HTMLElement;
-        const sub = b.querySelector('.text-[10px]') as HTMLElement;
-        if (num) num.className = 'font-mono text-xs font-bold text-slate-700';
-        if (sub) sub.className = 'font-mono text-[10px] text-slate-400';
+        const sub = b.querySelector('.text-[9px]') as HTMLElement;
+        if (num) num.className = 'font-mono text-[11px] font-bold text-slate-700';
+        if (sub) sub.className = 'font-mono text-[9px] text-slate-400';
       });
 
-      btn.className = 'dist-btn p-2 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-sm';
+      btn.className = 'dist-btn p-1 rounded-lg border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs';
       const activeNum = btn.querySelector('.font-bold, .font-black') as HTMLElement;
-      const activeSub = btn.querySelector('.text-[10px]') as HTMLElement;
-      if (activeNum) activeNum.className = 'font-mono text-xs font-black text-[#00A396]';
-      if (activeSub) activeSub.className = 'font-mono text-[10px] text-[#00A396] font-bold';
+      const activeSub = btn.querySelector('.text-[9px]') as HTMLElement;
+      if (activeNum) activeNum.className = 'font-mono text-[11px] font-black text-[#00A396]';
+      if (activeSub) activeSub.className = 'font-mono text-[9px] text-[#00A396] font-bold';
 
       const addVal = btn.getAttribute('data-add');
       if (addValDisplay && addVal) {
@@ -659,6 +402,31 @@
     });
   });
 
-  // Initialize Stack Layout
-  updateStackLayout();
+  // Blur-to-Sharp Typography Interaction
+  const blurredText = document.getElementById('hero-blurred-text');
+  if (blurredText) {
+    blurredText.addEventListener('mouseenter', () => {
+      blurredText.classList.remove('blur-presbyopia');
+      blurredText.classList.add('blur-none');
+    });
+    blurredText.addEventListener('mouseleave', () => {
+      blurredText.classList.remove('blur-none');
+      blurredText.classList.add('blur-presbyopia');
+    });
+  }
+
+  // Initialize Card Selection
+  selectHeroCard(0);
 </script>
+
+<style>
+  /* Presbyopia blur simulation effect */
+  .blur-presbyopia {
+    filter: blur(4px);
+    opacity: 0.85;
+  }
+  .blur-presbyopia:hover, .blur-none {
+    filter: blur(0px);
+    opacity: 1;
+  }
+</style>
