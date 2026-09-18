@@ -7,7 +7,7 @@
 
   <div class="max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16 h-20 flex items-center justify-between">
     <!-- Brand Logo -->
-    <a href="#hero" class="flex items-center gap-3 group">
+    <a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-dashboard');" class="flex items-center gap-3 group">
       <!-- Focal Lens Logo Symbol -->
       <div class="relative w-8 h-8 flex items-center justify-center">
         <div class="absolute w-6 h-6 rounded-full border-2 border-slate-900 -left-0.5 group-hover:scale-105 transition-transform duration-300"></div>
@@ -17,11 +17,12 @@
       <span class="text-2xl font-extrabold tracking-tight text-slate-900 font-display">gazeinto</span>
     </a>
 
-    <!-- Navigation Menu with ScrollSpy Capsule -->
+    <!-- Navigation Menu with Tab & Scroll Synchronization -->
     <nav class="flex items-center gap-1.5 sm:gap-2 p-1 rounded-full bg-slate-200/40 border border-slate-200/60 text-xs sm:text-sm font-medium text-slate-600" id="header-nav">
       <a 
         href="#hero" 
         id="nav-hero"
+        onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-dashboard');"
         class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396]"></span>
@@ -29,8 +30,9 @@
       </a>
 
       <a 
-        href="#technology" 
+        href="#hero" 
         id="nav-tech"
+        onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-tech');"
         class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
@@ -38,8 +40,9 @@
       </a>
 
       <a 
-        href="#clinical" 
+        href="#hero" 
         id="nav-clinical"
+        onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-clinical');"
         class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
@@ -47,8 +50,9 @@
       </a>
 
       <a 
-        href="#faq" 
+        href="#hero" 
         id="nav-faq"
+        onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-faq');"
         class="nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600"
       >
         <span class="nav-dot w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
@@ -77,43 +81,8 @@
     if (progressBar) {
       const winScroll = document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height);
+      const scrolled = height > 0 ? (winScroll / height) : 0;
       progressBar.style.transform = `scaleX(${scrolled})`;
     }
   }, { passive: true });
-
-  // ScrollSpy Active Capsule Switcher
-  const sections = [
-    { id: 'hero', navId: 'nav-hero' },
-    { id: 'technology', navId: 'nav-tech' },
-    { id: 'clinical', navId: 'nav-clinical' },
-    { id: 'faq', navId: 'nav-faq' }
-  ];
-
-  const spyObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const matching = sections.find(s => s.id === entry.target.id);
-        if (matching) {
-          document.querySelectorAll('.nav-link').forEach(link => {
-            link.className = 'nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600';
-            const dot = link.querySelector('.nav-dot');
-            if (dot) dot.classList.add('hidden');
-          });
-
-          const activeLink = document.getElementById(matching.navId);
-          if (activeLink) {
-            activeLink.className = 'nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80';
-            const dot = activeLink.querySelector('.nav-dot');
-            if (dot) dot.classList.remove('hidden');
-          }
-        }
-      }
-    });
-  }, { threshold: 0.2, rootMargin: '-70px 0px -40% 0px' });
-
-  sections.forEach(s => {
-    const el = document.getElementById(s.id);
-    if (el) spyObserver.observe(el);
-  });
 </script>

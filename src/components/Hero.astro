@@ -1,104 +1,552 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-[90vh] lg:min-h-screen pt-20 flex flex-col justify-between bg-[#0A1928] overflow-hidden">
+<section id="hero" class="relative min-h-[92vh] lg:min-h-screen pt-20 flex flex-col justify-between bg-[#0A1928] overflow-hidden">
   
-  <!-- Ambient Video Background Layer (Full Visibility) -->
+  <!-- Ambient High-Definition Video Background Layer -->
   <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
     <video
       autoplay
       loop
       muted
       playsinline
-      class="w-full h-full object-cover object-center opacity-95 scale-100"
+      class="w-full h-full object-cover object-center opacity-90 scale-100"
     >
       <source src="/videos/hero-bg.mp4" type="video/mp4" />
     </video>
     
-    <!-- Balanced Light Gradient Overlay: Clear Video View with Soft Text Readability -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/85 via-[#F8FAFC]/50 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/90 via-transparent to-[#F8FAFC]/20"></div>
+    <!-- Sophisticated Contrast Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#F8FAFC]/90 via-[#F8FAFC]/65 to-[#F8FAFC]/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/95 via-transparent to-[#F8FAFC]/25"></div>
   </div>
 
-  <!-- Main Clean Light Container -->
-  <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16 flex-1 flex flex-col justify-between pt-16 sm:pt-24 lg:pt-32 pb-16">
+  <!-- Main Split Dashboard Container -->
+  <div class="relative z-10 w-full max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-16 flex-1 flex flex-col justify-center py-12 lg:py-16">
     
-    <!-- Top / Main Content Block -->
-    <div class="max-w-3xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
       
-      <!-- Category Tag -->
-      <div class="flex items-center gap-2 mb-8 scroll-reveal">
-        <span class="w-5 h-[2px] bg-[#00A396] scroll-line"></span>
-        <span class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase drop-shadow-sm">
-          노안 AI 진단 & 처방 엔진
-        </span>
-      </div>
-
-      <!-- Headline (Hero B: Blur to Sharp Typography with Interactive Focus) -->
-      <div class="mb-8 select-none">
-        <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black text-slate-900 tracking-tight leading-[1.15] mb-2 drop-shadow-sm">
-          <!-- Line 1: Blurred text that clarifies on hover -->
-          <span id="hero-blurred-text" class="blur-presbyopia inline-block cursor-default transition-all duration-700" title="초점이 흐려진 상태 (마우스를 올리면 선명해집니다)">
-            흐려진 글자 앞에서
+      <!-- Left Column: Main Typography & Brand Core (Vertically Centered in Middle) -->
+      <div class="lg:col-span-6 xl:col-span-6 flex flex-col justify-center my-auto pt-4 lg:pt-0">
+        
+        <!-- Category Tag -->
+        <div class="flex items-center gap-2 mb-6 scroll-reveal">
+          <span class="w-5 h-[2px] bg-[#00A396] scroll-line"></span>
+          <span class="font-mono text-xs font-bold tracking-[0.25em] text-[#00A396] uppercase drop-shadow-sm">
+            노안 AI 진단 & 처방 엔진
           </span>
-          <br />
-          <!-- Line 2: Sharp text -->
-          <span class="text-slate-900 inline-block mt-2 scroll-reveal scroll-reveal-delay-1">
-            멈추지 않도록.
-          </span>
-        </h1>
-      </div>
-
-      <!-- Description Paragraph -->
-      <p class="text-base sm:text-xl text-slate-800 font-medium leading-relaxed max-w-2xl mb-8 scroll-reveal scroll-reveal-delay-2 drop-shadow-sm">
-        게이즈인투의 AI는 노안의 진행 단계를 정량 판독하고, 당신의 눈이 실제로 머무는 거리에 맞춰 처방을 설계합니다.
-      </p>
-
-      <!-- CTA Buttons (Preserved for trial/inquiries) -->
-      <div class="hidden flex-wrap items-center gap-4 mb-16 scroll-reveal scroll-reveal-delay-3" id="hero-cta-buttons">
-        <button
-          type="button"
-          onclick="window.openContactModal('trial')"
-          class="px-8 py-4 rounded bg-[#0F2236] hover:bg-[#1A334E] text-white text-sm font-bold tracking-tight shadow-sm transition-all duration-200 hover:-translate-y-0.5"
-        >
-          30초 자가 진단 시작
-        </button>
-
-        <button
-          type="button"
-          onclick="window.openContactModal('b2b')"
-          class="px-8 py-4 rounded bg-white hover:bg-slate-50 text-slate-800 text-sm font-semibold tracking-tight border border-slate-300 shadow-sm transition-all duration-200 hover:-translate-y-0.5"
-        >
-          안경원·의원 도입 문의
-        </button>
-      </div>
-
-    </div>
-
-    <!-- Bottom Stats & Validation Bar -->
-    <div class="pt-8 border-t border-slate-300/80 backdrop-blur-md bg-white/40 p-4 rounded-xl mt-16 sm:mt-24 scroll-reveal">
-      <div class="flex flex-wrap items-center gap-8 sm:gap-14 text-xs sm:text-sm">
-        <span class="font-mono text-[11px] sm:text-xs font-bold tracking-widest text-slate-600 uppercase">
-          CLINICALLY VALIDATED
-        </span>
-
-        <div class="flex items-baseline gap-1.5">
-          <strong class="font-extrabold text-slate-950 text-base sm:text-lg font-mono">98.4%</strong>
-          <span class="text-slate-700 font-medium">판독 일치율</span>
         </div>
 
-        <div class="flex items-baseline gap-1.5">
-          <strong class="font-extrabold text-slate-950 text-base sm:text-lg font-mono">4개</strong>
-          <span class="text-slate-700 font-medium">협력 안과</span>
+        <!-- Headline (Blur to Sharp Typography with Interactive Hover Focus) -->
+        <div class="mb-6 select-none">
+          <h1 class="text-4xl sm:text-5xl xl:text-6xl 2xl:text-7xl font-black text-slate-900 tracking-tight leading-[1.15] mb-2 drop-shadow-sm">
+            <!-- Line 1: Blurred text that clarifies on hover -->
+            <span id="hero-blurred-text" class="blur-presbyopia inline-block cursor-default transition-all duration-700" title="초점이 흐려진 상태 (마우스를 올리면 선명해집니다)">
+              흐려진 글자 앞에서
+            </span>
+            <br />
+            <!-- Line 2: Sharp text -->
+            <span class="text-slate-900 inline-block mt-2 scroll-reveal scroll-reveal-delay-1">
+              멈추지 않도록.
+            </span>
+          </h1>
         </div>
 
-        <div class="flex items-baseline gap-1.5">
-          <strong class="font-extrabold text-slate-950 text-base sm:text-lg font-mono">12만</strong>
-          <span class="text-slate-700 font-medium">학습 데이터</span>
+        <!-- Description Paragraph -->
+        <p class="text-base sm:text-lg xl:text-xl text-slate-800 font-medium leading-relaxed max-w-xl mb-8 scroll-reveal scroll-reveal-delay-2 drop-shadow-sm">
+          게이즈인투의 AI는 노안의 진행 단계를 정량 판독하고, 당신의 눈이 실제로 머무는 거리에 맞춰 처방을 설계합니다.
+        </p>
+
+        <!-- Quick CTA Buttons -->
+        <div class="flex flex-wrap items-center gap-4 scroll-reveal scroll-reveal-delay-3">
+          <button
+            type="button"
+            onclick="window.openContactModal('trial')"
+            class="px-7 py-3.5 rounded-xl bg-[#0F2236] hover:bg-[#1A334E] text-white text-sm font-bold tracking-tight shadow-md transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2"
+          >
+            <span>30초 자가 진단 시작</span>
+            <svg class="w-4 h-4 text-[#00C4B4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            onclick="window.openContactModal('b2b')"
+            class="px-7 py-3.5 rounded-xl bg-white/80 hover:bg-white text-slate-800 text-sm font-semibold tracking-tight border border-slate-300 shadow-sm backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5"
+          >
+            안경원·의원 도입 문의
+          </button>
         </div>
+
       </div>
+
+      <!-- Right Column: Interactive 4-in-1 Dashboard Glass Panel -->
+      <div class="lg:col-span-6 xl:col-span-6 w-full">
+        
+        <div class="w-full rounded-3xl bg-white/85 backdrop-blur-xl border border-white/70 shadow-[0_20px_50px_rgba(8,23,38,0.12)] p-6 sm:p-8 flex flex-col justify-between min-h-[520px] transition-all duration-500">
+          
+          <!-- Card Top: Interactive 4-Tab Switcher Navigation -->
+          <div class="flex items-center justify-between pb-5 border-b border-slate-200/80 mb-6">
+            
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 p-1 rounded-2xl bg-slate-100/90 border border-slate-200/60" id="dash-tabs-bar">
+              <button
+                type="button"
+                data-tab="tab-dashboard"
+                class="dash-tab-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-slate-950 shadow-sm border border-slate-200/80 flex items-center gap-1.5"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-[#00A396]"></span>
+                <span>01 대시보드</span>
+              </button>
+
+              <button
+                type="button"
+                data-tab="tab-tech"
+                class="dash-tab-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 text-slate-600 hover:text-slate-900 flex items-center gap-1.5"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
+                <span>02 기술</span>
+              </button>
+
+              <button
+                type="button"
+                data-tab="tab-clinical"
+                class="dash-tab-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 text-slate-600 hover:text-slate-900 flex items-center gap-1.5"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
+                <span>03 임상 근거</span>
+              </button>
+
+              <button
+                type="button"
+                data-tab="tab-faq"
+                class="dash-tab-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 text-slate-600 hover:text-slate-900 flex items-center gap-1.5"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-[#00A396] hidden"></span>
+                <span>04 FAQ</span>
+              </button>
+            </div>
+
+            <!-- Status Indicator -->
+            <div class="hidden sm:flex items-center gap-1.5 text-[11px] font-mono font-bold text-[#00A396] bg-[#00A396]/10 px-2.5 py-1 rounded-full border border-[#00A396]/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#00A396] animate-pulse"></span>
+              <span>LIVE AI HUB</span>
+            </div>
+
+          </div>
+
+          <!-- Dynamic Tab Contents Container -->
+          <div class="flex-1 relative overflow-hidden" id="dash-tab-content-area">
+            
+            <!-- ========================================== -->
+            <!-- TAB 1: 01 대시보드 (Realtime Optic & Metrics) -->
+            <!-- ========================================== -->
+            <div id="tab-dashboard" class="dash-tab-pane flex flex-col justify-between h-full space-y-6 animate-fadeIn">
+              
+              <!-- Distance Gauge & Reading Simulation -->
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="font-mono text-xs font-bold tracking-wider text-slate-500 uppercase flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A396]"></span>
+                    READING DISTANCE & PRESCRIBED ADD
+                  </span>
+                  <span class="text-xs font-mono font-bold text-[#00A396]">정량 거리 보정</span>
+                </div>
+
+                <!-- Distance Range Slider Buttons -->
+                <div class="grid grid-cols-5 gap-2 mb-4" id="hero-dist-buttons">
+                  <button type="button" data-dist="25" data-add="+2.25" class="dist-btn p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                    <div class="font-mono text-[11px] text-slate-400">25cm</div>
+                    <div class="font-mono text-xs font-bold text-slate-700">+2.25</div>
+                  </button>
+                  <button type="button" data-dist="33" data-add="+1.75" class="dist-btn p-2.5 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-sm">
+                    <div class="font-mono text-[11px] text-[#00A396] font-semibold">33cm ★</div>
+                    <div class="font-mono text-xs font-black text-[#00A396]">+1.75</div>
+                  </button>
+                  <button type="button" data-dist="45" data-add="+1.25" class="dist-btn p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                    <div class="font-mono text-[11px] text-slate-400">45cm</div>
+                    <div class="font-mono text-xs font-bold text-slate-700">+1.25</div>
+                  </button>
+                  <button type="button" data-dist="60" data-add="+0.75" class="dist-btn p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                    <div class="font-mono text-[11px] text-slate-400">60cm</div>
+                    <div class="font-mono text-xs font-bold text-slate-700">+0.75</div>
+                  </button>
+                  <button type="button" data-dist="80" data-add="+0.50" class="dist-btn p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all">
+                    <div class="font-mono text-[11px] text-slate-400">80cm</div>
+                    <div class="font-mono text-xs font-bold text-slate-700">+0.50</div>
+                  </button>
+                </div>
+
+                <!-- Live Add Output Card -->
+                <div class="p-4 rounded-2xl bg-slate-900 text-white flex items-center justify-between shadow-sm">
+                  <div>
+                    <span class="font-mono text-[10px] text-[#22D3EE] uppercase tracking-wider font-bold block mb-1">
+                      RECOMMENDED ADD
+                    </span>
+                    <span class="text-xs text-slate-300 font-medium">실제 근거리 작업 거리 맞춤 처방값</span>
+                  </div>
+                  <div class="flex items-baseline gap-1">
+                    <span id="hero-live-add-val" class="text-3xl font-black font-mono text-white tracking-tight">
+                      +1.75
+                    </span>
+                    <span class="text-xs text-[#00C4B4] font-mono font-bold">D</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Biomarker Status Stream -->
+              <div class="grid grid-cols-3 gap-2 text-center">
+                <div class="p-3 rounded-xl bg-slate-100/90 border border-slate-200/80">
+                  <div class="text-[11px] text-slate-500 font-medium mb-1">황반 (AMD)</div>
+                  <div class="text-xs font-bold text-[#00A396] font-mono">정상 (&lt;1%)</div>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-100/90 border border-slate-200/80">
+                  <div class="text-[11px] text-slate-500 font-medium mb-1">시신경 (녹내장)</div>
+                  <div class="text-xs font-bold text-[#00A396] font-mono">C/D 0.32 안정</div>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-100/90 border border-slate-200/80">
+                  <div class="text-[11px] text-slate-500 font-medium mb-1">망막혈관 (DR)</div>
+                  <div class="text-xs font-bold text-slate-800 font-mono">Clear</div>
+                </div>
+              </div>
+
+              <!-- Bottom Stats Bar -->
+              <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-bold text-slate-900 font-mono text-sm">98.4%</span>
+                  <span>판독 일치율</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-bold text-slate-900 font-mono text-sm">4개</span>
+                  <span>협력 안과</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-bold text-slate-900 font-mono text-sm">12만</span>
+                  <span>학습 데이터</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TAB 2: 02 기술 (3-Step XR Workflow) -->
+            <!-- ========================================== -->
+            <div id="tab-tech" class="dash-tab-pane hidden flex-col justify-between h-full space-y-4 animate-fadeIn">
+              
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="font-mono text-xs font-bold text-[#00A396] uppercase tracking-wider">
+                    CHAPTER 01 / 3-STEP WORKFLOW
+                  </span>
+                </div>
+                <h3 class="text-xl font-black text-slate-900 mb-1">
+                  헤드셋 착용부터 AI 정밀 판독까지
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  GazeInto XR 일체형 카메라는 시선 유도(Gaze Guidance) 기술로 전문 검사자 없이 30초 내에 안저 촬영과 AI 분석을 완료합니다.
+                </p>
+              </div>
+
+              <!-- 3 Interactive Step Cards -->
+              <div class="space-y-2.5">
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3 hover:bg-white hover:border-[#00A396]/40 transition-all">
+                  <span class="font-mono font-black text-[#00A396] text-base shrink-0">01</span>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">자가 착용 (Self-operated Wear)</h4>
+                    <p class="text-xs text-slate-500 leading-snug mt-0.5">병원 방문 없이 집이나 일상 공간에서 간편 착용 후 즉시 시작</p>
+                  </div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3 hover:bg-white hover:border-[#00A396]/40 transition-all">
+                  <span class="font-mono font-black text-[#00A396] text-base shrink-0">02</span>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">시선 유도 자동 촬영 (Gaze Guidance)</h4>
+                    <p class="text-xs text-slate-500 leading-snug mt-0.5">동공과 각막 반사점을 실시간 정렬하여 고해상도 망막 안저 자동 촬영</p>
+                  </div>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3 hover:bg-white hover:border-[#00A396]/40 transition-all">
+                  <span class="font-mono font-black text-[#00A396] text-base shrink-0">03</span>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">3대 실명 질환 AI 분석 (AI Screening)</h4>
+                    <p class="text-xs text-slate-500 leading-snug mt-0.5">황반변성(AMD), 녹내장, 당뇨망막병증 초기 징후를 온디바이스 AI가 판독</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-[#081726] text-white flex items-center justify-between text-xs">
+                <span class="text-[#22D3EE] font-mono font-semibold">검사 소요 시간 단 30초</span>
+                <span class="text-slate-300">정밀도 98.4%</span>
+              </div>
+
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TAB 3: 03 임상 근거 (Clinical Matrix) -->
+            <!-- ========================================== -->
+            <div id="tab-clinical" class="dash-tab-pane hidden flex-col justify-between h-full space-y-4 animate-fadeIn">
+              
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="font-mono text-xs font-bold text-[#00A396] uppercase tracking-wider">
+                    CHAPTER 02 / CLINICAL MATRIX
+                  </span>
+                </div>
+                <h3 class="text-xl font-black text-slate-900 mb-1">
+                  안저 검사 기술 특장점 비교
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  기존 고가 거치형/핸드헬드 장비 대비 자가 측정과 실시간 AI 분석의 압도적 효율성
+                </p>
+              </div>
+
+              <!-- Compact Matrix Table -->
+              <div class="rounded-2xl border border-slate-200 overflow-hidden text-xs">
+                <table class="w-full text-center">
+                  <thead class="bg-slate-100 font-mono text-[11px] text-slate-600 uppercase border-b border-slate-200">
+                    <tr>
+                      <th class="py-2.5 px-3 text-left">장비 유형</th>
+                      <th class="py-2.5 px-2">검사자 불필요</th>
+                      <th class="py-2.5 px-2">재택/비대면</th>
+                      <th class="py-2.5 px-2">질환 AI</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100">
+                    <tr class="text-slate-500 bg-white">
+                      <td class="py-2.5 px-3 text-left font-medium">거치형 안저기</td>
+                      <td class="py-2.5 px-2 text-slate-300">—</td>
+                      <td class="py-2.5 px-2 text-slate-300">—</td>
+                      <td class="py-2.5 px-2 text-slate-300">—</td>
+                    </tr>
+                    <tr class="text-slate-500 bg-white">
+                      <td class="py-2.5 px-3 text-left font-medium">핸드헬드 카메라</td>
+                      <td class="py-2.5 px-2 text-slate-300">—</td>
+                      <td class="py-2.5 px-2 text-slate-300">—</td>
+                      <td class="py-2.5 px-2 text-slate-300">—</td>
+                    </tr>
+                    <tr class="bg-slate-900 text-white font-bold">
+                      <td class="py-3 px-3 text-left text-[#00C4B4]">GazeInto XR</td>
+                      <td class="py-3 px-2 text-[#00C4B4] text-sm">✓</td>
+                      <td class="py-3 px-2 text-[#00C4B4] text-sm">✓</td>
+                      <td class="py-3 px-2 text-[#00C4B4] text-sm">✓</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 3 Targeted Diseases -->
+              <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <div class="font-bold text-slate-900">황반변성</div>
+                  <div class="text-[10px] text-slate-500 mt-0.5">드루젠 포착</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <div class="font-bold text-slate-900">녹내장</div>
+                  <div class="text-[10px] text-slate-500 mt-0.5">C/D비 계측</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <div class="font-bold text-slate-900">당뇨망막병증</div>
+                  <div class="text-[10px] text-slate-500 mt-0.5">미세출혈 감지</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ========================================== -->
+            <!-- TAB 4: 04 FAQ (Frequently Asked Questions) -->
+            <!-- ========================================== -->
+            <div id="tab-faq" class="dash-tab-pane hidden flex-col justify-between h-full space-y-3 animate-fadeIn">
+              
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="font-mono text-xs font-bold text-[#00A396] uppercase tracking-wider">
+                    CHAPTER 03 / FAQ
+                  </span>
+                </div>
+                <h3 class="text-xl font-black text-slate-900 mb-1">
+                  자주 묻는 질문
+                </h3>
+              </div>
+
+              <!-- Compact FAQ Accordion -->
+              <div class="space-y-2 overflow-y-auto max-h-[300px] pr-1">
+                
+                <div class="rounded-xl border border-slate-200 bg-slate-50 overflow-hidden">
+                  <button type="button" class="dash-faq-toggle w-full p-3 text-left flex items-center justify-between text-xs font-bold text-slate-900 hover:text-[#00A396] transition-colors">
+                    <span>Q1. 비숙련자나 어르신도 혼자서 촬영할 수 있나요?</span>
+                    <span class="text-slate-400 font-mono text-sm">+</span>
+                  </button>
+                  <div class="dash-faq-answer hidden px-3 pb-3 text-[11px] text-slate-600 leading-relaxed border-t border-slate-200/60 pt-2">
+                    네. 지능형 시선 유도(Gaze Guidance) 인터랙션이 동공 위치를 자동으로 맞춰주어 검사자 없이 혼자서도 정확히 촬영됩니다.
+                  </div>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-slate-50 overflow-hidden">
+                  <button type="button" class="dash-faq-toggle w-full p-3 text-left flex items-center justify-between text-xs font-bold text-slate-900 hover:text-[#00A396] transition-colors">
+                    <span>Q2. 재택 환경 및 이동 검진에서도 가능한가요?</span>
+                    <span class="text-slate-400 font-mono text-sm">+</span>
+                  </button>
+                  <div class="dash-faq-answer hidden px-3 pb-3 text-[11px] text-slate-600 leading-relaxed border-t border-slate-200/60 pt-2">
+                    네. 거대 암실 장비가 필요 없는 컴팩트 헤드셋 일체형 구조로 가정 및 보건지소 등에서도 편리하게 사용할 수 있습니다.
+                  </div>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-slate-50 overflow-hidden">
+                  <button type="button" class="dash-faq-toggle w-full p-3 text-left flex items-center justify-between text-xs font-bold text-slate-900 hover:text-[#00A396] transition-colors">
+                    <span>Q3. 안경원·의원 도입 및 임상 데모 신청은 어떻게 하나요?</span>
+                    <span class="text-slate-400 font-mono text-sm">+</span>
+                  </button>
+                  <div class="dash-faq-answer hidden px-3 pb-3 text-[11px] text-slate-600 leading-relaxed border-t border-slate-200/60 pt-2">
+                    우측 상단 '도입 문의' 또는 공식 이메일(gazeinto1nc@gmail.com)로 접수해주시면 전담팀이 방문 데모 및 상담을 진행해 드립니다.
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Quick Contact CTA Inside FAQ -->
+              <div class="pt-2 border-t border-slate-200 flex items-center justify-between text-xs">
+                <span class="text-slate-500">추가 궁금한 점이 있으신가요?</span>
+                <button
+                  type="button"
+                  onclick="window.openContactModal('b2b')"
+                  class="font-bold text-[#00A396] hover:underline"
+                >
+                  문의하기 →
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
   </div>
 
 </section>
+
+<script>
+  // ==============================================================
+  // Global Tab Switcher Function (Linked with Header Nav & Internal Tabs)
+  // ==============================================================
+  const tabPanes = document.querySelectorAll('.dash-tab-pane');
+  const tabButtons = document.querySelectorAll('.dash-tab-btn');
+  const headerLinks = document.querySelectorAll('.nav-link');
+
+  const tabMapping: Record<string, string> = {
+    'hero': 'tab-dashboard',
+    'technology': 'tab-tech',
+    'clinical': 'tab-clinical',
+    'faq': 'tab-faq',
+    'tab-dashboard': 'tab-dashboard',
+    'tab-tech': 'tab-tech',
+    'tab-clinical': 'tab-clinical',
+    'tab-faq': 'tab-faq'
+  };
+
+  const navIdMapping: Record<string, string> = {
+    'tab-dashboard': 'nav-hero',
+    'tab-tech': 'nav-tech',
+    'tab-clinical': 'nav-clinical',
+    'tab-faq': 'nav-faq'
+  };
+
+  function switchDashboardTab(targetTabId: string) {
+    const paneId = tabMapping[targetTabId] || 'tab-dashboard';
+
+    // Update Tab Panes visibility
+    tabPanes.forEach(pane => {
+      if (pane.id === paneId) {
+        pane.classList.remove('hidden');
+        pane.classList.add('flex');
+      } else {
+        pane.classList.add('hidden');
+        pane.classList.remove('flex');
+      }
+    });
+
+    // Update Internal Tab Buttons
+    tabButtons.forEach(btn => {
+      const btnTab = btn.getAttribute('data-tab');
+      const dot = btn.querySelector('span');
+      if (btnTab === paneId) {
+        btn.className = 'dash-tab-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-white text-slate-950 shadow-sm border border-slate-200/80 flex items-center gap-1.5';
+        if (dot) dot.classList.remove('hidden');
+      } else {
+        btn.className = 'dash-tab-btn px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
+        if (dot) dot.classList.add('hidden');
+      }
+    });
+
+    // Update Top Header Nav Capsule
+    const targetNavId = navIdMapping[paneId];
+    if (targetNavId) {
+      headerLinks.forEach(link => {
+        link.className = 'nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 hover:text-slate-900 text-slate-600';
+        const navDot = link.querySelector('.nav-dot');
+        if (navDot) navDot.classList.add('hidden');
+      });
+
+      const activeHeaderLink = document.getElementById(targetNavId);
+      if (activeHeaderLink) {
+        activeHeaderLink.className = 'nav-link px-3 sm:px-3.5 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 bg-white text-slate-950 font-bold shadow-sm border border-slate-200/80';
+        const navDot = activeHeaderLink.querySelector('.nav-dot');
+        if (navDot) navDot.classList.remove('hidden');
+      }
+    }
+  }
+
+  // Register Global Function
+  (window as any).switchDashboardTab = switchDashboardTab;
+
+  // Internal Tab Button Click Listeners
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.getAttribute('data-tab');
+      if (tabId) switchDashboardTab(tabId);
+    });
+  });
+
+  // Reading Distance Gauge Interactive Switcher in Tab 1
+  const distBtns = document.querySelectorAll('#hero-dist-buttons .dist-btn');
+  const addValDisplay = document.getElementById('hero-live-add-val');
+
+  distBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      distBtns.forEach(b => {
+        b.className = 'dist-btn p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all';
+        const num = b.querySelector('.font-bold, .font-black') as HTMLElement;
+        const sub = b.querySelector('.text-[11px]') as HTMLElement;
+        if (num) num.className = 'font-mono text-xs font-bold text-slate-700';
+        if (sub) sub.className = 'font-mono text-[11px] text-slate-400';
+      });
+
+      btn.className = 'dist-btn p-2.5 rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-sm';
+      const activeNum = btn.querySelector('.font-bold, .font-black') as HTMLElement;
+      const activeSub = btn.querySelector('.text-[11px]') as HTMLElement;
+      if (activeNum) activeNum.className = 'font-mono text-xs font-black text-[#00A396]';
+      if (activeSub) activeSub.className = 'font-mono text-[11px] text-[#00A396] font-semibold';
+
+      const addVal = btn.getAttribute('data-add');
+      if (addValDisplay && addVal) {
+        addValDisplay.textContent = addVal;
+      }
+    });
+  });
+
+  // Mini FAQ Accordion inside Tab 4
+  const faqToggles = document.querySelectorAll('.dash-faq-toggle');
+  faqToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const ans = toggle.nextElementSibling as HTMLElement;
+      const isHidden = ans.classList.contains('hidden');
+      document.querySelectorAll('.dash-faq-answer').forEach(a => a.classList.add('hidden'));
+      if (isHidden) {
+        ans.classList.remove('hidden');
+      }
+    });
+  });
+</script>
