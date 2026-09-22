@@ -1,16 +1,18 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-[100dvh] lg:h-[100dvh] pt-16 sm:pt-20 pb-3 sm:pb-5 flex flex-col justify-between bg-[#0A1928] overflow-hidden select-none" aria-label="GazeInto Cockpit Dashboard">
+<section id="hero" class="relative min-h-[100dvh] xl:h-[100dvh] pt-16 sm:pt-20 pb-3 sm:pb-5 flex flex-col justify-between bg-[#0A1928] overflow-hidden select-none" aria-label="GazeInto Cockpit Dashboard">
   
   <!-- Ambient High-Definition Video Background Layer with Fallback Poster -->
   <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
     <video
+      id="hero-bg-video"
       autoplay
       loop
       muted
       playsinline
-      poster="/og-image.jpg"
+      preload="auto"
+      poster="/videos/hero-bg-poster.jpg"
       class="w-full h-full object-cover object-center opacity-90 scale-100"
     >
       <source src="/videos/hero-bg.mp4" type="video/mp4" />
@@ -26,11 +28,11 @@
     <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/95 via-[#F8FAFC]/40 to-transparent"></div>
   </div>
 
-  <!-- Main Container: Top Left Typography + Bottom 4-Column Horizontal Cards -->
-  <div class="relative z-10 w-full max-w-[1920px] qhd:max-w-[2560px] 4k:max-w-[3400px] mx-auto px-4 sm:px-6 lg:px-10 qhd:px-16 4k:px-24 flex-1 flex flex-col justify-between pt-4 sm:pt-8 lg:pt-10 qhd:pt-16 pb-2 sm:pb-3 lg:pb-4 qhd:pb-8">
+  <!-- Main Container: Top Left Typography + Bottom Cards -->
+  <div class="relative z-10 w-full max-w-[1920px] qhd:max-w-[2560px] 4k:max-w-[3400px] mx-auto px-4 sm:px-6 lg:px-10 qhd:px-16 4k:px-24 flex-1 flex flex-col justify-between pt-3 sm:pt-6 lg:pt-8 qhd:pt-16 pb-2 sm:pb-3 lg:pb-4 qhd:pb-8">
     
     <!-- Top-Left Content Section: Main Typography & Copy (Lowered Comfortably) -->
-    <div class="max-w-xs sm:max-w-md lg:max-w-lg qhd:max-w-2xl 4k:max-w-3xl pt-16 sm:pt-28 md:pt-32 lg:pt-36 xl:pt-40 qhd:pt-52 4k:pt-64">
+    <div class="max-w-xs sm:max-w-md lg:max-w-lg qhd:max-w-2xl 4k:max-w-3xl pt-14 sm:pt-20 md:pt-24 lg:pt-28 xl:pt-36 qhd:pt-52 4k:pt-64">
       
       <!-- Category Tag -->
       <div class="flex items-center gap-2 mb-2 sm:mb-2.5 qhd:mb-4 scroll-reveal">
@@ -75,8 +77,8 @@
         <button type="button" onclick="window.selectHeroCard(3)" id="m-tab-3" class="flex-1 py-1.5 rounded-xl text-center transition-all text-slate-600 hover:text-slate-900">04 FAQ</button>
       </div>
       
-      <!-- 4-Column Grid along the bottom -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-3.5 qhd:gap-6 4k:gap-8 w-full" id="hero-card-grid" role="tablist" aria-label="Dashboard Cockpit Cards">
+      <!-- Responsive Grid: 1 col on Mobile, 2x2 grid on Tablet (iPad portrait/landscape), 4 cols on Desktop/Laptop -->
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-3.5 qhd:gap-6 4k:gap-8 w-full" id="hero-card-grid" role="tablist" aria-label="Dashboard Cockpit Cards">
         
         <!-- ========================================================= -->
         <!-- CARD 0: 01 대시보드 (Live Prescribed Optic) -->
@@ -91,56 +93,56 @@
           class="hero-bottom-card rounded-2xl lg:rounded-3xl p-3 sm:p-3.5 lg:p-4 qhd:p-6 4k:p-8 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/95 backdrop-blur-xl border-2 border-[#00A396]/60 shadow-lg ring-2 ring-[#00A396]/20 min-h-[225px] sm:min-h-[235px] lg:min-h-[245px] qhd:min-h-[300px] 4k:min-h-[380px] z-20 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
-          <div class="flex items-center justify-between pb-2 border-b border-slate-200/70">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-[#00A396] shadow-[0_0_6px_#00A396]"></span>
-              <span data-i18n="card0_title" class="font-mono text-[11px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/70 gap-1.5">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-[#00A396] shadow-[0_0_6px_#00A396] shrink-0"></span>
+              <span data-i18n="card0_title" class="font-mono text-[10.5px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase truncate">
                 01 / LIVE PRESCRIBED OPTIC
               </span>
             </div>
-            <span data-i18n="card0_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card0_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30 shrink-0 whitespace-nowrap">
               AUTO CALIBRATE
             </span>
           </div>
 
           <!-- Card Body: Distance buttons + Output + Biomarkers -->
           <div class="space-y-1.5 qhd:space-y-2.5 my-auto">
-            <div class="flex items-center justify-between text-xs">
-              <span data-i18n="card0_dist_label" class="text-slate-600 font-semibold text-[10px] sm:text-[11px] qhd:text-xs">거리별 처방 가입도</span>
-              <span data-i18n="card0_dist_tag" class="font-mono font-bold text-[#00A396] text-[9px] sm:text-[10px] qhd:text-xs">실시간 AI 거리 보정</span>
+            <div class="flex items-center justify-between text-xs gap-1">
+              <span data-i18n="card0_dist_label" class="text-slate-600 font-semibold text-[10px] sm:text-[11px] qhd:text-xs truncate">거리별 처방 가입도</span>
+              <span data-i18n="card0_dist_tag" class="font-mono font-bold text-[#00A396] text-[9px] sm:text-[10px] qhd:text-xs shrink-0 whitespace-nowrap">실시간 AI 거리 보정</span>
             </div>
 
-            <!-- Distance Buttons -->
-            <div class="grid grid-cols-5 gap-1 qhd:gap-2" id="hero-dist-buttons" role="group" aria-label="Reading Distance Gauge">
-              <button type="button" data-dist="25" data-add="+2.25" aria-label="Distance 25cm, Add +2.25D" class="dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
+            <!-- Distance Display Grid (Static Visual Gauge) -->
+            <div class="grid grid-cols-5 gap-1 qhd:gap-2 pointer-events-none select-none" id="hero-dist-boxes" aria-label="Reading Distance Gauge">
+              <div class="p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 text-center min-w-0">
                 <div class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-slate-400">25cm</div>
                 <div class="font-mono text-[10px] sm:text-[11px] qhd:text-sm font-bold text-slate-700">+2.25</div>
-              </button>
-              <button type="button" data-dist="33" data-add="+1.75" aria-label="Distance 33cm, Add +1.75D" class="dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs focus:outline-none">
+              </div>
+              <div class="p-1 qhd:p-2 rounded-lg lg:rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center shadow-xs min-w-0">
                 <div class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-[#00A396] font-bold">33cm★</div>
                 <div class="font-mono text-[10px] sm:text-[11px] qhd:text-sm font-black text-[#00A396]">+1.75</div>
-              </button>
-              <button type="button" data-dist="45" data-add="+1.25" aria-label="Distance 45cm, Add +1.25D" class="dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
+              </div>
+              <div class="p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 text-center min-w-0">
                 <div class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-slate-400">45cm</div>
                 <div class="font-mono text-[10px] sm:text-[11px] qhd:text-sm font-bold text-slate-700">+1.25</div>
-              </button>
-              <button type="button" data-dist="60" data-add="+0.75" aria-label="Distance 60cm, Add +0.75D" class="dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
+              </div>
+              <div class="p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 text-center min-w-0">
                 <div class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-slate-400">60cm</div>
                 <div class="font-mono text-[10px] sm:text-[11px] qhd:text-sm font-bold text-slate-700">+0.75</div>
-              </button>
-              <button type="button" data-dist="80" data-add="+0.50" aria-label="Distance 80cm, Add +0.50D" class="dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none">
+              </div>
+              <div class="p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 text-center min-w-0">
                 <div class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-slate-400">80cm</div>
                 <div class="font-mono text-[10px] sm:text-[11px] qhd:text-sm font-bold text-slate-700">+0.50</div>
-              </button>
+              </div>
             </div>
 
             <!-- Output Display -->
-            <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-[#081726] text-white flex items-center justify-between shadow-xs">
-              <div>
-                <span data-i18n="card0_rec_title" class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-[#22D3EE] uppercase tracking-wider font-bold block">RECOMMENDED ADD</span>
-                <span data-i18n="card0_rec_desc" class="text-[10px] sm:text-[11px] qhd:text-xs text-slate-300 break-keep">근거리 작업 맞춤 처방</span>
+            <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-[#081726] text-white flex items-center justify-between shadow-xs gap-2">
+              <div class="min-w-0">
+                <span data-i18n="card0_rec_title" class="font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-[#22D3EE] uppercase tracking-wider font-bold block truncate">RECOMMENDED ADD</span>
+                <span data-i18n="card0_rec_desc" class="text-[9.5px] sm:text-[10.5px] md:text-[11px] qhd:text-xs text-slate-300 break-keep leading-tight">근거리 작업 맞춤 처방</span>
               </div>
-              <div class="flex items-baseline gap-1">
+              <div class="flex items-baseline gap-1 shrink-0">
                 <span id="hero-live-add-val" class="text-lg sm:text-xl qhd:text-3xl 4k:text-4xl font-black font-mono text-white tracking-tight">+1.75</span>
                 <span class="text-[10px] sm:text-xs qhd:text-sm text-[#00C4B4] font-mono font-bold">D</span>
               </div>
@@ -174,14 +176,14 @@
           class="hero-bottom-card rounded-2xl lg:rounded-3xl p-3 sm:p-3.5 lg:p-4 qhd:p-6 4k:p-8 hidden md:flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/50 hover:bg-white/75 backdrop-blur-md border border-white/60 shadow-xs min-h-[225px] sm:min-h-[235px] lg:min-h-[245px] qhd:min-h-[300px] 4k:min-h-[380px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
-          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
-              <span data-i18n="card1_title" class="font-mono text-[11px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60 gap-1.5">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-[#00A396] shrink-0"></span>
+              <span data-i18n="card1_title" class="font-mono text-[10.5px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase truncate">
                 02 / XR WORKFLOW
               </span>
             </div>
-            <span data-i18n="card1_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card1_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30 shrink-0 whitespace-nowrap">
               3-STEP PROCESS
             </span>
           </div>
@@ -190,22 +192,22 @@
           <div class="space-y-1 sm:space-y-1.5 qhd:space-y-2.5 my-auto text-xs">
             <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-1.5 qhd:gap-2.5 shadow-2xs">
               <span class="font-mono font-black text-[#00A396] text-[10px] sm:text-[11px] qhd:text-xs px-1.5 py-0.5 rounded-md bg-[#00A396]/10 shrink-0 mt-0.5">01</span>
-              <div>
-                <div data-i18n="card1_step1_title" class="font-bold text-slate-900 text-[11px] sm:text-xs qhd:text-sm">자가 착용 (Wear)</div>
+              <div class="min-w-0">
+                <div data-i18n="card1_step1_title" class="font-bold text-slate-900 text-[10.5px] sm:text-xs qhd:text-sm truncate">자가 착용 (Wear)</div>
                 <div data-i18n="card1_step1_desc" class="text-[9px] sm:text-[10px] qhd:text-xs text-slate-600 leading-tight mt-0.5 break-keep">병원 방문 없이 일상에서 착용 후 즉시 시작</div>
               </div>
             </div>
             <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-1.5 qhd:gap-2.5 shadow-2xs">
               <span class="font-mono font-black text-[#00A396] text-[10px] sm:text-[11px] qhd:text-xs px-1.5 py-0.5 rounded-md bg-[#00A396]/10 shrink-0 mt-0.5">02</span>
-              <div>
-                <div data-i18n="card1_step2_title" class="font-bold text-slate-900 text-[11px] sm:text-xs qhd:text-sm">시선 유도 자동 촬영</div>
+              <div class="min-w-0">
+                <div data-i18n="card1_step2_title" class="font-bold text-slate-900 text-[10.5px] sm:text-xs qhd:text-sm truncate">시선 유도 자동 촬영</div>
                 <div data-i18n="card1_step2_desc" class="text-[9px] sm:text-[10px] qhd:text-xs text-slate-600 leading-tight mt-0.5 break-keep">지능형 동공 정렬로 고해상도 안저 캡처</div>
               </div>
             </div>
             <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 flex items-start gap-1.5 qhd:gap-2.5 shadow-2xs">
               <span class="font-mono font-black text-[#00A396] text-[10px] sm:text-[11px] qhd:text-xs px-1.5 py-0.5 rounded-md bg-[#00A396]/10 shrink-0 mt-0.5">03</span>
-              <div>
-                <div data-i18n="card1_step3_title" class="font-bold text-slate-900 text-[11px] sm:text-xs qhd:text-sm">3대 질환 온디바이스 판독</div>
+              <div class="min-w-0">
+                <div data-i18n="card1_step3_title" class="font-bold text-slate-900 text-[10.5px] sm:text-xs qhd:text-sm truncate">3대 질환 온디바이스 판독</div>
                 <div data-i18n="card1_step3_desc" class="text-[9px] sm:text-[10px] qhd:text-xs text-slate-600 leading-tight mt-0.5 break-keep">AMD, 녹내장, 당뇨망막 30초 내 정량 분석</div>
               </div>
             </div>
@@ -225,14 +227,14 @@
           class="hero-bottom-card rounded-2xl lg:rounded-3xl p-3 sm:p-3.5 lg:p-4 qhd:p-6 4k:p-8 hidden md:flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/50 hover:bg-white/75 backdrop-blur-md border border-white/60 shadow-xs min-h-[225px] sm:min-h-[235px] lg:min-h-[245px] qhd:min-h-[300px] 4k:min-h-[380px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
-          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
-              <span data-i18n="card2_title" class="font-mono text-[11px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60 gap-1.5">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-[#00A396] shrink-0"></span>
+              <span data-i18n="card2_title" class="font-mono text-[10.5px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase truncate">
                 03 / CLINICAL MATRIX
               </span>
             </div>
-            <span data-i18n="card2_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card2_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30 shrink-0 whitespace-nowrap">
               CLINICAL VALIDATED
             </span>
           </div>
@@ -241,39 +243,39 @@
           <div class="space-y-1.5 qhd:space-y-2.5 my-auto text-xs">
             <!-- 3 Target Diseases -->
             <div class="grid grid-cols-3 gap-1 qhd:gap-2 text-center">
-              <div class="p-1 sm:p-1.5 qhd:p-2 rounded-lg lg:rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
-                <div data-i18n="card2_amd_label" class="text-slate-500 font-medium text-[8px] sm:text-[9px] qhd:text-xs truncate">황반변성</div>
-                <div data-i18n="card2_amd_val" class="font-bold text-[#00A396] font-mono text-[10px] sm:text-[11px] qhd:text-sm mt-0.5">&lt;1%</div>
+              <div class="p-1 sm:p-1.5 qhd:p-2 rounded-lg lg:rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs min-w-0">
+                <div data-i18n="card2_amd_label" class="text-slate-500 font-medium text-[8px] sm:text-[9px] qhd:text-xs truncate">황반변성(AMD)</div>
+                <div data-i18n="card2_amd_val" class="font-bold text-[#00A396] font-mono text-[9.5px] sm:text-[10.5px] qhd:text-sm mt-0.5 truncate">&lt;1%</div>
               </div>
-              <div class="p-1 sm:p-1.5 qhd:p-2 rounded-lg lg:rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
+              <div class="p-1 sm:p-1.5 qhd:p-2 rounded-lg lg:rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs min-w-0">
                 <div data-i18n="card2_glaucoma_label" class="text-slate-500 font-medium text-[8px] sm:text-[9px] qhd:text-xs truncate">녹내장</div>
-                <div data-i18n="card2_glaucoma_val" class="font-bold text-[#00A396] font-mono text-[10px] sm:text-[11px] qhd:text-sm mt-0.5">0.32</div>
+                <div data-i18n="card2_glaucoma_val" class="font-bold text-[#00A396] font-mono text-[9.5px] sm:text-[10.5px] qhd:text-sm mt-0.5 truncate">0.32</div>
               </div>
-              <div class="p-1 sm:p-1.5 qhd:p-2 rounded-lg lg:rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs">
-                <div data-i18n="card2_dr_label" class="text-slate-500 font-medium text-[8px] sm:text-[9px] qhd:text-xs truncate">당뇨망막</div>
-                <div data-i18n="card2_dr_val" class="font-bold text-slate-800 font-mono text-[10px] sm:text-[11px] qhd:text-sm mt-0.5">Clear</div>
+              <div class="p-1 sm:p-1.5 qhd:p-2 rounded-lg lg:rounded-xl bg-white/85 border border-slate-200/80 shadow-2xs min-w-0">
+                <div data-i18n="card2_dr_label" class="text-slate-500 font-medium text-[8px] sm:text-[9px] qhd:text-xs truncate">당뇨망막(DR)</div>
+                <div data-i18n="card2_dr_val" class="font-bold text-slate-800 font-mono text-[9.5px] sm:text-[10.5px] qhd:text-sm mt-0.5 truncate">Clear</div>
               </div>
             </div>
 
             <!-- Big Stat Badge -->
             <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-slate-900 text-white flex items-center justify-between text-xs shadow-2xs">
-              <div class="text-center flex-1">
-                <div class="font-mono font-black text-xs sm:text-sm qhd:text-xl text-[#00C4B4]">98.4%</div>
-                <div data-i18n="card2_stat_acc" class="text-[7px] sm:text-[8px] qhd:text-xs text-slate-400">일치율</div>
+              <div class="text-center flex-1 min-w-0 px-0.5">
+                <div class="font-mono font-black text-xs sm:text-sm qhd:text-xl text-[#00C4B4] truncate">98.4%</div>
+                <div data-i18n="card2_stat_acc" class="text-[7px] sm:text-[8px] qhd:text-xs text-slate-400 truncate">일치율</div>
               </div>
-              <span class="text-slate-700">|</span>
-              <div class="text-center flex-1">
-                <div class="font-mono font-black text-xs sm:text-sm qhd:text-xl text-white">4개</div>
-                <div data-i18n="card2_stat_hosp" class="text-[7px] sm:text-[8px] qhd:text-xs text-slate-400">협력 안과</div>
+              <span class="text-slate-700 shrink-0">|</span>
+              <div class="text-center flex-1 min-w-0 px-0.5">
+                <div class="font-mono font-black text-xs sm:text-sm qhd:text-xl text-white truncate">4개</div>
+                <div data-i18n="card2_stat_hosp" class="text-[7px] sm:text-[8px] qhd:text-xs text-slate-400 truncate">협력 안과</div>
               </div>
-              <span class="text-slate-700">|</span>
-              <div class="text-center flex-1">
-                <div class="font-mono font-black text-xs sm:text-sm qhd:text-xl text-white">12만+</div>
-                <div data-i18n="card2_stat_data" class="text-[7px] sm:text-[8px] qhd:text-xs text-slate-400">학습 데이터</div>
+              <span class="text-slate-700 shrink-0">|</span>
+              <div class="text-center flex-1 min-w-0 px-0.5">
+                <div class="font-mono font-black text-xs sm:text-sm qhd:text-xl text-white truncate">12만+</div>
+                <div data-i18n="card2_stat_data" class="text-[7px] sm:text-[8px] qhd:text-xs text-slate-400 truncate">학습 데이터</div>
               </div>
             </div>
 
-            <div data-i18n="card2_irb_badge" class="p-1 qhd:p-2 rounded-lg lg:rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center text-[8px] sm:text-[9px] qhd:text-xs text-emerald-800 font-semibold break-keep">
+            <div data-i18n="card2_irb_badge" class="p-1 qhd:p-2 rounded-lg lg:rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-center text-[8px] sm:text-[9px] qhd:text-xs text-emerald-800 font-semibold break-keep leading-tight">
               ✓ 대학병원 임상 실증 및 IRB 승인 완료
             </div>
           </div>
@@ -292,14 +294,14 @@
           class="hero-bottom-card rounded-2xl lg:rounded-3xl p-3 sm:p-3.5 lg:p-4 qhd:p-6 4k:p-8 hidden md:flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out bg-white/50 hover:bg-white/75 backdrop-blur-md border border-white/60 shadow-xs min-h-[225px] sm:min-h-[235px] lg:min-h-[245px] qhd:min-h-[300px] 4k:min-h-[380px] opacity-90 hover:opacity-100 z-10 focus:outline-none focus:ring-4 focus:ring-[#00A396]/40"
         >
           <!-- Card Header -->
-          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-[#00A396]"></span>
-              <span data-i18n="card3_title" class="font-mono text-[11px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200/60 gap-1.5">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <span class="w-2 h-2 rounded-full bg-[#00A396] shrink-0"></span>
+              <span data-i18n="card3_title" class="font-mono text-[10.5px] sm:text-xs qhd:text-sm 4k:text-base font-extrabold tracking-wider text-slate-900 uppercase truncate">
                 04 / FAQ & SUPPORT
               </span>
             </div>
-            <span data-i18n="card3_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30">
+            <span data-i18n="card3_badge" class="text-[8px] sm:text-[9px] qhd:text-xs font-mono px-1.5 py-0.5 rounded-full bg-[#00A396]/15 text-[#00A396] font-bold border border-[#00A396]/30 shrink-0 whitespace-nowrap">
               FAQ & SUPPORT
             </span>
           </div>
@@ -307,15 +309,15 @@
           <!-- Card Body: 3 Expanded Q&As -->
           <div class="space-y-1 sm:space-y-1.5 qhd:space-y-2.5 my-auto text-xs">
             <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
-              <span data-i18n="card3_q1_title" class="font-bold text-slate-900 text-[10px] sm:text-[11px] qhd:text-xs block">Q1. 혼자서 촬영 가능한가요?</span>
+              <span data-i18n="card3_q1_title" class="font-bold text-slate-900 text-[10px] sm:text-[11px] qhd:text-xs block leading-snug">Q1. 혼자서 촬영 가능한가요?</span>
               <p data-i18n="card3_q1_desc" class="text-[8px] sm:text-[9px] qhd:text-[11px] text-slate-600 leading-tight mt-0.5 break-keep">시선 유도로 비숙련자도 30초 내 촬영</p>
             </div>
             <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
-              <span data-i18n="card3_q2_title" class="font-bold text-slate-900 text-[10px] sm:text-[11px] qhd:text-xs block">Q2. 안경원·의원 EMR 연동</span>
+              <span data-i18n="card3_q2_title" class="font-bold text-slate-900 text-[10px] sm:text-[11px] qhd:text-xs block leading-snug">Q2. 안경원·의원 EMR 연동</span>
               <p data-i18n="card3_q2_desc" class="text-[8px] sm:text-[9px] qhd:text-[11px] text-slate-600 leading-tight mt-0.5 break-keep">처방 및 리포트를 기존 EMR과 즉시 연동</p>
             </div>
             <div class="p-1.5 sm:p-2 qhd:p-3 rounded-xl lg:rounded-2xl bg-white/85 border border-slate-200/80 shadow-2xs">
-              <span data-i18n="card3_q3_title" class="font-bold text-slate-900 text-[10px] sm:text-[11px] qhd:text-xs block">Q3. 도입 상담 및 방문 데모</span>
+              <span data-i18n="card3_q3_title" class="font-bold text-slate-900 text-[10px] sm:text-[11px] qhd:text-xs block leading-snug">Q3. 도입 상담 및 방문 데모</span>
               <p data-i18n="card3_q3_desc" class="text-[8px] sm:text-[9px] qhd:text-[11px] text-slate-600 leading-tight mt-0.5 break-keep">이메일 접수 시 전담팀 1:1 방문 시연</p>
             </div>
           </div>
@@ -423,42 +425,6 @@
     }
   };
 
-  // Reading Distance Gauge Interactive Switcher in Card 0
-  const distBtns = document.querySelectorAll('#hero-dist-buttons .dist-btn');
-  const addValDisplay = document.getElementById('hero-live-add-val');
-
-  distBtns.forEach(btn => {
-    const handleDistanceSelect = (e: Event) => {
-      e.stopPropagation();
-      distBtns.forEach(b => {
-        b.className = 'dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-center transition-all focus:outline-none';
-        const num = b.querySelector('.font-bold, .font-black') as HTMLElement;
-        const sub = b.querySelector('.text-[7px], .text-[8px], .text-[9px], .text-[10px]') as HTMLElement;
-        if (num) num.className = 'font-mono text-[10px] sm:text-[11px] qhd:text-sm font-bold text-slate-700';
-        if (sub) sub.className = 'font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-slate-400';
-      });
-
-      btn.className = 'dist-btn p-1 qhd:p-2 rounded-lg lg:rounded-xl border-2 border-[#00A396] bg-[#00A396]/10 text-center transition-all shadow-xs focus:outline-none';
-      const activeNum = btn.querySelector('.font-bold, .font-black') as HTMLElement;
-      const activeSub = btn.querySelector('.text-[7px], .text-[8px], .text-[9px], .text-[10px]') as HTMLElement;
-      if (activeNum) activeNum.className = 'font-mono text-[10px] sm:text-[11px] qhd:text-sm font-black text-[#00A396]';
-      if (activeSub) activeSub.className = 'font-mono text-[7px] sm:text-[8px] qhd:text-[10px] text-[#00A396] font-bold';
-
-      const addVal = btn.getAttribute('data-add');
-      if (addValDisplay && addVal) {
-        addValDisplay.textContent = addVal;
-      }
-    };
-
-    btn.addEventListener('click', handleDistanceSelect);
-    btn.addEventListener('keydown', (e: any) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        handleDistanceSelect(e);
-      }
-    });
-  });
-
   // Blur-to-Sharp Typography Interaction
   const blurredText = document.getElementById('hero-blurred-text');
   if (blurredText) {
@@ -470,6 +436,53 @@
       blurredText.classList.remove('blur-none');
       blurredText.classList.add('blur-presbyopia');
     });
+  }
+
+  // Background Video Low-Power Mode / Battery Saver Fallback Protection
+  const bgVideo = document.getElementById('hero-bg-video') as HTMLVideoElement;
+  if (bgVideo) {
+    bgVideo.play().catch(() => {
+      // If low-power mode blocks autoplay, keep the exact initial video frame at 0.0s
+      try {
+        bgVideo.currentTime = 0;
+      } catch (e) {
+        // Ignore seek error
+      }
+    });
+  }
+
+  // Mobile Touch Swipe Gesture Support (01 -> 02 -> 03 -> 04)
+  const cardGrid = document.getElementById('hero-card-grid');
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  if (cardGrid) {
+    cardGrid.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+
+    cardGrid.addEventListener('touchend', (e: TouchEvent) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+
+      // Trigger swipe if horizontal movement is dominant and moved at least 45px
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+        if (diffX < 0) {
+          // Swipe Left -> Next Card
+          if (activeCardIndex < cardElements.length - 1) {
+            selectHeroCard(activeCardIndex + 1);
+          }
+        } else {
+          // Swipe Right -> Previous Card
+          if (activeCardIndex > 0) {
+            selectHeroCard(activeCardIndex - 1);
+          }
+        }
+      }
+    }, { passive: true });
   }
 
   // Initialize Card Selection

@@ -1,9 +1,19 @@
-# Allow all web crawlers
+# Allow all standard web crawlers
 User-agent: *
 Allow: /
 
-# Host
-Host: https://www.gazeinto.kr
+# Google Search Console crawler
+User-agent: Googlebot
+Allow: /
 
-# Sitemaps
+# Naver Search Advisor crawler
+User-agent: Yeti
+Allow: /
+
+# Daum & Kakao crawler
+User-agent: Daumoa
+Allow: /
+
+# Host & Sitemap
+Host: https://www.gazeinto.kr
 Sitemap: https://www.gazeinto.kr/sitemap.xml
