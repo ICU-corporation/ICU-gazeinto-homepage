@@ -79,6 +79,8 @@ export const translations = {
     // Contact Modal
     modal_title_b2b: "안경원 · 의원 도입 문의",
     modal_subtitle_b2b: "정보를 남겨주시면 담당 전문 컨설턴트가 24시간 내 연락드립니다.",
+    modal_title_trial: "30초 체험 & 기술 백서 신청",
+    modal_subtitle_trial: "게이즈인투 광학 신경망 분석 백서를 이메일로 발송해 드립니다.",
     modal_tab_b2b: "안경원 · 의원 도입",
     modal_tab_trial: "체험 · 기술 백서",
     modal_name_label: "성함 / 직책",
@@ -86,7 +88,10 @@ export const translations = {
     modal_phone_label: "연락처",
     modal_email_label: "이메일",
     modal_msg_label: "문의 내용",
-    modal_submit_btn: "도입 문의 접수하기"
+    modal_submit_btn: "도입 문의 접수하기",
+    modal_success_title: "신청이 완료되었습니다!",
+    modal_success_desc: "담당 컨설턴트가 기재해 주신 연락처로 24시간 내에 기술 백서 및 데모 안내를 전달드리겠습니다.",
+    modal_close_btn: "닫기"
   },
   en: {
     // Header
@@ -166,6 +171,8 @@ export const translations = {
     // Contact Modal
     modal_title_b2b: "Partnership & B2B Inquiry",
     modal_subtitle_b2b: "Leave your information and our dedicated consultant will reach out within 24 hours.",
+    modal_title_trial: "Demo & Whitepaper Request",
+    modal_subtitle_trial: "We will send the GazeInto Optical AI analysis whitepaper to your email.",
     modal_tab_b2b: "B2B Partnership",
     modal_tab_trial: "Demo & Whitepaper",
     modal_name_label: "Name / Title",
@@ -173,6 +180,9 @@ export const translations = {
     modal_phone_label: "Phone Number",
     modal_email_label: "Email Address",
     modal_msg_label: "Inquiry Details",
-    modal_submit_btn: "Submit Inquiry"
+    modal_submit_btn: "Submit Inquiry",
+    modal_success_title: "Inquiry Submitted Successfully!",
+    modal_success_desc: "Our consultant will send the whitepaper and demo guide to your email within 24 hours.",
+    modal_close_btn: "Close"
   }
 };

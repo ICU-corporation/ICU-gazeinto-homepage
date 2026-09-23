@@ -1,4 +1,12 @@
 ---
+import { translations, type Language } from '../i18n/translations';
+
+interface Props {
+  lang?: Language;
+}
+
+const { lang = 'ko' } = Astro.props;
+const t = translations[lang] || translations.ko;
 ---
 
 <footer class="bg-[#081726] border-t border-slate-800 py-16 text-slate-400 text-xs">
@@ -18,8 +26,8 @@
         </a>
 
         <p class="text-xs text-slate-400 leading-relaxed max-w-sm mb-6 break-keep">
-          <strong data-i18n="footer_tagline">Retinal Screening, Wherever You Are</strong><br />
-          <span data-i18n="footer_desc">GazeInto Inc.는 자가 조작 가능한 XR 안저 카메라와 온디바이스 AI를 통해 3대 실명 안질환 및 노안을 조기 선별하는 혁신 디지털 헬스케어 기업입니다.</span>
+          <strong data-i18n="footer_tagline">{t.footer_tagline}</strong><br />
+          <span data-i18n="footer_desc">{t.footer_desc}</span>
         </p>
 
         <div class="flex items-center gap-3 text-slate-400 text-[11px] font-semibold">
@@ -34,12 +42,12 @@
 
       <!-- Nav links -->
       <div class="md:col-span-3">
-        <h4 data-i18n="footer_col1_title" class="text-white font-bold text-sm mb-4">기술 & 솔루션</h4>
+        <h4 data-i18n="footer_col1_title" class="text-white font-bold text-sm mb-4">{t.footer_col1_title}</h4>
         <ul class="space-y-2.5">
-          <li><a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-dashboard');" data-i18n="footer_link1" class="hover:text-[#00C4B4] transition-colors">홈 (Overview)</a></li>
-          <li><a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-tech');" data-i18n="footer_link2" class="hover:text-[#00C4B4] transition-colors">From Headset to Insight</a></li>
-          <li><a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-clinical');" data-i18n="footer_link3" class="hover:text-[#00C4B4] transition-colors">장벽 없는 조기 발견 (Matrix)</a></li>
-          <li><a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-faq');" data-i18n="footer_link4" class="hover:text-[#00C4B4] transition-colors">자주 묻는 질문 (FAQ)</a></li>
+          <li><a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-dashboard');" data-i18n="footer_link1" class="hover:text-[#00C4B4] transition-colors">{t.footer_link1}</a></li>
+          <li><a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-tech');" data-i18n="footer_link2" class="hover:text-[#00C4B4] transition-colors">{t.footer_link2}</a></li>
+          <li><a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-clinical');" data-i18n="footer_link3" class="hover:text-[#00C4B4] transition-colors">{t.footer_link3}</a></li>
+          <li><a href="#hero" onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-faq');" data-i18n="footer_link4" class="hover:text-[#00C4B4] transition-colors">{t.footer_link4}</a></li>
         </ul>
       </div>
 
@@ -47,7 +55,7 @@
       <div class="md:col-span-3">
         <h4 class="text-white font-bold text-sm mb-4">Contact & Inquiries</h4>
         <div class="space-y-2.5 text-slate-400 leading-relaxed text-xs">
-          <p data-i18n="footer_company_title" class="text-white font-bold text-sm">주식회사 게이즈인투 (GazeInto Inc.)</p>
+          <p data-i18n="footer_company_title" class="text-white font-bold text-sm">{t.footer_company_title}</p>
           <p class="flex items-center gap-2">
             <span class="text-slate-500">Website:</span>
             <a href="https://www.gazeinto.kr" target="_blank" class="text-[#00C4B4] hover:underline">www.gazeinto.kr</a>
@@ -68,8 +76,8 @@
         © 2026 GazeInto Inc. All rights reserved. | www.gazeinto.kr
       </p>
       <div class="flex gap-6">
-        <a href="#" data-i18n="footer_terms" class="hover:text-white transition-colors">이용약관</a>
-        <a href="#" data-i18n="footer_privacy" class="hover:text-white transition-colors">개인정보처리방침</a>
+        <a href="#" data-i18n="footer_terms" class="hover:text-white transition-colors">{t.footer_terms}</a>
+        <a href="#" data-i18n="footer_privacy" class="hover:text-white transition-colors">{t.footer_privacy}</a>
       </div>
     </div>
 

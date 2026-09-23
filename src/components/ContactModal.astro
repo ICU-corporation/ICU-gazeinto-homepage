@@ -141,14 +141,15 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
         </svg>
       </div>
-      <h4 class="text-2xl font-bold text-slate-900 mb-2">신청이 완료되었습니다!</h4>
-      <p class="text-sm text-slate-500 max-w-xs mx-auto mb-6">
+      <h4 class="text-2xl font-bold text-slate-900 mb-2" data-i18n="modal_success_title">신청이 완료되었습니다!</h4>
+      <p class="text-sm text-slate-500 max-w-xs mx-auto mb-6" data-i18n="modal_success_desc">
         담당 컨설턴트가 기재해 주신 연락처로 24시간 내에 기술 백서 및 데모 안내를 전달드리겠습니다.
       </p>
       <button
         type="button"
         onclick="window.closeContactModal()"
         class="px-6 py-2.5 rounded-full text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all"
+        data-i18n="modal_close_btn"
       >
         닫기
       </button>
@@ -202,16 +203,17 @@
 
   (window as any).switchModalTab = (type: 'b2b' | 'trial') => {
     currentModalType = type;
+    const isEn = (window as any).currentLang === 'en' || document.documentElement.lang === 'en';
     if (type === 'b2b') {
       if (tabB2b) tabB2b.className = 'py-2.5 rounded-lg transition-all duration-200 bg-white text-slate-900 shadow-sm';
       if (tabTrial) tabTrial.className = 'py-2.5 rounded-lg transition-all duration-200 text-slate-500 hover:text-slate-800 bg-transparent shadow-none';
-      if (modalTitle) modalTitle.textContent = '안경원 · 의원 도입 문의';
-      if (modalSubtitle) modalSubtitle.textContent = '2주 무료 라이선스 및 온보딩 지원을 신청하세요.';
+      if (modalTitle) modalTitle.textContent = isEn ? 'Partnership & B2B Inquiry' : '안경원 · 의원 도입 문의';
+      if (modalSubtitle) modalSubtitle.textContent = isEn ? 'Leave your information and our dedicated consultant will reach out within 24 hours.' : '정보를 남겨주시면 담당 전문 컨설턴트가 24시간 내 연락드립니다.';
     } else {
       if (tabTrial) tabTrial.className = 'py-2.5 rounded-lg transition-all duration-200 bg-white text-slate-900 shadow-sm';
       if (tabB2b) tabB2b.className = 'py-2.5 rounded-lg transition-all duration-200 text-slate-500 hover:text-slate-800 bg-transparent shadow-none';
-      if (modalTitle) modalTitle.textContent = '30초 체험 & 기술 백서 신청';
-      if (modalSubtitle) modalSubtitle.textContent = '게이즈인투 광학 신경망 분석 백서를 이메일로 발송해 드립니다.';
+      if (modalTitle) modalTitle.textContent = isEn ? 'Demo & Whitepaper Request' : '30초 체험 & 기술 백서 신청';
+      if (modalSubtitle) modalSubtitle.textContent = isEn ? 'We will send the GazeInto Optical AI analysis whitepaper to your email.' : '게이즈인투 광학 신경망 분석 백서를 이메일로 발송해 드립니다.';
     }
   };
 
