@@ -3,8 +3,8 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.gazeinto.en',
-  base: '/',
+  site: 'https://icu-corporation.github.io',
+  base: '/ICU-gazeinto-homepage',
   integrations: [
     tailwind({
       applyBaseStyles: false,
