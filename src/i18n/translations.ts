@@ -3,10 +3,10 @@ export type Language = 'ko' | 'en';
 export const translations = {
   ko: {
     // Header
-    nav_dashboard: "01 대시보드",
-    nav_tech: "02 기술",
-    nav_clinical: "03 임상 근거",
-    nav_faq: "04 FAQ",
+    nav_dashboard: "대시보드",
+    nav_tech: "기술",
+    nav_clinical: "임상 근거",
+    nav_faq: "FAQ",
     btn_contact: "도입 문의",
 
     // Hero Main Typography
