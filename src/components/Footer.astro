@@ -1,5 +1,6 @@
 ---
 import { translations, type Language } from '../i18n/translations';
+import Logo from './Logo.astro';
 
 interface Props {
   lang?: Language;
@@ -16,13 +17,8 @@ const t = translations[lang] || translations.ko;
       
       <!-- Brand column -->
       <div class="md:col-span-6">
-        <a href="#hero" class="flex items-center gap-3 mb-4 group inline-flex">
-          <div class="relative w-7 h-7 flex items-center justify-center">
-            <div class="absolute w-5 h-5 rounded-full border-2 border-white -left-0.5"></div>
-            <div class="absolute w-5 h-5 rounded-full border-2 border-white -right-0.5"></div>
-            <div class="absolute w-2.5 h-4 bg-[#00A396] rounded-full"></div>
-          </div>
-          <span class="text-2xl font-extrabold tracking-tight text-white">gazeinto</span>
+        <a href="#hero" class="inline-flex mb-4">
+          <Logo class="h-7 w-auto text-white" />
         </a>
 
         <p class="text-xs text-slate-400 leading-relaxed max-w-sm mb-6 break-keep">

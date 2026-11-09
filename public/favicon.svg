@@ -1,24 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38EFDE"/>
-      <stop offset="50%" stop-color="#00C4B4"/>
-      <stop offset="100%" stop-color="#22D3EE"/>
-    </linearGradient>
-    <mask id="lensMask">
-      <circle cx="40" cy="50" r="28" fill="#FFFFFF"/>
-    </mask>
-  </defs>
-  
-  <!-- Dark Background -->
-  <rect width="100" height="100" rx="22" fill="#050B14"/>
-  
-  <!-- Left Eye Lens Circle -->
-  <circle cx="40" cy="50" r="28" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.9"/>
-  
-  <!-- Right Corrective Lens Circle -->
-  <circle cx="60" cy="50" r="28" fill="none" stroke="#00C4B4" stroke-width="4" opacity="0.95"/>
-  
-  <!-- Focal Lens Intersection Filled with Teal Gradient -->
-  <circle cx="60" cy="50" r="28" fill="url(#tealGrad)" mask="url(#lensMask)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-38.6 -47.7 719.7 719.7">
+  <style>
+    .navy { fill: #0C2C45; }
+    @media (prefers-color-scheme: dark) { .navy { fill: #FFFFFF; } }
+  </style>
+  <path class="navy" d="M138.8 312.1C138.8 216.4 216.4 138.8 312.1 138.8C394.6 138.8 463.7 196.4 481.2 273.5L621.9 273.5C602.9 119.4 471.5 0 312.1 0C139.7 0 0 139.8 0 312.1C0 483.9 138.7 623.2 310.1 624.3L310.1 485.5C215.3 484.4 138.8 407.2 138.8 312.1"/>
+  <path fill="#0FAFAB" d="M310.1 624.3L312.1 624.3C311.5 624.3 310.8 624.3 310.1 624.3ZM330.5 291.8C317.4 291.8 304.5 292.7 291.8 294.2L291.8 434.9C304.3 432.1 317.2 430.6 330.5 430.6C426.2 430.6 503.8 508.2 503.8 604C503.8 604.6 503.8 605.3 503.8 606L642.6 606C642.6 605.3 642.6 604.6 642.6 604C642.6 431.6 502.8 291.8 330.5 291.8"/>
 </svg>

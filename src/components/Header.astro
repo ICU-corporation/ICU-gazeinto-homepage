@@ -1,5 +1,6 @@
 ---
 import { translations, type Language } from '../i18n/translations';
+import Logo from './Logo.astro';
 
 interface Props {
   lang?: Language;
@@ -17,14 +18,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <div class="max-w-7xl xl:max-w-[1570px] 2xl:max-w-[1630px] qhd:max-w-[2050px] 4k:max-w-[2750px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
     <!-- Brand Logo -->
-    <a href={isEn ? `${base}/en#hero` : `${base}/#hero`} onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-dashboard');" class="flex items-center gap-2 sm:gap-3 group shrink-0">
-      <!-- Focal Lens Logo Symbol -->
-      <div class="relative w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center">
-        <div class="absolute w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 border-slate-900 -left-0.5 group-hover:scale-105 transition-transform duration-300"></div>
-        <div class="absolute w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 border-slate-900 -right-0.5 group-hover:scale-105 transition-transform duration-300"></div>
-        <div class="absolute w-2.5 h-4 sm:w-3 sm:h-5 bg-[#00A396] rounded-full opacity-95 group-hover:bg-[#00C4B4] transition-colors"></div>
-      </div>
-      <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900">gazeinto</span>
+    <a href={isEn ? `${base}/en#hero` : `${base}/#hero`} onclick="if(window.switchDashboardTab) window.switchDashboardTab('tab-dashboard');" class="flex items-center shrink-0">
+      <Logo class="h-6 sm:h-7 w-auto text-[#0C2C45]" />
     </a>
 
     <!-- Navigation Menu with Tab & Scroll Synchronization -->
